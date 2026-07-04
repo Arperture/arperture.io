@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description:
       "Film-grade AI video, sound design, and branded stories for brands, artists & storytellers.",
     url: SITE_URL,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 2000, height: 1116, alt: "Arperture Media — cinematic AI video" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture Media — cinematic AI video" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -35,7 +35,6 @@ export const metadata: Metadata = {
       "Film-grade AI video, sound design, and branded stories for brands, artists & storytellers.",
     images: [DEFAULT_OG_IMAGE],
   },
-  icons: { icon: "/assets/arperture-mark.webp" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

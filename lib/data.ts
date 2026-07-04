@@ -217,7 +217,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "What ‘Directing’ Means When the Camera Is a Prompt",
     excerpt: "Why prompt grammar is the new coverage, and how to think in shots instead of images.",
     metaDescription: "How AI film directors translate shot lists into prompts, why prompt grammar is the new coverage, and where human judgment still decides the final cut in generative video production.",
-    coverSrc: "/assets/blog-1.png",
+    coverSrc: "/assets/blog-1.jpg",
     faqs: [
       { q: "Do you still need a director for AI-generated video?", a: "Yes. The director's job — deciding what a scene needs to say and how to say it visually — hasn't changed. Only the tool that executes the shot has changed, from a physical camera to a written prompt." },
       { q: "What is ‘prompt grammar’ in AI filmmaking?", a: "Prompt grammar is the structured way a director describes a shot to a generative model: subject, action, camera movement, lens language, lighting, and pacing, in an order and vocabulary the model reads consistently." },
@@ -245,7 +245,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Keeping a Character Consistent Across Every Shot",
     excerpt: "Notes from producing Pick Up Gerald on reference frames and locked seeds.",
     metaDescription: "A practical breakdown of AI character consistency techniques — reference frames, locked seeds, and style anchors — drawn from producing the AI short film Pick Up Gerald.",
-    coverSrc: "/assets/blog-2.png",
+    coverSrc: "/assets/blog-2.jpg",
     faqs: [
       { q: "Why do AI-generated characters change between shots?", a: "Most generative video models sample new visual details on every generation unless they're anchored. Without a locked reference, small variations in a prompt — or even random seed changes — can shift a character's face, wardrobe, or proportions from shot to shot." },
       { q: "What is a reference frame in AI video production?", a: "A reference frame is a single, approved image of a character — face, outfit, and proportions locked — that gets fed back into the model for every subsequent shot, so new generations are anchored to the same visual identity instead of drifting." },
@@ -271,7 +271,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Sound Sells the Shot",
     excerpt: "Why score and mix matter more than resolution when the picture is generated.",
     metaDescription: "Why voice, score, and mix matter more than picture resolution in AI-generated video, and a practical sound checklist for producing believable generative film and brand content.",
-    coverSrc: "/assets/blog-3.png",
+    coverSrc: "/assets/blog-3.jpg",
     faqs: [
       { q: "Is sound design more important than visuals in AI video?", a: "Not more important, but far more underrated. Once picture quality clears a believability bar, additional visual polish has diminishing returns, while sound — voice, score, and mix — keeps adding emotional impact well past that point." },
       { q: "What tools are used for AI-generated voice and music?", a: "On Arperture productions, Eleven Labs typically handles voice performance and Suno handles original score and music beds, layered with traditional sound design and mixing techniques." },

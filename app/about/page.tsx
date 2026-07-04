@@ -14,7 +14,7 @@ export default function AboutPage() {
     <div className="wrap">
       <section className="grid-about" style={{ padding: "80px 0 40px", display: "grid", gap: 40, alignItems: "start" }}>
         <Image
-          src="/assets/about-headshot.png"
+          src="/assets/about-headshot.jpg"
           alt="Andrew Dallons, founder of Arperture Media"
           width={220}
           height={220}
