@@ -16,8 +16,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.metaDescription,
+    alternates: { canonical: `/blog/${post.slug}/` },
     openGraph: {
       type: "article",
+      title: post.title,
+      description: post.metaDescription,
+      url: `/blog/${post.slug}/`,
+      publishedTime: post.datePublished,
+      images: [post.coverSrc],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: post.title,
       description: post.metaDescription,
       images: [post.coverSrc],
@@ -42,9 +51,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         description: post.metaDescription,
         image: `https://arperture.io${post.coverSrc}`,
         articleSection: post.category,
+        datePublished: post.datePublished,
+        dateModified: post.datePublished,
         author: { "@type": "Organization", name: "Arperture Media" },
-        publisher: { "@type": "Organization", name: "Arperture Media" },
-        url: `https://arperture.io/blog/${post.slug}`,
+        publisher: { "@id": "https://arperture.io/#organization" },
+        mainEntityOfPage: `https://arperture.io/blog/${post.slug}/`,
+        url: `https://arperture.io/blog/${post.slug}/`,
       },
       {
         "@type": "FAQPage",

@@ -2,6 +2,9 @@
 // Arperture Media — site content (ported from the design prototype)
 // ============================================================
 
+export const SITE_URL = "https://arperture.io";
+export const DEFAULT_OG_IMAGE = "/assets/pickup-gerald-hero.jpg";
+
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
 export const CALENDLY_GEO = "https://calendly.com/drew-arperture/geo-foundation-audit";
 export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mlgyowya";
@@ -17,6 +20,43 @@ export const SOCIAL_LINKS: { key: SocialKey; label: string; url: string }[] = [
   { key: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@arperturemedia" },
   { key: "facebook", label: "Facebook", url: "https://www.facebook.com/arperture" },
 ];
+
+// ---------- ORGANIZATION / LOCAL BUSINESS SCHEMA (site-wide) ----------
+// Entity data for search engines and answer engines (GEO/AEO).
+export const ORG_JSONLD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": `${SITE_URL}/#organization`,
+      name: "Arperture Media",
+      alternateName: "Arperture",
+      url: SITE_URL,
+      logo: `${SITE_URL}/assets/arperture-mark.webp`,
+      image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+      description:
+        "Arperture Media is a cinematic AI creative studio producing film-grade AI video, sound design, and branded stories for brands, artists & storytellers, plus AI consulting and Web Visibility (SEO/GEO/AEO) services for small businesses.",
+      email: EMAIL,
+      telephone: "+1-571-200-1186",
+      founder: { "@type": "Person", name: "Andrew Dallons" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Leesburg",
+        addressRegion: "VA",
+        addressCountry: "US",
+      },
+      areaServed: { "@type": "Place", name: "Worldwide" },
+      sameAs: SOCIAL_LINKS.map((s) => s.url),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Arperture Media",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+  ],
+};
 
 // ---------- NAV ----------
 export const NAV_PRIMARY: { label: string; href: string }[] = [
@@ -159,6 +199,7 @@ export type BlogPost = {
   id: string;
   slug: string;
   date: string;
+  datePublished: string; // ISO 8601, for structured data
   readTime: string;
   category: string;
   title: string;
@@ -172,7 +213,7 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "blog-1", slug: "directing-when-the-camera-is-a-prompt",
-    date: "Jun 2026", readTime: "7 min read", category: "Craft & Process",
+    date: "Jun 2026", datePublished: "2026-06-15", readTime: "7 min read", category: "Craft & Process",
     title: "What ‘Directing’ Means When the Camera Is a Prompt",
     excerpt: "Why prompt grammar is the new coverage, and how to think in shots instead of images.",
     metaDescription: "How AI film directors translate shot lists into prompts, why prompt grammar is the new coverage, and where human judgment still decides the final cut in generative video production.",
@@ -200,7 +241,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "blog-2", slug: "keeping-a-character-consistent",
-    date: "May 2026", readTime: "8 min read", category: "Technique",
+    date: "May 2026", datePublished: "2026-05-15", readTime: "8 min read", category: "Technique",
     title: "Keeping a Character Consistent Across Every Shot",
     excerpt: "Notes from producing Pick Up Gerald on reference frames and locked seeds.",
     metaDescription: "A practical breakdown of AI character consistency techniques — reference frames, locked seeds, and style anchors — drawn from producing the AI short film Pick Up Gerald.",
@@ -226,7 +267,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "blog-3", slug: "sound-sells-the-shot",
-    date: "Apr 2026", readTime: "6 min read", category: "Craft & Process",
+    date: "Apr 2026", datePublished: "2026-04-15", readTime: "6 min read", category: "Craft & Process",
     title: "Sound Sells the Shot",
     excerpt: "Why score and mix matter more than resolution when the picture is generated.",
     metaDescription: "Why voice, score, and mix matter more than picture resolution in AI-generated video, and a practical sound checklist for producing believable generative film and brand content.",

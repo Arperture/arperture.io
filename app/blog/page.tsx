@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BLOG_POSTS } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog/" },
   title: "Blog",
   description:
     "Notes from the edit bay — process, tools, and craft behind cinematic AI video production from Arperture Media.",

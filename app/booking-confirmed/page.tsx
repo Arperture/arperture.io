@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/booking-confirmed/" },
   title: "Booking Confirmed",
   description: "Your discovery call with Arperture Media is confirmed.",
   robots: { index: false },

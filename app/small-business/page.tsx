@@ -4,6 +4,7 @@ import CalendlyButton from "@/components/CalendlyButton";
 import { CONSULTING_SERVICES, VISIBILITY_SERVICES, CALENDLY_30MIN, CALENDLY_GEO } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/small-business/" },
   title: "AI Consulting & AI Search Visibility",
   description:
     "AI consulting and Web Visibility audits for small businesses — a real AI roadmap plus SEO, GEO & AEO scoring to find out whether ChatGPT and Google AI Overviews recommend you.",

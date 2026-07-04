@@ -51,7 +51,7 @@ export default function Nav() {
   });
 
   return (
-    <div className="nav">
+    <nav className="nav" aria-label="Primary">
       <div
         style={{
           maxWidth: 1180, margin: "0 auto", padding: "14px 24px", display: "flex",
@@ -194,7 +194,7 @@ export default function Nav() {
           )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

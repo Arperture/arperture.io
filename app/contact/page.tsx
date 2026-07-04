@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import { EMAIL, PHONE, PHONE_TEL } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact/" },
   title: "Contact",
   description:
     "Tell us about your project. We'll get back to you within two business days with a treatment direction and a quote.",

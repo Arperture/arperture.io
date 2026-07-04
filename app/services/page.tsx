@@ -4,6 +4,7 @@ import { Kicker } from "@/components/ui";
 import { CORE_OFFERINGS, VERTICALS, PROCESS_STEPS } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/" },
   title: "AI Video Services & Production",
   description:
     "Concept-to-completion AI video production using industry-leading generative video models — film direction, creative direction, and specialized AI verticals.",

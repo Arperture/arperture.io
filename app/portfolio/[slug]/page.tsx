@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CASES, ytEmbed } from "@/lib/data";
+import { CASES, ytEmbed, ytThumb } from "@/lib/data";
 
 export function generateStaticParams() {
   return Object.keys(CASES).map((slug) => ({ slug }));
@@ -11,7 +11,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const c = CASES[slug];
   if (!c) return {};
-  return { title: c.title, description: c.detail };
+  return {
+    title: c.title,
+    description: c.detail,
+    alternates: { canonical: `/portfolio/${c.slug}/` },
+    openGraph: {
+      type: "article",
+      title: c.title,
+      description: c.detail,
+      url: `/portfolio/${c.slug}/`,
+      images: [ytThumb(c.youtubeId)],
+    },
+    twitter: { card: "summary_large_image", title: c.title, description: c.detail, images: [ytThumb(c.youtubeId)] },
+  };
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {

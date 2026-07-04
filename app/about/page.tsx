@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about/" },
   title: "About Arperture",
   description:
     "Arperture Media is a one-person AI creative studio run by Andrew Dallons out of Arcola, Virginia — treating generative video as a filmmaking tool, not a shortcut.",

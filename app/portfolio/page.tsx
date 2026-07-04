@@ -4,6 +4,7 @@ import { Kicker } from "@/components/ui";
 import PortfolioGrid from "@/components/PortfolioGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/portfolio/" },
   title: "AI Film & Video Production Portfolio",
   description:
     "AI-directed films, music videos, branded content, and experimental work from Arperture Media — including Pick Up Gerald, Yield Bookkeeping, and Judge Silverback's Court.",

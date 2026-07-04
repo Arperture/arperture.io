@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TRAINING_TRACKS } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/training/" },
   title: "Training & Consulting",
   description:
     "Hands-on AI workshops and consulting for creators, brands, and teams integrating AI into their creative workflow — 1:1 sessions, team workshops, and custom curriculum.",

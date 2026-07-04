@@ -4,6 +4,7 @@ import { Kicker } from "@/components/ui";
 import { IMAGE_TIERS, VIDEO_TIERS, ENHANCE_ADDONS, ENHANCE_STEPS, ENHANCE_WHY, ENHANCE_FAQS } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/enhancement/" },
   title: "Image & Video Enhancement, Restoration & Colorization",
   description:
     "Studio-grade photo and video restoration, upscaling, and black-and-white colorization — professional post-house quality, delivered in days, quoted up front.",
