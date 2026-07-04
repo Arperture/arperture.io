@@ -1,25 +1,66 @@
-# CODING AGENTS: READ THIS FIRST
+# Arperture Media — Website
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+The production website for **Arperture Media**, a cinematic AI creative studio.
+Built as a statically-exported **Next.js (App Router)** site and designed to deploy to **Vercel**.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+This is the real implementation of the design prototype exported from Claude Design.
+The original handoff bundle (design source, chat transcripts, design-system tokens) is
+preserved under [`project/`](./project) and [`chats/`](./chats) for reference.
 
-## What you should do — IMPORTANT
+## Stack
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+- **Next.js 15** (App Router) with `output: "export"` → a fully static site (no server needed)
+- **React 19**, **TypeScript**
+- Design tokens from the Arperture design system (`app/colors_and_type.css`)
+- Fonts: Clash Display, Hanken Grotesk, Space Mono (loaded via CDN in the tokens CSS)
 
-**Read `project/Arperture Site.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Pages
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+| Route | Page |
+|-------|------|
+| `/` | Home |
+| `/services` | AI Video Services & Production |
+| `/small-business` | AI Consulting & Search Visibility (`#consulting`, `#visibility`) |
+| `/portfolio` | Portfolio grid (video lightboxes) |
+| `/portfolio/yield`, `/portfolio/judge` | Case studies |
+| `/enhancement` | Image & Video Enhancement / Restoration |
+| `/about` | About |
+| `/training` | Training & Consulting |
+| `/blog`, `/blog/[slug]` | Blog + 3 full posts (with FAQ + Article JSON-LD for SEO/GEO) |
+| `/contact` | Contact form (Formspree) |
+| `/privacy` | Privacy Policy |
+| `/booking-confirmed` | Post-Calendly confirmation (noindex) |
 
-## About the design files
+`sitemap.xml` and `robots.txt` are generated at build time.
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## Develop
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
 
-## Bundle contents
+## Build (static export)
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Arperture WordPress to Vercel migration` project files (HTML prototypes, assets, components)
+```bash
+npm run build      # outputs a static site to ./out
+```
+
+## Deploy to Vercel
+
+Import the repo in Vercel and accept the defaults — Vercel detects Next.js and runs
+`next build` automatically. No environment variables are required.
+
+## Integrations to know
+
+- **Contact form** posts to Formspree endpoint `https://formspree.io/f/mlgyowya`
+  (in `lib/data.ts` → `FORMSPREE_ENDPOINT`).
+- **Calendly** popups use `drew-arperture/30min` (Book a Call) and
+  `drew-arperture/geo-foundation-audit` (GEO audit), configured in `lib/data.ts`.
+- **Portfolio videos** embed via `youtube-nocookie.com` in an in-page lightbox.
+
+## Editing content
+
+Nearly all copy and data lives in [`lib/data.ts`](./lib/data.ts) — work, case studies,
+blog posts, service tiers, pricing, nav, and footer links. Images are in
+[`public/assets/`](./public/assets).

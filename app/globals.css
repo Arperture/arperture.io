@@ -1,0 +1,125 @@
+/* ============================================================
+   Arperture site — layout, interaction & responsive rules.
+   Design tokens come from colors_and_type.css; this file adds
+   the reset, hover/focus states, and breakpoints the inline
+   styles can't express.
+   ============================================================ */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; overflow-x: hidden; }
+
+:root { --accent: var(--coral-400); }
+
+@keyframes arpSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- fixed atmospheric backdrop ---------- */
+.bloom {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(600px 400px at 10% 0%, rgba(46, 204, 250, 0.1), transparent 60%),
+    radial-gradient(600px 400px at 90% 0%, rgba(255, 111, 97, 0.08), transparent 60%),
+    radial-gradient(800px 500px at 50% 100%, rgba(142, 68, 173, 0.1), transparent 60%);
+}
+
+/* ---------- shell ---------- */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: box-shadow var(--dur-2) var(--ease-out), background var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out), transform var(--dur-1) var(--ease-out);
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: none; box-shadow: var(--glow-cyan); }
+
+.btn-lg { font-size: 1rem; padding: 16px 30px; }
+.btn-sm { font-size: 0.95rem; padding: 14px 26px; }
+.btn-nav { font-size: 0.85rem; padding: 10px 20px; white-space: nowrap; }
+
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { box-shadow: var(--glow-coral); }
+.btn-cyan { background: var(--cyan-400); color: var(--on-accent); }
+.btn-cyan:hover { box-shadow: var(--glow-cyan); }
+.btn-coral { background: var(--coral-400); color: var(--on-accent); }
+.btn-coral:hover { box-shadow: var(--glow-coral); }
+
+.btn-ghost { background: transparent; border: 1px solid var(--border-strong); color: var(--text); }
+.btn-ghost:hover { border-color: var(--cyan-400); background: rgba(46, 204, 250, 0.06); }
+
+/* ---------- links ---------- */
+.link-cyan { color: var(--cyan-300); transition: color var(--dur-1) var(--ease-out); }
+.link-cyan:hover { color: var(--cyan-200); }
+
+/* ---------- cards ---------- */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+.card-lift { transition: transform var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out); }
+.card-lift:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(14, 14, 15, 0.74);
+  border-bottom: 1px solid var(--border);
+}
+.brand img { transition: transform var(--dur-4) var(--ease-spring); }
+.brand:hover img { transform: rotate(30deg); }
+.nav-link { background: none; border: none; cursor: pointer; padding: 0; font-size: 0.95rem; font-family: var(--font-body); transition: color var(--dur-1) var(--ease-out); }
+.menu-item { transition: background var(--dur-1) var(--ease-out); }
+.menu-item:hover { background: rgba(46, 204, 250, 0.08); }
+.play-thumb { transition: filter var(--dur-2) var(--ease-out); }
+.play-thumb:hover { filter: brightness(1.1); }
+.blog-title-link { all: unset; cursor: pointer; color: var(--text); transition: color var(--dur-1) var(--ease-out); }
+.blog-title-link:hover { color: var(--cyan-300); }
+
+/* ---------- responsive helpers ---------- */
+.nav-desktop { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.nav-desktop-right { display: flex; align-items: center; gap: 16px; }
+.nav-compact { display: none; }
+.hero-mark { display: block; }
+.grid-about { grid-template-columns: 220px 1fr; }
+.grid-contact { grid-template-columns: 1fr 1fr; }
+
+@media (max-width: 900px) {
+  .nav-desktop, .nav-desktop-right { display: none; }
+  .nav-compact { display: block; }
+}
+@media (max-width: 760px) {
+  .grid-contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero-mark { display: none; }
+  .grid-about { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mark { animation: none !important; }
+  html { scroll-behavior: auto; }
+  .btn, .card-lift, .brand img { transition: none; }
+}
