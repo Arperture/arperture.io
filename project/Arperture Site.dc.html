@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/arperture-design-system-3138338a-550a-426d-a50c-ce04c5eb9ddb/colors_and_type.css">
+  <script src="_ds/arperture-design-system-3138338a-550a-426d-a50c-ce04c5eb9ddb/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <style>
+    @keyframes arpSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    body { margin: 0; }
+  </style>
+</helmet>
+
+<div class="arperture" style="background:var(--bg);color:var(--text);font-family:var(--font-body);min-height:100vh;position:relative">
+
+  <!-- film grain / bloom backdrop -->
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(600px 400px at 10% 0%, rgba(46,204,250,.10), transparent 60%),radial-gradient(600px 400px at 90% 0%, rgba(255,111,97,.08), transparent 60%),radial-gradient(800px 500px at 50% 100%, rgba(142,68,173,.10), transparent 60%)"></div>
+
+  <!-- NAV -->
+  <div style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(14,14,15,.74);border-bottom:1px solid var(--border)">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;padding:0">
+        <img src="assets/arperture-mark.webp" alt="Arperture" width="30" height="30" style="display:block">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;color:var(--text)">Arperture<b style="color:var(--cyan-400)">.</b></span>
+      </button>
+      <sc-if value="{{ !isNavCompact }}">
+        <ul style="display:flex;gap:28px;list-style:none;margin:0;padding:0;flex-wrap:wrap;align-items:center">
+          <sc-for list="{{ navItemsHome }}" as="item" hint-placeholder-count="1">
+            <li>
+              <button onClick="{{ item.onClick }}" style="background:none;border:none;cursor:pointer;padding:0;font-size:.95rem;color:{{ item.color }};font-weight:{{ item.weight }}">{{ item.label }}</button>
+            </li>
+          </sc-for>
+          <li style="position:relative" data-services-menu="true">
+            <button onClick="{{ toggleServicesMenu }}" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:0;font-size:.95rem;color:{{ servicesColor }};font-weight:{{ servicesWeight }};font-family:var(--font-body)">
+              Services
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ servicesChevronTransform }};transition:transform .15s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <sc-if value="{{ servicesOpen }}">
+              <div style="position:absolute;top:calc(100% + 14px);left:0;min-width:190px;background:var(--ink-900);border:1px solid var(--border-strong);border-radius:14px;padding:8px;box-shadow:0 12px 32px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:2px;z-index:60">
+                <sc-for list="{{ servicesMenuItems }}" as="sv" hint-placeholder-count="3">
+                  <button onClick="{{ sv.onClick }}" style="display:block;width:100%;text-align:left;padding:10px 12px;border-radius:9px;color:var(--text);background:none;border:none;cursor:pointer;font-size:.9rem" style-hover="background:rgba(46,204,250,.08)">{{ sv.label }}</button>
+                </sc-for>
+              </div>
+            </sc-if>
+          </li>
+          <sc-for list="{{ navItemsRest }}" as="item" hint-placeholder-count="3">
+            <li>
+              <button onClick="{{ item.onClick }}" style="background:none;border:none;cursor:pointer;padding:0;font-size:.95rem;color:{{ item.color }};font-weight:{{ item.weight }}">{{ item.label }}</button>
+            </li>
+          </sc-for>
+        </ul>
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="position:relative" data-socials-menu="true">
+            <button onClick="{{ toggleSocials }}" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:0;font-size:.95rem;color:var(--text-muted);font-family:var(--font-body)">
+              Socials
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ socialsChevronTransform }};transition:transform .15s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <sc-if value="{{ socialsOpen }}">
+              <div style="position:absolute;top:calc(100% + 14px);right:0;min-width:190px;background:var(--ink-900);border:1px solid var(--border-strong);border-radius:14px;padding:8px;box-shadow:0 12px 32px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:2px;z-index:60">
+                <sc-for list="{{ socialLinks }}" as="soc" hint-placeholder-count="5">
+                  <a href="{{ soc.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:9px;color:var(--text);text-decoration:none;font-size:.9rem" style-hover="background:rgba(46,204,250,.08)">
+                    <span style="display:flex;color:var(--cyan-300);flex-shrink:0" dangerouslySetInnerHTML="{{ soc.iconHtml }}"></span>
+                    {{ soc.label }}
+                  </a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+          <button onClick="{{ openCalendly }}" style="text-decoration:none;font-family:var(--font-body);font-weight:600;font-size:.85rem;padding:10px 20px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);white-space:nowrap;border:none;cursor:pointer">Book a Call</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isNavCompact }}">
+        <div data-mobile-menu="true" style="position:relative">
+          <button onClick="{{ toggleMobileMenu }}" aria-label="Menu" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:none;border:1px solid var(--border-strong);border-radius:10px;cursor:pointer;padding:0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <sc-if value="{{ mobileMenuOpen }}">
+                <line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line>
+              </sc-if>
+              <sc-if value="{{ !mobileMenuOpen }}">
+                <line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line>
+              </sc-if>
+            </svg>
+          </button>
+          <sc-if value="{{ mobileMenuOpen }}">
+            <div style="position:fixed;top:64px;left:0;width:100%;height:calc(100vh - 64px);z-index:60;background:var(--ink-900);border-top:1px solid var(--border);overflow-y:auto;padding:8px 24px 32px;box-sizing:border-box">
+              <sc-for list="{{ mobileNavLinks }}" as="item" hint-placeholder-count="4">
+                <button onClick="{{ item.onClick }}" style="display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;padding:18px 0;font-size:1.1rem;color:{{ item.color }};font-weight:{{ item.weight }}">{{ item.label }}</button>
+              </sc-for>
+
+              <div style="padding:18px 0 6px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)">Services</div>
+              <sc-for list="{{ servicesMenuItems }}" as="sv" hint-placeholder-count="3">
+                <button onClick="{{ sv.onClick }}" style="display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;padding:16px 0 16px 12px;font-size:1rem;color:var(--text-muted)">{{ sv.label }}</button>
+              </sc-for>
+
+              <div style="padding:18px 0 6px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)">Socials</div>
+              <sc-for list="{{ socialLinks }}" as="soc" hint-placeholder-count="4">
+                <a href="{{ soc.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:14px 0 14px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);text-decoration:none;font-size:1rem">
+                  <span style="display:flex;color:var(--cyan-300);flex-shrink:0" dangerouslySetInnerHTML="{{ soc.iconHtml }}"></span>
+                  {{ soc.label }}
+                </a>
+              </sc-for>
+
+              <button onClick="{{ openCalendly }}" style="width:100%;margin-top:24px;font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Book a Call</button>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 24px">
+
+    <!-- ============ HOME ============ -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <header style="position:relative;padding:96px 0 64px;overflow:hidden">
+        <sc-if value="{{ showHeroMark }}" hint-placeholder-val="{{ true }}">
+          <img src="assets/arperture-mark.webp" alt="" style="position:absolute;right:-140px;top:{{ heroMarkTop }}%;transform:translateY(-50%);width:720px;height:720px;opacity:.28;animation:arpSpin 80s linear infinite;pointer-events:none">
+        </sc-if>
+        <div style="position:relative;max-width:720px">
+          <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">Now booking · Q3 · Leesburg, VA</span>
+          <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.96;letter-spacing:-.03em;margin:20px 0;text-transform:uppercase">Cinematic AI,<br>shot through <span style="background:linear-gradient(120deg,var(--cyan-400),var(--coral-400));-webkit-background-clip:text;background-clip:text;color:transparent">the aperture.</span></h1>
+          <p style="font-size:1.35rem;color:var(--text-muted);max-width:52ch;line-height:1.5">From script to screen — cinematic AI video, sound design, and branded stories for brands, artists &amp; storytellers.</p>
+          <div style="display:flex;gap:16px;margin-top:36px;flex-wrap:wrap">
+            <button onClick="{{ openCalendly }}" style="text-decoration:none;font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Book a discovery call</button>
+            <button onClick="{{ goPortfolio }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">Watch the reel →</button>
+          </div>
+        </div>
+      </header>
+
+      <section style="padding:64px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">01 — Selected work</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.4rem;letter-spacing:-.02em;margin:16px 0 12px">Frames We've Shot Through The Aperture</h2>
+        <p style="color:var(--text-muted);max-width:60ch;margin-bottom:40px">Music videos, branded spots, and original series — generated, directed, scored, and delivered as masters.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <sc-for list="{{ workHome }}" as="w" hint-placeholder-count="3">
+            <button onClick="{{ w.onClick }}" style="text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;padding:0;display:flex;flex-direction:column" style-hover="transform:translateY(-4px);border-color:var(--border-strong)">
+              <div style="height:160px;background-color:{{ w.grad }};background-image:{{ w.thumbBg }};background-size:cover;background-position:center"></div>
+              <div style="padding:20px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                  <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan-300)">{{ w.category }}</span>
+                  <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;color:var(--text-muted);white-space:nowrap">{{ w.date }}</span>
+                </div>
+                <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;color:var(--text);margin:0">{{ w.title }}</h4>
+                <p style="color:var(--text-muted);font-size:.9rem;margin:0">{{ w.blurb }}</p>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+        <div style="margin-top:32px">
+          <button onClick="{{ goPortfolio }}" style="font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">View full portfolio →</button>
+        </div>
+      </section>
+
+      <section style="padding:64px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">02 — Services</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.4rem;letter-spacing:-.02em;margin:16px 0 12px">A Studio, Not A Prompt Box</h2>
+        <p style="color:var(--text-muted);max-width:60ch;margin-bottom:40px">Generation is one tool on the bench. The work is direction, sound, and taste — applied frame by frame.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <sc-for list="{{ servicesHome }}" as="s" hint-placeholder-count="3">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:{{ s.badgeBg }};color:{{ s.badgeColor }};align-self:flex-start">{{ s.tag }}</span>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin:4px 0 0">{{ s.title }}</h3>
+              <p style="color:var(--text-muted);font-size:.9rem;margin:0">{{ s.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:32px">
+          <button onClick="{{ goServices }}" style="font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">All services →</button>
+        </div>
+      </section>
+
+      <section style="padding:64px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-300)">03 — For small businesses</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.4rem;letter-spacing:-.02em;margin:16px 0 12px">AI consulting &amp; AI Search Visibility</h2>
+        <p style="color:var(--text-muted);max-width:60ch;margin-bottom:40px">Cut through the AI hype with a real roadmap, or find out whether ChatGPT and Google AI Overviews recommend you at all.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <sc-for list="{{ allSMBServices }}" as="sm" hint-placeholder-count="3">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-300)">{{ sm.tag }}</span>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.1rem;margin:2px 0 0">{{ sm.title }}</h4>
+              <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-faint)">{{ sm.price }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:32px">
+          <button onClick="{{ goSMBHome }}" style="font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">Explore small business services →</button>
+        </div>
+      </section>
+
+      <section style="padding:80px 0;border-top:1px solid var(--border);text-align:center">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-400)">Ready to collaborate?</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.6rem;letter-spacing:-.02em;margin:16px 0 28px">Let's Build Something Extraordinary.</h2>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Get in touch</button>
+          <button onClick="{{ goPortfolio }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">View my work</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ SERVICES ============ -->
+    <sc-if value="{{ isServices }}">
+      <section style="padding:80px 0 40px">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">Core offerings</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">AI video services &amp; production</h1>
+        <p style="color:var(--text-muted);max-width:65ch;font-size:1.15rem">Concept-to-completion AI video production using industry-leading generative video models. Cinematic storytelling reimagined for the AI era.</p>
+      </section>
+
+      <section style="padding:24px 0 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <sc-for list="{{ coreOfferings }}" as="o" hint-placeholder-count="3">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin:0">{{ o.title }}</h3>
+            <p style="color:var(--text-muted);font-size:.95rem;margin:0">{{ o.body }}</p>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="padding:40px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-300)">Specialized services</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.2rem;letter-spacing:-.02em;margin:16px 0 32px">AI-Powered Verticals</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+          <sc-for list="{{ verticals }}" as="v" hint-placeholder-count="4">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.1rem;margin:0">{{ v.title }}</h4>
+              <p style="color:var(--text-muted);font-size:.88rem;margin:0;flex:1">{{ v.body }}</p>
+              <sc-if value="{{ v.onClick }}">
+                <button onClick="{{ v.onClick }}" style="align-self:flex-start;background:none;border:none;color:var(--cyan-300);font-weight:600;font-size:.85rem;cursor:pointer;padding:4px 0 0">Learn more →</button>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding:56px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">The process</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.2rem;letter-spacing:-.02em;margin:16px 0 32px">From Brief To Screen</h2>
+        <p style="color:var(--text-muted);max-width:60ch;margin-bottom:32px">A 14-step production pipeline engineered for cinematic AI video — from client brief to final deliverable.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
+          <sc-for list="{{ processSteps }}" as="p" hint-placeholder-count="5">
+            <div style="border-left:2px solid var(--cyan-400);padding-left:16px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:var(--font-mono);font-size:.8rem;color:var(--text-faint)">{{ p.num }}</span>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin:0">{{ p.title }}</h4>
+              <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:.85rem;display:flex;flex-direction:column;gap:2px">
+                <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="3">
+                  <li>{{ it }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding:72px 0;border-top:1px solid var(--border);text-align:center">
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.4rem;letter-spacing:-.02em;margin:0 0 24px">Let's Build Something Extraordinary.</h2>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Get in touch</button>
+          <button onClick="{{ goPortfolio }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">View my work</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ SMALL BUSINESS SERVICES ============ -->
+    <sc-if value="{{ isSMB }}">
+      <section style="padding:80px 0 16px">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-300)">For small businesses</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">AI Consulting &amp; AI Search Visibility</h1>
+        <p style="color:var(--text-muted);max-width:65ch;font-size:1.15rem">Cut through the AI hype with a real roadmap, or find out whether ChatGPT and Google AI Overviews recommend you at all.</p>
+      </section>
+
+      <section id="consulting" style="padding:24px 0 56px;scroll-margin-top:100px">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">Consulting</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:1.8rem;letter-spacing:-.02em;margin:16px 0 24px">Hands-On AI Strategy for Your Operations</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+          <sc-for list="{{ consultingServices }}" as="sm" hint-placeholder-count="2">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px">
+              <span style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-300)">{{ sm.tag }}</span>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:4px 0 0">{{ sm.title }}</h3>
+              <p style="color:var(--text-muted);font-size:.85rem;margin:0">{{ sm.body }}</p>
+              <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-faint);margin-top:4px">{{ sm.price }}</span>
+              <ul style="margin:8px 0 0;padding-left:18px;color:var(--ink-200);font-size:.8rem;display:flex;flex-direction:column;gap:2px">
+                <sc-for list="{{ sm.items }}" as="it" hint-placeholder-count="3">
+                  <li>{{ it }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:24px">
+          <a href="https://www.youtube.com/@DrewDoesAI" target="_blank" rel="noopener" style="color:var(--cyan-300);font-weight:600;font-size:.9rem;text-decoration:none">Backed by Drew Does AI on YouTube →</a>
+        </div>
+      </section>
+
+      <section id="visibility" style="padding:32px 0 56px;border-top:1px solid var(--border);scroll-margin-top:100px">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-300)">Search Visibility</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:1.8rem;letter-spacing:-.02em;margin:16px 0 24px">Find Out If AI Recommends You</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+          <sc-for list="{{ visibilityServices }}" as="sm" hint-placeholder-count="1">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px">
+              <span style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-300)">{{ sm.tag }}</span>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:4px 0 0">{{ sm.title }}</h3>
+              <p style="color:var(--text-muted);font-size:.85rem;margin:0">{{ sm.body }}</p>
+              <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-faint);margin-top:4px">{{ sm.price }}</span>
+              <ul style="margin:8px 0 0;padding-left:18px;color:var(--ink-200);font-size:.8rem;display:flex;flex-direction:column;gap:2px">
+                <sc-for list="{{ sm.items }}" as="it" hint-placeholder-count="3">
+                  <li>{{ it }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding:56px 0;border-top:1px solid var(--border);text-align:center">
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-.02em;margin:0 0 20px">Ready To Talk?</h2>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+          <button onClick="{{ openCalendly }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Book a Call</button>
+          <button onClick="{{ openGeoAudit }}" style="background:none;border:none;color:var(--cyan-300);font-weight:600;font-size:.9rem;cursor:pointer;padding:0;text-decoration:underline">Or book a GEO Foundation Audit call →</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ PORTFOLIO ============ -->
+    <sc-if value="{{ isPortfolio }}">
+      <section style="padding:80px 0 16px">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">AI film · creative direction · visual work</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">AI film &amp; video production portfolio</h1>
+        <p style="color:var(--text-muted);max-width:65ch;font-size:1.15rem;margin-bottom:48px">AI-directed films, music videos, branded content, and experimental work.</p>
+      </section>
+
+      <section style="padding:16px 0 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+        <sc-for list="{{ portfolioWork }}" as="w" hint-placeholder-count="5">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
+            <button onClick="{{ w.openVideo }}" style="display:block;position:relative;width:100%;height:170px;background-color:{{ w.grad }};background-image:{{ w.thumbBg }};background-size:cover;background-position:center;border:none;padding:0;cursor:pointer" style-hover="filter:brightness(1.1)">
+              <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+                <span style="width:52px;height:52px;border-radius:50%;background:rgba(14,14,15,.55);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                </span>
+              </span>
+            </button>
+            <div style="padding:22px;display:flex;flex-direction:column;gap:10px;flex:1">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan-300)">{{ w.category }}</span>
+                <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;color:var(--text-muted);white-space:nowrap">{{ w.date }}</span>
+              </div>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.25rem;margin:0">{{ w.title }}</h3>
+              <p style="color:var(--text-muted);font-size:.9rem;margin:0;flex:1">{{ w.blurb }}</p>
+              <sc-if value="{{ w.hasCase }}">
+                <button onClick="{{ w.onClick }}" style="align-self:flex-start;background:none;border:none;color:var(--cyan-300);font-weight:600;font-size:.9rem;cursor:pointer;padding:0">View full project →</button>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="padding:48px 0 80px;border-top:1px solid var(--border);text-align:center">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint)">More in production</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-.02em;margin:16px 0 24px">This Portfolio Is Always Growing.</h2>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:var(--coral-400);color:var(--on-accent);border:none;cursor:pointer">Work with me</button>
+          <button onClick="{{ goServices }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">View services</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ CASE STUDY ============ -->
+    <sc-if value="{{ isCase }}">
+      <section style="padding:64px 0 32px">
+        <button onClick="{{ goPortfolio }}" style="background:none;border:none;color:var(--text-faint);font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;margin-bottom:20px">← Back to portfolio</button>
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:{{ currentCase.badgeBg }};color:{{ currentCase.badgeColor }}">{{ currentCase.category }}</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:-.02em;margin:16px 0 8px;text-transform:uppercase">{{ currentCase.title }}</h1>
+        <p style="font-family:var(--font-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">{{ currentCase.client }} · {{ currentCase.year }}</p>
+      </section>
+      <sc-if value="{{ currentCase.embedUrl }}" hint-placeholder-val="{{ false }}">
+        <div style="width:100%;border-radius:16px;overflow:hidden;aspect-ratio:16/9">
+          <iframe src="{{ currentCase.embedUrl }}" title="{{ currentCase.title }}" referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:100%;border:none;display:block" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+        </div>
+      </sc-if>
+      <section style="padding:32px 0 8px;max-width:72ch">
+        <p style="color:var(--text);font-size:1.1rem;line-height:1.6">{{ currentCase.detail }}</p>
+        <a href="{{ currentCase.linkUrl }}" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;color:var(--cyan-300);font-weight:600;font-size:.95rem;text-decoration:none">{{ currentCase.linkLabel }} →</a>
+      </section>
+      <section style="padding:24px 0 64px;display:flex;gap:40px;flex-wrap:wrap">
+        <sc-for list="{{ currentCase.stats }}" as="st" hint-placeholder-count="3">
+          <div>
+            <div style="font-family:var(--font-display);font-weight:600;font-size:2rem;color:var(--cyan-300)">{{ st.n }}</div>
+            <div style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">{{ st.l }}</div>
+          </div>
+        </sc-for>
+      </section>
+      <section style="padding:0 0 56px;border-top:1px solid var(--border);padding-top:48px">
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.4rem;margin:0 0 24px">{{ currentCase.projectsLabel }}</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+          <sc-for list="{{ currentCase.projects }}" as="pr" hint-placeholder-count="3">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">{{ pr.tag }}</span>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin:0">{{ pr.title }}</h4>
+              <p style="color:var(--text-muted);font-size:.85rem;margin:0">{{ pr.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <sc-if value="{{ currentCase.shortForm }}">
+        <section style="padding:0 0 56px">
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:0 0 20px;color:var(--text-muted)">{{ currentCase.shortFormLabel }}</h3>
+          <div style="display:flex;gap:32px;flex-wrap:wrap">
+            <sc-for list="{{ currentCase.shortForm }}" as="sf" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:4px;min-width:160px">
+                <span style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">{{ sf.tag }}</span>
+                <span style="font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--text)">{{ sf.title }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </sc-if>
+      <section style="padding:0 0 80px">
+        <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:var(--coral-400);color:var(--on-accent);border:none;cursor:pointer">Start a project like this</button>
+      </section>
+    </sc-if>
+
+    <!-- ============ TRAINING ============ -->
+    <sc-if value="{{ isTraining }}">
+      <section style="padding:80px 0 16px">
+        <sc-if value="{{ showPlaceholderFlags }}" hint-placeholder-val="{{ true }}"><span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-400)">◆ Placeholder copy — replace with final page content</span></sc-if>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">Training &amp; consulting</h1>
+        <p style="color:var(--text-muted);max-width:65ch;font-size:1.15rem">Hands-on workshops and consulting for creators, brands, and teams wanting to integrate AI into their creative workflow. Custom curriculum available.</p>
+      </section>
+      <section style="padding:24px 0 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <sc-for list="{{ trainingTracks }}" as="t" hint-placeholder-count="3">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px">
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:0">{{ t.title }}</h3>
+            <p style="color:var(--text-muted);font-size:.9rem;margin:0">{{ t.body }}</p>
+          </div>
+        </sc-for>
+      </section>
+      <section style="padding:0 0 80px">
+        <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:var(--coral-400);color:var(--on-accent);border:none;cursor:pointer">Ask about a workshop</button>
+      </section>
+    </sc-if>
+
+    <!-- ============ ENHANCEMENT & RESTORATION ============ -->
+    <sc-if value="{{ isEnhancement }}">
+      <section style="padding:80px 0 16px">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-300)">Specialized services · Enhancement, Restoration & Colorization</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">Bring It Back Sharper Than It Ever Was.</h1>
+        <p style="color:var(--text-muted);max-width:65ch;font-size:1.15rem;line-height:1.6">Studio-grade photo and video restoration, upscaling, and black-and-white colorization — powered by the same enhancement models used by professional post houses, delivered in days, not weeks.</p>
+        <div style="display:flex;gap:16px;margin-top:28px;flex-wrap:wrap">
+          <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Get a Free Quote</button>
+          <a href="#enhancement-tiers" style="text-decoration:none;font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text)">See the Tiers</a>
+        </div>
+      </section>
+
+      <section style="padding:32px 0;max-width:72ch">
+        <p style="color:var(--text);font-size:1.05rem;line-height:1.7">There's the free app that mangles your grandmother's face, and there's the $75-an-hour studio with a three-week backlog. We're the middle you actually want: professional detail recovery, denoise, and colorization at prices built for real projects — turned around fast, and quoted up front. You send the file. We hand back the version you wish you'd always had.</p>
+      </section>
+
+      <section id="enhancement-tiers" style="padding:40px 0 8px;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">Image enhancement & restoration</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-.02em;margin:16px 0 12px">Old, Faded, Low-Res, or Black &amp; White — Brought Back.</h2>
+        <p style="color:var(--text-muted);max-width:65ch;margin-bottom:32px">We clean it up, size it up, and bring the color back.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <sc-for list="{{ imageTiers }}" as="tier" hint-placeholder-count="3">
+            <div style="position:relative;background:var(--surface);border:1px solid {{ tier.borderColor }};border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+              <sc-if value="{{ tier.highlight }}">
+                <span style="position:absolute;top:-12px;left:24px;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--cyan-400);color:var(--on-accent)">Most popular</span>
+              </sc-if>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin:4px 0 0">{{ tier.name }}</h3>
+              <p style="color:var(--text-muted);font-size:.85rem;margin:0">{{ tier.tag }}</p>
+              <div style="display:flex;align-items:baseline;gap:6px;margin-top:4px">
+                <span style="font-family:var(--font-display);font-weight:600;font-size:1.8rem;color:var(--cyan-300)">{{ tier.price }}</span>
+                <span style="color:var(--text-faint);font-size:.85rem">{{ tier.unit }}</span>
+              </div>
+              <ul style="margin:8px 0 0;padding-left:18px;color:var(--ink-200);font-size:.85rem;display:flex;flex-direction:column;gap:4px">
+                <sc-for list="{{ tier.features }}" as="f" hint-placeholder-count="4">
+                  <li>{{ f }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </div>
+        <p style="color:var(--text-muted);font-size:.9rem;margin-top:24px"><strong style="color:var(--text)">Bulk pricing:</strong> 25+ images drops the per-image rate ~35%. Perfect for a whole box of family photos or an archive. Not sure which tier? Send the file — we'll tell you exactly what it needs before you pay a cent.</p>
+      </section>
+
+      <section style="padding:56px 0 8px;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">Video enhancement & restoration</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-.02em;margin:16px 0 12px">Home Movies and Old Footage, Upscaled To 4K.</h2>
+        <p style="color:var(--text-muted);max-width:65ch;margin-bottom:32px">Cleaned up, stabilized, and colorized if you want it — priced by the package, with a simple per-minute rate if you run long.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <sc-for list="{{ videoTiers }}" as="tier" hint-placeholder-count="3">
+            <div style="position:relative;background:var(--surface);border:1px solid {{ tier.borderColor }};border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+              <sc-if value="{{ tier.highlight }}">
+                <span style="position:absolute;top:-12px;left:24px;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--cyan-400);color:var(--on-accent)">Most popular</span>
+              </sc-if>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin:4px 0 0">{{ tier.name }}</h3>
+              <p style="color:var(--text-muted);font-size:.85rem;margin:0">{{ tier.tag }}</p>
+              <div style="display:flex;align-items:baseline;gap:6px;margin-top:4px">
+                <span style="font-family:var(--font-display);font-weight:600;font-size:1.8rem;color:var(--cyan-300)">{{ tier.price }}</span>
+                <span style="color:var(--text-faint);font-size:.85rem">{{ tier.unit }}</span>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-faint)">{{ tier.sub }}</span>
+              <ul style="margin:4px 0 0;padding-left:18px;color:var(--ink-200);font-size:.85rem;display:flex;flex-direction:column;gap:4px">
+                <sc-for list="{{ tier.features }}" as="f" hint-placeholder-count="3">
+                  <li>{{ f }}</li>
+                </sc-for>
+              </ul>
+              <span style="color:var(--text-faint);font-size:.78rem;margin-top:4px">Beyond the package: {{ tier.extra }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="color:var(--text-muted);font-size:.9rem;margin-top:24px">Why per minute <em>and</em> per package? The package covers the setup, model-testing, export, and quality-check every job needs no matter how short — the per-minute rate keeps things fair when your footage runs long. Badly degraded source may carry a restoration surcharge; we'll always tell you in the quote first.</p>
+      </section>
+
+      <section style="padding:56px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-300)">Add-ons & à la carte</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:1.6rem;letter-spacing:-.02em;margin:16px 0 24px">Mix These Into Any Tier</h2>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)">
+          <sc-for list="{{ enhanceAddOns }}" as="ad" hint-placeholder-count="5">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)">
+              <span style="color:var(--text);font-size:.95rem">{{ ad.label }}</span>
+              <span style="font-family:var(--font-mono);font-size:.85rem;color:var(--cyan-300);white-space:nowrap">{{ ad.price }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding:56px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">How it works</span>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-.02em;margin:16px 0 32px">From Upload To Unforgettable</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+          <sc-for list="{{ enhanceSteps }}" as="st" hint-placeholder-count="3">
+            <div style="border-left:2px solid var(--cyan-400);padding-left:16px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:var(--font-mono);font-size:.8rem;color:var(--text-faint)">{{ st.num }}</span>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.1rem;margin:0">{{ st.title }}</h4>
+              <p style="color:var(--text-muted);font-size:.9rem;margin:0">{{ st.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:32px">
+          <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:var(--coral-400);color:var(--on-accent);border:none;cursor:pointer">Start My Project</button>
+        </div>
+      </section>
+
+      <section style="padding:56px 0;border-top:1px solid var(--border)">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-300)">Why Arperture</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:24px">
+          <sc-for list="{{ enhanceWhy }}" as="w" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin:0;color:var(--text)">{{ w.title }}</h4>
+              <p style="color:var(--text-muted);font-size:.9rem;margin:0;line-height:1.6">{{ w.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding:56px 0;border-top:1px solid var(--border);max-width:72ch">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300)">FAQ</span>
+        <div style="display:flex;flex-direction:column;gap:24px;margin-top:24px">
+          <sc-for list="{{ enhanceFaqs }}" as="faq" hint-placeholder-count="5">
+            <div>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin:0 0 6px;color:var(--text)">{{ faq.q }}</h4>
+              <p style="color:var(--text-muted);font-size:.95rem;line-height:1.6;margin:0">{{ faq.a }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding:72px 0;border-top:1px solid var(--border);text-align:center">
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:2.2rem;letter-spacing:-.02em;margin:0 0 12px">Got Something Worth Saving?</h2>
+        <p style="color:var(--text-muted);max-width:55ch;margin:0 auto 28px">Send it over for a free, no-obligation quote. We'll tell you exactly what it needs.</p>
+        <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">Get My Free Quote</button>
+      </section>
+    </sc-if>
+
+    <!-- ============ ABOUT ============ -->
+    <sc-if value="{{ isAbout }}">
+      <section style="padding:80px 0 40px;display:grid;grid-template-columns:{{ aboutGridCols }};gap:40px;align-items:start">
+        <image-slot id="about-headshot" style="width:220px;height:220px" shape="circle" placeholder="Drop a headshot" src="assets/about-headshot.png"></image-slot>
+        <div>
+          <sc-if value="{{ showPlaceholderFlags }}" hint-placeholder-val="{{ true }}"><span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-400)">◆ Placeholder copy — replace with your real bio</span></sc-if>
+          <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">About Arperture</h1>
+          <p style="color:var(--text-muted);font-size:1.1rem;max-width:60ch;line-height:1.6">Arperture Media is a one-person AI creative studio run by Andrew Dallons out of Arcola, Virginia. The studio treats generative video as a filmmaking tool, not a shortcut — every project is directed, scored, and graded like a real production.</p>
+          <p style="color:var(--text-muted);font-size:1.05rem;max-width:60ch;line-height:1.6;margin-top:16px">Work spans music videos, branded spots, documentary trailers, and original series — built with Veo, Kling, Runway, Midjourney, Eleven Labs, and Suno, then finished in a traditional edit and color pipeline.</p>
+        </div>
+      </section>
+      <section style="padding:0 0 80px">
+        <button onClick="{{ goContact }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:var(--coral-400);color:var(--on-accent);border:none;cursor:pointer">Get in touch</button>
+      </section>
+    </sc-if>
+
+    <!-- ============ BLOG ============ -->
+    <sc-if value="{{ isBlog }}">
+      <section style="padding:80px 0 16px">
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">Blog</h1>
+        <p style="color:var(--text-muted);max-width:60ch;font-size:1.1rem">Notes from the edit bay — process, tools, and the occasional rant about prompt grammar.</p>
+      </section>
+      <section style="padding:24px 0 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+        <sc-for list="{{ blogPosts }}" as="b" hint-placeholder-count="3">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
+            <button onClick="{{ b.onClick }}" style="display:block;width:100%;padding:0;border:none;cursor:pointer;background:none" aria-label="Read {{ b.title }}">
+              <image-slot id="{{ b.id }}" style="width:100%;height:140px;pointer-events:none" shape="rect" placeholder="Drop a cover image" src="{{ b.coverSrc }}"></image-slot>
+            </button>
+            <div style="padding:20px;display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;color:var(--text-faint)">{{ b.date }}</span>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1.1rem;margin:0">
+                <button onClick="{{ b.onClick }}" style="all:unset;cursor:pointer;color:var(--text)" style-hover="color:var(--cyan-300)">{{ b.title }}</button>
+              </h4>
+              <p style="color:var(--text-muted);font-size:.88rem;margin:0">{{ b.excerpt }}</p>
+              <button onClick="{{ b.onClick }}" style="align-self:flex-start;background:none;border:none;color:var(--cyan-300);font-weight:600;font-size:.85rem;cursor:pointer;padding:4px 0 0">Read post →</button>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <!-- ============ BLOG POST ============ -->
+    <sc-if value="{{ isPost }}">
+      <section style="padding:64px 0 32px;max-width:72ch">
+        <button onClick="{{ goBlog }}" style="background:none;border:none;color:var(--text-faint);font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;margin-bottom:20px">← Back to Blog</button>
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300)">{{ currentPost.category }}</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,4.6vw,2.8rem);letter-spacing:-.02em;margin:16px 0 8px;line-height:1.15;text-transform:uppercase">{{ currentPost.title }}</h1>
+        <p style="font-family:var(--font-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">{{ currentPost.date }} · {{ currentPost.readTime }}</p>
+      </section>
+      <section style="padding:8px 0 0;max-width:72ch">
+        <image-slot id="{{ currentPost.id }}-hero" style="width:100%;height:320px;border-radius:16px" shape="rect" placeholder="Drop a cover image" src="{{ currentPost.coverSrc }}"></image-slot>
+      </section>
+      <section style="padding:40px 0 0;max-width:72ch;display:flex;flex-direction:column;gap:20px">
+        <sc-for list="{{ currentPost.body }}" as="blk" hint-placeholder-count="6">
+          <sc-if value="{{ blk.h2 }}">
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:1.4rem;letter-spacing:-.01em;margin:12px 0 0;color:var(--text)">{{ blk.text }}</h2>
+          </sc-if>
+          <sc-if value="{{ blk.p }}">
+            <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.7;margin:0">{{ blk.text }}</p>
+          </sc-if>
+        </sc-for>
+      </section>
+      <section style="padding:40px 0 0;max-width:72ch;border-top:1px solid var(--border);margin-top:40px;padding-top:32px">
+        <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)">Share this post</span>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <a href="{{ shareLinks.twitter }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--font-mono);font-size:.8rem;padding:9px 16px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-6.9l-5.4-7.1L4.7 22H1.6l8.1-9.3L1 2h7.1l4.9 6.5L18.9 2zm-1.2 18h1.9L7.4 4h-2l12.3 16z"></path></svg>
+            X
+          </a>
+          <a href="{{ shareLinks.linkedin }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--font-mono);font-size:.8rem;padding:9px 16px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"></path></svg>
+            LinkedIn
+          </a>
+          <a href="{{ shareLinks.facebook }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--font-mono);font-size:.8rem;padding:9px 16px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.65 15.4 3.56 14.24 3.56c-2.4 0-4.05 1.47-4.05 4.16V9.9H7.5V13h2.69v8z"></path></svg>
+            Facebook
+          </a>
+          <button onClick="{{ copyLink }}" style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.8rem;padding:9px 16px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            <sc-if value="{{ copied }}"><span>Copied!</span></sc-if>
+            <sc-if value="{{ !copied }}"><span>Copy link</span></sc-if>
+          </button>
+        </div>
+      </section>
+      <section style="padding:56px 0 40px;max-width:72ch;border-top:1px solid var(--border);margin-top:32px;padding-top:40px">
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:0 0 20px">Frequently asked questions</h3>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <sc-for list="{{ currentPost.faqs }}" as="faq" hint-placeholder-count="3">
+            <div>
+              <h4 style="font-family:var(--font-display);font-weight:600;font-size:1rem;margin:0 0 6px;color:var(--text)">{{ faq.q }}</h4>
+              <p style="color:var(--text-muted);font-size:.95rem;line-height:1.6;margin:0">{{ faq.a }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <section style="padding:0 0 80px;max-width:72ch;border-top:1px solid var(--border);padding-top:40px">
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:0 0 20px">Related posts</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+          <sc-for list="{{ relatedPosts }}" as="rp" hint-placeholder-count="2">
+            <button onClick="{{ rp.onClick }}" style="text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;padding:0;cursor:pointer" style-hover="border-color:var(--border-strong)">
+              <image-slot id="{{ rp.id }}-related" style="width:100%;height:110px;pointer-events:none" shape="rect" placeholder="Drop a cover image" src="{{ rp.coverSrc }}"></image-slot>
+              <div style="padding:16px;display:flex;flex-direction:column;gap:6px">
+                <span style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--text-faint)">{{ rp.date }}</span>
+                <h4 style="font-family:var(--font-display);font-weight:600;font-size:.98rem;margin:0;color:var(--text)">{{ rp.title }}</h4>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+        <button onClick="{{ goBlog }}" style="margin-top:32px;font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">← All posts</button>
+      </section>
+    </sc-if>
+
+    <!-- ============ CONTACT ============ -->
+    <sc-if value="{{ isContact }}">
+      <section style="padding:80px 0 40px;display:grid;grid-template-columns:{{ contactGridCols }};gap:48px;align-items:start">
+        <div>
+          <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300)">● Now booking · Q3</span>
+          <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3rem);letter-spacing:-.02em;margin:16px 0 12px;text-transform:uppercase">Your story,<br>at 24 frames a second.</h1>
+          <p style="color:var(--text-muted);max-width:44ch;font-size:1.05rem;line-height:1.6">Tell us about the project. We'll get back to you within two business days with a treatment direction and a quote.</p>
+          <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+            <span style="font-family:var(--font-mono);font-size:.75rem;padding:8px 14px;border-radius:999px;background:rgba(255,111,97,.12);color:var(--coral-300)">Based in USA · Working Globally</span>
+            <span style="font-family:var(--font-mono);font-size:.75rem;padding:8px 14px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300)">contact@arperture.io</span>
+            <a href="tel:+15712001186" style="font-family:var(--font-mono);font-size:.75rem;padding:8px 14px;border-radius:999px;background:rgba(46,204,250,.12);color:var(--cyan-300);text-decoration:none">(571) 200-1186</a>
+          </div>
+        </div>
+        <div style="background:rgba(14,14,15,.4);border:1px solid var(--border);border-radius:16px;padding:32px">
+          <sc-if value="{{ formSent }}">
+            <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+              <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(63,217,164,.1);border:1px solid rgba(63,217,164,.3);border-radius:12px;padding:16px">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--success);margin-top:6px;flex-shrink:0"></span>
+                <div style="color:var(--text);font-size:.95rem"><strong>Brief received.</strong> Thanks — we'll be in touch within two business days.</div>
+              </div>
+              <button onClick="{{ resetForm }}" style="font-weight:600;font-size:.9rem;padding:12px 22px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--text);cursor:pointer">Send another brief</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ formNotSent }}">
+            <form onSubmit="{{ submitForm }}" style="display:flex;flex-direction:column;gap:16px" novalidate="true">
+              
+              <div>
+                <label style="display:block;font-size:.8rem;color:var(--text-muted);margin-bottom:6px">Your name</label>
+                <input type="text" placeholder="Jane Director" value="{{ form.name }}" onChange="{{ setName }}" style="width:100%;box-sizing:border-box;background:var(--ink-850);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:.95rem">
+              </div>
+              <div>
+                <label style="display:block;font-size:.8rem;color:var(--text-muted);margin-bottom:6px">Email</label>
+                <input type="email" placeholder="hello@yourbrand.com" value="{{ form.email }}" onChange="{{ setEmail }}" style="width:100%;box-sizing:border-box;background:var(--ink-850);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:.95rem">
+              </div>
+              <div>
+                <label style="display:block;font-size:.8rem;color:var(--text-muted);margin-bottom:6px">Brief</label>
+                <textarea rows="4" placeholder="Tell us about the story…" value="{{ form.brief }}" onChange="{{ setBrief }}" style="width:100%;box-sizing:border-box;background:var(--ink-850);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:.95rem;font-family:var(--font-body)"></textarea>
+              </div>
+              <sc-if value="{{ formError }}">
+                <div style="color:var(--danger);font-size:.85rem">{{ formError }}</div>
+              </sc-if>
+              <button type="submit" disabled="{{ formSubmitting }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:{{ accentColor }};color:var(--on-accent);border:none;cursor:pointer">{{ submitLabel }}</button>
+            </form>
+          </sc-if>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ PRIVACY POLICY ============ -->
+    <sc-if value="{{ isPrivacy }}">
+      <section style="padding:80px 0 80px;max-width:70ch">
+        <sc-if value="{{ showPlaceholderFlags }}" hint-placeholder-val="{{ true }}"><span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-400)">◆ Placeholder copy — have counsel review before launch</span></sc-if>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:2.4rem;letter-spacing:-.02em;margin:16px 0 24px;text-transform:uppercase">Privacy Policy</h1>
+        <p style="color:var(--text-muted);line-height:1.7">Arperture Media ("we", "us") respects your privacy. This page describes what information we collect through arperture.io, how we use it, and the choices you have.</p>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:32px 0 8px">Information we collect</h3>
+        <p style="color:var(--text-muted);line-height:1.7">Contact details you submit through our booking and contact forms (name, email, project brief), and standard analytics data (pages visited, referring source).</p>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:32px 0 8px">How we use it</h3>
+        <p style="color:var(--text-muted);line-height:1.7">To respond to inquiries, scope and deliver projects, and improve this site. We do not sell your information.</p>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.2rem;margin:32px 0 8px">Contact</h3>
+        <p style="color:var(--text-muted);line-height:1.7">Questions about this policy: contact@arperture.io.</p>
+      </section>
+    </sc-if>
+
+    <!-- ============ BOOKING CONFIRMED ============ -->
+    <sc-if value="{{ isBookingConfirmed }}">
+      <section style="padding:120px 0;text-align:center;max-width:60ch;margin:0 auto">
+        <span style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--success)">● Confirmed</span>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem,5vw,3rem);letter-spacing:-.02em;margin:16px 0 16px;text-transform:uppercase">You're booked.</h1>
+        <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.6">Thanks for booking a discovery call. A confirmation is on its way to your inbox — we'll see you soon.</p>
+        <div style="margin-top:32px">
+          <button onClick="{{ goHome }}" style="font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;background:var(--coral-400);color:var(--on-accent);border:none;cursor:pointer">Back to home</button>
+        </div>
+      </section>
+    </sc-if>
+
+  </div>
+
+  <!-- VIDEO LIGHTBOX -->
+  <sc-if value="{{ videoModal }}">
+    <div onClick="{{ closeVideoModal }}" style="position:fixed;inset:0;z-index:100;background:rgba(10,10,11,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stopPropagation }}" style="width:100%;max-width:900px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:flex-end">
+          <button onClick="{{ closeVideoModal }}" aria-label="Close" style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--border-strong);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;line-height:1">✕</button>
+        </div>
+        <div style="width:100%;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 24px 64px rgba(0,0,0,.6)">
+          <iframe src="{{ videoModal.embedUrl }}" title="{{ videoModal.title }}" referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:100%;border:none;display:block" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+        </div>
+        <div style="background:rgba(28,28,28,.7);border:1px solid var(--border);border-radius:14px;padding:20px 24px">
+          <span style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan-300)">{{ videoModal.category }}</span>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin:8px 0 6px;color:var(--text)">{{ videoModal.title }}</h3>
+          <p style="color:var(--text-muted);font-size:.95rem;margin:0">{{ videoModal.blurb }}</p>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- FOOTER -->
+  <footer style="position:relative;z-index:1;border-top:1px solid var(--border);margin-top:40px">
+    <div style="max-width:1180px;margin:0 auto;padding:64px 24px 32px;display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap">
+      <div style="max-width:320px;display:flex;flex-direction:column;gap:12px">
+        <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;padding:0">
+          <img src="assets/arperture-mark.webp" alt="Arperture" width="26" height="26" style="display:block">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--text)">Arperture<b style="color:var(--cyan-400)">.</b></span>
+        </button>
+        <p style="color:var(--text-muted);font-size:.9rem;margin:0">Crafting the future of AI film. Creative direction. AI production. Human storytelling.</p>
+        <p style="font-family:var(--font-mono);font-size:.75rem;color:var(--text-faint);margin:0">Based in USA · Working Globally</p>
+      </div>
+      <div style="display:flex;gap:56px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-300);margin:0 0 4px">Quick links</p>
+          <sc-for list="{{ footerLinksA }}" as="f" hint-placeholder-count="5">
+            <button onClick="{{ f.onClick }}" style="background:none;border:none;color:var(--text-muted);font-size:.9rem;cursor:pointer;padding:0;text-align:left">{{ f.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-300);margin:0 0 4px">More</p>
+          <sc-for list="{{ footerLinksB }}" as="f" hint-placeholder-count="5">
+            <button onClick="{{ f.onClick }}" style="background:none;border:none;color:var(--text-muted);font-size:.9rem;cursor:pointer;padding:0;text-align:left">{{ f.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-300);margin:0 0 4px">Connect</p>
+          <a href="mailto:contact@arperture.io" style="color:var(--text-muted);font-size:.9rem;text-decoration:none">contact@arperture.io</a>
+          <a href="tel:+15712001186" style="color:var(--text-muted);font-size:.9rem;text-decoration:none">(571) 200-1186</a>
+          <a href="https://www.instagram.com/arperturemedia/" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:.9rem;text-decoration:none">Instagram</a>
+          <a href="https://www.youtube.com/@ArpertureAI" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:.9rem;text-decoration:none">YouTube</a>
+          <a href="https://www.tiktok.com/@arperturemedia" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:.9rem;text-decoration:none">TikTok</a>
+          <a href="https://www.facebook.com/arperture" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:.9rem;text-decoration:none">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:0 auto;padding:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <p style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-faint);margin:0">© 2026 Arperture Media. All rights reserved.</p>
+      <p style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-faint);margin:0">AI Film · Music · Creative Production</p>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;heroMarkTop&quot;: {&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:28,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;section&quot;:&quot;Hero&quot;},
+  &quot;ctaAccent&quot;: {&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF6F61&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FF6F61&quot;,&quot;#2ECCFA&quot;],&quot;section&quot;:&quot;Brand&quot;},
+  &quot;showPlaceholderFlags&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}
+}">
+
+const WORK_DATA = [
+  { id:"pickup-gerald", key:"pickup-gerald", title:"Pick Up Gerald", category:"AI Short Film", date:"June 2025", grad:"conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
+    blurb:"A fully AI-directed short film created with Google Veo. Exploring character, narrative, and cinematic language through generative video.", youtubeId:"jwmfDa8gbXw", hasCase:false },
+  { id:"yield", key:"yield", title:"Yield Bookkeeping Services", category:"Client Work · Brand Videos", date:"2024–Present", grad:"linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
+    blurb:"A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — brand films, seasonal spots, and short-form social content.", youtubeId:"y0uDNgH5Oxc", hasCase:true },
+  { id:"terra-c-serum", key:"terra-c-serum", title:"Terra C Serum", category:"Client Work · Brand Video", date:"April 2026", grad:"linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
+    blurb:"A horizontal brand spot for Terra C Serum — AI-generated product storytelling built for a clean, cinematic skincare launch.", youtubeId:"_DEeKSSlOis", hasCase:false },
+  { id:"music-video", key:"music-video", title:"Iridescence", category:"Music Video", date:"Spring 2025", grad:"conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
+    blurb:"A hypnotic AI-generated music video for an upbeat dub techno journey — a showcase of AI serving artistic vision, not replacing it.", youtubeId:"MLvROCITfpY", hasCase:false },
+  { id:"judge", key:"judge", title:"Judge Silverback's Court", category:"AI Comedy Series · YouTube", date:"Aug 2025–Feb 2026", grad:"linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
+    blurb:"An ongoing AI courtroom comedy series — Judge Silverback presides over absurd cases with full AI-generated visuals, voice, and atmosphere.", youtubeId:"tgkLIjMx2k4", hasCase:true },
+  { id:"bike-nerd", key:"bike-nerd", title:"Bike Nerd", category:"Client Work · Documentary Trailer", date:"Summer 2024", grad:"conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
+    blurb:"An AI-generated pitch trailer for a feature documentary following the first African American female professional mountain biking racer.", youtubeId:"p0yhKpYAd4c", hasCase:false },
+];
+
+const SOCIAL_ICONS = {
+  instagram: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>',
+  youtube: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>',
+  tiktok: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.99-1.4-2.28-1.4-3.62h-3.4v13.7c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.3 0 .58.05.85.13V9.6a6.5 6.5 0 0 0-.85-.06 6.5 6.5 0 1 0 6.5 6.5V9.14a9.1 9.1 0 0 0 5 1.5V7.24a5.8 5.8 0 0 1-3.7-1.42z"></path></svg>',
+  facebook: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>',
+};
+
+const BLOG_POSTS = {
+  "blog-1": {
+    id: "blog-1", date: "Jun 2026", readTime: "7 min read", category: "Craft & Process",
+    title: "What \u2018Directing\u2019 Means When the Camera Is a Prompt",
+    metaDescription: "How AI film directors translate shot lists into prompts, why prompt grammar is the new coverage, and where human judgment still decides the final cut in generative video production.",
+    coverSrc: "assets/blog-1.png",
+    faqs: [
+      { q: "Do you still need a director for AI-generated video?", a: "Yes. The director's job — deciding what a scene needs to say and how to say it visually — hasn't changed. Only the tool that executes the shot has changed, from a physical camera to a written prompt." },
+      { q: "What is \u2018prompt grammar\u2019 in AI filmmaking?", a: "Prompt grammar is the structured way a director describes a shot to a generative model: subject, action, camera movement, lens language, lighting, and pacing, in an order and vocabulary the model reads consistently." },
+      { q: "Can AI video tools replace a shot list?", a: "No. A shot list still comes first. Prompts are how that shot list gets executed once the creative decisions are already made." },
+    ],
+    body: [
+      { p: true, text: "Ask ten people what a film director does and you'll get ten answers about cameras, actors, and \u201caction!\u201d None of those things exist on an AI production. There's no crew, no blocking rehearsal, no cinematographer adjusting a lens. And yet, if you've watched an AI-generated short and felt something \u2014 tension building, a joke landing, a character's loneliness in a wide shot \u2014 someone directed that. It just didn't look like directing used to look." },
+      { h2: true, text: "The Director's Job Hasn't Changed. The Toolkit Has." },
+      { p: true, text: "Directing has always been the act of translating a feeling into a sequence of images. Coverage, blocking, lens choice, cutting rhythm \u2014 these are all just vocabulary for one question: what does the audience need to see, and when, to feel the thing you want them to feel? Generative video hasn't touched that question. It's changed the answer's delivery mechanism from a camera department to a well-structured sentence." },
+      { p: true, text: "That reframing matters because a lot of people assume AI filmmaking is about typing a vague idea and hoping for magic. It isn't. Every shot in a competent AI-directed project still starts as a directing decision \u2014 wide or close, static or moving, warm or cold \u2014 before it ever becomes a prompt. The prompt is the execution layer, not the creative one." },
+      { h2: true, text: "Prompt Grammar Is The New Coverage" },
+      { p: true, text: "In traditional production, \u201ccoverage\u201d means shooting a scene from enough angles that an editor has real choices later. In AI production, coverage means writing prompts with a consistent internal grammar so the model produces shots that actually cut together. That grammar tends to follow a reliable order: subject and wardrobe, action, camera behavior (push in, static wide, handheld drift), lens character (35mm, anamorphic flare, shallow depth of field), lighting quality, and finally mood or reference tone." },
+      { p: true, text: "Directors who skip steps in that grammar \u2014 who describe mood but never camera behavior, for instance \u2014 tend to get beautiful but directionless footage: gorgeous frames that don't know what job they're doing in the sequence. Directors who front-load the camera language get shots that behave like shots, not like static paintings." },
+      { h2: true, text: "Shot-First Thinking, Not Frame-First" },
+      { p: true, text: "The biggest mental shift for anyone moving from traditional production into generative video is learning to think in shots again, not in single frames. It's tempting to fall in love with one perfect generated image and build a prompt around reproducing it. But a single gorgeous frame isn't a film. A director's real leverage is in sequencing: the wide that establishes space, the medium that holds a decision, the close-up that lands the emotional beat. That structure has to be decided before a single prompt is written, exactly as it would on a traditional set." },
+      { p: true, text: "On every Arperture project, the prompt library comes after the shot list, never before. We block the sequence on paper \u2014 what each shot needs to accomplish narratively \u2014 and only then translate each entry into the camera and lighting language the model responds to." },
+      { h2: true, text: "Where Human Judgment Still Wins" },
+      { p: true, text: "Generative tools are extraordinary at execution and still unreliable at judgment. They don't know that a scene is dragging, that a joke needs one more beat of silence, or that an audience won't buy a character's motivation without an extra establishing shot. That's still entirely a director's call, made in the edit as much as in the prompt. The craft that's disappeared is manual operation \u2014 the craft that hasn't disappeared, and arguably matters more now, is narrative judgment: knowing what to ask for, and knowing when what you got isn't right yet." },
+      { p: true, text: "That's the honest version of what \u201cdirecting\u201d means on an AI production: fewer people on set, no set at all in most cases, but the same relentless, specific decision-making about what the audience sees and feels, shot by shot. The camera changed. The job didn't." },
+    ],
+  },
+  "blog-2": {
+    id: "blog-2", date: "May 2026", readTime: "8 min read", category: "Technique",
+    title: "Keeping a Character Consistent Across Every Shot",
+    metaDescription: "A practical breakdown of AI character consistency techniques \u2014 reference frames, locked seeds, and style anchors \u2014 drawn from producing the AI short film Pick Up Gerald.",
+    coverSrc: "assets/blog-2.png",
+    faqs: [
+      { q: "Why do AI-generated characters change between shots?", a: "Most generative video models sample new visual details on every generation unless they're anchored. Without a locked reference, small variations in a prompt \u2014 or even random seed changes \u2014 can shift a character's face, wardrobe, or proportions from shot to shot." },
+      { q: "What is a reference frame in AI video production?", a: "A reference frame is a single, approved image of a character \u2014 face, outfit, and proportions locked \u2014 that gets fed back into the model for every subsequent shot, so new generations are anchored to the same visual identity instead of drifting." },
+      { q: "Does locking a seed guarantee character consistency?", a: "It helps, but it isn't sufficient alone. A locked seed keeps a model's random starting point stable, but reference frames and consistent style tokens in the prompt do most of the actual work of holding a character's identity together." },
+    ],
+    body: [
+      { p: true, text: "The single hardest unsolved problem in AI filmmaking isn't image quality \u2014 today's models render skin, light, and motion convincingly. It's continuity. Ask a generative model for the same character in eight different shots and, left unmanaged, you'll get eight subtly different people: a nose that shifts, a jacket that changes color, eyes that drift half a shade. An audience won't consciously catalog every discrepancy, but they will feel that something is off, and that feeling breaks trust in the story faster than almost any other flaw." },
+      { h2: true, text: "The Consistency Problem In AI Video" },
+      { p: true, text: "Generative video models don't have a persistent memory of a character the way a costume department or a casting choice does. Every generation is, in a real sense, starting over \u2014 reconstructing a face and a body from a text description and whatever reference material you give it. That means consistency isn't something the model does for you by default. It's something a director has to engineer, shot by shot, the same way a traditional production engineers continuity through wardrobe notes and script supervisors." },
+      { h2: true, text: "Reference Frames As The Anchor" },
+      { p: true, text: "The most reliable tool in the kit is the reference frame: one carefully generated and approved image that becomes the character's visual ground truth. Once that frame exists \u2014 face, proportions, wardrobe, palette all locked \u2014 it gets fed back into the model alongside every new prompt, so each subsequent shot is generated in reference to that identity instead of guessing at one from scratch. Treat the reference frame the way a traditional production treats a lookbook: nothing ships until it matches." },
+      { p: true, text: "This is also where a lot of productions go wrong by rushing. Spending extra time perfecting the reference frame before generating a single sequence shot always pays for itself later \u2014 it's far cheaper to fix a face once than to fix it across twenty shots." },
+      { h2: true, text: "Locking Seeds and Style Tokens" },
+      { p: true, text: "Beyond reference frames, locking the model's seed value \u2014 the random starting point for generation \u2014 reduces unwanted variation between takes of the same shot. It's not a silver bullet on its own; a locked seed with a sloppy prompt still drifts. But paired with a consistent set of style tokens \u2014 the same lighting descriptors, the same lens language, the same color-grade vocabulary \u2014 in every prompt for a given character or scene, it meaningfully tightens the visual thread running through a sequence." },
+      { h2: true, text: "What We Learned Producing Pick Up Gerald" },
+      { p: true, text: "Pick Up Gerald, our fully AI-directed short film built on Google Veo, was as much an exercise in continuity discipline as it was in storytelling. With a single recurring lead character carrying the film across multiple locations and emotional beats, any drift in his face or wardrobe would have been immediately visible. The production leaned hard on locked reference frames for every costume and lighting state the character appears in, then cross-checked each new generated shot against that library before it was allowed into the edit." },
+      { p: true, text: "The lesson that traveled forward into every project since: consistency isn't a generation-time problem you solve once. It's a pipeline discipline you maintain on every single shot, with a reference library that grows more authoritative as the production goes on. Treat your character's first approved frame as canon, and everything after it as a shot that has to earn its place next to that canon \u2014 not the other way around." },
+    ],
+  },
+  "blog-3": {
+    id: "blog-3", date: "Apr 2026", readTime: "6 min read", category: "Craft & Process",
+    title: "Sound Sells the Shot",
+    metaDescription: "Why voice, score, and mix matter more than picture resolution in AI-generated video, and a practical sound checklist for producing believable generative film and brand content.",
+    coverSrc: "assets/blog-3.png",
+    faqs: [
+      { q: "Is sound design more important than visuals in AI video?", a: "Not more important, but far more underrated. Once picture quality clears a believability bar, additional visual polish has diminishing returns, while sound \u2014 voice, score, and mix \u2014 keeps adding emotional impact well past that point." },
+      { q: "What tools are used for AI-generated voice and music?", a: "On Arperture productions, Eleven Labs typically handles voice performance and Suno handles original score and music beds, layered with traditional sound design and mixing techniques." },
+      { q: "Why does a generated video feel fake even when the picture looks real?", a: "Usually because the audio doesn't match the space, action, or emotional register of the picture \u2014 a mismatched or absent sound layer is one of the fastest ways an otherwise convincing shot reads as artificial." },
+    ],
+    body: [
+      { p: true, text: "Show a generative video clip to a room of people and ask what feels off, and most will point at the picture \u2014 a hand that moves strangely, a texture that looks too smooth. They're usually wrong about the real problem. In our experience producing AI video for brands, series, and short films, the picture clears the believability bar faster than people expect. What actually sells or breaks a shot, almost every time, is the sound." },
+      { h2: true, text: "Why Picture Quality Isn't The Bottleneck Anymore" },
+      { p: true, text: "Generative video models have crossed a threshold where a well-directed, well-lit shot can hold up against real footage on a first watch. Once a picture clears that bar, spending more effort chasing marginal visual fidelity has diminishing returns. The bigger lever left on the table, for most productions, is what's happening on the audio track \u2014 and it's the layer most new AI productions under-invest in." },
+      { h2: true, text: "The Sound Stack: Voice, Score, and SFX" },
+      { p: true, text: "A believable AI production needs the same three sound layers a traditional production needs: voice performance, score, and sound effects, each doing a distinct job. Voice carries character and intention \u2014 on our productions this typically runs through Eleven Labs, tuned for pacing and emotional register rather than just clarity. Score sets emotional temperature scene to scene; we build most original scores in Suno, treating them as a directing tool rather than a background layer. Sound effects \u2014 footsteps, room tone, the small mechanical noises a space makes \u2014 are what convince an audience a generated environment is a real place with weight and texture, not a rendered backdrop." },
+      { p: true, text: "Skip any one of these three and the gap is obvious, even to a viewer who couldn't articulate why. A gorgeous generated room with no room tone feels like a stage set. A character with a strong voice performance but no score under their big moment feels emotionally flat." },
+      { h2: true, text: "Mixing for Emotion, Not Just Clarity" },
+      { p: true, text: "A common mistake is mixing an AI production the way you'd mix a corporate explainer \u2014 optimizing purely for intelligibility, voice up front, everything else turned down to stay out of the way. That approach protects clarity and kills feeling. Score and ambient sound need room to breathe under dialogue, and silence needs to be used deliberately, the same way a director uses a held wide shot. The mix is a directing decision, not a technical afterthought handled at the end." },
+      { h2: true, text: "A Practical Sound Checklist for AI Video" },
+      { p: true, text: "Before any AI-generated sequence goes out the door, we run it against a short list: does every space have appropriate room tone, even if it's subtle? Does the score change with the emotional beat, not just play underneath the whole scene at one volume? Does the voice performance's pacing match the edit's pacing, rather than being generated in isolation and dropped in? And critically \u2014 does the mix let quiet moments stay quiet, instead of filling every second with sound out of habit?" },
+      { p: true, text: "Picture gets a project's attention. Sound is what makes people believe it, and remember it. On every production, we treat the sound pass as a second directing pass \u2014 not a finishing touch." },
+    ],
+  },
+};
+
+const CASES = {
+  yield: {
+    id:"case-yield", title:"Yield Bookkeeping Services", category:"Client Work · Brand Videos · Ongoing Collaboration", client:"Yield Bookkeeping Services", year:"2024–2026",
+    badgeBg:"rgba(255,111,97,.12)", badgeColor:"var(--coral-300)", youtubeId:"y0uDNgH5Oxc",
+    detail:"A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, and Suno.",
+    linkLabel:"Visit yieldbookkeeping.com", linkUrl:"https://www.yieldbookkeeping.com",
+    stats:[{n:"3",l:"Brand films"},{n:"4",l:"Social cuts"},{n:"5",l:"AI tools in pipeline"}],
+    projectsLabel:"Widescreen content",
+    projects:[
+      { tag:"Brand Film · 2024", title:"A Moment of Zen", body:"A calming brand film positioning Yield as the antidote to financial stress. Created entirely with AI — Midjourney for visuals, Kling AI and Runway for motion, Eleven Labs for voice, and Suno for the original score." },
+      { tag:"Brand Film · 2024", title:"Say No to Excel!", body:"A punchy, humor-driven spot making the case for professional bookkeeping over DIY spreadsheets. Fast-paced editing, AI-generated visuals, and a direct message that resonates with small business owners everywhere." },
+      { tag:"Seasonal Brand Film · 2024", title:"The North Pole's Secret", body:"A holiday brand film that reimagines Santa's operation as a perfectly-organized business — because great bookkeeping is the real magic behind every success. Yield's most creative campaign to date." },
+    ],
+    shortFormLabel:"Vertical & social content",
+    shortForm:[
+      { tag:"Brand · 2024", title:"A Moment of Zen" },
+      { tag:"Seasonal · 2024", title:"The Gift of Bookkeeping" },
+      { tag:"Informational · 2025", title:"You Filed a Tax Extension" },
+      { tag:"Brand · 2025", title:"Free Time" },
+    ],
+  },
+  judge: {
+    id:"case-judge", title:"Judge Silverback's Court", category:"AI Series · Courtroom Comedy · Ongoing Collaboration", client:"\u201cIt's A Jungle In There.\u201d", year:"2026",
+    badgeBg:"rgba(142,68,173,.15)", badgeColor:"var(--purple-300)", youtubeId:"tgkLIjMx2k4",
+    detail:"An AI-produced courtroom comedy web series developed in long-term collaboration with a writing partner. Real unemployment disputes — dramatized through AI-generated animal characters. The Honorable Judge Silverback presides with primal authority. Excuses are crushed. Fairness is absolute. Final verdicts.",
+    linkLabel:"Watch on judgesilverback.com", linkUrl:"https://judgesilverback.com",
+    stats:[{n:"Ongoing",l:"Episodes & shorts"},{n:"1",l:"Recurring lead"},{n:"Weekly",l:"Release cadence"}],
+    projectsLabel:"In this project",
+    projects:[
+      { tag:"Hype Reel", title:"Case Dismissed", body:"The official hype reel for Judge Silverback's Court — introducing the world to the courtroom where the law of the jungle reigns supreme. AI-generated characters, real stakes, unforgettable drama." },
+      { tag:"Featured Episode", title:"The Case of the Buzzing Distraction", body:"A normal unemployment hearing spirals into chaos when a mysterious buzzing fills the courtroom. The claimant brought a vibrator to work for \u201cstress relief\u201d, was warned, and did it again. Judge Silverback must decide: was the employer too harsh, or did the employee cross the line?" },
+    ],
+    shortFormLabel:"Courtroom shorts — bite-sized justice, served daily",
+    shortForm:[
+      { tag:"Courtroom Short", title:"Can You Hear That Buzzing?" },
+      { tag:"Courtroom Short", title:"Ken Kalihari Investigates" },
+      { tag:"Courtroom Short", title:"Back-Lot Tour" },
+    ],
+  },
+};
+
+class Component extends DCLogic {
+  state = {
+    page: "home",
+    caseKey: "judge",
+    postKey: "blog-1",
+    form: { name: "", email: "", brief: "" },
+    formError: "",
+    formSent: false,
+    formSubmitting: false,
+    isMobile: typeof window !== "undefined" && window.innerWidth <= 640,
+    isNavCompact: typeof window !== "undefined" && window.innerWidth <= 900,
+    mobileMenuOpen: false,
+    socialsOpen: false,
+    servicesOpen: false,
+    videoModal: null,
+  };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ isMobile: window.innerWidth <= 640, isNavCompact: window.innerWidth <= 900 });
+    window.addEventListener("resize", this._onResize);
+    this._onDocClick = (e) => {
+      if (this.state.socialsOpen && !e.target.closest("[data-socials-menu]")) {
+        this.setState({ socialsOpen: false });
+      }
+      if (this.state.servicesOpen && !e.target.closest("[data-services-menu]")) {
+        this.setState({ servicesOpen: false });
+      }
+      if (this.state.mobileMenuOpen && !e.target.closest("[data-mobile-menu]")) {
+        this.setState({ mobileMenuOpen: false });
+      }
+    };
+    document.addEventListener("click", this._onDocClick);
+    this._onKeyDown = (e) => {
+      if (e.key === "Escape" && this.state.videoModal) this.closeVideoModal();
+    };
+    document.addEventListener("keydown", this._onKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    document.removeEventListener("click", this._onDocClick);
+    document.removeEventListener("keydown", this._onKeyDown);
+  }
+
+  toggleSocials = (e) => {
+    e.stopPropagation();
+    this.setState((s) => ({ socialsOpen: !s.socialsOpen, servicesOpen: false }));
+  };
+
+  toggleServicesMenu = (e) => {
+    e.stopPropagation();
+    this.setState((s) => ({ servicesOpen: !s.servicesOpen, socialsOpen: false }));
+  };
+
+  toggleMobileMenu = (e) => {
+    e.stopPropagation();
+    this.setState((s) => ({ mobileMenuOpen: !s.mobileMenuOpen, socialsOpen: false, servicesOpen: false }));
+  };
+
+  openVideoModal = (w) => {
+    this.setState({
+      videoModal: {
+        embedUrl: `https://www.youtube-nocookie.com/embed/${w.youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1`,
+        title: w.title,
+        category: w.category,
+        blurb: w.blurb,
+      },
+    });
+  };
+
+  closeVideoModal = () => this.setState({ videoModal: null });
+
+  stopPropagation = (e) => e.stopPropagation();
+
+  go = (page, caseKey) => {
+    this.setState({ page, caseKey: caseKey || this.state.caseKey, mobileMenuOpen: false, servicesOpen: false, socialsOpen: false });
+    window.scrollTo(0, 0);
+  };
+
+  goPost = (postKey) => {
+    this.setState({ page: "post", postKey });
+    window.scrollTo(0, 0);
+  };
+
+  goSMB = (anchor) => {
+    this.setState({ page: "smb", servicesOpen: false, mobileMenuOpen: false });
+    if (anchor) {
+      setTimeout(() => {
+        const el = document.getElementById(anchor);
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90 });
+      }, 60);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  openGeoAudit = (e) => {
+    if (e) e.preventDefault();
+    if (window.Calendly && window.Calendly.initPopupWidget) {
+      window.Calendly.initPopupWidget({ url: "https://calendly.com/drew-arperture/geo-foundation-audit" });
+    } else {
+      window.open("https://calendly.com/drew-arperture/geo-foundation-audit", "_blank", "noopener");
+    }
+  };
+
+  openCalendly = (e) => {
+    if (e) e.preventDefault();
+    if (window.Calendly && window.Calendly.initPopupWidget) {
+      window.Calendly.initPopupWidget({ url: "https://calendly.com/drew-arperture/30min" });
+    } else {
+      window.open("https://calendly.com/drew-arperture/30min", "_blank", "noopener");
+    }
+  };
+
+  copyLink = () => {
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).catch(() => {});
+    }
+    this.setState({ copied: true });
+    clearTimeout(this._copyTimer);
+    this._copyTimer = setTimeout(() => this.setState({ copied: false }), 2000);
+  };
+
+  submitForm = async (e) => {
+    e.preventDefault();
+    const { name, email, brief } = this.state.form;
+    if (!name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !brief.trim()) {
+      this.setState({ formError: "Please fill in your name, a valid email, and a short brief." });
+      return;
+    }
+    this.setState({ formError: "", formSubmitting: true });
+    try {
+      const res = await fetch("https://formspree.io/f/mlgyowya", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name, email, brief }),
+      });
+      if (!res.ok) throw new Error("Formspree request failed");
+      this.setState({ formSubmitting: false, formSent: true });
+    } catch (err) {
+      this.setState({
+        formSubmitting: false,
+        formError: "Something went wrong sending your brief — email us directly at contact@arperture.io.",
+      });
+    }
+  };
+
+  renderVals() {
+    const { page, caseKey, form, formError, formSent, formSubmitting } = this.state;
+    const accentColor = this.props.ctaAccent ?? "#FF6F61";
+    const heroMarkTop = this.props.heroMarkTop ?? 28;
+    const showPlaceholderFlags = this.props.showPlaceholderFlags ?? true;
+    const showHeroMark = !this.state.isMobile;
+    const navDefs = [
+      ["home", "Home"], ["portfolio", "Portfolio"],
+      ["blog", "Blog"], ["contact", "Contact"],
+    ];
+    const navItems = navDefs.map(([key, label]) => ({
+      label, key,
+      color: page === key ? "var(--text)" : "var(--text-muted)",
+      weight: page === key ? 700 : 400,
+      onClick: () => this.go(key),
+    }));
+    const servicesActive = page === "services" || page === "smb" || page === "enhancement";
+    const servicesMenuItems = [
+      { label: "Video", onClick: () => { this.setState({ servicesOpen: false }); this.go("services"); } },
+      { label: "Consulting", onClick: () => this.goSMB("consulting") },
+      { label: "Search Visibility", onClick: () => this.goSMB("visibility") },
+    ];
+    const navItemsHome = navItems.slice(0, 1);
+    const navItemsRest = navItems.slice(1);
+
+    const withYoutube = (w) => ({
+      ...w,
+      thumbBg: `url(https://i.ytimg.com/vi/${w.youtubeId}/hqdefault.jpg)`,
+      videoUrl: `https://www.youtube.com/watch?v=${w.youtubeId}`,
+    });
+    const workHome = WORK_DATA.slice(0, 3).map(withYoutube).map((w) => ({
+      ...w, onClick: () => (w.hasCase ? this.go("case", w.key) : this.go("portfolio")),
+    }));
+    const portfolioWork = WORK_DATA.map(withYoutube).map((w) => ({
+      ...w, onClick: () => (w.hasCase ? this.go("case", w.key) : null),
+      openVideo: () => this.openVideoModal(w),
+    }));
+
+    const consultingServices = [
+      { tag: "AI Analysis", title: "AI Business Analysis", price: "Starting at $497 · One-time engagement",
+        body: "We spend a week inside your operations and come back with a clear roadmap — which AI tools to adopt, which to skip, and exactly how to implement them. No jargon, no upsell, just the playbook.",
+        items: ["Ops review", "Tool mapping", "ROI roadmap"] },
+      { tag: "AI Consulting", title: "AI Implementation Consulting", price: "Monthly retainer · Custom scope",
+        body: "Beyond the audit — ongoing strategic support as you roll out AI workflows. We set up automations, train your team, and stay on call while the tools take hold. Think of us as your fractional AI officer.",
+        items: ["Workflow builds", "Team training", "Automation"] },
+    ];
+    const visibilityServices = [
+      { tag: "Web Visibility", title: "Web Visibility Audit", price: "$750 flat · 5 business days",
+        body: "Search engines, ChatGPT, Perplexity, Gemini, and Google AI Overviews all decide whether customers find you. The Foundation Audit scores your business across SEO, GEO, and AEO — the factors that decide whether you rank and whether AI cites you — and hands you a prioritized fix roadmap.",
+        items: ["10-query AI visibility battery", "SEO, GEO & AEO analysis", "100-point scored report"] },
+    ];
+
+    const blogPosts = [
+      { id: "blog-1", date: "Jun 2026", title: "What 'directing' means when the camera is a prompt", excerpt: "Why prompt grammar is the new coverage, and how to think in shots instead of images.", coverSrc: "assets/blog-1.png", onClick: () => this.goPost("blog-1") },
+      { id: "blog-2", date: "May 2026", title: "Keeping a character consistent across every shot", excerpt: "Notes from producing Pick Up Gerald on reference frames and locked seeds.", coverSrc: "assets/blog-2.png", onClick: () => this.goPost("blog-2") },
+      { id: "blog-3", date: "Apr 2026", title: "Sound sells the shot", excerpt: "Why score and mix matter more than resolution when the picture is generated.", coverSrc: "assets/blog-3.png", onClick: () => this.goPost("blog-3") },
+    ];
+
+    const footerLinksA = [
+      { label: "Services", onClick: () => this.go("services") },
+      { label: "Portfolio", onClick: () => this.go("portfolio") },
+      { label: "Training", onClick: () => this.go("training") },
+      { label: "Contact", onClick: () => this.go("contact") },
+      { label: "About", onClick: () => this.go("about") },
+    ];
+    const footerLinksB = [
+      { label: "Small Business Consulting", onClick: () => this.goSMB("consulting") },
+      { label: "Web Visibility", onClick: () => this.goSMB("visibility") },
+      { label: "Enhancement & Restoration", onClick: () => this.go("enhancement") },
+      { label: "Judge Silverback's Court", onClick: () => this.go("case", "judge") },
+      { label: "Yield Bookkeeping Services", onClick: () => this.go("case", "yield") },
+      { label: "Blog", onClick: () => this.go("blog") },
+      { label: "Privacy Policy", onClick: () => this.go("privacy") },
+    ];
+
+    return {
+      isHome: page === "home",
+      isServices: page === "services",
+      isSMB: page === "smb",
+      isPortfolio: page === "portfolio",
+      isCase: page === "case",
+      isTraining: page === "training",
+      isEnhancement: page === "enhancement",
+      isAbout: page === "about",
+      isBlog: page === "blog",
+      isPost: page === "post",
+      isContact: page === "contact",
+      isPrivacy: page === "privacy",
+      isBookingConfirmed: page === "confirmed",
+
+      accentColor,
+      heroMarkTop,
+      showPlaceholderFlags,
+      showHeroMark,
+
+      socialsOpen: this.state.socialsOpen,
+      toggleSocials: this.toggleSocials,
+      videoModal: this.state.videoModal,
+      closeVideoModal: this.closeVideoModal,
+      stopPropagation: this.stopPropagation,
+      socialsChevronTransform: this.state.socialsOpen ? "rotate(180deg)" : "rotate(0deg)",
+      socialLinks: [
+        { label: "Instagram", url: "https://www.instagram.com/arperturemedia/", iconHtml: { __html: SOCIAL_ICONS.instagram } },
+        { label: "YouTube", url: "https://www.youtube.com/@ArpertureAI", iconHtml: { __html: SOCIAL_ICONS.youtube } },
+        { label: "TikTok", url: "https://www.tiktok.com/@arperturemedia", iconHtml: { __html: SOCIAL_ICONS.tiktok } },
+        { label: "Facebook", url: "https://www.facebook.com/arperture", iconHtml: { __html: SOCIAL_ICONS.facebook } },
+      ],
+
+      navItems,
+      navItemsHome,
+      navItemsRest,
+      mobileNavLinks: [...navItemsHome, ...navItemsRest],
+      isNavCompact: this.state.isNavCompact,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMobileMenu: this.toggleMobileMenu,
+      aboutGridCols: this.state.isMobile ? "1fr" : "220px 1fr",
+      contactGridCols: this.state.isMobile ? "1fr" : "1fr 1fr",
+      servicesActive,
+      servicesColor: servicesActive ? "var(--text)" : "var(--text-muted)",
+      servicesWeight: servicesActive ? 700 : 400,
+      servicesOpen: this.state.servicesOpen,
+      toggleServicesMenu: this.toggleServicesMenu,
+      servicesMenuItems,
+      servicesChevronTransform: this.state.servicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+      openGeoAudit: this.openGeoAudit,
+      allSMBServices: [...consultingServices, ...visibilityServices],
+      goSMBHome: () => this.goSMB(),
+      goHome: () => this.go("home"),
+      goServices: () => this.go("services"),
+      goPortfolio: () => this.go("portfolio"),
+      goContact: () => this.go("contact"),
+      goBlog: () => this.go("blog"),
+      goEnhancement: () => this.go("enhancement"),
+      openCalendly: this.openCalendly,
+
+      workHome,
+      portfolioWork,
+      currentPost: (() => {
+        const p = BLOG_POSTS[this.state.postKey] || BLOG_POSTS["blog-1"];
+        return { ...p, body: p.body.map((blk, i) => ({ ...blk, key: p.id + "-" + i })) };
+      })(),
+      shareLinks: (() => {
+        const p = BLOG_POSTS[this.state.postKey] || BLOG_POSTS["blog-1"];
+        const url = typeof window !== "undefined" ? window.location.href : "https://arperture.io";
+        const text = encodeURIComponent(p.title);
+        const u = encodeURIComponent(url);
+        return {
+          twitter: `https://twitter.com/intent/tweet?text=${text}&url=${u}`,
+          linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+          facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
+        };
+      })(),
+      currentCase: (() => {
+        const c = CASES[caseKey] || CASES.judge;
+        return { ...c, embedUrl: `https://www.youtube-nocookie.com/embed/${c.youtubeId}?rel=0&modestbranding=1` };
+      })(),
+
+      servicesHome: [
+        { tag: "Generate", title: "AI Film & Video", body: "Script-to-screen narrative video, directed shot by shot and graded for a single cinematic mood.", badgeBg:"rgba(46,204,250,.12)", badgeColor:"var(--cyan-300)" },
+        { tag: "Compose", title: "Sound & Score", body: "Original score, sound design, and mix — the half of cinema that sells the picture.", badgeBg:"rgba(255,111,97,.12)", badgeColor:"var(--coral-300)" },
+        { tag: "Direct", title: "Creative Direction", body: "Concept, prompt grammar, and look development so a project reads as one coherent film.", badgeBg:"rgba(142,68,173,.15)", badgeColor:"var(--purple-300)" },
+      ],
+      coreOfferings: [
+        { title: "AI Video Services: Film Direction", body: "Concept-to-completion AI video production using industry-leading generative video models. Cinematic storytelling reimagined for the AI era." },
+        { title: "AI Video Services: Creative Direction", body: "Visual strategy, brand narrative, and art direction for AI-generated campaigns, short films, and immersive content experiences." },
+        { title: "Training & Consulting Services", body: "Hands-on workshops and consulting for creators, brands, and teams wanting to integrate AI into their creative workflow. Custom curriculum available." },
+      ],
+      verticals: [
+        { title: "Ads for Brands / E-Commerce", body: "15–60 second scroll-stopping ads for Meta, TikTok, Reels, and YouTube Shorts, with multiple hook variations and A/B-ready cuts." },
+        { title: "AI UGC Video Creator", body: "AI avatar-driven 'authentic-looking' testimonial and demo videos that mimic organic UGC — usable as paid social ads without real human creators." },
+        { title: "AI Video Localization & Multilingual Ad Scaling", body: "Translate, dub, and adapt existing English-language video assets for international distribution at scale." },
+        { title: "Faceless YouTube Channel Incubation", body: "Launch and grow a fully AI-produced faceless YouTube channel — concept, scripting, voiceover, editing, and upload strategy." },
+        { title: "Image & Video Enhancement, Restoration & Colorization", body: "Studio-grade upscaling, damage repair, and black-and-white colorization for photos and video — priced by tier, quoted before we start.", onClick: () => this.go("enhancement") },
+      ],
+      processSteps: [
+        { num: "01", title: "Discovery", items: ["Client brief", "1:1 consultation", "Contract & roadmap"] },
+        { num: "02", title: "Pre-Production", items: ["AI scriptwriting", "Character design", "Shotlist & storyboard"] },
+        { num: "03", title: "Asset Generation", items: ["Background gen", "Video generation", "Upscaling"] },
+        { num: "04", title: "Post-Production", items: ["Rough edit & review", "AI voiceover", "Post-mix & score"] },
+        { num: "05", title: "Delivery", items: ["Color grading", "Export & ship"] },
+      ],
+      consultingServices,
+      visibilityServices,
+
+      imageTiers: [
+        { name: "Refresh", tag: "Photos that are basically intact — just soft, faded, or too small", price: "$15", unit: "/ image", highlight: false, borderColor: "var(--border)",
+          features: ["Upscale to print resolution", "Sharpen", "Color correction", "Brightness & contrast recovery"] },
+        { name: "Restore", tag: "Visible damage getting in the way of the image", price: "$45", unit: "/ image", highlight: true, borderColor: "var(--cyan-400)",
+          features: ["Everything in Refresh", "Scratch / tear / water-spot repair", "Denoise", "Face recovery"] },
+        { name: "Remaster", tag: "Heavily damaged, or black-and-white you want in full color", price: "$95", unit: "/ image", highlight: false, borderColor: "var(--border)",
+          features: ["Everything in Restore", "Reconstruction of missing areas", "Max-detail upscale", "Full B&W → color colorization"] },
+      ],
+      videoTiers: [
+        { name: "Refresh", tag: "Decent footage that needs a lift", price: "$60", unit: "package", sub: "Up to 2 min", highlight: false, borderColor: "var(--border)",
+          features: ["1080p enhance + upscale", "Sharpen", "Color correction"], extra: "$15 / additional min" },
+        { name: "Restore", tag: "Low-res or noisy footage worth saving", price: "$175", unit: "package", sub: "Up to 5 min", highlight: true, borderColor: "var(--cyan-400)",
+          features: ["4K upscale", "Denoise", "Stabilization"], extra: "$25 / additional min" },
+        { name: "Remaster", tag: "Archival, degraded, or black-and-white footage", price: "$425", unit: "package", sub: "Up to 10 min", highlight: false, borderColor: "var(--border)",
+          features: ["4K restoration", "Colorization", "Motion smoothing (frame interpolation)"], extra: "$40 / additional min" },
+      ],
+      enhanceAddOns: [
+        { label: "Black-and-white colorization (photo)", price: "+$30 / image" },
+        { label: "Black-and-white colorization (video)", price: "+$20 / min" },
+        { label: "Slow-motion / frame interpolation", price: "+$15 / min" },
+        { label: "Heavy-restoration surcharge (severely degraded source)", price: "+50–100% (quoted up front)" },
+        { label: "Rush delivery (24–48 hr)", price: "+35%" },
+      ],
+      enhanceSteps: [
+        { num: "01", title: "Send it over.", body: "Upload your photo or video, or just tell us what you've got. Higher-resolution source means better results, but we work with what you have." },
+        { num: "02", title: "Get a quote, fast.", body: "We look at the actual condition and confirm the tier and price before any work begins. No surprises." },
+        { num: "03", title: "Get it back.", body: "Delivered in your format of choice, ready to print, post, or play — with a revision pass included." },
+      ],
+      enhanceWhy: [
+        { title: "Studio-grade tools, human eyes.", body: "We run professional-tier enhancement and upscaling models — then actually review the output instead of shipping whatever the AI guessed." },
+        { title: "Quoted before we start.", body: "You'll never get a mystery invoice. Condition-based quotes, up front." },
+        { title: "Fast turnaround.", body: "Days, not weeks. Rush available when you need it yesterday." },
+        { title: "Your files stay yours.", body: "We don't resell, repost, or train on your memories. Delivered and deleted on request." },
+      ],
+      enhanceFaqs: [
+        { q: "Can you really colorize black-and-white photos and video?", a: "Yes — and it's one of the things we do best. We research period-accurate tones so the result looks natural and historically plausible, not like a filter slapped on top." },
+        { q: "How much resolution can you add?", a: "We can upscale images up to 6× and video up to 4K (8K on request), rebuilding real detail rather than just stretching pixels." },
+        { q: "What if my source file is really bad?", a: "Send it anyway. We'll tell you honestly whether it's worth doing and what tier it needs. Some things AI can't invent — but we'll be straight with you before you spend anything." },
+        { q: "Do you offer bulk or ongoing rates?", a: "Yes. Whole-archive projects, event batches, and recurring content work all get custom pricing — just ask." },
+        { q: "How fast can I get it back?", a: "Standard turnaround is a few business days depending on volume. Need it in 24–48 hours? Add rush delivery." },
+      ],
+      trainingTracks: [
+        { title: "1:1 Consulting", body: "A working session on your pipeline — tools, prompt grammar, and where AI video actually saves you time." },
+        { title: "Team Workshops", body: "Half- or full-day hands-on workshops for creative teams adopting AI video into an existing production process." },
+        { title: "Custom Curriculum", body: "A structured, multi-session curriculum built around your brand, tools, and deliverables." },
+      ],
+      blogPosts,
+      relatedPosts: blogPosts.filter((b) => b.id !== this.state.postKey).slice(0, 2),
+      copied: this.state.copied,
+      copyLink: this.copyLink,
+      footerLinksA,
+      footerLinksB,
+
+      form,
+      formError,
+      formSent,
+      formSubmitting,
+      submitLabel: formSubmitting ? "Sending…" : "Book a discovery call",
+      formNotSent: !formSent,
+      setName: (e) => this.setState({ form: { ...form, name: e.target.value } }),
+      setEmail: (e) => this.setState({ form: { ...form, email: e.target.value } }),
+      setBrief: (e) => this.setState({ form: { ...form, brief: e.target.value } }),
+      resetForm: () => this.setState({ form: { name: "", email: "", brief: "" }, formSent: false, formError: "" }),
+      submitForm: this.submitForm,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
