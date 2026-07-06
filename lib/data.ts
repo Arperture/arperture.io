@@ -397,6 +397,45 @@ export const TRAINING_TRACKS = [
   { title: "Custom Curriculum", body: "A structured, multi-session curriculum built around your brand, tools, and deliverables." },
 ];
 
+// ---------- FAQ (dedicated /faq page) ----------
+// Answers drive both the visible page and the FAQPage JSON-LD, so they must
+// stay identical. The video-cost answer deliberately avoids specific dollar
+// figures until the rate card is finalized (see the "cost" item).
+export const FAQ_ITEMS: { q: string; a: string }[] = [
+  {
+    q: "How much does an AI-produced video cost?",
+    a: "Every project is scoped to the story, not a stock package. Cost depends on length, number of scenes, and how much custom character or voice work is involved — from a single branded short to a multi-cut brand film, music video, or ongoing monthly content. You'll get a fully itemized quote before anything's booked — no surprise line items, no “AI credits” you didn't agree to.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "A single short-form spot typically takes 1–2 weeks from brief to final export. A full brand campaign or multi-scene project runs 3–6 weeks, depending on revision rounds and how much original score or voiceover work is involved. Episodic or ongoing content (like a recurring social series) runs on a monthly cadence instead of a one-off timeline.",
+  },
+  {
+    q: "What's the difference between hiring Arperture and using an AI video tool myself?",
+    a: "Tools like Runway, Veo, or Synthesia generate clips. Arperture directs a film — meaning someone is making the hundred small decisions a generation tool can't: which shots cut together, whether the score matches the mood, whether a character stays visually consistent scene to scene, and whether the final export actually looks like one coherent piece instead of a reel of disconnected clips. If you just need a quick clip, a DIY tool might be enough. If you need something that has to hold up in front of your audience or your board, that's the gap Arperture fills.",
+  },
+  {
+    q: "Do I own the final video and all the assets?",
+    a: "Yes. Once a project is paid in full, you own the final deliverable outright. Raw generation files and intermediate assets can be included on request — just flag it when we scope the project.",
+  },
+  {
+    q: "What AI tools do you actually use?",
+    a: "Depends on the shot. Current stack includes Google Veo, Kling AI, Runway, Midjourney, Eleven Labs, and Suno for generation, finished in a traditional edit and color pipeline — not just raw AI output. The full 14-step pipeline (discovery → pre-production → asset generation → post-production → delivery) is outlined on the Services page.",
+  },
+  {
+    q: "Can you match an existing brand style or a previous video we made?",
+    a: "Yes — send reference footage, brand guidelines, or past videos during the discovery call and we'll build character/style consistency into the pre-production stage before any generation starts.",
+  },
+  {
+    q: "How many revisions are included?",
+    a: "Most quotes include one full revision round. Additional rounds can be added — this gets scoped up front in your quote, not billed as a surprise afterward.",
+  },
+  {
+    q: "Do you work with businesses outside of video — like the AI consulting or Web Visibility audits?",
+    a: "Yes. Alongside video production, Arperture runs a small-business AI consulting practice (AI Business Analysis from $497, ongoing AI Implementation Consulting) and the Web Visibility Audit ($750 flat, 5 business days) — scoring how well a business shows up across SEO, GEO, and AEO in Google, ChatGPT, and AI Overviews.",
+  },
+];
+
 // ---------- FOOTER ----------
 export const FOOTER_LINKS_A: { label: string; href: string }[] = [
   { label: "Services", href: "/services" },
@@ -404,6 +443,7 @@ export const FOOTER_LINKS_A: { label: string; href: string }[] = [
   { label: "Training", href: "/training" },
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export const FOOTER_LINKS_B: { label: string; href: string }[] = [
