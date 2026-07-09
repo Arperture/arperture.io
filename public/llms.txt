@@ -24,6 +24,7 @@
 
 - [Blog](https://arperture.io/blog/): Notes on putting AI to work in small businesses, plus AI filmmaking craft, technique, and process.
 - [The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026](https://arperture.io/blog/why-small-ai-projects-are-beating-the-giants/): The data on small-budget AI ROI, training investment, and human-in-the-loop systems for small businesses.
+- [Claude vs. ChatGPT vs. Gemini: A Plain-English Guide for Small Business Owners](https://arperture.io/blog/claude-vs-chatgpt-vs-gemini-for-small-business/): What each AI assistant is best at in 2026 and a practical four-step way to pick the right one.
 - [FAQ](https://arperture.io/faq/): Common questions on AI services, fluency training, video cost, timelines, and ownership.
 
 ## Contact
