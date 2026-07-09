@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { NAV_PRIMARY, SERVICES_MENU, SOCIAL_LINKS, CALENDLY_30MIN } from "@/lib/data";
 import { openCalendly } from "@/lib/calendly";
 import { SocialIcon, ChevronDown } from "./icons";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const pathname = usePathname() || "/";
@@ -122,6 +123,7 @@ export default function Nav() {
               </div>
             )}
           </div>
+          <ThemeToggle />
           <button onClick={(e) => openCalendly(CALENDLY_30MIN, e)} className="btn btn-primary btn-nav">
             Book a Call
           </button>
@@ -156,7 +158,7 @@ export default function Nav() {
             <div
               style={{
                 position: "fixed", top: 64, left: 0, width: "100%", height: "calc(100vh - 64px)", zIndex: 60,
-                background: "var(--ink-900)", borderTop: "1px solid var(--border)", overflowY: "auto",
+                background: "var(--surface)", borderTop: "1px solid var(--border)", overflowY: "auto",
                 padding: "8px 24px 32px", boxSizing: "border-box",
               }}
             >
@@ -183,10 +185,12 @@ export default function Nav() {
                 </a>
               ))}
 
+              <ThemeToggle showLabel />
+
               <button
                 onClick={(e) => openCalendly(CALENDLY_30MIN, e)}
                 className="btn btn-primary"
-                style={{ width: "100%", marginTop: 24, fontSize: "1rem", padding: "16px 30px" }}
+                style={{ width: "100%", marginTop: 12, fontSize: "1rem", padding: "16px 30px" }}
               >
                 Book a Call
               </button>
@@ -200,7 +204,7 @@ export default function Nav() {
 
 const dropdownStyle = (side: "left" | "right"): React.CSSProperties => ({
   position: "absolute", top: "calc(100% + 14px)", [side]: 0, minWidth: 190,
-  background: "var(--ink-900)", border: "1px solid var(--border-strong)", borderRadius: 14,
+  background: "var(--surface)", border: "1px solid var(--border-strong)", borderRadius: 14,
   padding: 8, boxShadow: "0 12px 32px rgba(0,0,0,.5)", display: "flex", flexDirection: "column", gap: 2, zIndex: 60,
 });
 

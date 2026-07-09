@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FORMSPREE_ENDPOINT, EMAIL } from "@/lib/data";
 
 const inputStyle: React.CSSProperties = {
-  width: "100%", boxSizing: "border-box", background: "var(--ink-850)", border: "1px solid var(--border)",
+  width: "100%", boxSizing: "border-box", background: "var(--input-surface)", border: "1px solid var(--border)",
   borderRadius: 10, padding: "12px 14px", color: "var(--text)", fontSize: "0.95rem",
 };
 const labelStyle: React.CSSProperties = { display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: 6 };
@@ -40,7 +40,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div style={{ background: "rgba(14,14,15,.4)", border: "1px solid var(--border)", borderRadius: 16, padding: 32 }}>
+    <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 16, padding: 32 }}>
       {sent ? (
         <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start" }}>
           <div style={{ display: "flex", gap: 10, alignItems: "flex-start", background: "rgba(63,217,164,.1)", border: "1px solid rgba(63,217,164,.3)", borderRadius: 12, padding: 16 }}>

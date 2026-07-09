@@ -85,12 +85,14 @@ body { margin: 0; overflow-x: hidden; }
   z-index: 50;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  background: rgba(14, 14, 15, 0.74);
+  background: var(--nav-surface);
   border-bottom: 1px solid var(--border);
 }
 .brand img { transition: transform var(--dur-4) var(--ease-spring); }
 .brand:hover img { transform: rotate(30deg); }
 .nav-link { background: none; border: none; cursor: pointer; padding: 0; font-size: 0.95rem; font-family: var(--font-body); transition: color var(--dur-1) var(--ease-out); }
+.theme-toggle { transition: border-color var(--dur-1) var(--ease-out), background var(--dur-1) var(--ease-out); }
+.theme-toggle:hover { border-color: var(--cyan-400); background: rgba(46, 204, 250, 0.06); }
 .menu-item { transition: background var(--dur-1) var(--ease-out); }
 .menu-item:hover { background: rgba(46, 204, 250, 0.08); }
 .play-thumb { transition: filter var(--dur-2) var(--ease-out); }

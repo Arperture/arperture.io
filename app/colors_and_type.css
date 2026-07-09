@@ -50,6 +50,9 @@
   --text-muted:var(--ink-300);
   --text-faint:var(--ink-400);
   --on-accent:var(--ink-950); /* dark text that sits on bright cyan/coral fills */
+  --nav-surface:rgba(14,14,15,.74); /* translucent sticky-nav fill (theme-aware) */
+  --input-surface:var(--ink-850);   /* form input fill (theme-aware) */
+  color-scheme:dark;
 
   /* ---------- GRADIENTS ---------- */
   --grad-signal:linear-gradient(120deg,var(--cyan-400) 0%,var(--coral-400) 100%);
@@ -140,3 +143,35 @@
 .arperture a{color:var(--cyan-300);text-decoration:none;}
 .arperture a:hover{color:var(--cyan-200);}
 .arperture ::selection{background:var(--cyan-400);color:var(--ink-950);}
+
+/* ============================================================
+   LIGHT THEME — opt-in via [data-theme="light"] on <html>.
+   Dark remains the default (brand-native). Only the semantic
+   surface/text tokens and a few accent-text ramps are re-pointed
+   so contrast holds on a light ground; bright fill accents
+   (cyan-400 / coral-400 buttons) stay as-is with dark on-accent.
+   ============================================================ */
+:root[data-theme="light"]{
+  color-scheme:light;
+  /* cool off-white ground, biased toward the brand cyan */
+  --bg:#F4F7F9;
+  --surface:#FFFFFF;
+  --surface-2:#EDF1F4;
+  --surface-3:#E3E8ED;
+  --border:rgba(20,22,26,.10);
+  --border-strong:rgba(20,22,26,.20);
+  --text:#14161A;
+  --text-muted:#525C67;
+  --text-faint:#8B95A1;
+  --on-accent:#14161A;
+  --nav-surface:rgba(255,255,255,.82);
+  --input-surface:#EDF1F4;
+  /* darken the accent-text ramps so kickers/links read on white */
+  --cyan-300:#0F86AD;
+  --cyan-200:#0B6C8C;
+  --coral-300:#D64A38;
+  --purple-300:#7E3A97;
+  --ink-200:#525C67; /* was a light grey used as body text on dark */
+  --ink-100:#2A2F36;
+}
+:root[data-theme="light"] .arperture ::selection{background:var(--cyan-400);color:#14161A;}
