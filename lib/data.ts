@@ -106,6 +106,12 @@ export const WORK_DATA: Work[] = [
     youtubeId: "_DEeKSSlOis", hasCase: false,
   },
   {
+    id: "monster-energy", slug: "", title: "Monster Energy: Unleash the Ultra", category: "Spec Ad · Concept", date: "2026",
+    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
+    blurb: "A conceptual spec commercial for Monster Energy Ultra Zero — the mid-day office slump, unleashed. A self-directed proof that AI-generated production can stand shoulder to shoulder with a big-brand spot.",
+    youtubeId: "p-7DyWsf15I", hasCase: false,
+  },
+  {
     id: "music-video", slug: "", title: "Iridescence", category: "Music Video", date: "Spring 2025",
     grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
     blurb: "A hypnotic AI-generated music video for an upbeat dub techno journey — a showcase of AI serving artistic vision, not replacing it.",
