@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/faq/" },
   title: "Frequently Asked Questions",
   description:
-    "Answers on AI video production cost, timelines, ownership, revisions, tools, and how Arperture's directed AI film work differs from DIY generation — plus AI consulting and Web Visibility audits.",
+    "Answers on Arperture's small-business AI services — consulting, AI fluency training, and Web Visibility audits — plus AI video production cost, timelines, tools, and ownership.",
 };
 
 export default function FaqPage() {
@@ -31,7 +31,7 @@ export default function FaqPage() {
           Frequently Asked Questions
         </h1>
         <p style={{ color: "var(--text-muted)", maxWidth: "65ch", fontSize: "1.15rem" }}>
-          Cost, timelines, ownership, tools, and how a directed AI film differs from a DIY clip. Don&apos;t see your question? <Link href="/contact" className="link-cyan" style={{ textDecoration: "none" }}>Ask us directly →</Link>
+          AI consulting, fluency training, and Web Visibility audits for small businesses — plus how our video production works. Don&apos;t see your question? <Link href="/contact" className="link-cyan" style={{ textDecoration: "none" }}>Ask us directly →</Link>
         </p>
       </section>
 

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
-import { CONSULTING_SERVICES, VISIBILITY_SERVICES, CALENDLY_30MIN, CALENDLY_GEO } from "@/lib/data";
+import { CONSULTING_SERVICES, FLUENCY_SERVICES, VISIBILITY_SERVICES, CALENDLY_30MIN, CALENDLY_GEO } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/small-business/" },
-  title: "AI Consulting & AI Search Visibility",
+  title: "AI Consulting, AI Fluency & Web Visibility for Small Businesses",
   description:
-    "AI consulting and Web Visibility audits for small businesses — a real AI roadmap plus SEO, GEO & AEO scoring to find out whether ChatGPT and Google AI Overviews recommend you.",
+    "AI consulting, hands-on AI fluency training, and Web Visibility audits for small businesses — a real AI roadmap, a team that knows the tools, and SEO/GEO/AEO scoring that shows whether Google and ChatGPT recommend you.",
 };
 
 function ServiceCard({ s, accent }: { s: (typeof CONSULTING_SERVICES)[number]; accent: string }) {
@@ -30,10 +30,10 @@ export default function SmallBusinessPage() {
       <section style={{ padding: "80px 0 16px" }}>
         <Kicker color="var(--coral-300)">For small businesses</Kicker>
         <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2.2rem,5vw,3.4rem)", letterSpacing: "-.02em", margin: "16px 0 12px", textTransform: "uppercase" }}>
-          AI Consulting &amp; AI Search Visibility
+          AI Consulting, Fluency &amp; Search Visibility
         </h1>
         <p style={{ color: "var(--text-muted)", maxWidth: "65ch", fontSize: "1.15rem" }}>
-          Cut through the AI hype with a real roadmap, or find out whether ChatGPT and Google AI Overviews recommend you at all.
+          Cut through the AI hype with a real roadmap, get your team fluent with the tools, and find out whether ChatGPT and Google AI Overviews recommend you at all.
         </p>
       </section>
 
@@ -47,6 +47,14 @@ export default function SmallBusinessPage() {
           <a href="https://www.youtube.com/@DrewDoesAI" target="_blank" rel="noopener noreferrer" className="link-cyan" style={{ fontWeight: 600, fontSize: "0.9rem", textDecoration: "none" }}>
             Backed by Drew Does AI on YouTube →
           </a>
+        </div>
+      </section>
+
+      <section id="fluency" style={{ padding: "32px 0 56px", borderTop: "1px solid var(--border)", scrollMarginTop: 100 }}>
+        <Kicker color="var(--coral-300)">AI Fluency</Kicker>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.8rem", letterSpacing: "-.02em", margin: "16px 0 24px" }}>Make Your Team Confident with AI</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 20 }}>
+          {FLUENCY_SERVICES.map((s) => <ServiceCard key={s.title} s={s} accent="var(--coral-300)" />)}
         </div>
       </section>
 

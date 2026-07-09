@@ -1,13 +1,18 @@
-# Arperture Media
+# Arperture
 
-> Arperture Media is a cinematic AI creative studio based in Leesburg, Virginia (serving clients worldwide). We produce film-grade AI video, sound design, and branded stories for brands, artists & storytellers, and we help small businesses with AI consulting and Web Visibility (SEO, GEO & AEO). Founded by Andrew Dallons. Contact: contact@arperture.io · (571) 200-1186.
+> Arperture is a Leesburg, Virginia studio that helps local small businesses put AI to work — hands-on AI consulting, AI fluency training for teams, and Web Visibility audits (SEO, GEO & AEO) that show whether Google and ChatGPT recommend your business. Arperture also produces cinematic AI video: film-grade video, sound design, and branded stories. Founded by Andrew Dallons. Contact: contact@arperture.io · (571) 200-1186.
 
-## Services
+## Small Business Services
 
-- [AI Video Services & Production](https://arperture.io/services/): Concept-to-completion AI video production — film direction, creative direction, and a 14-step cinematic pipeline.
-- [AI Consulting & Search Visibility](https://arperture.io/small-business/): AI Business Analysis (from $497), AI Implementation Consulting (monthly retainer), and the Web Visibility Audit ($750 flat) scoring SEO, GEO & AEO.
+- [AI Consulting](https://arperture.io/small-business/#consulting): AI Business Analysis (from $497) maps which AI tools fit your operations and how to implement them; AI Implementation Consulting is an ongoing monthly retainer for workflow builds, team training, and automation.
+- [AI Fluency Training](https://arperture.io/small-business/#fluency): Hands-on workshops and 1:1 sessions that make your team confident with AI — built on the tools you already use and the work you actually do. Half-day workshops to multi-session curricula.
+- [Web Visibility Audit](https://arperture.io/small-business/#visibility): $750 flat, 5 business days. A 100-point scored report across SEO, GEO & AEO showing whether Google, ChatGPT, Perplexity, and AI Overviews recommend your business, with a prioritized fix roadmap.
+- [All small business services](https://arperture.io/small-business/)
+
+## Video Production
+
+- [AI Video Services & Production](https://arperture.io/services/): Concept-to-completion cinematic AI video — film direction, creative direction, sound & score — via a 14-step pipeline.
 - [Image & Video Enhancement, Restoration & Colorization](https://arperture.io/enhancement/): Studio-grade upscaling, damage repair, and black-and-white colorization for photos and video, priced by tier and quoted up front.
-- [Training & Consulting](https://arperture.io/training/): 1:1 sessions, team workshops, and custom curriculum for teams adopting AI video.
 
 ## Work
 
@@ -18,9 +23,7 @@
 ## Writing
 
 - [Blog](https://arperture.io/blog/): Notes on AI filmmaking craft, technique, and process.
-- [What 'Directing' Means When the Camera Is a Prompt](https://arperture.io/blog/directing-when-the-camera-is-a-prompt/)
-- [Keeping a Character Consistent Across Every Shot](https://arperture.io/blog/keeping-a-character-consistent/)
-- [Sound Sells the Shot](https://arperture.io/blog/sound-sells-the-shot/)
+- [FAQ](https://arperture.io/faq/): Common questions on AI services, fluency training, video cost, timelines, and ownership.
 
 ## Contact
 

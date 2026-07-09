@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The production marketing site for **Arperture Media** (a cinematic AI video studio), live at **arperture.io**. It's a **Next.js 15 App Router** app built as a **fully static export** and deployed on **Vercel**. Pushing to `main` auto-deploys.
+The production marketing site for **Arperture**, live at **arperture.io**. Arperture helps small businesses put AI to work — the site **leads with small-business services** (AI consulting, AI fluency training, and Web Visibility / SEO-GEO-AEO audits) and features **cinematic AI video production** as a secondary offering. It's a **Next.js 15 App Router** app built as a **fully static export** and deployed on **Vercel**. Pushing to `main` auto-deploys.
 
 It was recreated from an HTML/CSS prototype exported from Claude Design; that original design source is preserved under `project/` and `chats/` (reference only — not part of the app, excluded in `tsconfig.json`).
 
