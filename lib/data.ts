@@ -201,7 +201,8 @@ export const CASES: Record<string, CaseStudy> = {
 };
 
 // ---------- BLOG ----------
-export type BlogBlock = { h2?: boolean; p?: boolean; text: string };
+// For img blocks, `text` is the image's alt text and `src` the asset path.
+export type BlogBlock = { h2?: boolean; p?: boolean; img?: boolean; src?: string; text: string };
 export type BlogPost = {
   id: string;
   slug: string;
@@ -218,6 +219,49 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: "blog-4", slug: "why-small-ai-projects-are-beating-the-giants",
+    date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "Small Business AI",
+    title: "The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026",
+    excerpt: "The data says small, human-governed AI projects out-earn six-figure rollouts. Here's where the returns actually come from.",
+    metaDescription: "Why small-budget AI projects deliver 2.1× higher ROI than six-figure rollouts — the data on training budgets, human-in-the-loop systems, and workflow automation for small businesses.",
+    coverSrc: "/assets/blog-4.jpg",
+    faqs: [
+      { q: "Do small businesses get better ROI from AI than large enterprises?", a: "The data says yes. A study of 200 B2B AI deployments found that projects with budgets under €15K delivered 2.1× higher ROI than deployments over €100K — a +428% median return against +198% — with a median breakeven of eight months. Small budgets force the discipline of picking one use case that pays off and shipping it." },
+      { q: "How much of an AI budget should go to training?", a: "At least 25%. Teams that put a quarter or more of their AI budget into training saw a 2.4× ROI multiplier. Skip the training and adoption stalls around 31% of employees; invest in it and autonomous use climbs to 87%." },
+      { q: "What is human-in-the-loop AI and why does it matter for small businesses?", a: "Human-in-the-loop means a person reviews and approves AI output before it ships. These setups cut critical incidents by 4.3× compared to fully autonomous systems and still delivered better returns — +372% ROI against +268%. The human sign-off is the quality check that stops one bad output from becoming a reputation and capital problem." },
+    ],
+    body: [
+      { p: true, text: "You can still run a company without AI in 2026. It's just more expensive than it needs to be, and the cost shows up in three places: time, capital, and attention. That gap has stopped being a talking point you can wave away and turned into something you can put a number on." },
+      { p: true, text: "At Arperture, we treat AI as infrastructure, not a stand-in for human judgment. It handles the machine work so people can spend their hours on the parts that actually need a person. What follows isn't hype. It's what the data says about where the returns are really coming from." },
+      { h2: true, text: "Smaller Budgets Are Winning" },
+      { p: true, text: "Denis Atlan studied 200 B2B deployments and found something most vendors would rather you didn't know: spending more does not buy you a better return. Projects with budgets under €15K delivered 2.1× higher ROI than deployments over €100K." },
+      { p: true, text: "The reason is discipline. Big projects tend to sprawl. Scope creeps, more stakeholders weigh in, and the internal politics get heavier than the problem being solved. A small budget forces one decision: pick the single use case that pays off and ship it. The median breakeven on those small projects was eight months." },
+      { p: true, text: "The headline from the study: small-budget projects under €15K hit +428% median ROI, against +198% for the ones over €100K." },
+      { img: true, src: "/assets/blog-4-budget-roi.jpg", text: "Infographic: AI projects under €15K delivered +428% median ROI versus +198% for projects over €100K — 2.1× higher ROI on small budgets, with an 8-month median breakeven." },
+      { h2: true, text: "Put 25% Of The Budget Into Training" },
+      { p: true, text: "There's a useful frame for this from strategy research — the Resource-Based View (Barney, 1991). The software itself is just a resource, something anyone with a credit card can buy. The advantage comes from turning that resource into a capability, and that only happens through people who know how to use it." },
+      { p: true, text: "The numbers back it up. Teams that put at least 25% of their AI budget into training saw a 2.4× ROI multiplier. The National Science Foundation frames “AI-Ready” as a continuum — literacy, then proficiency, then fluency — and it starts with two plain questions: why AI, and when AI. Skip the training and adoption stalls around 31%. Invest in it and autonomous use among employees climbs to 87%." },
+      { img: true, src: "/assets/blog-4-training.jpg", text: "Infographic: a 2.4× ROI multiplier when at least 25% of the AI budget goes to team training, and employee adoption rising from 31% without training to 87% autonomous use with it." },
+      { h2: true, text: "Human-In-The-Loop Is Where The Profit Is" },
+      { p: true, text: "A lot of people assume full autonomy is the goal. The most profitable deployments say otherwise. Human-in-the-loop setups cut critical incidents by 4.3× and still came out ahead on return — +372% against +268% for fully autonomous systems." },
+      { p: true, text: "The downside of going fully hands-off is real, not hypothetical. Atlan's research points to a fintech startup whose autonomous chatbot hallucinated financial advice. That mistake cost them a customer worth €10,000, plus an €8,000 legal settlement on top of it. Keeping a person in the loop is the quality check that stops one bad output from becoming a reputation and capital problem." },
+      { p: true, text: "One rule worth taping to the monitor: if you wouldn't post it publicly, don't type it into a public GenAI tool." },
+      { h2: true, text: "Your AI Choice Is Mostly A Spreadsheet Question" },
+      { p: true, text: "When teams weigh Google Gemini against Microsoft Copilot, the deciding factor usually isn't the model. It's the ecosystem you already live in. For a 10-person team, adding Copilot Business runs about $2,160 more per year than Google Workspace, which folded Gemini into its plans back in January 2025." },
+      { p: true, text: "Then there's the switching cost. File permissions, retraining people, support tickets. That bill usually dwarfs whatever edge one assistant has over the other. For most owners, the smart move is to get more out of the suite you're already paying for, not to run a messy migration for a single feature." },
+      { h2: true, text: "AI Is Trading Your “Laundry” For “Poetry”" },
+      { p: true, text: "Research out of MIT Sloan used accounting as a stand-in for knowledge work and found a clear shift in how time gets spent. AI is moving roughly 8.5% of work hours off the laundry — the data entry and clerical grind — and onto the poetry: the client conversations and strategic calls that are worth an expert's attention." },
+      { p: true, text: "That shift rewards experience. Seasoned professionals read the AI's confidence scores, notice when it's unsure, and step in before a shaky answer ships. Beginners tend to take the suggestion at face value, and the output shows it." },
+      { h2: true, text: "Treat Automation As A Nervous System, Not A Brain" },
+      { p: true, text: "The operators getting the most out of this stop thinking of AI as a single tool and start treating it as connective tissue. A common 2026 setup: Google Sheets as the command center, an LLM as the brain, and something like Zapier as the nervous system moving information between them." },
+      { p: true, text: "That's what lets you automate the connective work, like PDF and invoice processing. Drop a document in a folder, let the system pull the data out and file it, and the hours add up fast — north of 150 a year for a lot of small businesses. That's the line between doing data entry and running the operation." },
+      { p: true, text: "Here's what that looks like in practice. Yield Bookkeeping had the problem every small firm runs into: nobody had time to post consistently, so the brand stayed invisible. I built a system on Claude that runs the whole content operation. It takes raw media, writes the captions, and queues everything as drafts in Buffer, our scheduler. It turns articles into blog posts written in Yield's own voice, publishes them, then reformats the same piece into a newsletter for the mailing list. A connected image tool generates the blog art and the newsletter infographics along the way. Everything lands as a draft first. Once a week I review the batch, approve it, and it ships. Start to finish, about 30 minutes. The machine handles the assembly. A person still signs off on every piece." },
+      { h2: true, text: "The Workflow Matters More Than The Hype" },
+      { p: true, text: "The direction of travel is clear enough, with State and Territory Coordination Hubs and national “AI-Ready” standards taking shape, and 60 to 70% of repetitive tasks already automatable. But the 159.8% median ROI isn't coming from giant enterprise rollouts. It's coming from small, human-governed systems built by teams that trained for the work and integrated it on purpose." },
+      { p: true, text: "So here's the question worth sitting with: if you got 100 hours of laundry back this year, what would you actually do with them?" },
+    ],
+  },
   {
     id: "blog-1", slug: "directing-when-the-camera-is-a-prompt",
     date: "Jun 2026", datePublished: "2026-06-15", readTime: "7 min read", category: "Craft & Process",

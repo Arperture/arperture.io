@@ -92,7 +92,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <article style={{ padding: "40px 0 0", maxWidth: "72ch", display: "flex", flexDirection: "column", gap: 20 }}>
         {post.body.map((blk, i) =>
-          blk.h2 ? (
+          blk.img && blk.src ? (
+            <div key={i} style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", borderRadius: 12, overflow: "hidden", border: "1px solid var(--border)", margin: "8px 0" }}>
+              <Image src={blk.src} alt={blk.text} fill sizes="(max-width: 760px) 100vw, 72ch" style={{ objectFit: "cover" }} />
+            </div>
+          ) : blk.h2 ? (
             <h2 key={i} style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.4rem", letterSpacing: "-.01em", margin: "12px 0 0", color: "var(--text)" }}>{blk.text}</h2>
           ) : (
             <p key={i} style={{ color: "var(--text-muted)", fontSize: "1.05rem", lineHeight: 1.7, margin: 0 }}>{blk.text}</p>
