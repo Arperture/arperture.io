@@ -22,7 +22,8 @@
 
 ## Writing
 
-- [Blog](https://arperture.io/blog/): Notes on AI filmmaking craft, technique, and process.
+- [Blog](https://arperture.io/blog/): Notes on putting AI to work in small businesses, plus AI filmmaking craft, technique, and process.
+- [The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026](https://arperture.io/blog/why-small-ai-projects-are-beating-the-giants/): The data on small-budget AI ROI, training investment, and human-in-the-loop systems for small businesses.
 - [FAQ](https://arperture.io/faq/): Common questions on AI services, fluency training, video cost, timelines, and ownership.
 
 ## Contact
