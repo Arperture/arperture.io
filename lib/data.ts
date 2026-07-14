@@ -16,7 +16,7 @@ export const EMAIL = "contact@arperture.io";
 export type SocialKey = "instagram" | "youtube" | "tiktok" | "facebook";
 export const SOCIAL_LINKS: { key: SocialKey; label: string; url: string }[] = [
   { key: "instagram", label: "Instagram", url: "https://www.instagram.com/arperturemedia/" },
-  { key: "youtube", label: "YouTube", url: "https://www.youtube.com/@ArpertureAI" },
+  { key: "youtube", label: "YouTube", url: "https://www.youtube.com/@DrewDoesAI" },
   { key: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@arperturemedia" },
   { key: "facebook", label: "Facebook", url: "https://www.facebook.com/arperture" },
 ];
