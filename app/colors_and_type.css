@@ -145,8 +145,9 @@
 .arperture ::selection{background:var(--cyan-400);color:var(--ink-950);}
 
 /* ============================================================
-   LIGHT THEME — opt-in via [data-theme="light"] on <html>.
-   Dark remains the default (brand-native). Only the semantic
+   LIGHT THEME — via [data-theme="light"] on <html>, the site
+   default (set server-side in app/layout.tsx; the toggle can
+   switch back to dark, which is the no-attr :root). Only the semantic
    surface/text tokens and a few accent-text ramps are re-pointed
    so contrast holds on a light ground; bright fill accents
    (cyan-400 / coral-400 buttons) stay as-is with dark on-accent.

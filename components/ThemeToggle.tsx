@@ -20,9 +20,9 @@ function MoonIcon() {
 }
 
 export default function ThemeToggle({ showLabel = false }: { showLabel?: boolean }) {
-  // SSR default is dark (matches the no-attr :root); synced to the stored
-  // choice on mount, so first client render matches the server (no mismatch).
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  // SSR default is light (matches data-theme="light" on <html>); synced to the
+  // stored choice on mount, so first client render matches the server (no mismatch).
+  const [theme, setTheme] = useState<"dark" | "light">("light");
 
   useEffect(() => {
     const current = document.documentElement.getAttribute("data-theme");
