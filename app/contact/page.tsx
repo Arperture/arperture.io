@@ -23,7 +23,7 @@ export default function ContactPage() {
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(255,111,97,.12)", color: "var(--coral-300)" }}>Based in USA · Working Globally</span>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(46,204,250,.12)", color: "var(--cyan-300)" }}>{EMAIL}</span>
+            <a href={`mailto:${EMAIL}`} style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(46,204,250,.12)", color: "var(--cyan-300)", textDecoration: "none" }}>{EMAIL}</a>
             <a href={`tel:${PHONE_TEL}`} style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(46,204,250,.12)", color: "var(--cyan-300)", textDecoration: "none" }}>{PHONE}</a>
           </div>
         </div>
