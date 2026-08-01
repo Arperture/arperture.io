@@ -60,6 +60,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
         <Footer />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
+        <Script
+          id="hs-script-loader"
+          src="https://js-na2.hs-scripts.com/246923256.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
