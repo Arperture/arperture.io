@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { NAV_PRIMARY, SERVICES_MENU, SOCIAL_LINKS, CALENDLY_30MIN } from "@/lib/data";
 import { openCalendly } from "@/lib/calendly";
 import { SocialIcon, ChevronDown } from "./icons";
-import ThemeToggle from "./ThemeToggle";
+import { Wordmark, WButton } from "./Workbench";
 
 export default function Nav() {
   const pathname = usePathname() || "/";
@@ -48,7 +47,7 @@ export default function Nav() {
 
   const linkStyle = (active: boolean) => ({
     color: active ? "var(--text)" : "var(--text-muted)",
-    fontWeight: active ? 700 : 400,
+    fontWeight: active ? 600 : 500,
   });
 
   return (
@@ -59,11 +58,8 @@ export default function Nav() {
           alignItems: "center", justifyContent: "space-between", gap: 20, flexWrap: "wrap",
         }}
       >
-        <Link href="/" className="brand" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Image src="/assets/arperture-mark.webp" alt="Arperture" width={30} height={30} style={{ display: "block" }} />
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.15rem", color: "var(--text)" }}>
-            Arperture<b style={{ color: "var(--cyan-400)" }}>.</b>
-          </span>
+        <Link href="/" className="brand" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Wordmark size={21} />
         </Link>
 
         {/* ---------- DESKTOP NAV ---------- */}
@@ -114,7 +110,7 @@ export default function Nav() {
               <div style={dropdownStyle("right")}>
                 {SOCIAL_LINKS.map((soc) => (
                   <a key={soc.key} href={soc.url} target="_blank" rel="noopener noreferrer" className="menu-item" style={socialItemStyle}>
-                    <span style={{ display: "flex", color: "var(--cyan-300)", flexShrink: 0 }}>
+                    <span style={{ display: "flex", color: "var(--ember)", flexShrink: 0 }}>
                       <SocialIcon name={soc.key} />
                     </span>
                     {soc.label}
@@ -123,10 +119,9 @@ export default function Nav() {
               </div>
             )}
           </div>
-          <ThemeToggle />
-          <button onClick={(e) => openCalendly(CALENDLY_30MIN, e)} className="btn btn-primary btn-nav">
+          <WButton variant="primary" size="sm" onClick={(e) => openCalendly(CALENDLY_30MIN, e)}>
             Book a Call
-          </button>
+          </WButton>
         </div>
 
         {/* ---------- MOBILE NAV ---------- */}
@@ -158,7 +153,7 @@ export default function Nav() {
             <div
               style={{
                 position: "fixed", top: 64, left: 0, width: "100%", height: "calc(100vh - 64px)", zIndex: 60,
-                background: "var(--surface)", borderTop: "1px solid var(--border)", overflowY: "auto",
+                background: "var(--bg)", borderTop: "1px solid var(--border)", overflowY: "auto",
                 padding: "8px 24px 32px", boxSizing: "border-box",
               }}
             >
@@ -178,22 +173,18 @@ export default function Nav() {
               <div style={mobileSectionLabel}>Socials</div>
               {SOCIAL_LINKS.map((soc) => (
                 <a key={soc.key} href={soc.url} target="_blank" rel="noopener noreferrer" style={mobileSocialStyle}>
-                  <span style={{ display: "flex", color: "var(--cyan-300)", flexShrink: 0 }}>
+                  <span style={{ display: "flex", color: "var(--ember)", flexShrink: 0 }}>
                     <SocialIcon name={soc.key} />
                   </span>
                   {soc.label}
                 </a>
               ))}
 
-              <ThemeToggle showLabel />
-
-              <button
-                onClick={(e) => openCalendly(CALENDLY_30MIN, e)}
-                className="btn btn-primary"
-                style={{ width: "100%", marginTop: 12, fontSize: "1rem", padding: "16px 30px" }}
-              >
-                Book a Call
-              </button>
+              <div style={{ marginTop: 24 }}>
+                <WButton variant="primary" size="lg" onClick={(e) => openCalendly(CALENDLY_30MIN, e)} style={{ width: "100%" }}>
+                  Book a Call
+                </WButton>
+              </div>
             </div>
           )}
         </div>
@@ -204,17 +195,17 @@ export default function Nav() {
 
 const dropdownStyle = (side: "left" | "right"): React.CSSProperties => ({
   position: "absolute", top: "calc(100% + 14px)", [side]: 0, minWidth: 190,
-  background: "var(--surface)", border: "1px solid var(--border-strong)", borderRadius: 14,
-  padding: 8, boxShadow: "0 12px 32px rgba(0,0,0,.5)", display: "flex", flexDirection: "column", gap: 2, zIndex: 60,
+  background: "var(--surface-2)", border: "1px solid var(--border-strong)", borderRadius: 10,
+  padding: 8, boxShadow: "var(--shadow-lg)", display: "flex", flexDirection: "column", gap: 2, zIndex: 60,
 });
 
 const menuItemStyle: React.CSSProperties = {
-  display: "block", width: "100%", textAlign: "left", padding: "10px 12px", borderRadius: 9,
+  display: "block", width: "100%", textAlign: "left", padding: "10px 12px", borderRadius: 6,
   color: "var(--text)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", fontSize: "0.9rem",
 };
 
 const socialItemStyle: React.CSSProperties = {
-  display: "flex", alignItems: "center", gap: 12, padding: "10px 12px", borderRadius: 9,
+  display: "flex", alignItems: "center", gap: 12, padding: "10px 12px", borderRadius: 6,
   color: "var(--text)", textDecoration: "none", fontSize: "0.9rem",
 };
 
@@ -225,7 +216,7 @@ const mobileLinkStyle: React.CSSProperties = {
 };
 
 const mobileSectionLabel: React.CSSProperties = {
-  padding: "18px 0 6px", fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.12em",
+  padding: "18px 0 6px", fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.1em",
   textTransform: "uppercase", color: "var(--text-faint)",
 };
 

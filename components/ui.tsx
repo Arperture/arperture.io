@@ -4,7 +4,7 @@ export function Kicker({ color = "var(--cyan-300)", children }: { color?: string
   return (
     <span
       style={{
-        fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.22em",
+        fontFamily: "var(--font-mono)", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.08em",
         textTransform: "uppercase", color,
       }}
     >
@@ -17,9 +17,9 @@ export function H1({ children, style }: { children: React.ReactNode; style?: Rea
   return (
     <h1
       style={{
-        fontFamily: "var(--font-display)", fontWeight: 600,
-        fontSize: "clamp(2.2rem,5vw,3.4rem)", letterSpacing: "-.02em", margin: "16px 0 12px",
-        textTransform: "uppercase", ...style,
+        fontFamily: "var(--font-display)", fontWeight: 900,
+        fontSize: "clamp(2.2rem,5vw,3.4rem)", letterSpacing: "-.025em", margin: "16px 0 12px",
+        ...style,
       }}
     >
       {children}
@@ -31,7 +31,7 @@ export function H2({ children, style }: { children: React.ReactNode; style?: Rea
   return (
     <h2
       style={{
-        fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem",
+        fontFamily: "var(--font-display)", fontWeight: 900, fontSize: "2.4rem",
         letterSpacing: "-.02em", margin: "16px 0 12px", ...style,
       }}
     >

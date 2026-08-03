@@ -1,101 +1,106 @@
 /* ============================================================
-   ARPERTURE MEDIA — DESIGN SYSTEM  ·  "THE APERTURE"  v2.1
+   ARPERTURE MEDIA — DESIGN SYSTEM  ·  "THE WORKBENCH"  v3.0
    colors_and_type.css — foundational + semantic tokens
-   Cinematic dark · retro-futurist · AI creative video studio
+   Cream tool-UI · amber signal · AI consulting + film studio
+   Ported from the DrewDoesAI Workbench design system so the
+   site matches the approved Claude Design homepage exactly.
    ------------------------------------------------------------
-   Fonts are loaded from free CDNs (Fontshare + Google Fonts).
-   See README.md → "Fonts" if you need to self-host TTFs.
+   Fonts are loaded from Google Fonts. See README.md → "Fonts"
+   if you need to self-host.
    ============================================================ */
 
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root{
-  /* ---------- OFFICIAL BRAND COLORS ---------- */
-  --coral:#FF6F61;   --black:#1C1C1C;   --cyan:#2ECCFA;
-  --purple:#8E44AD;  --silver:#C0C0C0;  --blue:#397F9E;
+  /* ---------- WORKBENCH RAW PALETTE (light / "Cream Workbench") ---------- */
+  --ink:#121417;          --cream:#F2F0EB;        --cream-pure:#FFFFFF;
+  --safety-amber:#FFA61A; --ember:#D97E00;        --amber-tint:rgba(217,126,0,.10);
+  --slate:#5A6170;        --slate-dim:#8A8F99;
+  --hairline:#DCD8D0;     --hairline-soft:#E7E3DB; --hairline-strong:#C9C4B8;
+  --pnl-green:#15915A;    --pnl-red:#DC2626;
+  --node-dot:#D8D5CE;
 
-  /* ---------- INK NEUTRAL RAMP (Deep Black → Metallic Silver) ---------- */
-  --ink-950:#0E0E0F; --ink-900:#1C1C1C; --ink-850:#222225; --ink-800:#2A2A2E;
-  --ink-700:#36363B; --ink-600:#45454B; --ink-500:#5C5C63; --ink-400:#7C7C84;
-  --ink-300:#9A9AA2; --ink-200:#C0C0C0; --ink-100:#DEDEE1; --ink-50:#F4F4F6;
+  /* Legacy ramp names kept so every existing page re-themes automatically —
+     the Workbench system has ONE accent (amber/ember), so the old
+     multi-hue ramps collapse onto it; purple/blue collapse to neutral slate. */
+  --ink-950:var(--cream);       --ink-900:var(--cream-pure);   --ink-850:#F5F3EE;
+  --ink-800:var(--hairline-soft); --ink-700:var(--hairline);   --ink-600:var(--hairline-strong);
+  --ink-500:var(--slate-dim);   --ink-400:var(--slate);        --ink-300:var(--slate);
+  --ink-200:#3A3F49;            --ink-100:#23262B;             --ink-50:var(--ink);
 
-  /* ---------- ELECTRIC CYAN RAMP (primary signal) ---------- */
-  --cyan-50:#E7FAFF; --cyan-100:#BFF2FE; --cyan-200:#90E6FD; --cyan-300:#5DD9FB;
-  --cyan-400:#2ECCFA; --cyan-500:#16A6D4; --cyan-600:#0F7CA0; --cyan-700:#0A5470;
+  --cyan-50:var(--amber-tint);  --cyan-100:var(--amber-tint);  --cyan-200:var(--safety-amber);
+  --cyan-300:var(--ember);      --cyan-400:var(--safety-amber); --cyan-500:var(--ember);
+  --cyan-600:var(--ember);      --cyan-700:var(--ember);
 
-  /* ---------- SOFT CORAL RAMP (secondary / warmth) ---------- */
-  --coral-50:#FFEDEA; --coral-100:#FFD3CD; --coral-200:#FFAAA1; --coral-300:#FF8C7E;
-  --coral-400:#FF6F61; --coral-500:#E5533F; --coral-600:#B83B2E;
+  --coral-50:var(--amber-tint); --coral-100:var(--amber-tint); --coral-200:var(--safety-amber);
+  --coral-300:var(--ember);     --coral-400:var(--safety-amber); --coral-500:var(--ember); --coral-600:var(--ember);
 
-  /* ---------- NEON PURPLE RAMP (tertiary / AI / depth) ---------- */
-  --purple-100:#E2C9EE; --purple-200:#C99CDD; --purple-300:#A968C4;
-  --purple-400:#8E44AD; --purple-500:#723787; --purple-600:#552963;
+  --purple-100:var(--hairline-soft); --purple-200:var(--hairline); --purple-300:var(--slate);
+  --purple-400:var(--slate);    --purple-500:var(--slate);     --purple-600:#3A3F49;
 
-  /* ---------- MAIN BLUE RAMP (logo color / calm structure) ---------- */
-  --blue-100:#CDE0E8; --blue-200:#9FC3D2; --blue-300:#6AA2BA;
-  --blue-400:#397F9E; --blue-500:#2C6580; --blue-600:#204B61;
+  --blue-100:var(--hairline-soft); --blue-200:var(--hairline); --blue-300:var(--slate);
+  --blue-400:var(--ink);        --blue-500:var(--ink);         --blue-600:var(--ink);
 
   /* ---------- SEMANTIC ---------- */
-  --success:#3FD9A4; --warning:#FFC542; --danger:#E5484D; --info:var(--cyan-400);
+  --success:var(--pnl-green); --warning:var(--safety-amber); --danger:var(--pnl-red); --info:var(--ember);
 
   /* ---------- SURFACES / TEXT (semantic) ---------- */
-  --bg:var(--ink-950);
-  --surface:var(--ink-900);
-  --surface-2:var(--ink-850);
-  --surface-3:var(--ink-800);
-  --border:rgba(255,255,255,.08);
-  --border-strong:rgba(192,192,192,.20);
-  --text:var(--ink-50);
-  --text-muted:var(--ink-300);
-  --text-faint:var(--ink-400);
-  --on-accent:var(--ink-950); /* dark text that sits on bright cyan/coral fills */
-  --nav-surface:rgba(14,14,15,.74); /* translucent sticky-nav fill (theme-aware) */
-  --input-surface:var(--ink-850);   /* form input fill (theme-aware) */
-  color-scheme:dark;
+  --bg:var(--cream);
+  --surface:#FBFAF7;
+  --surface-2:var(--cream-pure);
+  --surface-3:#F5F3EE;
+  --border:var(--hairline);
+  --border-strong:var(--hairline-strong);
+  --text:var(--ink);
+  --text-muted:var(--slate);
+  --text-faint:var(--slate-dim);
+  --on-accent:var(--ink); /* dark text that sits on the amber fill */
 
-  /* ---------- GRADIENTS ---------- */
-  --grad-signal:linear-gradient(120deg,var(--cyan-400) 0%,var(--coral-400) 100%);
-  --grad-spectrum:conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400));
-  --grad-dusk:linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%);
-  --grad-fade:linear-gradient(180deg,transparent,var(--ink-950) 92%);
+  /* ---------- GRADIENTS ----------
+     The Workbench system itself is flat (no gradient fills) — these are
+     neutralized to a single amber→ember wash so any remaining inline
+     gradient usage still reads as on-brand rather than broken. */
+  --grad-signal:linear-gradient(120deg,var(--safety-amber) 0%,var(--ember) 100%);
+  --grad-spectrum:linear-gradient(120deg,var(--safety-amber),var(--ember));
+  --grad-dusk:linear-gradient(135deg,var(--ink) 0%,var(--slate) 100%);
+  --grad-fade:linear-gradient(180deg,transparent,var(--cream) 92%);
 
   /* ---------- TYPE FAMILIES ---------- */
-  --font-display:'Clash Display','Hanken Grotesk',sans-serif;
-  --font-body:'Hanken Grotesk',system-ui,sans-serif;
-  --font-mono:'Space Mono',ui-monospace,monospace;
+  --font-display:'Archivo Black','Arial Black',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;
 
   /* ---------- TYPE SCALE (fluid via clamp) ---------- */
   --text-xs:.75rem; --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.375rem;
   --text-2xl:1.75rem; --text-3xl:2.25rem;
   --text-4xl:clamp(2.5rem,5vw,3.25rem);
   --text-5xl:clamp(3.25rem,7vw,4.5rem);
-  --text-6xl:clamp(4rem,11vw,7.5rem);
+  --text-6xl:clamp(3.25rem,8vw,5.25rem);
 
-  /* ---------- SPACE (4px base) / RADIUS ---------- */
+  /* ---------- SPACE (4px base) / RADIUS — tight, tool-UI, never pill ---------- */
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
   --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px; --sp-10:128px;
-  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:24px; --r-full:999px;
+  --r-sm:5px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-full:999px;
 
   /* ---------- ELEVATION ---------- */
-  --shadow-sm:0 1px 2px rgba(0,0,0,.45);
-  --shadow-md:0 8px 24px rgba(0,0,0,.5);
-  --shadow-lg:0 24px 60px rgba(0,0,0,.6);
-  --glow-cyan:0 0 0 1px rgba(46,204,250,.45),0 0 26px rgba(46,204,250,.32);
-  --glow-coral:0 0 0 1px rgba(255,111,97,.45),0 0 26px rgba(255,111,97,.3);
+  --shadow-sm:0 1px 2px rgba(18,20,23,.10);
+  --shadow-md:0 4px 14px rgba(18,20,23,.12);
+  --shadow-lg:0 24px 60px rgba(18,20,23,.18);
+  --glow-cyan:0 0 0 1px rgba(217,126,0,.35),0 0 20px rgba(255,166,26,.28);
+  --glow-coral:var(--glow-cyan);
 
   /* ---------- MOTION ---------- */
   --ease-out:cubic-bezier(.16,1,.3,1); /* @kind other */
-  --ease-spring:cubic-bezier(.34,1.56,.64,1); /* @kind other */
-  --dur-1:140ms; /* @kind other */
-  --dur-2:240ms; /* @kind other */
-  --dur-3:420ms; /* @kind other */
-  --dur-4:640ms; /* @kind other */
+  --ease-spring:cubic-bezier(.34,1.2,.64,1); /* @kind other */
+  --dur-1:120ms; /* @kind other */
+  --dur-2:180ms; /* @kind other */
+  --dur-3:250ms; /* @kind other */
+  --dur-4:400ms; /* @kind other */
 }
 
 /* ============================================================
    SEMANTIC ELEMENT DEFAULTS — opt-in by wrapping content in
-   .arperture (or apply to <body>). Keeps tokens portable.
+   .arperture (applied to <body>). Keeps tokens portable.
    ============================================================ */
 .arperture{
   font-family:var(--font-body);
@@ -107,20 +112,20 @@
 }
 
 .arperture h1,.arperture .h1{
-  font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-6xl);line-height:.94;letter-spacing:-.035em;
+  font-family:var(--font-display);font-weight:900;
+  font-size:var(--text-6xl);line-height:.98;letter-spacing:-.025em;
 }
 .arperture h2,.arperture .h2{
-  font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-4xl);line-height:1.02;letter-spacing:-.03em;
+  font-family:var(--font-display);font-weight:900;
+  font-size:var(--text-4xl);line-height:1.04;letter-spacing:-.02em;
 }
 .arperture h3,.arperture .h3{
-  font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-3xl);line-height:1.05;letter-spacing:-.02em;
+  font-family:var(--font-display);font-weight:900;
+  font-size:var(--text-3xl);line-height:1.08;letter-spacing:-.015em;
 }
 .arperture h4,.arperture .h4{
-  font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-xl);line-height:1.1;letter-spacing:-.01em;
+  font-family:var(--font-display);font-weight:900;
+  font-size:var(--text-xl);line-height:1.15;letter-spacing:-.01em;
 }
 .arperture p,.arperture .p{
   font-size:var(--text-base);color:var(--text);line-height:1.6;max-width:72ch;
@@ -131,48 +136,15 @@
 /* Kicker / eyebrow / label — the mono voice */
 .arperture .kicker,.arperture .label{
   font-family:var(--font-mono);font-size:var(--text-xs);
-  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ember);font-weight:600;
 }
 
 /* Code / timecode / metadata */
 .arperture code,.arperture .mono{
   font-family:var(--font-mono);font-size:var(--text-sm);
-  letter-spacing:.04em;color:var(--ink-100);
+  letter-spacing:.02em;color:var(--text-muted);
 }
 
-.arperture a{color:var(--cyan-300);text-decoration:none;}
-.arperture a:hover{color:var(--cyan-200);}
-.arperture ::selection{background:var(--cyan-400);color:var(--ink-950);}
-
-/* ============================================================
-   LIGHT THEME — via [data-theme="light"] on <html>, the site
-   default (set server-side in app/layout.tsx; the toggle can
-   switch back to dark, which is the no-attr :root). Only the semantic
-   surface/text tokens and a few accent-text ramps are re-pointed
-   so contrast holds on a light ground; bright fill accents
-   (cyan-400 / coral-400 buttons) stay as-is with dark on-accent.
-   ============================================================ */
-:root[data-theme="light"]{
-  color-scheme:light;
-  /* cool off-white ground, biased toward the brand cyan */
-  --bg:#F4F7F9;
-  --surface:#FFFFFF;
-  --surface-2:#EDF1F4;
-  --surface-3:#E3E8ED;
-  --border:rgba(20,22,26,.10);
-  --border-strong:rgba(20,22,26,.20);
-  --text:#14161A;
-  --text-muted:#525C67;
-  --text-faint:#8B95A1;
-  --on-accent:#14161A;
-  --nav-surface:rgba(255,255,255,.82);
-  --input-surface:#EDF1F4;
-  /* darken the accent-text ramps so kickers/links read on white */
-  --cyan-300:#0F86AD;
-  --cyan-200:#0B6C8C;
-  --coral-300:#D64A38;
-  --purple-300:#7E3A97;
-  --ink-200:#525C67; /* was a light grey used as body text on dark */
-  --ink-100:#2A2F36;
-}
-:root[data-theme="light"] .arperture ::selection{background:var(--cyan-400);color:#14161A;}
+.arperture a{color:var(--ember);text-decoration:none;}
+.arperture a:hover{color:var(--safety-amber);}
+.arperture ::selection{background:var(--safety-amber);color:var(--ink);}

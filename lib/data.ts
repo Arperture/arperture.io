@@ -458,6 +458,33 @@ export const SMB_PILLARS = [
   },
 ];
 
+// ---------- HOME — services bento (Consulting / Fluency Training / Visibility) ----------
+// "AI Fluency Training" is a new third small-business offering introduced
+// alongside the Workbench homepage redesign — hands-on team workshops,
+// sitting between the one-time Business Analysis and the ongoing
+// Implementation Consulting retainer above.
+export type HomeService = {
+  title: string; body: string; price: string; priceLabel: string; href: string;
+  badge?: string; wide?: boolean;
+};
+export const HOME_SERVICES: HomeService[] = [
+  {
+    title: "Web Visibility Audit", badge: "SEO · GEO · AEO", wide: true,
+    body: "Find out whether Google, ChatGPT and AI Overviews recommend you. A 100-point scored report with a prioritized fix roadmap.",
+    price: "$750", priceLabel: "Flat · 5 days", href: "/small-business#visibility",
+  },
+  {
+    title: "AI Consulting",
+    body: "A week inside your operations, then a clear roadmap — which tools to adopt, which to skip, and how to implement.",
+    price: "$497", priceLabel: "Starting at", href: "/small-business#consulting",
+  },
+  {
+    title: "AI Fluency Training",
+    body: "Hands-on workshops and 1:1 sessions built on your tools and your actual work — not generic demos.",
+    price: "Custom", priceLabel: "Scoped to fit", href: "/small-business",
+  },
+];
+
 // ---------- ENHANCEMENT ----------
 export const IMAGE_TIERS = [
   { name: "Refresh", tag: "Photos that are basically intact — just soft, faded, or too small", price: "$15", unit: "/ image", highlight: false, borderColor: "var(--border)", features: ["Upscale to print resolution", "Sharpen", "Color correction", "Brightness & contrast recovery"] },

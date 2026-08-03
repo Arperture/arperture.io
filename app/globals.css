@@ -16,16 +16,23 @@ body { margin: 0; overflow-x: hidden; }
   to { transform: rotate(360deg); }
 }
 
-/* ---------- fixed atmospheric backdrop ---------- */
+@keyframes wbDotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+/* ---------- fixed atmospheric backdrop ----------
+   The Workbench system's signature texture is a faint dot-grid
+   (node-graph) pattern, not color blooms — this replaces the old
+   cyan/coral/purple glow with that same restrained texture. */
 .bloom {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background:
-    radial-gradient(600px 400px at 10% 0%, rgba(46, 204, 250, 0.1), transparent 60%),
-    radial-gradient(600px 400px at 90% 0%, rgba(255, 111, 97, 0.08), transparent 60%),
-    radial-gradient(800px 500px at 50% 100%, rgba(142, 68, 173, 0.1), transparent 60%);
+  background-image: radial-gradient(circle, var(--node-dot) 1px, transparent 1.4px);
+  background-size: 28px 28px;
+  opacity: 0.55;
 }
 
 /* ---------- shell ---------- */
@@ -44,7 +51,7 @@ body { margin: 0; overflow-x: hidden; }
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -67,14 +74,14 @@ body { margin: 0; overflow-x: hidden; }
 .btn-coral:hover { box-shadow: var(--glow-coral); }
 
 .btn-ghost { background: transparent; border: 1px solid var(--border-strong); color: var(--text); }
-.btn-ghost:hover { border-color: var(--cyan-400); background: rgba(46, 204, 250, 0.06); }
+.btn-ghost:hover { border-color: var(--cyan-400); background: rgba(217, 126, 0, 0.06); }
 
 /* ---------- links ---------- */
 .link-cyan { color: var(--cyan-300); transition: color var(--dur-1) var(--ease-out); }
 .link-cyan:hover { color: var(--cyan-200); }
 
 /* ---------- cards ---------- */
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
 .card-lift { transition: transform var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out); }
 .card-lift:hover { transform: translateY(-4px); border-color: var(--border-strong); }
 
@@ -85,20 +92,26 @@ body { margin: 0; overflow-x: hidden; }
   z-index: 50;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  background: var(--nav-surface);
+  background: rgba(242, 240, 235, 0.85);
   border-bottom: 1px solid var(--border);
 }
 .brand img { transition: transform var(--dur-4) var(--ease-spring); }
 .brand:hover img { transform: rotate(30deg); }
 .nav-link { background: none; border: none; cursor: pointer; padding: 0; font-size: 0.95rem; font-family: var(--font-body); transition: color var(--dur-1) var(--ease-out); }
-.theme-toggle { transition: border-color var(--dur-1) var(--ease-out), background var(--dur-1) var(--ease-out); }
-.theme-toggle:hover { border-color: var(--cyan-400); background: rgba(46, 204, 250, 0.06); }
 .menu-item { transition: background var(--dur-1) var(--ease-out); }
-.menu-item:hover { background: rgba(46, 204, 250, 0.08); }
+.menu-item:hover { background: rgba(217, 126, 0, 0.08); }
 .play-thumb { transition: filter var(--dur-2) var(--ease-out); }
 .play-thumb:hover { filter: brightness(1.1); }
 .blog-title-link { all: unset; cursor: pointer; color: var(--text); transition: color var(--dur-1) var(--ease-out); }
 .blog-title-link:hover { color: var(--cyan-300); }
+.svc-link { transition: color var(--dur-1) var(--ease-out); }
+.svc-link:hover { color: var(--safety-amber) !important; }
+
+/* ---------- bento layout (homepage) ---------- */
+.bento-hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 158px; gap: 16px; }
+.bento-hero-headline { grid-column: span 2; grid-row: span 2; }
+.bento-services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.bento-services-wide { grid-column: span 2; }
 
 /* ---------- responsive helpers ---------- */
 .nav-desktop { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
@@ -114,6 +127,12 @@ body { margin: 0; overflow-x: hidden; }
 }
 @media (max-width: 760px) {
   .grid-contact { grid-template-columns: 1fr; }
+  .bento-hero-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .bento-hero-headline { grid-column: span 1; grid-row: span 1; }
+  .bento-services-grid { grid-template-columns: 1fr; }
+  .bento-services-wide { grid-column: span 1; }
+  .cta-grid { grid-template-columns: 1fr !important; }
+  .cta-grid > div:last-child { justify-content: flex-start !important; }
 }
 @media (max-width: 640px) {
   .hero-mark { display: none; }
@@ -124,4 +143,5 @@ body { margin: 0; overflow-x: hidden; }
   .hero-mark { animation: none !important; }
   html { scroll-behavior: auto; }
   .btn, .card-lift, .brand img { transition: none; }
+  [style*="wbDotPulse"] { animation: none !important; }
 }
