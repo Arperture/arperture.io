@@ -28,7 +28,7 @@ export default function Footer() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10, minWidth: 150 }}>
             <p style={colLabel}>Small business</p>
             <Link href="/small-business#consulting" style={footA}>AI Consulting</Link>
-            <Link href="/small-business" style={footA}>AI Fluency Training</Link>
+            <Link href="/small-business#fluency" style={footA}>AI Fluency Training</Link>
             <Link href="/small-business#visibility" style={footA}>Web Visibility Audit</Link>
             <Link href="/about" style={footA}>About</Link>
           </div>

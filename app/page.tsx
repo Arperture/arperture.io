@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Badge, Panel, StatNumber, WLinkButton } from "@/components/Workbench";
 import CalendlyWButton from "@/components/CalendlyWButton";
-import { WORK_DATA, HOME_SERVICES, ytThumb, CALENDLY_30MIN } from "@/lib/data";
+import { WORK_DATA, SMB_PILLARS, ytThumb, CALENDLY_30MIN } from "@/lib/data";
 
 const sectionPad: React.CSSProperties = { padding: "56px 0" };
 const kicker: React.CSSProperties = {
@@ -9,10 +9,12 @@ const kicker: React.CSSProperties = {
   letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ember)", marginBottom: 10,
 };
 const studioGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 18 };
+const priceLine: React.CSSProperties = { fontFamily: "var(--font-mono)", fontSize: 13.5, fontWeight: 600, color: "var(--ember)", whiteSpace: "nowrap" };
 
 export default function HomePage() {
   const studioWork = WORK_DATA.slice(0, 3);
-  const [wideService, ...restServices] = HOME_SERVICES;
+  const wideService = SMB_PILLARS.find((s) => s.title === "Web Visibility Audit") ?? SMB_PILLARS[0];
+  const restServices = SMB_PILLARS.filter((s) => s !== wideService);
 
   return (
     <div className="wrap">
@@ -58,19 +60,19 @@ export default function HomePage() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
                 <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 22, letterSpacing: "-0.02em", color: "var(--text)", margin: 0 }}>{wideService.title}</h3>
-                {wideService.badge && <Badge tone="amber" variant="outline">{wideService.badge}</Badge>}
+                <Badge tone="amber" variant="outline">SEO · GEO · AEO</Badge>
               </div>
               <p style={{ fontFamily: "var(--font-body)", fontSize: 14.5, lineHeight: 1.55, color: "var(--text-muted)", margin: 0, maxWidth: 560 }}>{wideService.body}</p>
               <Link href={wideService.href} className="svc-link" style={{ display: "inline-block", marginTop: 12, fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5, color: "var(--ember)" }}>Learn more →</Link>
             </div>
-            <StatNumber value={wideService.price} label={wideService.priceLabel} tone="amber" size="md" align="right" />
+            <span style={priceLine}>{wideService.price}</span>
           </div>
 
           {restServices.map((s) => (
             <div key={s.title} style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "var(--r-lg)", padding: 26, display: "flex", flexDirection: "column", gap: 12 }}>
               <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 19, letterSpacing: "-0.01em", color: "var(--text)", margin: 0 }}>{s.title}</h3>
               <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--text-muted)", margin: 0, flex: 1 }}>{s.body}</p>
-              <StatNumber value={s.price} label={s.priceLabel} tone="amber" size="sm" />
+              <span style={priceLine}>{s.price}</span>
               <Link href={s.href} className="svc-link" style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5, color: "var(--ember)" }}>Learn more →</Link>
             </div>
           ))}
