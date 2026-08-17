@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { FORMSPREE_ENDPOINT, EMAIL } from "@/lib/data";
 
 const inputStyle: React.CSSProperties = {
@@ -10,16 +11,20 @@ const inputStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = { display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: 6 };
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", brief: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", brief: "", smsConsent: false });
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, brief } = form;
+    const { name, email, phone, brief, smsConsent } = form;
     if (!name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !brief.trim()) {
       setError("Please fill in your name, a valid email, and a short brief.");
+      return;
+    }
+    if (smsConsent && !phone.trim()) {
+      setError("Please add a phone number so we know where to text you.");
       return;
     }
     setError("");
@@ -28,7 +33,7 @@ export default function ContactForm() {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name, email, brief }),
+        body: JSON.stringify({ name, email, phone, brief, sms_consent: smsConsent }),
       });
       if (!res.ok) throw new Error("Formspree request failed");
       setSubmitting(false);
@@ -50,7 +55,7 @@ export default function ContactForm() {
             </div>
           </div>
           <button
-            onClick={() => { setForm({ name: "", email: "", brief: "" }); setSent(false); setError(""); }}
+            onClick={() => { setForm({ name: "", email: "", phone: "", brief: "", smsConsent: false }); setSent(false); setError(""); }}
             className="btn btn-ghost"
             style={{ fontSize: "0.9rem", padding: "12px 22px" }}
           >
@@ -68,9 +73,27 @@ export default function ContactForm() {
             <input type="email" placeholder="hello@yourbrand.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} style={inputStyle} />
           </div>
           <div>
+            <label style={labelStyle}>Phone (optional)</label>
+            <input type="tel" placeholder="(555) 123-4567" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} style={inputStyle} />
+          </div>
+          <div>
             <label style={labelStyle}>Brief</label>
             <textarea rows={4} placeholder="Tell us about the story…" value={form.brief} onChange={(e) => setForm({ ...form, brief: e.target.value })} style={{ ...inputStyle, fontFamily: "var(--font-body)" }} />
           </div>
+
+          <label style={{ display: "flex", gap: 10, alignItems: "flex-start", cursor: "pointer" }}>
+            <input
+              type="checkbox"
+              checked={form.smsConsent}
+              onChange={(e) => setForm({ ...form, smsConsent: e.target.checked })}
+              style={{ marginTop: 3, flexShrink: 0, width: 16, height: 16 }}
+            />
+            <span style={{ fontSize: "0.8rem", lineHeight: 1.55, color: "var(--text-muted)" }}>
+              I agree to receive text messages from Arperture Media about my inquiry and project updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. See our{" "}
+              <Link href="/privacy/" className="link-cyan">Privacy Policy</Link> and <Link href="/sms-terms/" className="link-cyan">SMS Terms</Link>.
+            </span>
+          </label>
+
           {error && <div style={{ color: "var(--danger)", fontSize: "0.85rem" }}>{error}</div>}
           <button type="submit" disabled={submitting} className="btn btn-primary btn-lg" style={{ opacity: submitting ? 0.7 : 1 }}>
             {submitting ? "Sending…" : "Book a discovery call"}
