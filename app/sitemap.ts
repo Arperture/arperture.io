@@ -8,7 +8,7 @@ const BASE = "https://arperture.io";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/", "/services/", "/small-business/", "/portfolio/", "/enhancement/",
-    "/about/", "/blog/", "/faq/", "/contact/", "/privacy/",
+    "/about/", "/blog/", "/faq/", "/contact/", "/privacy/", "/sms-terms/",
   ];
   const caseRoutes = Object.keys(CASES).map((slug) => `/portfolio/${slug}/`);
   const blogRoutes = BLOG_POSTS.map((p) => `/blog/${p.slug}/`);

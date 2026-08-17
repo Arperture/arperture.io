@@ -129,6 +129,12 @@ export const WORK_DATA: Work[] = [
     blurb: "An AI-generated pitch trailer for a feature documentary following the first African American female professional mountain biking racer.",
     youtubeId: "p0yhKpYAd4c", hasCase: false,
   },
+  {
+    id: "law-office-pitch", slug: "", title: "Law Office Pitch", category: "Speculative Pitch · Brand Video", date: "July 2026",
+    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
+    blurb: "A sample brand video created to pitch a prospective Minnesota bankruptcy law firm client on Upwork, matched to their existing visual identity — presented by a fully AI-generated avatar and voice, not a real person.",
+    youtubeId: "3ry1j3oJhvc", hasCase: false,
+  },
 ];
 
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -562,4 +568,5 @@ export const FOOTER_LINKS_B: { label: string; href: string }[] = [
   { label: "Judge Silverback's Court", href: "/portfolio/judge" },
   { label: "Yield Bookkeeping Services", href: "/portfolio/yield" },
   { label: "Privacy Policy", href: "/privacy" },
+  { label: "SMS Terms", href: "/sms-terms" },
 ];
