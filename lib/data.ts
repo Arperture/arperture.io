@@ -35,7 +35,7 @@ export const ORG_JSONLD = {
       logo: `${SITE_URL}/assets/arperture-mark.webp`,
       image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
       description:
-        "Arperture helps small businesses put AI to work — hands-on AI consulting, AI fluency training for teams, and Web Visibility audits (SEO, GEO & AEO) that show whether Google and ChatGPT recommend your business. The studio also produces cinematic AI video, sound design, and branded stories for brands, artists & storytellers.",
+        "Arperture Media is an AI video production studio for small businesses — cinematic brand films, ads, and short-form social content, directed and scored like a full production house at small-business prices. Arperture also offers hands-on AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO).",
       email: EMAIL,
       telephone: "+1-571-200-1186",
       founder: { "@type": "Person", name: "Andrew Dallons" },
@@ -67,10 +67,10 @@ export const NAV_PRIMARY: { label: string; href: string }[] = [
 ];
 
 export const SERVICES_MENU: { label: string; href: string }[] = [
+  { label: "Video Production", href: "/services" },
   { label: "Consulting", href: "/small-business#consulting" },
   { label: "AI Fluency", href: "/small-business#fluency" },
   { label: "Search Visibility", href: "/small-business#visibility" },
-  { label: "Video", href: "/services" },
 ];
 
 // ---------- PORTFOLIO / WORK ----------
@@ -416,6 +416,22 @@ export const PROCESS_STEPS = [
   { num: "05", title: "Delivery", items: ["Color grading", "Export & ship"] },
 ];
 
+// The three video pillars, as featured on the home page.
+export const VIDEO_PILLARS = [
+  {
+    tag: "Brand Films", title: "Brand Films & Commercials", href: "/services",
+    body: "A cinematic film about your business — scripted, directed, scored, and delivered as a master. The polish of a full production crew, without the five-figure invoice.",
+  },
+  {
+    tag: "Social Ads", title: "Ads & Short-Form Social", href: "/services",
+    body: "15–60 second scroll-stopping spots for Meta, TikTok, Reels, and YouTube Shorts — with multiple hook variations and A/B-ready cuts.",
+  },
+  {
+    tag: "Ongoing Content", title: "Monthly Content Partnership", href: "/portfolio/yield",
+    body: "A recurring slate of brand films, seasonal spots, and social cuts — like our 2024–present campaign for Yield Bookkeeping in Brambleton, VA.",
+  },
+];
+
 // ---------- SMALL BUSINESS ----------
 export const CONSULTING_SERVICES = [
   {
@@ -513,11 +529,7 @@ export const ENHANCE_FAQS = [
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What does Arperture do for small businesses?",
-    a: "Three things. AI consulting — the AI Business Analysis (from $497) maps which AI tools fit your operations and how to implement them, with ongoing AI Implementation Consulting available as a monthly retainer. AI Fluency training — hands-on workshops and 1:1 sessions that make your team confident with AI, built on your actual tools and work. And the Web Visibility Audit ($750 flat, 5 business days) — a 100-point scored report across SEO, GEO & AEO showing whether Google, ChatGPT, and AI Overviews recommend your business, with a prioritized fix roadmap.",
-  },
-  {
-    q: "What is AI Fluency training?",
-    a: "Practical, hands-on education that takes your team from AI-curious to AI-confident. We build the sessions around the tools you already use and the work you actually do — no generic demos. Formats range from a half-day workshop to a multi-session curriculum with 1:1 leadership sessions, scoped to your team and budget.",
+    a: "First and foremost, AI video production — cinematic brand films, ads, and short-form social content, directed, scored, and delivered like a full production house at small-business prices. Alongside the studio, Arperture offers AI consulting (the AI Business Analysis from $497, with ongoing implementation support), AI Fluency training for teams, and the Web Visibility Audit ($750 flat, 5 business days) — a 100-point scored report across SEO, GEO & AEO showing whether Google, ChatGPT, and AI Overviews recommend your business.",
   },
   {
     q: "How much does an AI-produced video cost?",
@@ -547,14 +559,18 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
     q: "How many revisions are included?",
     a: "Most quotes include one full revision round. Additional rounds can be added — this gets scoped up front in your quote, not billed as a surprise afterward.",
   },
+  {
+    q: "What is AI Fluency training?",
+    a: "Practical, hands-on education that takes your team from AI-curious to AI-confident. We build the sessions around the tools you already use and the work you actually do — no generic demos. Formats range from a half-day workshop to a multi-session curriculum with 1:1 leadership sessions, scoped to your team and budget.",
+  },
 ];
 
 // ---------- FOOTER ----------
 export const FOOTER_LINKS_A: { label: string; href: string }[] = [
+  { label: "Video Production", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Small Business Services", href: "/small-business" },
   { label: "AI Fluency", href: "/small-business#fluency" },
-  { label: "Video Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
