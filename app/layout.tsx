@@ -9,31 +9,31 @@ import { SITE_URL, DEFAULT_OG_IMAGE, ORG_JSONLD } from "@/lib/data";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Arperture — AI Consulting, Training & Web Visibility for Small Businesses",
+    default: "Arperture — AI Video Production for Small Businesses",
     template: "%s · Arperture",
   },
   description:
-    "Arperture helps small businesses put AI to work — hands-on AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO). Plus cinematic AI video production from the studio.",
+    "Cinematic AI video production for small businesses — brand films, ads, and social content at small-business prices. Plus AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO).",
   keywords: [
-    "AI consulting for small business", "AI fluency training", "web visibility audit",
-    "SEO GEO AEO", "AI adoption", "AI implementation consulting",
-    "AI video production", "cinematic AI video", "video restoration",
+    "AI video production for small business", "cinematic AI video", "brand films",
+    "social video ads", "AI video studio", "AI consulting for small business",
+    "AI fluency training", "web visibility audit", "SEO GEO AEO",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "Arperture",
-    title: "Arperture — AI Consulting, Training & Web Visibility for Small Businesses",
+    title: "Arperture — AI Video Production for Small Businesses",
     description:
-      "Hands-on AI consulting, team fluency training, and Web Visibility audits for small businesses — plus cinematic AI video production.",
+      "Cinematic brand films, ads, and social content at small-business prices — plus AI consulting, team training, and Web Visibility audits.",
     url: SITE_URL,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture — AI consulting, training & visibility for small businesses" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture — AI video production for small businesses" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arperture — AI Consulting, Training & Web Visibility for Small Businesses",
+    title: "Arperture — AI Video Production for Small Businesses",
     description:
-      "Hands-on AI consulting, team fluency training, and Web Visibility audits for small businesses — plus cinematic AI video production.",
+      "Cinematic brand films, ads, and social content at small-business prices — plus AI consulting, team training, and Web Visibility audits.",
     images: [DEFAULT_OG_IMAGE],
   },
 };

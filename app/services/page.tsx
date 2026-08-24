@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/" },
   title: "AI Video Services & Production",
   description:
-    "Concept-to-completion AI video production using industry-leading generative video models — film direction, creative direction, and specialized AI verticals.",
+    "Concept-to-completion AI video production for small businesses — film direction, creative direction, and specialized AI verticals, priced for real budgets.",
 };
 
 export default function ServicesPage() {
@@ -19,7 +19,7 @@ export default function ServicesPage() {
           AI video services &amp; production
         </h1>
         <p style={{ color: "var(--text-muted)", maxWidth: "65ch", fontSize: "1.15rem" }}>
-          Concept-to-completion AI video production using industry-leading generative video models. Cinematic storytelling reimagined for the AI era.
+          Concept-to-completion AI video production for small businesses — cinematic storytelling with industry-leading generative models, priced for real budgets.
         </p>
       </section>
 
