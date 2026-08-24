@@ -137,6 +137,24 @@ export const WORK_DATA: Work[] = [
   },
 ];
 
+// ---------- BRAND QUICKIES ----------
+// Short, ready-made cinematic brand moments customized per client — the
+// studio's entry-point offer. The reel below is the Yield Bookkeeping set.
+export const BRAND_QUICKIE_PRICE = "From $100 each";
+
+export type BrandQuickie = { youtubeId: string; tag: string; title: string };
+
+export const BRAND_QUICKIES: BrandQuickie[] = [
+  { youtubeId: "75Zn0A_K_t4", tag: "Logo Reveal", title: "Brand Motion Reveal" },
+  { youtubeId: "e3E_s3dVlbg", tag: "Seasonal", title: "New Look: Winter Edition" },
+  { youtubeId: "nsHtZsyiu8Q", tag: "Seasonal", title: "4K Particle Hearts" },
+  { youtubeId: "Xi4LXdohCbo", tag: "Seasonal", title: "Finding the Pot of Gold" },
+  { youtubeId: "Kpp8_2szuZA", tag: "Explainer", title: "Grow Your Business with Better Bookkeeping" },
+  { youtubeId: "xBpStub7p70", tag: "Brand Moment", title: "Who's Behind the Flag Performance?" },
+  { youtubeId: "sdKz4KxTa3I", tag: "Spectacle", title: "The Bookkeeping Drone Show" },
+  { youtubeId: "nd7rWMiYpSQ", tag: "Brand Moment", title: "The Calm of Sunset" },
+];
+
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 export const ytEmbed = (id: string, autoplay = false) =>
   `https://www.youtube-nocookie.com/embed/${id}?${autoplay ? "autoplay=1&mute=1&" : ""}rel=0&modestbranding=1`;
@@ -159,6 +177,8 @@ export type CaseStudy = {
   projects: { tag: string; title: string; body: string }[];
   shortFormLabel: string;
   shortForm: { tag: string; title: string }[];
+  // Optional Brand Quickie reel for clients who have one.
+  brandQuickies?: BrandQuickie[];
 };
 
 export const CASES: Record<string, CaseStudy> = {
@@ -169,7 +189,7 @@ export const CASES: Record<string, CaseStudy> = {
     badgeBg: "rgba(255,111,97,.12)", badgeColor: "var(--coral-300)", youtubeId: "bVy-qs-K84M",
     detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “How Much Money Are You Losing to DIY Bookkeeping?” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
     linkLabel: "Visit yieldbookkeeping.com", linkUrl: "https://www.yieldbookkeeping.com",
-    stats: [{ n: "4", l: "Brand films" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
+    stats: [{ n: "4", l: "Brand films" }, { n: "8", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
     projectsLabel: "Widescreen content",
     projects: [
       { tag: "Brand Film · 2026", title: "How Much Money Are You Losing to DIY Bookkeeping?", body: "The campaign's newest spot — a sharp look at what mixing business and personal accounts really costs a small business. Conceived, rendered, and edited in under a week in Google Gemini and Claude." },
@@ -184,6 +204,7 @@ export const CASES: Record<string, CaseStudy> = {
       { tag: "Informational · 2025", title: "You Filed a Tax Extension" },
       { tag: "Brand · 2025", title: "Free Time" },
     ],
+    brandQuickies: BRAND_QUICKIES,
   },
   judge: {
     slug: "judge", title: "Judge Silverback's Court",
@@ -401,6 +422,7 @@ export const CORE_OFFERINGS = [
 ];
 
 export const VERTICALS = [
+  { title: "Brand Quickies", body: "Short, cinematic brand moments — logo reveals, seasonal spots, and scroll-stopping product beats — built on proven concepts and customized with your logo, product, or team. From $100 each.", href: "/#brand-quickies" },
   { title: "Ads for Brands / E-Commerce", body: "15–60 second scroll-stopping ads for Meta, TikTok, Reels, and YouTube Shorts, with multiple hook variations and A/B-ready cuts.", href: "" },
   { title: "AI UGC Video Creator", body: "AI avatar-driven 'authentic-looking' testimonial and demo videos that mimic organic UGC — usable as paid social ads without real human creators.", href: "" },
   { title: "AI Video Localization & Multilingual Ad Scaling", body: "Translate, dub, and adapt existing English-language video assets for international distribution at scale.", href: "" },

@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
-import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, ytThumb, CALENDLY_30MIN } from "@/lib/data";
+import BrandQuickies from "@/components/BrandQuickies";
+import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE } from "@/lib/data";
 
 const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px solid var(--border)" };
 const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
@@ -108,9 +109,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 03 — BEYOND THE CAMERA */}
+      {/* 03 — BRAND QUICKIES (FEATURED) */}
+      <section id="brand-quickies" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
+        <div
+          style={{
+            border: "1px solid var(--cyan-400)",
+            borderRadius: 20,
+            padding: "clamp(24px,4vw,44px)",
+            background: "var(--surface)",
+            boxShadow: "var(--glow-cyan)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 14 }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", padding: "5px 12px", borderRadius: 999, background: "var(--cyan-400)", color: "var(--on-accent)", fontWeight: 700 }}>
+              Featured service
+            </span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", letterSpacing: "0.06em", color: "var(--coral-300)", fontWeight: 700 }}>
+              {BRAND_QUICKIE_PRICE}
+            </span>
+          </div>
+
+          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2rem,4vw,2.6rem)", letterSpacing: "-.02em", margin: "0 0 12px" }}>
+            Brand Quickies
+          </h2>
+          <p style={{ color: "var(--text-muted)", maxWidth: "62ch", fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 8px" }}>
+            Short, cinematic brand moments — a logo reveal, a seasonal spot, a scroll-stopping product beat. Built on proven concepts and customized to you: drop in your logo, your product, or your team, and it&apos;s yours.
+          </p>
+          <p style={{ color: "var(--text-muted)", maxWidth: "62ch", fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 28px" }}>
+            The fastest, cheapest way to put real production value in front of your customers. Here&apos;s a full set we made for Yield Bookkeeping:
+          </p>
+
+          <BrandQuickies />
+
+          <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap" }}>
+            <CalendlyButton url={CALENDLY_30MIN} className="btn btn-cyan btn-sm">Get a Brand Quickie</CalendlyButton>
+            <Link href="/portfolio/yield" className="btn btn-ghost btn-sm">See the full Yield campaign →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 04 — BEYOND THE CAMERA */}
       <section style={sectionBorder}>
-        <Kicker color="var(--coral-300)">03 — Beyond the camera</Kicker>
+        <Kicker color="var(--coral-300)">04 — Beyond the camera</Kicker>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
           More Ways to Put AI to Work
         </h2>

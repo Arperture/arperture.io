@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CASES, ytEmbed, ytThumb } from "@/lib/data";
+import BrandQuickies from "@/components/BrandQuickies";
+import { CASES, ytEmbed, ytThumb, BRAND_QUICKIE_PRICE } from "@/lib/data";
 
 export function generateStaticParams() {
   return Object.keys(CASES).map((slug) => ({ slug }));
@@ -83,6 +84,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           ))}
         </div>
       </section>
+
+      {c.brandQuickies && c.brandQuickies.length > 0 && (
+        <section style={{ padding: "0 0 56px" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", margin: "0 0 8px" }}>
+            <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.4rem", margin: 0 }}>Brand Quickies</h3>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.06em", color: "var(--coral-300)", fontWeight: 700 }}>{BRAND_QUICKIE_PRICE}</span>
+          </div>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", maxWidth: "62ch", margin: "0 0 24px" }}>
+            Short, cinematic brand moments produced across the campaign — logo reveals, seasonal spots, and scroll-stopping beats, each customized to the brand.
+          </p>
+          <BrandQuickies videos={c.brandQuickies} />
+        </section>
+      )}
 
       {c.shortForm.length > 0 && (
         <section style={{ padding: "0 0 56px" }}>
