@@ -96,7 +96,7 @@ export default function ContactForm() {
 
           {error && <div style={{ color: "var(--danger)", fontSize: "0.85rem" }}>{error}</div>}
           <button type="submit" disabled={submitting} className="btn btn-primary btn-lg" style={{ opacity: submitting ? 0.7 : 1 }}>
-            {submitting ? "Sending…" : "Book a discovery call"}
+            {submitting ? "Sending…" : "Send your brief"}
           </button>
         </form>
       )}

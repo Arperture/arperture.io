@@ -9,8 +9,8 @@ const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px 
 const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
 
 // The homepage work strip leads with business proof: a real local client
-// campaign, a product spot, and a big-brand-quality spec ad.
-const FEATURED_WORK_IDS = ["yield", "terra-c-serum", "monster-energy"];
+// campaign, a product spot, and a professional-services pitch.
+const FEATURED_WORK_IDS = ["yield", "terra-c-serum", "law-office-pitch"];
 
 export default function HomePage() {
   const workHome = WORK_DATA.filter((w) => FEATURED_WORK_IDS.includes(w.id));
@@ -142,7 +142,7 @@ export default function HomePage() {
           <BrandQuickies />
 
           <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap" }}>
-            <CalendlyButton url={CALENDLY_30MIN} className="btn btn-cyan btn-sm">Get a Brand Quickie</CalendlyButton>
+            <Link href="/contact" className="btn btn-cyan btn-sm">Get a Brand Quickie</Link>
             <Link href="/portfolio/yield" className="btn btn-ghost btn-sm">See the full Yield campaign →</Link>
           </div>
         </div>
