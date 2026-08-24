@@ -142,7 +142,7 @@ export default function HomePage() {
           <BrandQuickies />
 
           <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap" }}>
-            <CalendlyButton url={CALENDLY_30MIN} className="btn btn-cyan btn-sm">Get a Brand Quickie</CalendlyButton>
+            <Link href="/contact" className="btn btn-cyan btn-sm">Get a Brand Quickie</Link>
             <Link href="/portfolio/yield" className="btn btn-ghost btn-sm">See the full Yield campaign →</Link>
           </div>
         </div>

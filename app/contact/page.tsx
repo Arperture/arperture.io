@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import { EMAIL, PHONE, PHONE_TEL } from "@/lib/data";
+import CalendlyButton from "@/components/CalendlyButton";
+import { EMAIL, PHONE, PHONE_TEL, CALENDLY_30MIN } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact/" },
@@ -25,6 +26,13 @@ export default function ContactPage() {
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(255,111,97,.12)", color: "var(--coral-300)" }}>Based in USA · Working Globally</span>
             <a href={`mailto:${EMAIL}`} style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(46,204,250,.12)", color: "var(--cyan-300)", textDecoration: "none" }}>{EMAIL}</a>
             <a href={`tel:${PHONE_TEL}`} style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", padding: "8px 14px", borderRadius: 999, background: "rgba(46,204,250,.12)", color: "var(--cyan-300)", textDecoration: "none" }}>{PHONE}</a>
+          </div>
+
+          <div style={{ marginTop: 32, paddingTop: 28, borderTop: "1px solid var(--border)" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, margin: "0 0 16px", maxWidth: "40ch" }}>
+              Prefer to talk it through? Grab a free 30-minute discovery call — no prep needed, just bring the idea.
+            </p>
+            <CalendlyButton url={CALENDLY_30MIN} className="btn btn-ghost btn-sm">Book a call</CalendlyButton>
           </div>
         </div>
         <ContactForm />
