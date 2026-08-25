@@ -152,7 +152,7 @@ export const BRAND_QUICKIES: BrandQuickie[] = [
   { youtubeId: "Kpp8_2szuZA", tag: "Explainer", title: "Grow Your Business with Better Bookkeeping" },
   { youtubeId: "xBpStub7p70", tag: "Brand Moment", title: "Who's Behind the Flag Performance?" },
   { youtubeId: "sdKz4KxTa3I", tag: "Spectacle", title: "The Bookkeeping Drone Show" },
-  { youtubeId: "nd7rWMiYpSQ", tag: "Brand Moment", title: "The Calm of Sunset" },
+  { youtubeId: "j9EQAMH9kRo", tag: "Logo Reveal", title: "Sunset Ocean Logo Reveal" },
 ];
 
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
