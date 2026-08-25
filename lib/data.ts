@@ -97,7 +97,7 @@ export const WORK_DATA: Work[] = [
     id: "yield", slug: "yield", title: "Yield Bookkeeping Services", category: "Client Work · Brand Videos", date: "2024–Present",
     grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
     blurb: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — brand films, seasonal spots, and short-form social content.",
-    youtubeId: "bVy-qs-K84M", hasCase: true,
+    youtubeId: "B3Xw9yi9rXU", hasCase: true,
   },
   {
     id: "terra-c-serum", slug: "", title: "Terra C Serum", category: "Client Work · Brand Video", date: "April 2026",
@@ -152,7 +152,7 @@ export const BRAND_QUICKIES: BrandQuickie[] = [
   { youtubeId: "Kpp8_2szuZA", tag: "Explainer", title: "Grow Your Business with Better Bookkeeping" },
   { youtubeId: "xBpStub7p70", tag: "Brand Moment", title: "Who's Behind the Flag Performance?" },
   { youtubeId: "sdKz4KxTa3I", tag: "Spectacle", title: "The Bookkeeping Drone Show" },
-  { youtubeId: "nd7rWMiYpSQ", tag: "Brand Moment", title: "The Calm of Sunset" },
+  { youtubeId: "j9EQAMH9kRo", tag: "Logo Reveal", title: "Sunset Ocean Logo Reveal" },
 ];
 
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -186,13 +186,13 @@ export const CASES: Record<string, CaseStudy> = {
     slug: "yield", title: "Yield Bookkeeping Services",
     category: "Client Work · Brand Videos · Ongoing Collaboration",
     client: "Yield Bookkeeping Services", year: "2024–2026",
-    badgeBg: "rgba(255,111,97,.12)", badgeColor: "var(--coral-300)", youtubeId: "bVy-qs-K84M",
-    detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “How Much Money Are You Losing to DIY Bookkeeping?” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
+    badgeBg: "rgba(255,111,97,.12)", badgeColor: "var(--coral-300)", youtubeId: "B3Xw9yi9rXU",
+    detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “Why You Need Professional Bookkeeping Before It’s Too Late” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
     linkLabel: "Visit yieldbookkeeping.com", linkUrl: "https://www.yieldbookkeeping.com",
     stats: [{ n: "4", l: "Brand films" }, { n: "8", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
     projectsLabel: "Widescreen content",
     projects: [
-      { tag: "Brand Film · 2026", title: "How Much Money Are You Losing to DIY Bookkeeping?", body: "The campaign's newest spot — a sharp look at what mixing business and personal accounts really costs a small business. Conceived, rendered, and edited in under a week in Google Gemini and Claude." },
+      { tag: "Brand Film · 2026", title: "Why You Need Professional Bookkeeping Before It’s Too Late", body: "The campaign's newest spot — a sharp look at what putting off professional bookkeeping really costs a small business. Conceived, rendered, and edited in under a week in Google Gemini and Claude." },
       { tag: "Brand Film · 2024", title: "A Moment of Zen", body: "A calming brand film positioning Yield as the antidote to financial stress. Created entirely with AI — Midjourney for visuals, Kling AI and Runway for motion, Eleven Labs for voice, and Suno for the original score." },
       { tag: "Brand Film · 2024", title: "Say No to Excel!", body: "A punchy, humor-driven spot making the case for professional bookkeeping over DIY spreadsheets. Fast-paced editing, AI-generated visuals, and a direct message that resonates with small business owners everywhere." },
       { tag: "Seasonal Brand Film · 2024", title: "The North Pole's Secret", body: "A holiday brand film that reimagines Santa's operation as a perfectly-organized business — because great bookkeeping is the real magic behind every success. Yield's most creative campaign to date." },
