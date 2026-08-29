@@ -136,7 +136,7 @@ export default function HomePage() {
             Short, cinematic brand moments — a logo reveal, a seasonal spot, a scroll-stopping product beat. Built on proven concepts and customized to you: drop in your logo, your product, or your team, and it&apos;s yours.
           </p>
           <p style={{ color: "var(--text-muted)", maxWidth: "62ch", fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 28px" }}>
-            The fastest, cheapest way to put real production value in front of your customers. Here&apos;s a full set we made for Yield Bookkeeping:
+            The fastest, cheapest way to put real production value in front of your customers. Here&apos;s a set we made for Yield Bookkeeping, alongside a couple of our own:
           </p>
 
           <BrandQuickies />
