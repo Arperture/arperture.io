@@ -144,15 +144,27 @@ export const BRAND_QUICKIE_PRICE = "From $100 each";
 
 export type BrandQuickie = { youtubeId: string; tag: string; title: string };
 
-export const BRAND_QUICKIES: BrandQuickie[] = [
-  { youtubeId: "75Zn0A_K_t4", tag: "Logo Reveal", title: "Brand Motion Reveal" },
-  { youtubeId: "e3E_s3dVlbg", tag: "Seasonal", title: "New Look: Winter Edition" },
+// The Yield Bookkeeping set — also shown on the Yield case study, which must
+// stay client-only, so keep this list free of our own work.
+export const YIELD_BRAND_QUICKIES: BrandQuickie[] = [
   { youtubeId: "nsHtZsyiu8Q", tag: "Seasonal", title: "4K Particle Hearts" },
   { youtubeId: "Xi4LXdohCbo", tag: "Seasonal", title: "Finding the Pot of Gold" },
   { youtubeId: "Kpp8_2szuZA", tag: "Explainer", title: "Grow Your Business with Better Bookkeeping" },
   { youtubeId: "xBpStub7p70", tag: "Brand Moment", title: "Who's Behind the Flag Performance?" },
   { youtubeId: "sdKz4KxTa3I", tag: "Spectacle", title: "The Bookkeeping Drone Show" },
   { youtubeId: "j9EQAMH9kRo", tag: "Logo Reveal", title: "Sunset Ocean Logo Reveal" },
+];
+
+// Arperture's own brand motion, shown alongside client work on the homepage.
+const ARPERTURE_BRAND_QUICKIES: BrandQuickie[] = [
+  { youtubeId: "eu9TpstFLAY", tag: "Logo Animation", title: "The Arperture Logo Animation" },
+  { youtubeId: "7WH0gPqRlsw", tag: "Logo Animation", title: "Aperture Logo Showcase" },
+];
+
+// The homepage showcase reel: our own brand motion plus the Yield set.
+export const BRAND_QUICKIES: BrandQuickie[] = [
+  ...ARPERTURE_BRAND_QUICKIES,
+  ...YIELD_BRAND_QUICKIES,
 ];
 
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -189,7 +201,7 @@ export const CASES: Record<string, CaseStudy> = {
     badgeBg: "rgba(255,111,97,.12)", badgeColor: "var(--coral-300)", youtubeId: "B3Xw9yi9rXU",
     detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “Why You Need Professional Bookkeeping Before It’s Too Late” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
     linkLabel: "Visit yieldbookkeeping.com", linkUrl: "https://www.yieldbookkeeping.com",
-    stats: [{ n: "4", l: "Brand films" }, { n: "8", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
+    stats: [{ n: "4", l: "Brand films" }, { n: "6", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
     projectsLabel: "Widescreen content",
     projects: [
       { tag: "Brand Film · 2026", title: "Why You Need Professional Bookkeeping Before It’s Too Late", body: "The campaign's newest spot — a sharp look at what putting off professional bookkeeping really costs a small business. Conceived, rendered, and edited in under a week in Google Gemini and Claude." },
@@ -204,7 +216,7 @@ export const CASES: Record<string, CaseStudy> = {
       { tag: "Informational · 2025", title: "You Filed a Tax Extension" },
       { tag: "Brand · 2025", title: "Free Time" },
     ],
-    brandQuickies: BRAND_QUICKIES,
+    brandQuickies: YIELD_BRAND_QUICKIES,
   },
   judge: {
     slug: "judge", title: "Judge Silverback's Court",
