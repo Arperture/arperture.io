@@ -3,7 +3,9 @@
 // ============================================================
 
 export const SITE_URL = "https://arperture.io";
-export const DEFAULT_OG_IMAGE = "/assets/pickup-gerald-hero.jpg";
+// Branded 1200x630 social share card. Pages that represent specific content
+// (blog posts, case studies) override this with their own image.
+export const DEFAULT_OG_IMAGE = "/assets/og-cover.jpg";
 
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
 export const CALENDLY_GEO = "https://calendly.com/drew-arperture/geo-foundation-audit";

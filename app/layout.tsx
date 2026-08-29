@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Cinematic brand films, ads, and social content at small-business prices — plus AI consulting, team training, and Web Visibility audits.",
     url: SITE_URL,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture — AI video production for small businesses" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Arperture — AI video production for small businesses" }],
   },
   twitter: {
     card: "summary_large_image",
