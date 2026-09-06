@@ -2,7 +2,7 @@
 // Arperture Media — site content (ported from the design prototype)
 // ============================================================
 
-export const SITE_URL = "https://arperture.io";
+export const SITE_URL = "https://www.arperture.io";
 export const DEFAULT_OG_IMAGE = "/assets/pickup-gerald-hero.jpg";
 
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
@@ -53,6 +53,7 @@ export const ORG_JSONLD = {
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
       name: "Arperture Media",
+      alternateName: "Arperture",
       publisher: { "@id": `${SITE_URL}/#organization` },
     },
   ],

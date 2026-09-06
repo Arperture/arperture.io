@@ -9,11 +9,11 @@ import { SITE_URL, DEFAULT_OG_IMAGE, ORG_JSONLD } from "@/lib/data";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Arperture — AI Consulting, Training & Web Visibility for Small Businesses",
-    template: "%s · Arperture",
+    default: "Arperture Media — AI Consulting, Training & Web Visibility for Small Businesses",
+    template: "%s · Arperture Media",
   },
   description:
-    "Arperture helps small businesses put AI to work — hands-on AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO). Plus cinematic AI video production from the studio.",
+    "Arperture Media helps small businesses put AI to work — hands-on AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO). Plus cinematic AI video production from the studio.",
   keywords: [
     "AI consulting for small business", "AI fluency training", "web visibility audit",
     "SEO GEO AEO", "AI adoption", "AI implementation consulting",
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "Arperture",
-    title: "Arperture — AI Consulting, Training & Web Visibility for Small Businesses",
+    siteName: "Arperture Media",
+    title: "Arperture Media — AI Consulting, Training & Web Visibility for Small Businesses",
     description:
       "Hands-on AI consulting, team fluency training, and Web Visibility audits for small businesses — plus cinematic AI video production.",
     url: SITE_URL,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture — AI consulting, training & visibility for small businesses" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture Media — AI consulting, training & visibility for small businesses" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arperture — AI Consulting, Training & Web Visibility for Small Businesses",
+    title: "Arperture Media — AI Consulting, Training & Web Visibility for Small Businesses",
     description:
       "Hands-on AI consulting, team fluency training, and Web Visibility audits for small businesses — plus cinematic AI video production.",
     images: [DEFAULT_OG_IMAGE],

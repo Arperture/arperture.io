@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { BLOG_POSTS, CASES } from "@/lib/data";
+import { BLOG_POSTS, CASES, SITE_URL } from "@/lib/data";
 
 export const dynamic = "force-static";
 
-const BASE = "https://arperture.io";
+const BASE = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
