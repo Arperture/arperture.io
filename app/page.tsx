@@ -38,7 +38,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p style={{ fontSize: "1.35rem", color: "var(--text-muted)", maxWidth: "54ch", lineHeight: 1.5 }}>
-            Arperture is an AI video studio making brand films, ads, and social content for local businesses — scripted, directed, and scored like a full production crew, without the five-figure invoice.
+            Arperture Media is an AI video studio making brand films, ads, and social content for local businesses — scripted, directed, and scored like a full production crew, without the five-figure invoice.
           </p>
           <div style={{ display: "flex", gap: 16, marginTop: 36, flexWrap: "wrap" }}>
             <CalendlyButton url={CALENDLY_30MIN} className="btn btn-primary btn-lg">Book a free discovery call</CalendlyButton>

@@ -9,8 +9,8 @@ import { SITE_URL, DEFAULT_OG_IMAGE, ORG_JSONLD } from "@/lib/data";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Arperture — AI Video Production for Small Businesses",
-    template: "%s · Arperture",
+    default: "Arperture Media — AI Video Production for Small Businesses",
+    template: "%s · Arperture Media",
   },
   description:
     "Cinematic AI video production for small businesses — brand films, ads, and social content at small-business prices. Plus AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO).",
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "Arperture",
-    title: "Arperture — AI Video Production for Small Businesses",
+    siteName: "Arperture Media",
+    title: "Arperture Media — AI Video Production for Small Businesses",
     description:
       "Cinematic brand films, ads, and social content at small-business prices — plus AI consulting, team training, and Web Visibility audits.",
     url: SITE_URL,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture — AI video production for small businesses" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 670, alt: "Arperture Media — AI video production for small businesses" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arperture — AI Video Production for Small Businesses",
+    title: "Arperture Media — AI Video Production for Small Businesses",
     description:
       "Cinematic brand films, ads, and social content at small-business prices — plus AI consulting, team training, and Web Visibility audits.",
     images: [DEFAULT_OG_IMAGE],
