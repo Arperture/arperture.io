@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function BlogShare({ title }: { title: string }) {
-  const [url, setUrl] = useState("https://arperture.io");
+  const [url, setUrl] = useState("https://www.arperture.io");
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {

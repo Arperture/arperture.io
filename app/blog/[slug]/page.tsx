@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS } from "@/lib/data";
+import { BLOG_POSTS, SITE_URL } from "@/lib/data";
 import BlogShare from "@/components/BlogShare";
 
 export function generateStaticParams() {
@@ -49,14 +49,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         "@type": "BlogPosting",
         headline: post.title,
         description: post.metaDescription,
-        image: `https://arperture.io${post.coverSrc}`,
+        image: `${SITE_URL}${post.coverSrc}`,
         articleSection: post.category,
         datePublished: post.datePublished,
         dateModified: post.datePublished,
         author: { "@type": "Organization", name: "Arperture Media" },
-        publisher: { "@id": "https://arperture.io/#organization" },
-        mainEntityOfPage: `https://arperture.io/blog/${post.slug}/`,
-        url: `https://arperture.io/blog/${post.slug}/`,
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        mainEntityOfPage: `${SITE_URL}/blog/${post.slug}/`,
+        url: `${SITE_URL}/blog/${post.slug}/`,
       },
       {
         "@type": "FAQPage",
