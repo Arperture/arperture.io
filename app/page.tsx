@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
 import BrandQuickies from "@/components/BrandQuickies";
-import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE } from "@/lib/data";
+import HeroVideo from "@/components/HeroVideo";
+import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, HERO_VIDEO, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE } from "@/lib/data";
 
 const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px solid var(--border)" };
 const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
@@ -43,6 +44,11 @@ export default function HomePage() {
             <CalendlyButton url={CALENDLY_30MIN} className="btn btn-primary btn-lg">Book a free discovery call</CalendlyButton>
             <Link href="/portfolio" className="btn btn-ghost btn-lg">Watch the work →</Link>
           </div>
+        </div>
+
+        {/* HERO ANCHOR VIDEO */}
+        <div style={{ position: "relative", marginTop: 56 }}>
+          <HeroVideo youtubeId={HERO_VIDEO.youtubeId} title={HERO_VIDEO.title} />
         </div>
       </header>
 
