@@ -131,6 +131,12 @@ export const WORK_DATA: Work[] = [
   },
 ];
 
+// ---------- HOMEPAGE HERO ANCHOR VIDEO ----------
+export const HERO_VIDEO = {
+  youtubeId: "I1BEtjjvWts",
+  title: "Arperture Media — We Bring Your Imagination to Life",
+};
+
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 export const ytEmbed = (id: string, autoplay = false) =>
   `https://www.youtube-nocookie.com/embed/${id}?${autoplay ? "autoplay=1&mute=1&" : ""}rel=0&modestbranding=1`;

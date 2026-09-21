@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Badge, Panel, StatNumber, WLinkButton } from "@/components/Workbench";
 import CalendlyWButton from "@/components/CalendlyWButton";
-import { WORK_DATA, SMB_PILLARS, ytThumb, CALENDLY_30MIN } from "@/lib/data";
+import HeroVideo from "@/components/HeroVideo";
+import { WORK_DATA, SMB_PILLARS, HERO_VIDEO, ytThumb, CALENDLY_30MIN } from "@/lib/data";
 
 const sectionPad: React.CSSProperties = { padding: "56px 0" };
 const kicker: React.CSSProperties = {
@@ -47,8 +48,13 @@ export default function HomePage() {
 
           <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "var(--r-lg)", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.06em", color: "var(--text-muted)", textTransform: "uppercase" }}>A tuned stack buys back</span>
-            <StatNumber value="11 hrs/wk" label="Typical, post-roadmap" tone="amber" size="xl" />
+            <StatNumber value="11 hrs/wk" label="Typical, post-roadmap" tone="amber" size="lg" />
           </div>
+        </div>
+
+        {/* HERO ANCHOR VIDEO */}
+        <div style={{ marginTop: 16 }}>
+          <HeroVideo youtubeId={HERO_VIDEO.youtubeId} title={HERO_VIDEO.title} />
         </div>
       </header>
 
