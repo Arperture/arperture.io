@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
 import BrandQuickies from "@/components/BrandQuickies";
-import HeroVideo from "@/components/HeroVideo";
-import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, HERO_VIDEO, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE } from "@/lib/data";
+import FeatureVideo from "@/components/FeatureVideo";
+import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, HERO_VIDEO, FEATURED_SERIES, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE } from "@/lib/data";
 
 const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px solid var(--border)" };
 const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
@@ -48,7 +48,7 @@ export default function HomePage() {
 
         {/* HERO ANCHOR VIDEO */}
         <div style={{ position: "relative", marginTop: 56 }}>
-          <HeroVideo youtubeId={HERO_VIDEO.youtubeId} title={HERO_VIDEO.title} />
+          <FeatureVideo youtubeId={HERO_VIDEO.youtubeId} title={HERO_VIDEO.title} />
         </div>
       </header>
 
@@ -86,9 +86,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 02 — WHAT WE MAKE */}
+      {/* 02 — ORIGINAL SERIES (FEATURED) */}
+      <section id="original-series" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
+        <Kicker color="var(--coral-300)">02 — Original series</Kicker>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 40, alignItems: "center", marginTop: 24 }}>
+          <FeatureVideo youtubeId={FEATURED_SERIES.youtubeId} title={FEATURED_SERIES.title} label="Watch the teaser" />
+          <div>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--coral-300)", fontWeight: 700 }}>
+              Official teaser · {FEATURED_SERIES.premiere}
+            </span>
+            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2rem,4vw,2.6rem)", letterSpacing: "-.02em", margin: "12px 0 12px" }}>
+              {FEATURED_SERIES.title}
+            </h2>
+            <p style={{ color: "var(--text)", fontSize: "1.15rem", lineHeight: 1.5, margin: "0 0 12px" }}>
+              {FEATURED_SERIES.tagline}
+            </p>
+            <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, margin: "0 0 28px" }}>
+              {FEATURED_SERIES.body}
+            </p>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+              <a href={FEATURED_SERIES.channelUrl} target="_blank" rel="noopener noreferrer" className="btn btn-coral btn-sm">Subscribe for Episode 1 →</a>
+              <Link href="/portfolio" className="btn btn-ghost btn-sm">More original work</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — WHAT WE MAKE */}
       <section style={sectionBorder}>
-        <Kicker color="var(--purple-300)">02 — What we make</Kicker>
+        <Kicker color="var(--purple-300)">03 — What we make</Kicker>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
           One Studio, Every Format
         </h2>
@@ -115,7 +141,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 03 — BRAND QUICKIES (FEATURED) */}
+      {/* 04 — BRAND QUICKIES (FEATURED) */}
       <section id="brand-quickies" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
         <div
           style={{
@@ -154,9 +180,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 04 — BEYOND THE CAMERA */}
+      {/* 05 — BEYOND THE CAMERA */}
       <section style={sectionBorder}>
-        <Kicker color="var(--coral-300)">04 — Beyond the camera</Kicker>
+        <Kicker color="var(--coral-300)">05 — Beyond the camera</Kicker>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
           More Ways to Put AI to Work
         </h2>
