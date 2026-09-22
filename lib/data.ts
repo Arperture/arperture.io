@@ -89,6 +89,12 @@ export type Work = {
 
 export const WORK_DATA: Work[] = [
   {
+    id: "life-of-gremmie", slug: "", title: "Life of Gremmie", category: "Original AI Series · Official Teaser", date: "2026",
+    grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
+    blurb: "The official teaser for our original 10-episode dark comedy — Death is stuck in suburbia, and he still has to work. Season 1 premieres November 1, 2026.",
+    youtubeId: "lLpsu5rz7DY", hasCase: false,
+  },
+  {
     id: "pickup-gerald", slug: "", title: "Pick Up Gerald", category: "AI Short Film", date: "June 2025",
     grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
     blurb: "A fully AI-directed short film created with Google Veo. Exploring character, narrative, and cinematic language through generative video.",
@@ -172,6 +178,16 @@ export const BRAND_QUICKIES: BrandQuickie[] = [
 export const HERO_VIDEO = {
   youtubeId: "I1BEtjjvWts",
   title: "We Bring Your Imagination to Life",
+};
+
+// ---------- HOMEPAGE FEATURED ORIGINAL SERIES ----------
+export const FEATURED_SERIES = {
+  youtubeId: "lLpsu5rz7DY",
+  title: "Life of Gremmie",
+  premiere: "Series premieres Nov 1, 2026",
+  tagline: "Death is stuck in suburbia. And he still has to work.",
+  body: "Our original 10-episode dark comedy. Grim — ancient, cursed, and eternal — is eleven years into an assignment in contemporary American suburbia, collecting the small, mundane deaths no one else will bother with. The town just sees a guy. And the longer he stays, the more of his humanity comes back.",
+  channelUrl: "https://www.youtube.com/@LifeofGremmie",
 };
 
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;

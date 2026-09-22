@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { PlayIcon } from "./icons";
 
-// Full-width click-to-play anchor video for the homepage hero. Swaps the
-// poster for the embed in place rather than opening the portfolio modal, so
-// the reel stays anchored where the visitor clicked it.
-export default function HeroVideo({ youtubeId, title }: { youtubeId: string; title: string }) {
+// Click-to-play featured video for homepage sections. Swaps the poster for
+// the embed in place rather than opening the portfolio modal, so the video
+// stays anchored where the visitor clicked it.
+export default function FeatureVideo({
+  youtubeId, title, label = "Watch the reel",
+}: { youtubeId: string; title: string; label?: string }) {
   const [playing, setPlaying] = useState(false);
   const [poster, setPoster] = useState(`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`);
 
@@ -60,7 +62,7 @@ export default function HeroVideo({ youtubeId, title }: { youtubeId: string; tit
               }}
             >
               <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--cyan-400)", boxShadow: "0 0 10px var(--cyan-400)" }} />
-              Watch the reel · {title}
+              {label} · {title}
             </span>
           </button>
         )}
