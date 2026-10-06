@@ -1,33 +1,41 @@
-# Arperture
+# Arperture Media
 
-> Arperture is a Leesburg, Virginia studio that helps local small businesses put AI to work — hands-on AI consulting, AI fluency training for teams, and Web Visibility audits (SEO, GEO & AEO) that show whether Google and ChatGPT recommend your business. Arperture also produces cinematic AI video: film-grade video, sound design, and branded stories. Founded by Andrew Dallons. Contact: contact@arperture.io · (571) 200-1186.
-
-## Small Business Services
-
-- [AI Consulting](https://arperture.io/small-business/#consulting): AI Business Analysis (from $497) maps which AI tools fit your operations and how to implement them; AI Implementation Consulting is an ongoing monthly retainer for workflow builds, team training, and automation.
-- [AI Fluency Training](https://arperture.io/small-business/#fluency): Hands-on workshops and 1:1 sessions that make your team confident with AI — built on the tools you already use and the work you actually do. Half-day workshops to multi-session curricula.
-- [Web Visibility Audit](https://arperture.io/small-business/#visibility): $750 flat, 5 business days. A 100-point scored report across SEO, GEO & AEO showing whether Google, ChatGPT, Perplexity, and AI Overviews recommend your business, with a prioritized fix roadmap.
-- [All small business services](https://arperture.io/small-business/)
+> Arperture Media is a Leesburg, Virginia studio producing cinematic AI video for small businesses — brand films, ads, and social content at small-business prices — plus AI consulting, AI fluency training for teams, and Web Visibility audits (SEO, GEO & AEO) that show whether Google and ChatGPT recommend your business. Also known as Arperture. Founded by Andrew Dallons. Contact: contact@arperture.io · (571) 200-1186.
 
 ## Video Production
 
-- [AI Video Services & Production](https://arperture.io/services/): Concept-to-completion cinematic AI video — film direction, creative direction, sound & score — via a 14-step pipeline.
-- [Image & Video Enhancement, Restoration & Colorization](https://arperture.io/enhancement/): Studio-grade upscaling, damage repair, and black-and-white colorization for photos and video, priced by tier and quoted up front.
+- [Brand Films & Commercials](https://www.arperture.io/services/): A cinematic film about your business — scripted, directed, scored, and delivered as a master. The polish of a full production crew, without the five-figure invoice.
+- [Ads & Short-Form Social](https://www.arperture.io/services/): 15–60 second scroll-stopping spots for Meta, TikTok, Reels, and YouTube Shorts, with multiple hook variations and A/B-ready cuts.
+- [Brand Quickies](https://www.arperture.io/#brand-quickies): Short, cinematic brand moments — logo reveals, seasonal spots, and scroll-stopping product beats — built on proven concepts and customized with your logo, product, or team. From $100 each.
+- [Monthly Content Partnership](https://www.arperture.io/portfolio/yield/): A recurring slate of brand films, seasonal spots, and social cuts, like the 2024–present campaign for Yield Bookkeeping in Brambleton, VA.
+- [AI Video Services & Production](https://www.arperture.io/services/): Concept-to-completion cinematic AI video — film direction, creative direction, sound & score — via a 14-step pipeline. Every project is custom-quoted.
+- [Image & Video Enhancement, Restoration & Colorization](https://www.arperture.io/enhancement/): Studio-grade upscaling, damage repair, and black-and-white colorization for photos and video, priced by tier and quoted up front.
+
+## Small Business Services
+
+- [AI Consulting](https://www.arperture.io/small-business/#consulting): AI Business Analysis (from $497) maps which AI tools fit your operations and how to implement them; AI Implementation Consulting is an ongoing monthly retainer for workflow builds, team training, and automation.
+- [AI Fluency Training](https://www.arperture.io/small-business/#fluency): Hands-on workshops and 1:1 sessions that make your team confident with AI — built on the tools you already use and the work you actually do. Half-day workshops to multi-session curricula.
+- [Web Visibility Audit](https://www.arperture.io/small-business/#visibility): $750 flat, 5 business days. A 100-point scored report across SEO, GEO & AEO showing whether Google, ChatGPT, Perplexity, and AI Overviews recommend your business, with a prioritized fix roadmap.
+- [All small business services](https://www.arperture.io/small-business/)
 
 ## Work
 
-- [Portfolio](https://arperture.io/portfolio/): AI-directed films, music videos, and branded content.
-- [Yield Bookkeeping Services (case study)](https://arperture.io/portfolio/yield/): A full AI-powered brand video campaign.
-- [Judge Silverback's Court (case study)](https://arperture.io/portfolio/judge/): An AI-produced courtroom comedy web series.
+- [Portfolio](https://www.arperture.io/portfolio/): AI-directed brand films, ads, music videos, short films, and an original series.
+- [Yield Bookkeeping Services (case study)](https://www.arperture.io/portfolio/yield/): A full AI-powered brand video campaign — brand films, seasonal spots, Brand Quickies, and social cuts for a Brambleton, VA bookkeeping firm.
+- [Judge Silverback's Court (case study)](https://www.arperture.io/portfolio/judge/): An AI-produced courtroom comedy web series.
+- [Life of Gremmie (original series)](https://www.youtube.com/@LifeofGremmie): Arperture's original 10-episode dark comedy — Death is stuck in suburbia, and he still has to work.
 
 ## Writing
 
-- [Blog](https://arperture.io/blog/): Notes on putting AI to work in small businesses, plus AI filmmaking craft, technique, and process.
-- [The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026](https://arperture.io/blog/why-small-ai-projects-are-beating-the-giants/): The data on small-budget AI ROI, training investment, and human-in-the-loop systems for small businesses.
-- [Claude vs. ChatGPT vs. Gemini: A Plain-English Guide for Small Business Owners](https://arperture.io/blog/claude-vs-chatgpt-vs-gemini-for-small-business/): What each AI assistant is best at in 2026 and a practical four-step way to pick the right one.
-- [FAQ](https://arperture.io/faq/): Common questions on AI services, fluency training, video cost, timelines, and ownership.
+- [Blog](https://www.arperture.io/blog/): Notes on putting AI to work in small businesses, plus AI filmmaking craft, technique, and process.
+- [Claude vs. ChatGPT vs. Gemini: A Plain-English Guide for Small Business Owners](https://www.arperture.io/blog/claude-vs-chatgpt-vs-gemini-for-small-business/): What each AI assistant is best at in 2026 and a practical four-step way to pick the right one.
+- [The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026](https://www.arperture.io/blog/why-small-ai-projects-are-beating-the-giants/): The data on small-budget AI ROI, training investment, and human-in-the-loop systems for small businesses.
+- [What 'Directing' Means When the Camera Is a Prompt](https://www.arperture.io/blog/directing-when-the-camera-is-a-prompt/): Why prompt grammar is the new coverage, and how to think in shots instead of images.
+- [Keeping a Character Consistent Across Every Shot](https://www.arperture.io/blog/keeping-a-character-consistent/): Reference frames, locked seeds, and style anchors, drawn from producing the AI short film Pick Up Gerald.
+- [Sound Sells the Shot](https://www.arperture.io/blog/sound-sells-the-shot/): Why voice, score, and mix matter more than resolution when the picture is generated.
+- [FAQ](https://www.arperture.io/faq/): Common questions on AI video cost and timelines, AI consulting, fluency training, and ownership of deliverables.
 
 ## Contact
 
-- [Contact & project brief](https://arperture.io/contact/)
-- [About Arperture](https://arperture.io/about/)
+- [Contact & project brief](https://www.arperture.io/contact/)
+- [About Arperture Media](https://www.arperture.io/about/)
