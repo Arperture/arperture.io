@@ -4,7 +4,8 @@ import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
 import BrandQuickies from "@/components/BrandQuickies";
 import FeatureVideo from "@/components/FeatureVideo";
-import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, HERO_VIDEO, FEATURED_SERIES, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE } from "@/lib/data";
+import SpecAdShowcase from "@/components/SpecAdShowcase";
+import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, HERO_VIDEO, FEATURED_SERIES, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
 
 const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px solid var(--border)" };
 const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
@@ -86,9 +87,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 02 — ORIGINAL SERIES (FEATURED) */}
+      {/* 02 — SPEC ADS (FEATURED) */}
+      <section id="spec-ads" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
+        <Kicker>02 — Spec ads for small business</Kicker>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
+          Pick Your Industry. See Your Ad.
+        </h2>
+        <p style={{ color: "var(--text-muted)", maxWidth: "62ch", marginBottom: 32 }}>
+          Every spot below is a spec ad we wrote, directed, and finished for the kind of local business you run — restaurants, home services, real estate, pet care, Main Street. Choose your industry and watch the ad we&apos;d make for you.
+        </p>
+        <SpecAdShowcase />
+        <p style={{ color: "var(--text-faint)", fontSize: "0.8rem", lineHeight: 1.5, marginTop: 16, maxWidth: "70ch" }}>
+          Spec ads feature fictional brands created for demonstration. Your version gets your name, your product, and your town.
+        </p>
+        <div style={{ display: "flex", gap: 16, marginTop: 24, flexWrap: "wrap" }}>
+          <Link href="/contact" className="btn btn-cyan btn-sm">Get a spot like this</Link>
+          <a href={SPEC_ADS_CHANNEL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">All spec ads on YouTube →</a>
+        </div>
+      </section>
+
+      {/* 03 — ORIGINAL SERIES (FEATURED) */}
       <section id="original-series" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
-        <Kicker color="var(--coral-300)">02 — Original series</Kicker>
+        <Kicker color="var(--coral-300)">03 — Original series</Kicker>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 40, alignItems: "center", marginTop: 24 }}>
           <FeatureVideo youtubeId={FEATURED_SERIES.youtubeId} title={FEATURED_SERIES.title} label="Watch the teaser" />
           <div>
@@ -112,9 +132,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 03 — WHAT WE MAKE */}
+      {/* 04 — WHAT WE MAKE */}
       <section style={sectionBorder}>
-        <Kicker color="var(--purple-300)">03 — What we make</Kicker>
+        <Kicker color="var(--purple-300)">04 — What we make</Kicker>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
           One Studio, Every Format
         </h2>
@@ -141,7 +161,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 04 — BRAND QUICKIES (FEATURED) */}
+      {/* 05 — BRAND QUICKIES (FEATURED) */}
       <section id="brand-quickies" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
         <div
           style={{
@@ -180,9 +200,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 05 — BEYOND THE CAMERA */}
+      {/* 06 — BEYOND THE CAMERA */}
       <section style={sectionBorder}>
-        <Kicker color="var(--coral-300)">05 — Beyond the camera</Kicker>
+        <Kicker color="var(--coral-300)">06 — Beyond the camera</Kicker>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
           More Ways to Put AI to Work
         </h2>

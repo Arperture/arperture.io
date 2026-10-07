@@ -125,3 +125,43 @@ body { margin: 0; overflow-x: hidden; }
   html { scroll-behavior: auto; }
   .btn, .card-lift, .brand img { transition: none; }
 }
+
+/* ---------- spec ad showcase (stage + filmstrip) ---------- */
+@keyframes specFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes specRing { from { stroke-dashoffset: 94.25; } to { stroke-dashoffset: 0; } }
+.spec-layer { animation: specFade 0.6s var(--ease-out) both; }
+.spec-ring { animation: specRing 8s linear forwards; }
+.spec-ring.is-paused { animation-play-state: paused; }
+.spec-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--text-muted); border: 1px solid var(--border);
+  transition: background var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+.spec-chip:hover { color: var(--text); border-color: var(--border-strong); }
+.spec-chip[aria-pressed="true"] { background: var(--cyan-400); color: var(--on-accent); border-color: var(--cyan-400); }
+.spec-chip-count { font-size: 0.62rem; opacity: 0.7; }
+.spec-rail {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.spec-track {
+  display: flex; gap: 14px; overflow-x: auto; padding: 8px 2px 12px;
+  scrollbar-width: none; -ms-overflow-style: none; cursor: grab;
+}
+.spec-track::-webkit-scrollbar { display: none; }
+.spec-track.is-dragging { cursor: grabbing; }
+.spec-tile {
+  flex: 0 0 auto; width: 224px; padding: 0; overflow: hidden; cursor: pointer;
+  border: 2px solid var(--border); border-radius: 12px; background: var(--surface);
+  transition: transform var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out);
+}
+.spec-tile:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+.spec-tile[aria-current="true"] { border-color: var(--cyan-400); box-shadow: var(--glow-cyan); }
+.spec-tile img { pointer-events: none; user-select: none; -webkit-user-drag: none; }
+@media (max-width: 640px) { .spec-tile { width: 168px; } }
+@media (prefers-reduced-motion: reduce) {
+  .spec-layer, .spec-ring { animation: none; }
+  .spec-chip, .spec-tile { transition: none; }
+}
