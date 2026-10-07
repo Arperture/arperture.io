@@ -190,6 +190,84 @@ export const FEATURED_SERIES = {
   channelUrl: "https://www.youtube.com/@LifeofGremmie",
 };
 
+// ---------- SPEC ADS (homepage showcase) ----------
+// Fictional-brand spec commercials from the ArpertureIO channel, grouped by
+// the kind of local business each one is written for. The showreel leads
+// the "All" view; it is not an industry of its own.
+export const SPEC_ADS_CHANNEL_URL = "https://www.youtube.com/@ArpertureIO";
+
+export type SpecAdIndustry = "Food & Drink" | "Home Services" | "Real Estate" | "Pet Care" | "Community";
+export const SPEC_AD_INDUSTRIES: SpecAdIndustry[] = ["Food & Drink", "Home Services", "Real Estate", "Pet Care", "Community"];
+
+export type SpecAd = {
+  youtubeId: string;
+  business: string;
+  title: string;
+  industry: SpecAdIndustry | "Showreel";
+  location: string;
+  duration: string; // m:ss, shown on the tile and in the stage meta
+  orientation: "landscape" | "portrait";
+  blurb: string;
+};
+
+export const SPEC_ADS: SpecAd[] = [
+  {
+    youtubeId: "G2T6WDaVohY", business: "Arperture Media", title: "Spec Commercial Showreel", industry: "Showreel",
+    location: "Northern VA", duration: "0:31", orientation: "landscape",
+    blurb: "Empty home to craft brewery to makers at work — our recent spec work cut into one fast thirty seconds.",
+  },
+  {
+    youtubeId: "ZNOEx9rzwKc", business: "Smokehouse No. 9", title: "BBQ Restaurant Spot", industry: "Food & Drink",
+    location: "Reston, VA", duration: "0:33", orientation: "landscape",
+    blurb: "Slow-cooked brisket from the slice to the plate — food cinematography built to make you hungry.",
+  },
+  {
+    youtubeId: "1xDrpECyeRw", business: "Romano's Italian Pizzeria", title: "Find Me on the Other Side", industry: "Food & Drink",
+    location: "Northern VA", duration: "0:28", orientation: "landscape",
+    blurb: "A cinematic bait-and-switch: meteor apocalypse to cozy pizza night, and a fight over the last garlic knot.",
+  },
+  {
+    youtubeId: "Aqz2q8ZDEbg", business: "Romano's Italian Pizzeria", title: "Dark Comedy Cut", industry: "Food & Drink",
+    location: "Northern VA", duration: "0:33", orientation: "landscape",
+    blurb: "Peaceful sunset, appetizing close-ups, and a fiery punchline — timing is the whole joke.",
+  },
+  {
+    youtubeId: "YbXqKgOaBLo", business: "Golden Hour Diner", title: "Time Runs Backwards", industry: "Food & Drink",
+    location: "Northern VA", duration: "0:31", orientation: "landscape",
+    blurb: "Plates fly in reverse onto a stunned waitress's tray while one calm customer keeps sipping her milkshake.",
+  },
+  {
+    youtubeId: "vg3Mp--59WM", business: "Jenni's Java", title: "Local Coffee Shop Spot", industry: "Food & Drink",
+    location: "Northern VA", duration: "0:16", orientation: "portrait",
+    blurb: "Espresso to latte art to first sip in a sun-lit café — a cozy fifteen seconds built for social and in-store screens.",
+  },
+  {
+    youtubeId: "x2ju5Aga9vU", business: "Greenline Lawn & Landscape", title: "Yard Reset", industry: "Home Services",
+    location: "Northern VA", duration: "0:18", orientation: "landscape",
+    blurb: "Overgrown to clean-cut in one day — before-and-after storytelling with time-lapse pacing.",
+  },
+  {
+    youtubeId: "sF1rdW80HNU", business: "Dominion Climate Pros", title: "AC Not Cooling?", industry: "Home Services",
+    location: "Northern VA", duration: "0:14", orientation: "landscape",
+    blurb: "A technician, a service van, and a family cool and comfortable at home — trust built in fourteen seconds.",
+  },
+  {
+    youtubeId: "SR7JD3dIY-k", business: "ListingInMotion", title: "Just Listed in Loudoun County", industry: "Real Estate",
+    location: "Loudoun County, VA", duration: "0:17", orientation: "landscape",
+    blurb: "Light-filled living, a kitchen built for company, a porch made for evenings — a clean listing spot for agents and brokerages.",
+  },
+  {
+    youtubeId: "EQzAgqh-0F4", business: "WagWash Mobile Grooming", title: "Straight to the Van", industry: "Pet Care",
+    location: "Northern VA", duration: "0:31", orientation: "landscape",
+    blurb: "A dog's-eye-view chase through the park, past the ball game, right to the grooming van that comes to you.",
+  },
+  {
+    youtubeId: "A9zRhAS4OV0", business: "A Taste of Loudoun County", title: "Small Business Community Spot", industry: "Community",
+    location: "Loudoun County, VA", duration: "0:31", orientation: "landscape",
+    blurb: "Bakery, winery, golf lounge, boutique, dinner with friends — a thirty-second love letter to Main Street.",
+  },
+];
+
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 export const ytEmbed = (id: string, autoplay = false) =>
   `https://www.youtube-nocookie.com/embed/${id}?${autoplay ? "autoplay=1&mute=1&" : ""}rel=0&modestbranding=1`;
