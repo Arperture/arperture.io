@@ -22,6 +22,13 @@ type Layer = { id: string; key: number };
 const poster = (id: string, size: "maxresdefault" | "hqdefault") => `https://i.ytimg.com/vi/${id}/${size}.jpg`;
 // User-initiated, so autoplay with sound is allowed; no mute like the modal embeds.
 const embed = (id: string) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+// YouTube serves a 120×90 grey placeholder (not an error) when a video has no
+// maxres thumbnail, so fall back on size as well as on load failure. hqdefault
+// always exists.
+const fallbackIfPlaceholder = (img: HTMLImageElement, id: string) => {
+  if (img.src.endsWith("hqdefault.jpg")) return;
+  if (!img.complete || img.naturalWidth === 0 || img.naturalWidth <= 120) img.src = poster(id, "hqdefault");
+};
 const adsFor = (filter: Filter): SpecAd[] => (filter === "all" ? SPEC_ADS : SPEC_ADS.filter((a) => a.industry === filter));
 const byId = (id: string) => SPEC_ADS.find((a) => a.youtubeId === id) ?? SPEC_ADS[0];
 
@@ -218,7 +225,8 @@ export default function SpecAdShowcase() {
                     <img
                       src={poster(l.id, "maxresdefault")}
                       alt=""
-                      onError={(e) => { if (!e.currentTarget.src.endsWith("hqdefault.jpg")) e.currentTarget.src = poster(l.id, "hqdefault"); }}
+                      onLoad={(e) => fallbackIfPlaceholder(e.currentTarget, l.id)}
+                      onError={(e) => fallbackIfPlaceholder(e.currentTarget, l.id)}
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: portrait ? "contain" : "cover", display: "block" }}
                     />
                   </div>
