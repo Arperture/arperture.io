@@ -7,7 +7,7 @@ const BASE = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
-    "/", "/services/", "/small-business/", "/portfolio/", "/enhancement/",
+    "/", "/services/", "/work-with-us/", "/small-business/", "/portfolio/", "/enhancement/",
     "/about/", "/blog/", "/faq/", "/contact/", "/privacy/", "/sms-terms/",
   ];
   const caseRoutes = Object.keys(CASES).map((slug) => `/portfolio/${slug}/`);
