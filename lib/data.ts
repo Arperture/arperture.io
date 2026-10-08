@@ -69,6 +69,7 @@ export const NAV_PRIMARY: { label: string; href: string }[] = [
 
 export const SERVICES_MENU: { label: string; href: string }[] = [
   { label: "Video Production", href: "/services" },
+  { label: "Work With Us", href: "/work-with-us" },
   { label: "Consulting", href: "/small-business#consulting" },
   { label: "AI Fluency", href: "/small-business#fluency" },
   { label: "Search Visibility", href: "/small-business#visibility" },
