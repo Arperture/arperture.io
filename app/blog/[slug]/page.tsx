@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS, SITE_URL } from "@/lib/data";
+import { BLOG_POSTS, SITE_URL, CALENDLY_30MIN } from "@/lib/data";
 import BlogShare from "@/components/BlogShare";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -103,6 +104,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           )
         )}
       </article>
+
+      <section className="card" style={{ maxWidth: "72ch", marginTop: 40, padding: 28, borderRadius: 16, display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
+        <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.2rem", margin: 0 }}>Want help putting this to work?</h3>
+        <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, margin: 0 }}>Book a free 30-minute call and we'll talk through what makes sense for your business.</p>
+        <CalendlyButton url={CALENDLY_30MIN} className="btn btn-primary">Book a Free Call</CalendlyButton>
+      </section>
 
       <BlogShare title={post.title} />
 

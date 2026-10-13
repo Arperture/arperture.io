@@ -30,6 +30,7 @@
 ## Writing
 
 - [Blog](https://www.arperture.io/blog/): Notes on putting AI to work in small businesses, plus AI filmmaking craft, technique, and process.
+- [Meta's Muse Is Shopping for Your Customers. Here's How to Get Ready (and Put It to Work for You)](https://www.arperture.io/blog/meta-muse-ai-agent-small-business/): What Meta's Muse AI agent means for small businesses — getting ready for AI shoppers, Amazon vs. Shopify, and five practical Muse setups.
 - [Claude vs. ChatGPT vs. Gemini: A Plain-English Guide for Small Business Owners](https://www.arperture.io/blog/claude-vs-chatgpt-vs-gemini-for-small-business/): What each AI assistant is best at in 2026 and a practical four-step way to pick the right one.
 - [The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026](https://www.arperture.io/blog/why-small-ai-projects-are-beating-the-giants/): The data on small-budget AI ROI, training investment, and human-in-the-loop systems for small businesses.
 - [What 'Directing' Means When the Camera Is a Prompt](https://www.arperture.io/blog/directing-when-the-camera-is-a-prompt/): Why prompt grammar is the new coverage, and how to think in shots instead of images.
