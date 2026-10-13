@@ -40,6 +40,8 @@ export default function FeatureVideo({
               src={poster}
               alt=""
               onError={() => setPoster(`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`)}
+              // YouTube serves a 120×90 placeholder (not an error) when maxres is missing.
+              onLoad={(e) => { if (e.currentTarget.naturalWidth <= 120) setPoster(`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`); }}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
             <span style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,10,11,0) 45%, rgba(10,10,11,.6) 100%)" }} />
