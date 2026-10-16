@@ -1,0 +1,122 @@
+/* ============================================================
+   H&S Plumbing — Design Tokens v1.0 (July 2026)
+   Prepared by Arperture · arperture.io
+   Drop-in CSS custom properties for the hsplumbinginc.com
+   redesign. See design-system.html for the full visual guide.
+
+   Fonts (Google Fonts):
+   - Barlow Condensed 600/700 (display)
+   - Barlow 400/500/600 (body)
+   ============================================================ */
+
+:root {
+  /* ---- Brand ---- */
+  --navy-900: #0C1D30;   /* Midnight Main — footer, dark-theme ground */
+  --navy-800: #12304E;   /* Deep Water — hero/footer grounds, headings */
+  --blue-600: #1D5C8F;   /* Service Blue — icons, secondary emphasis, info */
+  --blue-100: #DCE9F3;   /* blue tint — icon chips, info alerts */
+  --copper-700: #8F4A1E; /* Copper Deep — text links on light */
+  --copper-600: #A85A27; /* Copper — primary buttons, key accents */
+  --copper-300: #E8A468; /* Copper Bright — accents on dark grounds */
+  --copper-100: #F6E3D2; /* copper tint — quiet-button hover, brand pills */
+
+  /* ---- Neutrals ("galvanized" blue-biased greys) ---- */
+  --ink-900: #1A2530;    /* body text */
+  --steel-600: #475A6B;  /* secondary text */
+  --steel-400: #7C8FA0;  /* placeholders, input borders */
+  --steel-200: #D8E0E7;  /* hairlines, dividers */
+  --mist-100: #E9EEF3;   /* tinted panels, table stripes */
+  --porcelain: #F3F5F7;  /* page ground */
+  --paper: #FFFFFF;      /* cards */
+
+  /* ---- Semantic (state, never action — copper owns action) ---- */
+  --ok-600: #1E7A46;     --ok-100: #DDF0E4;
+  --warn-600: #93610A;   --warn-100: #FBEED3;
+  --danger-600: #B3352C; --danger-100: #F9E2E0;
+
+  /* ---- Roles (style components against these, not raw values) ---- */
+  --bg: var(--porcelain);
+  --surface: var(--paper);
+  --surface-2: var(--mist-100);
+  --text: var(--ink-900);
+  --text-2: var(--steel-600);
+  --border: var(--steel-200);
+  --brand-dark: var(--navy-800);
+  --accent: var(--copper-600);
+  --accent-text: var(--copper-700);
+  --accent-bright: var(--copper-300);
+  --on-accent: #FFFFFF;
+  --on-dark: #F3F5F7;
+  --on-dark-2: #C7D3DD;
+  --link: var(--copper-700);
+  --focus: var(--copper-600);
+
+  /* ---- Elevation (navy-tinted, never grey-on-grey) ---- */
+  --shadow-1: 0 1px 2px rgba(18, 48, 78, 0.08);
+  --shadow-2: 0 2px 8px rgba(18, 48, 78, 0.10), 0 1px 2px rgba(18, 48, 78, 0.06);
+  --shadow-3: 0 12px 32px rgba(12, 29, 48, 0.16), 0 2px 8px rgba(12, 29, 48, 0.08);
+
+  /* ---- Type ---- */
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif; /* uppercase display only, never running text */
+  --font-body: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+  --fs-d1: clamp(2.75rem, 6.5vw, 4.25rem); /* Display 1 · BC 700 · lh 1.0 · uppercase */
+  --fs-d2: clamp(2rem, 4vw, 2.875rem);     /* Display 2 · BC 700 · lh 1.05 · uppercase */
+  --fs-h3: 1.375rem;    /* BC 600 · lh 1.2 · uppercase · +3% tracking */
+  --fs-h4: 1.0625rem;   /* Barlow 600 · lh 1.35 */
+  --fs-body: 1.0625rem; /* Barlow 400 · lh 1.6 · 55–68ch measure */
+  --fs-small: 0.9375rem;
+  --fs-label: 0.8125rem; /* Barlow 600 · uppercase · +16% tracking */
+
+  /* ---- Space (4px base grid) ---- */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+  --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+
+  /* ---- Shape ---- */
+  --r-sm: 4px;    /* inputs, chips */
+  --r-md: 8px;    /* buttons */
+  --r-lg: 12px;   /* cards, imagery */
+  --r-pill: 999px; /* badges only */
+}
+
+/* ---- Dark theme (OS preference) ---- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0C1D30; --surface: #14283E; --surface-2: #1B3450;
+    --text: #E9EEF3; --text-2: #9FB4C4; --border: #28425E;
+    --brand-dark: #0F2740;
+    --accent: #A85A27; --accent-text: #E8A468; --accent-bright: #E8A468;
+    --link: #E8A468; --focus: #E8A468;
+    --blue-100: #1B3B58; --copper-100: #3A2717;
+    --ok-100: #173A27; --warn-100: #3B2E11; --danger-100: #3E1D1A;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-3: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ---- Explicit theme overrides (user toggle wins over OS) ---- */
+:root[data-theme="dark"] {
+  --bg: #0C1D30; --surface: #14283E; --surface-2: #1B3450;
+  --text: #E9EEF3; --text-2: #9FB4C4; --border: #28425E;
+  --brand-dark: #0F2740;
+  --accent: #A85A27; --accent-text: #E8A468; --accent-bright: #E8A468;
+  --link: #E8A468; --focus: #E8A468;
+  --blue-100: #1B3B58; --copper-100: #3A2717;
+  --ok-100: #173A27; --warn-100: #3B2E11; --danger-100: #3E1D1A;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-3: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] {
+  --bg: #F3F5F7; --surface: #FFFFFF; --surface-2: #E9EEF3;
+  --text: #1A2530; --text-2: #475A6B; --border: #D8E0E7;
+  --brand-dark: #12304E;
+  --accent: #A85A27; --accent-text: #8F4A1E; --accent-bright: #E8A468;
+  --link: #8F4A1E; --focus: #A85A27;
+  --blue-100: #DCE9F3; --copper-100: #F6E3D2;
+  --ok-100: #DDF0E4; --warn-100: #FBEED3; --danger-100: #F9E2E0;
+  --shadow-1: 0 1px 2px rgba(18, 48, 78, 0.08);
+  --shadow-2: 0 2px 8px rgba(18, 48, 78, 0.10), 0 1px 2px rgba(18, 48, 78, 0.06);
+  --shadow-3: 0 12px 32px rgba(12, 29, 48, 0.16), 0 2px 8px rgba(12, 29, 48, 0.08);
+}
