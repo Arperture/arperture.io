@@ -33,7 +33,7 @@ One folder per route (server components). Dynamic routes use `generateStaticPara
 Server by default; these are `"use client"` because they're interactive:
 - `Nav.tsx` — sticky nav, Services + Socials dropdowns, mobile hamburger drawer (`usePathname` for active state)
 - `PortfolioGrid.tsx` — portfolio cards + YouTube video lightbox (`youtube-nocookie` embeds)
-- `ContactForm.tsx` — posts to Formspree (`FORMSPREE_ENDPOINT` in data.ts)
+- `ContactForm.tsx` — posts to Formspree (`FORMSPREE_ENDPOINT` in data.ts), then `location.replace`s to `/thank-you/` — the noindex page Google Ads conversion tracking keys on. Keep it a full page load, not `router.push`.
 - `CalendlyButton.tsx` / `lib/calendly.ts` — opens the Calendly popup widget (script loaded in `app/layout.tsx`)
 - `BlogShare.tsx` — share buttons + copy-link
 - `ui.tsx` (`Kicker`, `H1`, `H2`, `GhostLink`) and `icons.tsx` are presentational helpers
