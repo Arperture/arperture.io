@@ -64,6 +64,7 @@ export const NAV_PRIMARY: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
+  { label: "Brands", href: "/brands" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -777,6 +778,7 @@ export const FOOTER_LINKS_B: { label: string; href: string }[] = [
   { label: "Web Visibility", href: "/small-business#visibility" },
   { label: "Enhancement & Restoration", href: "/enhancement" },
   { label: "Blog", href: "/blog" },
+  { label: "Brands", href: "/brands" },
   { label: "Judge Silverback's Court", href: "/portfolio/judge" },
   { label: "Yield Bookkeeping Services", href: "/portfolio/yield" },
   { label: "Privacy Policy", href: "/privacy" },
