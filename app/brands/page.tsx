@@ -30,7 +30,6 @@ const SAMPLES: Sample[] = [
   { file: "terrac-hook1-9x16", title: "Terra-C — question hook", ratio: "9/16", tag: "DTC ad · 9:16" },
   { file: "terrac-hook2-4x5", title: "Terra-C — bold claim", ratio: "4/5", tag: "DTC ad · 4:5" },
   { file: "wovrin-walkthrough-16x9", title: "Wovrin — product walkthrough", ratio: "16/9", tag: "SaaS demo · 16:9" },
-  { file: "notion-hero-16x9", title: "Workspace app — hero demo", ratio: "16/9", tag: "SaaS demo · 16:9" },
 ];
 
 function TierCard({ t, accent }: { t: Tier; accent: string }) {
