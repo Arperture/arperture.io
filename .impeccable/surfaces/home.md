@@ -1,5 +1,7 @@
 # Surface brief: homepage (app/page.tsx)
 
+> UPDATE 2026-11-09 (Drew, pinned): Drew prefers the drifting video-wall hero prototype over the video-store direction. The video wall is the homepage direction; the video-store comp below is retired. Type and color pass agreed: one family (Archivo, condensed display at wdth 62, body at wdth 100), warm screening-room dark ground #12100E, paper text #F1ECE3, secondary #B9B0A3, one accent for actions (amber #E9A23B default; teal from the logo #16A6C2 and paper as alternates under review). No gradient text, no glow, no kicker labels, no monospace costume. Prototype: https://claude.ai/artifact/ThicYFrfZ8PE1sBvYyJ6cP
+
 - MODE: Persuade
 - FORM: seed:36c72470773aef97, assigned direction "independent video store wall"
 - APPROVED COMP: .impeccable/mocks/decision/a-videostore.png (approved 2026-11-09)
