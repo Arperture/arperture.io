@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about/" },
   title: "About Arperture Media",
   description:
-    "Arperture Media is a Leesburg, Virginia AI video production and consulting studio founded by Andrew Dallons — treating generative video as a filmmaking tool, not a shortcut.",
+    "Arperture Media is a Leesburg, Virginia AI video production studio founded by Andrew Dallons — treating generative video as a filmmaking tool, not a shortcut.",
 };
 
 export default function AboutPage() {
@@ -25,10 +25,10 @@ export default function AboutPage() {
             About Arperture Media
           </h1>
           <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "60ch", lineHeight: 1.6 }}>
-            Arperture Media is a Leesburg, Virginia AI video production and consulting studio founded by Andrew Dallons. Often shortened to Arperture, the studio treats generative video as a filmmaking tool, not a shortcut — every project is directed, scored, and graded like a real production.
+            Arperture Media is a Leesburg, Virginia AI video production studio founded by Andrew Dallons. Often shortened to Arperture, the studio treats generative video as a filmmaking tool, not a shortcut — every project is directed, scored, and graded like a real production.
           </p>
           <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", maxWidth: "60ch", lineHeight: 1.6, marginTop: 16 }}>
-            Work spans music videos, branded spots, documentary trailers, and original series — built with Veo, Kling, Runway, Midjourney, Eleven Labs, and Suno, then finished in a traditional edit and color pipeline. Arperture also runs hands-on AI consulting, team fluency training, and Web Visibility audits for small businesses.
+            Work spans music videos, branded spots, documentary trailers, and original series — built with Veo, Kling, Runway, Midjourney, Eleven Labs, and Suno, then finished in a traditional edit and color pipeline.
           </p>
         </div>
       </section>

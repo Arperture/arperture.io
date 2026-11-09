@@ -6,7 +6,6 @@ export const SITE_URL = "https://www.arperture.io";
 export const DEFAULT_OG_IMAGE = "/assets/pickup-gerald-hero.jpg";
 
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
-export const CALENDLY_GEO = "https://calendly.com/drew-arperture/geo-foundation-audit";
 export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mlgyowya";
 export const PHONE = "(571) 200-1186";
 export const PHONE_TEL = "+15712001186";
@@ -35,7 +34,7 @@ export const ORG_JSONLD = {
       logo: `${SITE_URL}/assets/arperture-mark.webp`,
       image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
       description:
-        "Arperture Media is an AI video production studio for small businesses — cinematic brand films, ads, and short-form social content, directed and scored like a full production house at small-business prices. Arperture also offers hands-on AI consulting, team fluency training, and Web Visibility audits (SEO, GEO & AEO).",
+        "Arperture Media is an AI video production studio for small businesses — cinematic brand films, ads, and short-form social content, directed and scored like a full production house at small-business prices.",
       email: EMAIL,
       telephone: "+1-571-200-1186",
       founder: { "@type": "Person", name: "Andrew Dallons" },
@@ -71,9 +70,7 @@ export const NAV_PRIMARY: { label: string; href: string }[] = [
 export const SERVICES_MENU: { label: string; href: string }[] = [
   { label: "Video Production", href: "/services" },
   { label: "Work With Us", href: "/work-with-us" },
-  { label: "Consulting", href: "/small-business#consulting" },
-  { label: "AI Fluency", href: "/small-business#fluency" },
-  { label: "Search Visibility", href: "/small-business#visibility" },
+  { label: "Enhancement & Restoration", href: "/enhancement" },
 ];
 
 // ---------- PORTFOLIO / WORK ----------
@@ -364,7 +361,7 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "blog-6", slug: "meta-muse-ai-agent-small-business",
-    date: "Oct 2026", datePublished: "2026-10-13", readTime: "9 min read", category: "Small Business AI",
+    date: "Oct 2026", datePublished: "2026-10-13", readTime: "9 min read", category: "AI for Business",
     title: "Meta's Muse Is Shopping for Your Customers. Here's How to Get Ready (and Put It to Work for You)",
     excerpt: "Meta's Muse is a new kind of customer and a new kind of assistant. How to get your business ready, and five setups to put it to work.",
     metaDescription: "Meta's Muse AI agent shops, books, and buys for your customers. How to get your small business ready, plus five practical ways to put Muse to work for you.",
@@ -424,7 +421,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "blog-5", slug: "claude-vs-chatgpt-vs-gemini-for-small-business",
-    date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "Small Business AI",
+    date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "AI for Business",
     title: "Claude vs. ChatGPT vs. Gemini: A Plain-English Guide for Small Business Owners",
     excerpt: "All three cost the same $20 a month, so price can't decide for you. How to pick by what each tool is actually good at.",
     metaDescription: "Claude vs. ChatGPT vs. Gemini for small businesses in 2026 — what each AI assistant is best at, where they differ on images, video, and documents, and a practical four-step way to pick one.",
@@ -466,7 +463,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "blog-4", slug: "why-small-ai-projects-are-beating-the-giants",
-    date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "Small Business AI",
+    date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "AI for Business",
     title: "The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026",
     excerpt: "The data says small, human-governed AI projects out-earn six-figure rollouts. Here's where the returns actually come from.",
     metaDescription: "Why small-budget AI projects deliver 2.1× higher ROI than six-figure rollouts — the data on training budgets, human-in-the-loop systems, and workflow automation for small businesses.",
@@ -629,54 +626,6 @@ export const VIDEO_PILLARS = [
   },
 ];
 
-// ---------- SMALL BUSINESS ----------
-export const CONSULTING_SERVICES = [
-  {
-    tag: "AI Analysis", title: "AI Business Analysis", price: "Starting at $497 · One-time engagement",
-    body: "We spend a week inside your operations and come back with a clear roadmap — which AI tools to adopt, which to skip, and exactly how to implement them. No jargon, no upsell, just the playbook.",
-    items: ["Ops review", "Tool mapping", "ROI roadmap"],
-  },
-  {
-    tag: "AI Consulting", title: "AI Implementation Consulting", price: "Monthly retainer · Custom scope",
-    body: "Beyond the audit — ongoing strategic support as you roll out AI workflows. We set up automations, train your team, and stay on call while the tools take hold. Think of us as your fractional AI officer.",
-    items: ["Workflow builds", "Team training", "Automation"],
-  },
-];
-
-export const VISIBILITY_SERVICES = [
-  {
-    tag: "Web Visibility", title: "Web Visibility Audit", price: "$750 flat · 5 business days",
-    body: "Search engines, ChatGPT, Perplexity, Gemini, and Google AI Overviews all decide whether customers find you. The Foundation Audit scores your business across SEO, GEO, and AEO — the factors that decide whether you rank and whether AI cites you — and hands you a prioritized fix roadmap.",
-    items: ["10-query AI visibility battery", "SEO, GEO & AEO analysis", "100-point scored report"],
-  },
-];
-
-// AI Fluency absorbs the former Training & Consulting offering (1:1 sessions,
-// team workshops, custom curriculum) as one education service for small businesses.
-export const FLUENCY_SERVICES = [
-  {
-    tag: "AI Fluency", title: "AI Fluency for Small Businesses", price: "Custom scope · Half-day workshops to multi-session programs",
-    body: "Your team doesn't need to become engineers — they need to be fluent. Hands-on training that takes your people from AI-curious to AI-confident, built around the tools you already use and the work you actually do. From a half-day workshop to a full curriculum with 1:1 leadership sessions.",
-    items: ["Team workshops (half- or full-day)", "1:1 leadership sessions", "Custom curriculum on your tools & workflows"],
-  },
-];
-
-// The three service pillars, as featured on the home page.
-export const SMB_PILLARS = [
-  {
-    tag: "Consulting", title: "AI Consulting", price: "Starting at $497", href: "/small-business#consulting",
-    body: "A week inside your operations, then a clear roadmap — which AI tools to adopt, which to skip, and exactly how to implement them. Ongoing support available as your fractional AI officer.",
-  },
-  {
-    tag: "AI Fluency", title: "AI Fluency Training", price: "Custom scope", href: "/small-business#fluency",
-    body: "Hands-on workshops and 1:1 sessions that make your team confident with AI — built on your tools and your actual work, not generic demos.",
-  },
-  {
-    tag: "Web Visibility", title: "Web Visibility Audit", price: "$750 flat · 5 business days", href: "/small-business#visibility",
-    body: "Find out whether Google, ChatGPT, and AI Overviews recommend you. A 100-point scored report across SEO, GEO & AEO, with a prioritized fix roadmap.",
-  },
-];
-
 // ---------- ENHANCEMENT ----------
 export const IMAGE_TIERS = [
   { name: "Refresh", tag: "Photos that are basically intact — just soft, faded, or too small", price: "$15", unit: "/ image", highlight: false, borderColor: "var(--border)", features: ["Upscale to print resolution", "Sharpen", "Color correction", "Brightness & contrast recovery"] },
@@ -726,7 +675,7 @@ export const ENHANCE_FAQS = [
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What does Arperture do for small businesses?",
-    a: "First and foremost, AI video production — cinematic brand films, ads, and short-form social content, directed, scored, and delivered like a full production house at small-business prices. Alongside the studio, Arperture offers AI consulting (the AI Business Analysis from $497, with ongoing implementation support), AI Fluency training for teams, and the Web Visibility Audit ($750 flat, 5 business days) — a 100-point scored report across SEO, GEO & AEO showing whether Google, ChatGPT, and AI Overviews recommend your business.",
+    a: "First and foremost, AI video production — cinematic brand films, ads, and short-form social content, directed, scored, and delivered like a full production house at small-business prices. We also make always-on ad creative for DTC brands, product demo videos for SaaS companies, and studio-grade photo and video restoration.",
   },
   {
     q: "How much does an AI-produced video cost?",
@@ -756,26 +705,19 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
     q: "How many revisions are included?",
     a: "Most quotes include one full revision round. Additional rounds can be added — this gets scoped up front in your quote, not billed as a surprise afterward.",
   },
-  {
-    q: "What is AI Fluency training?",
-    a: "Practical, hands-on education that takes your team from AI-curious to AI-confident. We build the sessions around the tools you already use and the work you actually do — no generic demos. Formats range from a half-day workshop to a multi-session curriculum with 1:1 leadership sessions, scoped to your team and budget.",
-  },
 ];
 
 // ---------- FOOTER ----------
 export const FOOTER_LINKS_A: { label: string; href: string }[] = [
   { label: "Video Production", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Small Business Services", href: "/small-business" },
-  { label: "AI Fluency", href: "/small-business#fluency" },
+  { label: "Work With Us", href: "/work-with-us" },
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
 ];
 
 export const FOOTER_LINKS_B: { label: string; href: string }[] = [
-  { label: "AI Consulting", href: "/small-business#consulting" },
-  { label: "Web Visibility", href: "/small-business#visibility" },
   { label: "Enhancement & Restoration", href: "/enhancement" },
   { label: "Blog", href: "/blog" },
   { label: "Brands", href: "/brands" },

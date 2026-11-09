@@ -1,8 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
-    { "source": "/training", "destination": "/small-business#fluency", "permanent": true },
-    { "source": "/training/", "destination": "/small-business#fluency", "permanent": true }
+    { "source": "/training", "destination": "/services/", "permanent": true },
+    { "source": "/training/", "destination": "/services/", "permanent": true },
+    { "source": "/small-business", "destination": "/services/", "permanent": true },
+    { "source": "/small-business/", "destination": "/services/", "permanent": true }
   ],
   "headers": [
     {

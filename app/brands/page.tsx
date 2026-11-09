@@ -78,7 +78,7 @@ export default function BrandsPage() {
         <p style={{ color: "var(--text-muted)", maxWidth: "62ch", fontSize: "1.15rem" }}>
           Same studio, different job. We make AI-assisted ad hooks for paid social and clear demo videos for software. Flat pricing, no long contracts.
         </p>
-        <a href={MAILTO} className="btn btn-primary" style={{ marginTop: 12, display: "inline-block" }}>Email contact@arperture.io</a>
+        <a href={MAILTO} className="btn btn-primary btn-lg" style={{ marginTop: 12 }}>Email contact@arperture.io</a>
       </section>
 
       <section id="ad-creative" style={{ padding: "40px 0 56px", scrollMarginTop: 100 }}>

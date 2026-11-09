@@ -22,7 +22,7 @@ export default function Footer() {
             </span>
           </Link>
           <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", margin: 0 }}>
-            Cinematic AI video for small businesses — brand films, ads, and social content. Plus AI consulting, training, and visibility audits.
+            Cinematic AI video for small businesses — brand films, ads, and social content, directed and scored like a full production crew.
           </p>
           <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-faint)", margin: 0 }}>
             Based in USA · Working Globally
@@ -58,7 +58,7 @@ export default function Footer() {
           © 2026 Arperture Media. All rights reserved.
         </p>
         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-faint)", margin: 0 }}>
-          AI Video Production · Consulting · Training · Visibility
+          AI Video Production · Brand Films · Ads · Social
         </p>
       </div>
     </footer>

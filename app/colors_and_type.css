@@ -140,8 +140,11 @@
   letter-spacing:.04em;color:var(--ink-100);
 }
 
-.arperture a{color:var(--cyan-300);text-decoration:none;}
-.arperture a:hover{color:var(--cyan-200);}
+/* Zero-specificity wrappers so classed links (.btn-*, .link-cyan, nav) keep
+   their own colors. A bare `.arperture a` outranked `.btn-primary` and
+   painted teal text onto coral/cyan buttons (1.5:1 contrast). */
+:where(.arperture) a{color:var(--cyan-300);text-decoration:none;}
+:where(.arperture) a:where(:hover){color:var(--cyan-200);}
 .arperture ::selection{background:var(--cyan-400);color:var(--ink-950);}
 
 /* ============================================================

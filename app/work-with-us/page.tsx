@@ -68,7 +68,6 @@ export default function WorkWithUsPage() {
               "Free 30-second spec demo of your business",
               "Launch / brand video — $2,500–$5,000",
               "Monthly content retainer — $1,500–$2,000/mo",
-              "Visibility Engine (video + AI-search optimization) — $2,500–$3,000/mo",
             ]}
             href="/downloads/arperture-offer-sheet.pdf"
             cta="Download the offer sheet (PDF)"

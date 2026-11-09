@@ -30,7 +30,7 @@ export default function PrivacyPage() {
 
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.35rem", letterSpacing: "-.01em", margin: "48px 0 14px", color: "var(--text)" }}>1. Who we are</h2>
         <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 16px" }}>
-          Arperture Media is an AI video production, AI consulting, and web visibility company operating from Leesburg, Virginia, United States, and serving clients worldwide.
+          Arperture Media is an AI video production company operating from Leesburg, Virginia, United States, and serving clients worldwide.
         </p>
         <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 16px" }}>
           <strong style={{ color: "var(--text)" }}>Contact for privacy questions:</strong>

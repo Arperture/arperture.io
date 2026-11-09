@@ -43,7 +43,7 @@ export default function Nav() {
   };
   const servicesActive =
     pathname.startsWith("/services") ||
-    pathname.startsWith("/small-business") ||
+    pathname.startsWith("/work-with-us") ||
     pathname.startsWith("/enhancement");
 
   const linkStyle = (active: boolean) => ({

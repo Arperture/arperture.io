@@ -1,11 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
 import BrandQuickies from "@/components/BrandQuickies";
 import FeatureVideo from "@/components/FeatureVideo";
 import SpecAdShowcase from "@/components/SpecAdShowcase";
-import { WORK_DATA, VIDEO_PILLARS, SMB_PILLARS, HERO_VIDEO, FEATURED_SERIES, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
+import { WORK_DATA, VIDEO_PILLARS, HERO_VIDEO, FEATURED_SERIES, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
 
 const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px solid var(--border)" };
 const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
@@ -21,15 +20,6 @@ export default function HomePage() {
     <div className="wrap">
       {/* HERO */}
       <header style={{ position: "relative", padding: "96px 0 64px", overflow: "hidden" }}>
-        <Image
-          src="/assets/arperture-mark.webp"
-          alt=""
-          width={720}
-          height={720}
-          aria-hidden
-          className="hero-mark"
-          style={{ position: "absolute", right: -140, top: "28%", width: 720, height: 720, opacity: 0.28, animation: "arpSpin 80s linear infinite", pointerEvents: "none" }}
-        />
         <div style={{ position: "relative", maxWidth: 760 }}>
           <Kicker>Leesburg, VA · AI video production for small business</Kicker>
           <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2.4rem,6vw,4.6rem)", lineHeight: 0.98, letterSpacing: "-.03em", margin: "20px 0", textTransform: "uppercase" }}>
@@ -197,36 +187,6 @@ export default function HomePage() {
             <Link href="/contact" className="btn btn-cyan btn-sm">Get a Brand Quickie</Link>
             <Link href="/portfolio/yield" className="btn btn-ghost btn-sm">See the full Yield campaign →</Link>
           </div>
-        </div>
-      </section>
-
-      {/* 06 — BEYOND THE CAMERA */}
-      <section style={sectionBorder}>
-        <Kicker color="var(--coral-300)">06 — Beyond the camera</Kicker>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
-          More Ways to Put AI to Work
-        </h2>
-        <p style={{ color: "var(--text-muted)", maxWidth: "60ch", marginBottom: 40 }}>
-          The same team that makes your videos can tune the rest of your operation — a real AI roadmap, hands-on team training, and proof that Google and ChatGPT recommend you.
-        </p>
-        <div style={cardGrid}>
-          {SMB_PILLARS.map((p) => (
-            <Link
-              key={p.title}
-              href={p.href}
-              className="card card-lift"
-              style={{ padding: 28, display: "flex", flexDirection: "column", gap: 10, textDecoration: "none" }}
-            >
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--coral-300)" }}>{p.tag}</span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.3rem", margin: "4px 0 0", color: "var(--text)" }}>{p.title}</h3>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", margin: 0, flex: 1 }}>{p.body}</p>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-faint)" }}>{p.price}</span>
-              <span className="link-cyan" style={{ fontWeight: 600, fontSize: "0.85rem" }}>Learn more →</span>
-            </Link>
-          ))}
-        </div>
-        <div style={{ marginTop: 32 }}>
-          <Link href="/small-business" className="btn btn-ghost btn-sm">All small business services →</Link>
         </div>
       </section>
 
