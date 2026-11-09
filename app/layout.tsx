@@ -40,14 +40,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="dark">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}",
-          }}
-        />
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
       </head>
       <body
@@ -55,9 +49,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         style={{ background: "var(--bg)", color: "var(--text)", fontFamily: "var(--font-body)", minHeight: "100vh", position: "relative" }}
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }} />
-        <div className="bloom" />
+        <a href="#main" className="skip-link">Skip to content</a>
         <Nav />
-        <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
+        <main id="main" style={{ position: "relative", zIndex: 1 }}>{children}</main>
         <Footer />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
         <Script

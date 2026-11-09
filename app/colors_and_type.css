@@ -1,92 +1,93 @@
 /* ============================================================
-   ARPERTURE MEDIA — DESIGN SYSTEM  ·  "THE APERTURE"  v2.1
+   ARPERTURE MEDIA — DESIGN SYSTEM  v3
    colors_and_type.css — foundational + semantic tokens
-   Cinematic dark · retro-futurist · AI creative video studio
-   ------------------------------------------------------------
-   Fonts are loaded from free CDNs (Fontshare + Google Fonts).
-   See README.md → "Fonts" if you need to self-host TTFs.
+   Warm dark ground, paper text, one amber accent. One family:
+   Archivo variable (condensed display, normal-width body).
+   Loaded from Google Fonts via CDN @import (do not self-host).
    ============================================================ */
 
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
 
 :root{
-  /* ---------- OFFICIAL BRAND COLORS ---------- */
-  --coral:#FF6F61;   --black:#1C1C1C;   --cyan:#2ECCFA;
-  --purple:#8E44AD;  --silver:#C0C0C0;  --blue:#397F9E;
+  /* ---------- CORE PALETTE (v3, warm dark + one amber accent) ---------- */
+  --ground:#12100E; --surface-warm:#1C1916; --paper:#F1ECE3;
+  --dim:#B9B0A3; --faint:#958C80; --amber:#E9A23B; --amber-hi:#F2B85F;
 
-  /* ---------- INK NEUTRAL RAMP (Deep Black → Metallic Silver) ---------- */
-  --ink-950:#0E0E0F; --ink-900:#1C1C1C; --ink-850:#222225; --ink-800:#2A2A2E;
-  --ink-700:#36363B; --ink-600:#45454B; --ink-500:#5C5C63; --ink-400:#7C7C84;
-  --ink-300:#9A9AA2; --ink-200:#C0C0C0; --ink-100:#DEDEE1; --ink-50:#F4F4F6;
+  /* ---------- OFFICIAL BRAND COLORS (legacy names, remapped) ---------- */
+  --coral:#E9A23B;   --black:#12100E;   --cyan:#E9A23B;
+  --purple:#B9B0A3;  --silver:#CFC7BB;  --blue:#958C80;
 
-  /* ---------- ELECTRIC CYAN RAMP (primary signal) ---------- */
-  --cyan-50:#E7FAFF; --cyan-100:#BFF2FE; --cyan-200:#90E6FD; --cyan-300:#5DD9FB;
-  --cyan-400:#2ECCFA; --cyan-500:#16A6D4; --cyan-600:#0F7CA0; --cyan-700:#0A5470;
+  /* ---------- INK NEUTRAL RAMP (warm) ---------- */
+  --ink-950:#12100E; --ink-900:#1C1916; --ink-850:#221E1A; --ink-800:#2A2520;
+  --ink-700:#37312A; --ink-600:#4A433A; --ink-500:#645B50; --ink-400:#958C80;
+  --ink-300:#B9B0A3; --ink-200:#CFC7BB; --ink-100:#E2DBD0; --ink-50:#F1ECE3;
 
-  /* ---------- SOFT CORAL RAMP (secondary / warmth) ---------- */
-  --coral-50:#FFEDEA; --coral-100:#FFD3CD; --coral-200:#FFAAA1; --coral-300:#FF8C7E;
-  --coral-400:#FF6F61; --coral-500:#E5533F; --coral-600:#B83B2E;
+  /* Legacy accent ramps. The old cyan / coral / purple / blue system is
+     retired; every ramp now resolves to the single amber accent or to warm
+     neutrals so pages not yet rebuilt still read as one system. */
+  --cyan-50:#FBF0DD; --cyan-100:#F8DFB4; --cyan-200:#F2B85F; --cyan-300:#E9A23B;
+  --cyan-400:#E9A23B; --cyan-500:#C9842A; --cyan-600:#9C6420; --cyan-700:#6E4617;
 
-  /* ---------- NEON PURPLE RAMP (tertiary / AI / depth) ---------- */
-  --purple-100:#E2C9EE; --purple-200:#C99CDD; --purple-300:#A968C4;
-  --purple-400:#8E44AD; --purple-500:#723787; --purple-600:#552963;
+  --coral-50:#FBF0DD; --coral-100:#F8DFB4; --coral-200:#F2B85F; --coral-300:#E9A23B;
+  --coral-400:#E9A23B; --coral-500:#C9842A; --coral-600:#9C6420;
 
-  /* ---------- MAIN BLUE RAMP (logo color / calm structure) ---------- */
-  --blue-100:#CDE0E8; --blue-200:#9FC3D2; --blue-300:#6AA2BA;
-  --blue-400:#397F9E; --blue-500:#2C6580; --blue-600:#204B61;
+  --purple-100:#E2DBD0; --purple-200:#CFC7BB; --purple-300:#B9B0A3;
+  --purple-400:#958C80; --purple-500:#645B50; --purple-600:#4A433A;
+
+  --blue-100:#E2DBD0; --blue-200:#CFC7BB; --blue-300:#B9B0A3;
+  --blue-400:#958C80; --blue-500:#645B50; --blue-600:#4A433A;
 
   /* ---------- SEMANTIC ---------- */
-  --success:#3FD9A4; --warning:#FFC542; --danger:#E5484D; --info:var(--cyan-400);
+  --success:#8FBF7A; --warning:#E9A23B; --danger:#E0664F; --info:var(--amber);
 
   /* ---------- SURFACES / TEXT (semantic) ---------- */
-  --bg:var(--ink-950);
-  --surface:var(--ink-900);
-  --surface-2:var(--ink-850);
-  --surface-3:var(--ink-800);
-  --border:rgba(255,255,255,.08);
-  --border-strong:rgba(192,192,192,.20);
-  --text:var(--ink-50);
-  --text-muted:var(--ink-300);
-  --text-faint:var(--ink-400);
-  --on-accent:var(--ink-950); /* dark text that sits on bright cyan/coral fills */
-  --nav-surface:rgba(14,14,15,.74); /* translucent sticky-nav fill (theme-aware) */
-  --input-surface:var(--ink-850);   /* form input fill (theme-aware) */
+  --bg:var(--ground);
+  --surface:var(--surface-warm);
+  --surface-2:#221E1A;
+  --surface-3:#2A2520;
+  --border:rgba(241,236,227,.09);
+  --border-strong:rgba(241,236,227,.22);
+  --text:var(--paper);
+  --text-muted:var(--dim);
+  --text-faint:var(--faint);
+  --on-accent:#12100E;
+  --nav-surface:#12100E;
+  --input-surface:#1C1916;
   color-scheme:dark;
 
-  /* ---------- GRADIENTS ---------- */
-  --grad-signal:linear-gradient(120deg,var(--cyan-400) 0%,var(--coral-400) 100%);
-  --grad-spectrum:conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400));
-  --grad-dusk:linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%);
-  --grad-fade:linear-gradient(180deg,transparent,var(--ink-950) 92%);
+  /* ---------- "GRADIENTS" (retired: solid fills; fade stays as a scrim) ---------- */
+  --grad-signal:#E9A23B;
+  --grad-spectrum:#2A2520;
+  --grad-dusk:#2A2520;
+  --grad-fade:linear-gradient(180deg,transparent,#12100E 92%);
 
-  /* ---------- TYPE FAMILIES ---------- */
-  --font-display:'Clash Display','Hanken Grotesk',sans-serif;
-  --font-body:'Hanken Grotesk',system-ui,sans-serif;
-  --font-mono:'Space Mono',ui-monospace,monospace;
+  /* ---------- TYPE: one family, Archivo variable (wdth 62..125) ---------- */
+  --font-display:'Archivo',system-ui,sans-serif;
+  --font-body:'Archivo',system-ui,sans-serif;
+  --font-mono:'Archivo',system-ui,sans-serif; /* legacy name; no mono face */
 
-  /* ---------- TYPE SCALE (fluid via clamp) ---------- */
-  --text-xs:.75rem; --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.375rem;
+  /* ---------- TYPE SCALE (fluid via clamp, display capped at 6rem) ---------- */
+  --text-xs:.75rem; --text-sm:.875rem; --text-base:1.0625rem; --text-lg:1.1875rem; --text-xl:1.375rem;
   --text-2xl:1.75rem; --text-3xl:2.25rem;
-  --text-4xl:clamp(2.5rem,5vw,3.25rem);
-  --text-5xl:clamp(3.25rem,7vw,4.5rem);
-  --text-6xl:clamp(4rem,11vw,7.5rem);
+  --text-4xl:clamp(2.25rem,4.6vw,3.25rem);
+  --text-5xl:clamp(3rem,7vw,4.75rem);
+  --text-6xl:clamp(3.5rem,10vw,6rem);
 
   /* ---------- SPACE (4px base) / RADIUS ---------- */
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
   --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px; --sp-10:128px;
-  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:24px; --r-full:999px;
+  --r-sm:3px; --r-md:4px; --r-lg:6px; --r-xl:8px; --r-full:999px;
 
-  /* ---------- ELEVATION ---------- */
+  /* ---------- ELEVATION (no glow; focus/hover rings are flat) ---------- */
   --shadow-sm:0 1px 2px rgba(0,0,0,.45);
   --shadow-md:0 8px 24px rgba(0,0,0,.5);
   --shadow-lg:0 24px 60px rgba(0,0,0,.6);
-  --glow-cyan:0 0 0 1px rgba(46,204,250,.45),0 0 26px rgba(46,204,250,.32);
-  --glow-coral:0 0 0 1px rgba(255,111,97,.45),0 0 26px rgba(255,111,97,.3);
+  --glow-cyan:0 0 0 2px #E9A23B;
+  --glow-coral:0 0 0 1px #F1ECE3,4px 4px 0 0 rgba(0,0,0,.55);
 
   /* ---------- MOTION ---------- */
   --ease-out:cubic-bezier(.16,1,.3,1); /* @kind other */
-  --ease-spring:cubic-bezier(.34,1.56,.64,1); /* @kind other */
+  --ease-spring:cubic-bezier(.16,1,.3,1); /* @kind other */
   --dur-1:140ms; /* @kind other */
   --dur-2:240ms; /* @kind other */
   --dur-3:420ms; /* @kind other */
@@ -106,38 +107,38 @@
   -webkit-font-smoothing:antialiased;
 }
 
-.arperture h1,.arperture .h1{
-  font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-6xl);line-height:.94;letter-spacing:-.035em;
+:where(.arperture) h1,.arperture .h1{
+  font-family:var(--font-display);font-weight:800;font-stretch:62%;
+  font-size:var(--text-6xl);line-height:.9;letter-spacing:-.01em;text-transform:uppercase;
 }
-.arperture h2,.arperture .h2{
+:where(.arperture) h2,.arperture .h2{
   font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-4xl);line-height:1.02;letter-spacing:-.03em;
+  font-size:var(--text-4xl);line-height:1;letter-spacing:-.01em;font-weight:800;font-stretch:70%;
 }
-.arperture h3,.arperture .h3{
+:where(.arperture) h3,.arperture .h3{
   font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-3xl);line-height:1.05;letter-spacing:-.02em;
+  font-size:var(--text-3xl);line-height:1.05;letter-spacing:-.005em;font-weight:700;font-stretch:80%;
 }
-.arperture h4,.arperture .h4{
+:where(.arperture) h4,.arperture .h4{
   font-family:var(--font-display);font-weight:600;
-  font-size:var(--text-xl);line-height:1.1;letter-spacing:-.01em;
+  font-size:var(--text-xl);line-height:1.15;letter-spacing:0;font-weight:700;
 }
-.arperture p,.arperture .p{
+:where(.arperture) p,.arperture .p{
   font-size:var(--text-base);color:var(--text);line-height:1.6;max-width:72ch;
 }
 .arperture .lead{font-size:var(--text-xl);color:var(--text-muted);line-height:1.45;}
-.arperture small,.arperture .small{font-size:var(--text-sm);color:var(--text-muted);}
+:where(.arperture) small,.arperture .small{font-size:var(--text-sm);color:var(--text-muted);}
 
-/* Kicker / eyebrow / label — the mono voice */
+/* Label (quiet; no mono eyebrow voice) */
 .arperture .kicker,.arperture .label{
-  font-family:var(--font-mono);font-size:var(--text-xs);
-  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-300);
+  font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;
+  letter-spacing:0;text-transform:none;color:var(--text-muted);
 }
 
 /* Code / timecode / metadata */
-.arperture code,.arperture .mono{
-  font-family:var(--font-mono);font-size:var(--text-sm);
-  letter-spacing:.04em;color:var(--ink-100);
+:where(.arperture) code,.arperture .mono{
+  font-family:var(--font-body);font-size:var(--text-sm);font-variant-numeric:tabular-nums;
+  letter-spacing:0;color:var(--ink-100);
 }
 
 /* Zero-specificity wrappers so classed links (.btn-*, .link-cyan, nav) keep
@@ -145,37 +146,6 @@
    painted teal text onto coral/cyan buttons (1.5:1 contrast). */
 :where(.arperture) a{color:var(--cyan-300);text-decoration:none;}
 :where(.arperture) a:where(:hover){color:var(--cyan-200);}
-.arperture ::selection{background:var(--cyan-400);color:var(--ink-950);}
+.arperture ::selection{background:var(--amber);color:var(--ground);}
 
-/* ============================================================
-   LIGHT THEME — via [data-theme="light"] on <html>, the site
-   default (set server-side in app/layout.tsx; the toggle can
-   switch back to dark, which is the no-attr :root). Only the semantic
-   surface/text tokens and a few accent-text ramps are re-pointed
-   so contrast holds on a light ground; bright fill accents
-   (cyan-400 / coral-400 buttons) stay as-is with dark on-accent.
-   ============================================================ */
-:root[data-theme="light"]{
-  color-scheme:light;
-  /* cool off-white ground, biased toward the brand cyan */
-  --bg:#F4F7F9;
-  --surface:#FFFFFF;
-  --surface-2:#EDF1F4;
-  --surface-3:#E3E8ED;
-  --border:rgba(20,22,26,.10);
-  --border-strong:rgba(20,22,26,.20);
-  --text:#14161A;
-  --text-muted:#525C67;
-  --text-faint:#8B95A1;
-  --on-accent:#14161A;
-  --nav-surface:rgba(255,255,255,.82);
-  --input-surface:#EDF1F4;
-  /* darken the accent-text ramps so kickers/links read on white */
-  --cyan-300:#0F86AD;
-  --cyan-200:#0B6C8C;
-  --coral-300:#D64A38;
-  --purple-300:#7E3A97;
-  --ink-200:#525C67; /* was a light grey used as body text on dark */
-  --ink-100:#2A2F36;
-}
-:root[data-theme="light"] .arperture ::selection{background:var(--cyan-400);color:#14161A;}
+/* Light theme retired in v3: the site is dark only. */

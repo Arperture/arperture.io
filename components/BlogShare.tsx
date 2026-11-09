@@ -27,7 +27,7 @@ export default function BlogShare({ title }: { title: string }) {
   const pill: React.CSSProperties = {
     display: "flex", alignItems: "center", gap: 8, textDecoration: "none",
     fontFamily: "var(--font-mono)", fontSize: "0.8rem", padding: "9px 16px", borderRadius: 999,
-    background: "rgba(46,204,250,.12)", color: "var(--cyan-300)",
+    background: "rgba(233,162,59,.12)", color: "var(--cyan-300)",
   };
 
   return (
