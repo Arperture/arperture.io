@@ -1,0 +1,12 @@
+{
+  "tool": "higgsfield generate_image_batch",
+  "model": "gpt_image_2_6",
+  "job_id": "bd039f0b-df80-41eb-8d27-062ddfa23ad5",
+  "kind": "assigned",
+  "summary": "Independent video store new-releases wall as the homepage",
+  "seed": "seed:36c72470773aef97",
+  "aspect": "16:9",
+  "approved": true,
+  "approval_notes": "Approved by Drew 2026-11-09 as the homepage comp (layout A: new-release wall + trailer monitor, headline block right). Keep the composition; tone down retro props (fluorescent tubes, stickers, kitschy signs), replace the red sign lettering, and quiet the first screen (fewer cases and signs).",
+  "prompt": "Independent video store new-releases wall as the homepage"
+}
