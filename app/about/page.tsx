@@ -14,11 +14,11 @@ export default function AboutPage() {
     <div className="wrap">
       <section className="grid-about" style={{ padding: "80px 0 40px", display: "grid", gap: 40, alignItems: "start" }}>
         <Image
-          src="/assets/about-headshot-centered.jpg"
+          src="/assets/about-headshot-portrait.jpg"
           alt="Andrew Dallons, founder of Arperture Media"
-          width={220}
-          height={220}
-          style={{ width: 220, height: 220, borderRadius: "50%", objectFit: "cover", border: "1px solid var(--border)" }}
+          width={400}
+          height={500}
+          style={{ width: "100%", maxWidth: 260, height: "auto", aspectRatio: "4 / 5", borderRadius: 6, objectFit: "cover", display: "block" }}
         />
         <div>
           <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2rem,4.5vw,3rem)", letterSpacing: "-.02em", margin: "16px 0 12px", textTransform: "uppercase" }}>

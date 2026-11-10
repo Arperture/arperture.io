@@ -258,7 +258,7 @@ p, li { text-wrap: pretty; }
 .blog-title-link { all: unset; cursor: pointer; color: var(--text); transition: color var(--dur-1) var(--ease-out); }
 .blog-title-link:hover { color: var(--accent); }
 .hero-mark { display: block; }
-.grid-about { grid-template-columns: 220px 1fr; }
+.grid-about { grid-template-columns: 260px 1fr; }
 .grid-contact { grid-template-columns: 1fr 1fr; }
 @media (max-width: 760px) { .grid-contact { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .hero-mark { display: none; } .grid-about { grid-template-columns: 1fr; } }
