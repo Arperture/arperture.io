@@ -24,12 +24,12 @@ const OFFER_B: Tier[] = [
 
 type Sample = { file: string; title: string; ratio: "9/16" | "4/5" | "16/9"; tag: string };
 const SAMPLES: Sample[] = [
-  { file: "ondrafy-hook1-9x16", title: "Ondrafy — question hook", ratio: "9/16", tag: "DTC ad · 9:16" },
-  { file: "ondrafy-hook3-9x16", title: "Ondrafy — pain-point hook", ratio: "9/16", tag: "DTC ad · 9:16" },
-  { file: "ondrafy-hook4-4x5", title: "Ondrafy — pattern interrupt", ratio: "4/5", tag: "DTC ad · 4:5" },
-  { file: "terrac-hook1-9x16", title: "Terra-C — question hook", ratio: "9/16", tag: "DTC ad · 9:16" },
-  { file: "terrac-hook2-4x5", title: "Terra-C — bold claim", ratio: "4/5", tag: "DTC ad · 4:5" },
-  { file: "wovrin-walkthrough-16x9", title: "Wovrin — product walkthrough", ratio: "16/9", tag: "SaaS demo · 16:9" },
+  { file: "ondrafy-spec-9x16", title: "Ondrafy: full spot", ratio: "9/16", tag: "DTC ad · 9:16" },
+  { file: "ondrafy-hook4-9x16", title: "Ondrafy: pattern interrupt", ratio: "9/16", tag: "DTC ad · 9:16" },
+  { file: "ondrafy-hook4-4x5", title: "Ondrafy: pattern interrupt", ratio: "4/5", tag: "DTC ad · 4:5" },
+  { file: "terrac-hook1-9x16", title: "Terra-C: question hook", ratio: "9/16", tag: "DTC ad · 9:16" },
+  { file: "terrac-hook2-4x5", title: "Terra-C: bold claim", ratio: "4/5", tag: "DTC ad · 4:5" },
+  { file: "wovrin-walkthrough-16x9", title: "Wovrin: product walkthrough", ratio: "16/9", tag: "SaaS demo · 16:9" },
 ];
 
 function TierCard({ t, accent }: { t: Tier; accent: string }) {
