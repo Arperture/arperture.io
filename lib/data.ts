@@ -118,7 +118,7 @@ export const PROJECTS: Project[] = [
   { key: "crown", title: "Crown", label: "Client work · Pitch film", year: "2026", kind: "client", film: "/media/films/crown.mp4",
     blurb: "A scene from the client's script, produced as a pitch film to sell the story.",
     clips: [c("crown-bridge"), c("crown-face"), c("crown-bed")] },
-  { key: "sizzle", title: "The Arperture Reel", label: "Studio · Sizzle reel", year: "2026", kind: "studio", youtubeId: "I1BEtjjvWts",
+  { key: "sizzle", title: "The Arperture Reel", label: "Studio · Sizzle reel", year: "2026", kind: "studio", film: "/media/films/arperture-sizzle.mp4",
     clips: [c("sizzle-rage")] },
   { key: "gremmie", title: "Life of Gremmie", label: "Original series · Official teaser", blurb: "Teaser for our original 10-episode dark comedy. Death is stuck in suburbia, and he still has to work.",
     year: "2026", kind: "original", youtubeId: "lLpsu5rz7DY",
@@ -206,11 +206,6 @@ export const BRAND_QUICKIES: BrandQuickie[] = [
   ...YIELD_BRAND_QUICKIES,
 ];
 
-// ---------- HOMEPAGE HERO ANCHOR VIDEO ----------
-export const HERO_VIDEO = {
-  youtubeId: "I1BEtjjvWts",
-  title: "We Bring Your Imagination to Life",
-};
 
 // ---------- HOMEPAGE FEATURED ORIGINAL SERIES ----------
 export const FEATURED_SERIES = {
