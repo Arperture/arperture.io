@@ -31,7 +31,8 @@ export default function Lightbox({
 
   const c = clip || project.clips[0];
   const film = project.youtubeId;
-  const shape = film ? "h" : c?.shape || "h";
+  const local = !film ? project.film : undefined;
+  const shape = film || local ? "h" : c?.shape || "h";
 
   return (
     <div className="lb" role="dialog" aria-modal="true" aria-label={project.title}>
@@ -46,6 +47,8 @@ export default function Lightbox({
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+          ) : local ? (
+            <video src={local} poster={c ? clipPoster(c.id) : undefined} autoPlay controls playsInline />
           ) : c ? (
             <video src={clipSrc(c.id)} poster={clipPoster(c.id)} autoPlay muted loop playsInline controls />
           ) : (
@@ -65,7 +68,7 @@ export default function Lightbox({
                 Read the case study
               </Link>
             )}
-            {!film && (
+            {!film && !local && (
               <Link href="/contact/" className="btn btn-line btn-sm">
                 Start a project like this
               </Link>

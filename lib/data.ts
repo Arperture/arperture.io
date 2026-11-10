@@ -81,6 +81,7 @@ export type Project = {
   label: string;
   kind: ProjectKind;
   youtubeId?: string;
+  film?: string; // self-hosted full film (public/media/films) when it isn't on YouTube
   caseSlug?: string;
   clips: Clip[];
   still?: string;
@@ -114,6 +115,9 @@ export const PROJECTS: Project[] = [
   { key: "judge", title: "Judge Silverback's Court", label: "Client work · Comedy series", blurb: "An AI courtroom comedy series. Judge Silverback presides over absurd cases with AI visuals, voices and sound.",
     year: "2025–2026", kind: "client", youtubeId: "tgkLIjMx2k4", caseSlug: "judge",
     clips: [], still: "/media/work/judge.jpg" },
+  { key: "crown", title: "Crown", label: "Client work · Pitch film", year: "2026", kind: "client", film: "/media/films/crown.mp4",
+    blurb: "A scene from the client's script, produced as a pitch film to sell the story.",
+    clips: [c("crown-bridge"), c("crown-face"), c("crown-bed")] },
   { key: "sizzle", title: "The Arperture Reel", label: "Studio · Sizzle reel", year: "2026", kind: "studio", youtubeId: "I1BEtjjvWts",
     clips: [c("sizzle-rage")] },
   { key: "gremmie", title: "Life of Gremmie", label: "Original series · Official teaser", blurb: "Teaser for our original 10-episode dark comedy. Death is stuck in suburbia, and he still has to work.",
@@ -166,7 +170,7 @@ export const WALL_COLUMNS: string[][] = [
   ["gerald-walk", "yield-zombie", "dulles-ice", "listing", "cartographer-face", "pike-sear", "sizzle-rage", "freeze", "yard"],
   ["dulles-jet", "pickme", "romanos", "yield-robills", "catoctin-aerial", "construction", "rbg", "bmx-gate"],
   ["lastlight", "jennisjava", "smokehouse", "dulles-splash", "gerald-store", "fallinvasion", "deltapines", "montage-brew"],
-  ["catoctin-ignite", "sunset", "yield-beach", "fallinvasion-family", "pike-tunnel", "dominion", "cartographer"],
+  ["catoctin-ignite", "sunset", "yield-beach", "fallinvasion-family", "crown-bridge", "pike-tunnel", "dominion", "cartographer"],
 ];
 
 // The "Watch the reel" button in the hero.
