@@ -145,10 +145,6 @@ export const PROJECTS: Project[] = [
   { key: "sunset", title: "Gap Run", label: "Spec · Sunset in a Glass", kind: "spec", clips: [c("sunset", "v")] },
   { key: "freeze", title: "Tessa Hale Photography", label: "Spec · The Freeze", kind: "spec", clips: [c("freeze")] },
   { key: "construction", title: "The Build-Out", label: "Spec · Interior construction", kind: "spec", clips: [c("construction")] },
-  { key: "feral", title: "FERAL Energy", label: "Spec · Beast Mode", kind: "spec", clips: [c("feral")] },
-  { key: "monster", title: "Monster Energy: Unleash the Ultra", label: "Spec · Concept ad, not affiliated with the brand", blurb: "A self-directed concept spot for an energy drink: the mid-day office slump, unleashed. Not commissioned or endorsed by the brand.",
-    kind: "spec", youtubeId: "p-7DyWsf15I",
-    clips: [], still: "/media/work/monster.jpg" },
   { key: "law-office", title: "Law Office Pitch", label: "Spec · Brand video pitch", blurb: "A sample brand video made to pitch a bankruptcy law firm, matched to their visual identity. The presenter is an AI avatar, not a real person.",
     kind: "spec", youtubeId: "3ry1j3oJhvc",
     clips: [], still: "/media/work/law-office.jpg" },
@@ -169,7 +165,7 @@ export const WALL_COLUMNS: string[][] = [
   ["gerald-walk", "yield-zombie", "dulles-ice", "listing", "cartographer-face", "pike-sear", "sizzle-rage", "freeze", "yard"],
   ["dulles-jet", "pickme", "romanos", "yield-robills", "catoctin-aerial", "construction", "rbg", "bmx-gate"],
   ["lastlight", "jennisjava", "smokehouse", "dulles-splash", "gerald-store", "fallinvasion", "deltapines", "montage-brew"],
-  ["catoctin-ignite", "sunset", "yield-beach", "fallinvasion-family", "feral", "pike-tunnel", "dominion", "cartographer"],
+  ["catoctin-ignite", "sunset", "yield-beach", "fallinvasion-family", "pike-tunnel", "dominion", "cartographer"],
 ];
 
 // The "Watch the reel" button in the hero.
