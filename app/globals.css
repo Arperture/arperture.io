@@ -234,6 +234,7 @@ p, li { text-wrap: pretty; }
 .work-title { font-family: var(--font-display); font-stretch: 75%; font-weight: 700; font-size: 1.2rem; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: var(--paper); }
 .work-card:hover .work-title { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 5px; text-decoration-thickness: 2px; }
 .work-label { font-size: 0.9rem; color: var(--dim); }
+.work-year { font-size: 0.85rem; color: var(--faint); font-variant-numeric: tabular-nums; }
 
 /* ---------- home: two doors ---------- */
 .door-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }

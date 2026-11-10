@@ -68,7 +68,7 @@ export default function WorkGrid({
                 onPointerLeave={(e) => stop(e.currentTarget)}
                 onFocus={(e) => play(e.currentTarget)}
                 onBlur={(e) => stop(e.currentTarget)}
-                aria-label={`Play ${p.title}, ${p.label}`}
+                aria-label={`Play ${p.title}, ${p.label}, ${p.year}`}
               >
                 <span className={`work-media shape-${clip && layout === "masonry" ? clip.shape : "h"}`}>
                   {clip ? (
@@ -89,6 +89,7 @@ export default function WorkGrid({
                 <span className="work-text">
                   <span className="work-title">{p.title}</span>
                   <span className="work-label">{p.label}</span>
+                  <span className="work-year">{p.year}</span>
                 </span>
               </button>
             </li>

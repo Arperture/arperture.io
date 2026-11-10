@@ -56,7 +56,7 @@ export default function Lightbox({
         <div className="lb-meta">
           <div className="lb-text">
             <p className="lb-title">{project.title}</p>
-            <p className="lb-label">{project.label}</p>
+            <p className="lb-label">{project.label} · {project.year}</p>
             {project.blurb && <p className="lb-blurb">{project.blurb}</p>}
           </div>
           <div className="lb-actions">
