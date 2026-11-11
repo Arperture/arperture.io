@@ -31,8 +31,11 @@ One folder per route (server components). Dynamic routes use `generateStaticPara
 
 ### Components (`components/`)
 Server by default; these are `"use client"` because they're interactive:
-- `Nav.tsx` — sticky nav, Services + Socials dropdowns, mobile hamburger drawer (`usePathname` for active state)
-- `PortfolioGrid.tsx` — portfolio cards + YouTube video lightbox (`youtube-nocookie` embeds)
+- `Nav.tsx` — sticky nav (Work, Services, Brands, About, Blog, Contact + Book a call), mobile drawer (`usePathname` for active state)
+- `HomeHero.tsx` — the homepage video wall: five tilted, drifting columns of silent loops from `WALL_COLUMNS` (`public/media/wall/<id>.mp4` + `.jpg`). Only on-screen loops play; reduced motion shows posters.
+- `WorkGrid.tsx` — portfolio grid from `PROJECTS` (filter chips, hover-to-play, `masonry` or `uniform` layout)
+- `Lightbox.tsx` — shared player: YouTube (`youtube-nocookie`) when `youtubeId` is set, else a self-hosted `film` (`public/media/films/`), else the loop
+- Every `PROJECTS` entry needs an honest `label` ("Client work · …" only for cleared clients, "Spec · …" for spec work) and a `year`. No real-brand IP in spec work.
 - `ContactForm.tsx` — posts to Formspree (`FORMSPREE_ENDPOINT` in data.ts), then `location.replace`s to `/thank-you/` — the noindex page Google Ads conversion tracking keys on. Keep it a full page load, not `router.push`.
 - `CalendlyButton.tsx` / `lib/calendly.ts` — opens the Calendly popup widget (script loaded in `app/layout.tsx`)
 - `BlogShare.tsx` — share buttons + copy-link
@@ -40,9 +43,9 @@ Server by default; these are `"use client"` because they're interactive:
 
 ### Styling
 Two layers, no CSS framework:
-- `app/colors_and_type.css` — the Arperture design-system tokens (CSS custom properties: colors, type, spacing, radii, motion). Fonts load via CDN `@import` here — **do not self-host / swap to `next/font`.**
+- `app/colors_and_type.css` — the Arperture design-system tokens (v3). One family, **Archivo** variable (condensed 62% width / 800 weight uppercase for display, normal width for body), loaded via CDN `@import` — **do not self-host / swap to `next/font`.** Warm dark ground `#12100E`, paper text `#F1ECE3`, one **amber** accent `#E9A23B`. Dark only (no light theme). Legacy cyan/coral/purple/blue token names still exist but resolve to amber or warm neutrals; don't add new gradients, glows, or mono "kicker" labels.
 - `app/globals.css` — reset, reusable classes (`.btn*`, `.card*`, `.wrap`, `.nav*`, hover/focus states), responsive breakpoints, and the `arpSpin` keyframe.
-- Pattern: **inline `style` objects for one-off layout; CSS classes for anything needing `:hover`/`:focus`/media queries** (inline styles can't express those). The accent color is coral via `--accent`.
+- Pattern: **inline `style` objects for one-off layout; CSS classes for anything needing `:hover`/`:focus`/media queries** (inline styles can't express those). The accent color is amber via `--accent`. Buttons are square-ish (3px radius); cards and media use 6px.
 
 ### SEO / GEO (a core requirement — don't regress it)
 - Every page's `metadata` sets `alternates: { canonical: "/route/" }` (note trailing slash — `trailingSlash: true` is on).
