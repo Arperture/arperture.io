@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./colors_and_type.css";
 import "./globals.css";
 import Nav from "@/components/Nav";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s · Arperture Media",
   },
   description:
-    "Cinematic AI video production for small businesses — brand films, ads, and short-form social content, scripted, directed, and scored like a full production crew at small-business prices.",
+    "Cinematic AI video for small businesses and DTC brands: brand films, ads, and social content, directed and scored like a full crew at small-business prices.",
   keywords: [
     "AI video production for small business", "cinematic AI video", "brand films",
     "social video ads", "AI video studio", "AI commercials", "AI music videos",
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main" style={{ position: "relative", zIndex: 1 }}>{children}</main>
         <Footer />
+        <Analytics />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
         <Script
           id="hs-script-loader"

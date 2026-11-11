@@ -15,7 +15,7 @@ export const EMAIL = "contact@arperture.io";
 export type SocialKey = "instagram" | "youtube" | "tiktok" | "facebook";
 export const SOCIAL_LINKS: { key: SocialKey; label: string; url: string }[] = [
   { key: "instagram", label: "Instagram", url: "https://www.instagram.com/arperturemedia/" },
-  { key: "youtube", label: "YouTube", url: "https://www.youtube.com/@DrewDoesAI" },
+  { key: "youtube", label: "YouTube", url: "https://www.youtube.com/@ArpertureIO" },
   { key: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@arperturemedia" },
   { key: "facebook", label: "Facebook", url: "https://www.facebook.com/arperture" },
 ];
@@ -29,7 +29,10 @@ export const ORG_JSONLD = {
       "@type": ["Organization", "ProfessionalService"],
       "@id": `${SITE_URL}/#organization`,
       name: "Arperture Media",
-      alternateName: "Arperture",
+      alternateName: ["Arperture", "Arperture Media LLC"],
+      legalName: "Arperture Media LLC",
+      disambiguatingDescription:
+        "Arperture Media is spelled with an R (A-R-P-E-R-T-U-R-E). It is an AI video production studio in Leesburg, Virginia, founded by Andrew Dallons, and is not affiliated with Aperture Media Partners or other companies named Aperture.",
       url: SITE_URL,
       logo: `${SITE_URL}/assets/arperture-mark.webp`,
       image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
@@ -37,15 +40,30 @@ export const ORG_JSONLD = {
         "Arperture Media is an AI video production studio for small businesses — cinematic brand films, ads, and short-form social content, directed and scored like a full production house at small-business prices.",
       email: EMAIL,
       telephone: "+1-571-200-1186",
-      founder: { "@type": "Person", name: "Andrew Dallons" },
+      founder: {
+        "@type": "Person",
+        "@id": `${SITE_URL}/about/#andrew-dallons`,
+        name: "Andrew Dallons",
+        alternateName: "Drew Dallons",
+        jobTitle: "Founder and Creative Director",
+        url: `${SITE_URL}/about/`,
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+        sameAs: ["https://www.youtube.com/@DrewDoesAI"],
+      },
       address: {
         "@type": "PostalAddress",
         addressLocality: "Leesburg",
         addressRegion: "VA",
         addressCountry: "US",
       },
-      areaServed: { "@type": "Place", name: "Worldwide" },
-      sameAs: SOCIAL_LINKS.map((s) => s.url),
+      areaServed: [
+        { "@type": "City", name: "Leesburg, Virginia" },
+        { "@type": "AdministrativeArea", name: "Loudoun County, Virginia" },
+        { "@type": "Place", name: "Northern Virginia" },
+        { "@type": "Place", name: "Washington, DC metropolitan area" },
+        { "@type": "Country", name: "United States" },
+      ],
+      sameAs: [...SOCIAL_LINKS.map((s) => s.url), "https://www.fiverr.com/arperturemedia"],
     },
     {
       "@type": "WebSite",
@@ -310,6 +328,8 @@ export type CaseStudy = {
   badgeColor: string;
   youtubeId: string;
   detail: string;
+  // Short search snippet (<=160 chars). Falls back to detail.
+  metaDescription?: string;
   linkLabel: string;
   linkUrl: string;
   stats: { n: string; l: string }[];
@@ -327,6 +347,7 @@ export const CASES: Record<string, CaseStudy> = {
     category: "Client Work · Brand Videos · Ongoing Collaboration",
     client: "Yield Bookkeeping Services", year: "2024–2026",
     badgeBg: "rgba(233,162,59,.12)", badgeColor: "var(--coral-300)", youtubeId: "B3Xw9yi9rXU",
+    metaDescription: "AI video campaign for Yield Bookkeeping, a Brambleton, VA firm: brand films, seasonal spots, and social cuts produced by Arperture Media since 2024.",
     detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “Why You Need Professional Bookkeeping Before It’s Too Late” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
     linkLabel: "Visit yieldbookkeeping.com", linkUrl: "https://www.yieldbookkeeping.com",
     stats: [{ n: "4", l: "Brand films" }, { n: "6", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
@@ -351,6 +372,7 @@ export const CASES: Record<string, CaseStudy> = {
     category: "Client Work · AI Courtroom Comedy Series",
     client: "“It's A Jungle In There.”", year: "2026",
     badgeBg: "rgba(241,236,227,.15)", badgeColor: "var(--purple-300)", youtubeId: "tgkLIjMx2k4",
+    metaDescription: "Judge Silverback's Court: an AI-produced courtroom comedy web series where AI-generated animal characters rule on real unemployment disputes.",
     detail: "An AI-produced courtroom comedy web series developed in long-term collaboration with a writing partner. Real unemployment disputes — dramatized through AI-generated animal characters. The Honorable Judge Silverback presides with primal authority. Excuses are crushed. Fairness is absolute. Final verdicts.",
     linkLabel: "Watch on judgesilverback.com", linkUrl: "https://judgesilverback.com",
     stats: [{ n: "Ongoing", l: "Episodes & shorts" }, { n: "1", l: "Recurring lead" }, { n: "Weekly", l: "Release cadence" }],
@@ -493,7 +515,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "AI for Business",
     title: "Claude vs. ChatGPT vs. Gemini: A Plain-English Guide for Small Business Owners",
     excerpt: "All three cost the same $20 a month, so price can't decide for you. How to pick by what each tool is actually good at.",
-    metaDescription: "Claude vs. ChatGPT vs. Gemini for small businesses in 2026 — what each AI assistant is best at, where they differ on images, video, and documents, and a practical four-step way to pick one.",
+    metaDescription: "Claude vs. ChatGPT vs. Gemini for small businesses in 2026: what each AI assistant does best, how they differ, and a simple four-step way to pick one.",
     coverSrc: "/assets/blog-5.jpg",
     faqs: [
       { q: "Which AI tool is best for a small business in 2026?", a: "There's no single winner — Claude, ChatGPT, and Gemini all cost about $20/month and all handle everyday writing, summarizing, and research well. Pick by your highest-volume task: ChatGPT for one broad all-rounder across a mixed team, Claude for writing quality and long-document analysis, and Gemini if your business runs on Google Workspace or needs images and video." },
@@ -535,7 +557,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Jul 2026", datePublished: "2026-07-09", readTime: "7 min read", category: "AI for Business",
     title: "The 159.8% ROI Number: Why Small AI Projects Are Beating the Giants in 2026",
     excerpt: "The data says small, human-governed AI projects out-earn six-figure rollouts. Here's where the returns actually come from.",
-    metaDescription: "Why small-budget AI projects deliver 2.1× higher ROI than six-figure rollouts — the data on training budgets, human-in-the-loop systems, and workflow automation for small businesses.",
+    metaDescription: "Why small-budget AI projects deliver 2.1× higher ROI than six-figure rollouts, and what training budgets and human-in-the-loop systems have to do with it.",
     coverSrc: "/assets/blog-4.jpg",
     faqs: [
       { q: "Do small businesses get better ROI from AI than large enterprises?", a: "The data says yes. A study of 200 B2B AI deployments found that projects with budgets under €15K delivered 2.1× higher ROI than deployments over €100K — a +428% median return against +198% — with a median breakeven of eight months. Small budgets force the discipline of picking one use case that pays off and shipping it." },
@@ -578,7 +600,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Jun 2026", datePublished: "2026-06-15", readTime: "7 min read", category: "Craft & Process",
     title: "What ‘Directing’ Means When the Camera Is a Prompt",
     excerpt: "Why prompt grammar is the new coverage, and how to think in shots instead of images.",
-    metaDescription: "How AI film directors translate shot lists into prompts, why prompt grammar is the new coverage, and where human judgment still decides the final cut in generative video production.",
+    metaDescription: "How AI film directors turn shot lists into prompts, why prompt grammar is the new coverage, and where human judgment still decides the final cut.",
     coverSrc: "/assets/blog-1.jpg",
     faqs: [
       { q: "Do you still need a director for AI-generated video?", a: "Yes. The director's job — deciding what a scene needs to say and how to say it visually — hasn't changed. Only the tool that executes the shot has changed, from a physical camera to a written prompt." },
@@ -606,7 +628,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "May 2026", datePublished: "2026-05-15", readTime: "8 min read", category: "Technique",
     title: "Keeping a Character Consistent Across Every Shot",
     excerpt: "Notes from producing Pick Up Gerald on reference frames and locked seeds.",
-    metaDescription: "A practical breakdown of AI character consistency techniques — reference frames, locked seeds, and style anchors — drawn from producing the AI short film Pick Up Gerald.",
+    metaDescription: "AI character consistency techniques (reference frames, locked seeds, style anchors) drawn from producing the AI short film Pick Up Gerald.",
     coverSrc: "/assets/blog-2.jpg",
     faqs: [
       { q: "Why do AI-generated characters change between shots?", a: "Most generative video models sample new visual details on every generation unless they're anchored. Without a locked reference, small variations in a prompt — or even random seed changes — can shift a character's face, wardrobe, or proportions from shot to shot." },
@@ -632,7 +654,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Apr 2026", datePublished: "2026-04-15", readTime: "6 min read", category: "Craft & Process",
     title: "Sound Sells the Shot",
     excerpt: "Why score and mix matter more than resolution when the picture is generated.",
-    metaDescription: "Why voice, score, and mix matter more than picture resolution in AI-generated video, and a practical sound checklist for producing believable generative film and brand content.",
+    metaDescription: "Why voice, score, and mix matter more than resolution in AI-generated video, plus a practical sound checklist for believable generative film.",
     coverSrc: "/assets/blog-3.jpg",
     faqs: [
       { q: "Is sound design more important than visuals in AI video?", a: "Not more important, but far more underrated. Once picture quality clears a believability bar, additional visual polish has diminishing returns, while sound — voice, score, and mix — keeps adding emotional impact well past that point." },
