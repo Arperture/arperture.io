@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The production marketing site for **Arperture**, live at **arperture.io**. Arperture helps small businesses put AI to work — the site **leads with small-business services** (AI consulting, AI fluency training, and Web Visibility / SEO-GEO-AEO audits) and features **cinematic AI video production** as a secondary offering. It's a **Next.js 15 App Router** app built as a **fully static export** and deployed on **Vercel**. Pushing to `main` auto-deploys.
+The production marketing site for **Arperture Media**, live at **arperture.io**. Arperture is an **AI video production studio** for small businesses and DTC/SaaS brands: cinematic brand films, ads, and short-form social content. The site's one main action is booking a discovery call. The small-business services it used to lead with (AI consulting, AI fluency training, Web Visibility / SEO-GEO-AEO audits) were dropped in Nov 2026 and should not be reintroduced. It's a **Next.js 15 App Router** app built as a **fully static export** and deployed on **Vercel**. Pushing to `main` auto-deploys.
 
 It was recreated from an HTML/CSS prototype exported from Claude Design; that original design source is preserved under `project/` and `chats/` (reference only — not part of the app, excluded in `tsconfig.json`).
 
@@ -22,7 +22,7 @@ npm run build    # static export → ./out  (also runs TypeScript type-checking)
 ## Architecture
 
 ### Content lives in one file: `lib/data.ts`
-This is the most important thing to know. **Almost all copy, data, pricing, and configuration is centralized in `lib/data.ts`** — portfolio work, case studies, blog posts (full bodies + FAQs), services, verticals, the 14-step process, small-business/consulting offerings, enhancement pricing tiers, the FAQ list, nav items, footer links, social links, Calendly/Formspree constants, and the site-wide `ORG_JSONLD` structured data. **To change wording, prices, or add an item, edit `lib/data.ts`** — the page components just render it.
+This is the most important thing to know. **Almost all copy, data, pricing, and configuration is centralized in `lib/data.ts`** — portfolio work, case studies, blog posts (full bodies + FAQs), services, verticals, the 14-step process, enhancement pricing tiers, the FAQ list, nav items, footer links, social links, Calendly/Formspree constants, and the site-wide `ORG_JSONLD` structured data. **To change wording, prices, or add an item, edit `lib/data.ts`** — the page components just render it.
 
 ### Pages (`app/*/page.tsx`)
 One folder per route (server components). Dynamic routes use `generateStaticParams` fed from `lib/data.ts`:
@@ -58,3 +58,12 @@ Two layers, no CSS framework:
 - **Images:** use `next/image` with local assets in `public/assets/`. The export runs with `images: { unoptimized: true }`, so **compress source images before adding them** (the repo uses resized progressive JPEGs; large PNGs hurt Core Web Vitals). Photographic covers double as OG images, so keep them JPEG.
 - **Brand text rules:** H1s render uppercase (via `textTransform`), H2s use title case — keep this consistent with existing pages.
 - Business facts (phone, Leesburg VA address, socials, founder) live in `ORG_JSONLD` and the footer/contact data — update them together.
+
+## Blog
+
+- Posts are `BLOG_POSTS` entries in `lib/data.ts` (newest first, `id` = `blog-N`, highest + 1). Body blocks are `h2`, `p`, or `img` only (no lists or tables). Every post needs `metaDescription`, `datePublished`, and 3 FAQs (they render on-page and become FAQPage JSON-LD).
+- Add each new post to `public/llms.txt` under **Writing**. The sitemap picks posts up automatically.
+- Categories in use: `AI for Business`, `Craft & Process`, `Technique`, and `AI News`.
+- **AI News** is a weekly roundup (AI video, advertising, media, small business) drafted by a scheduled task every Monday. It reuses the standing cover `/assets/blog-ai-news.jpg`, ships on a `blog/ai-roundup-YYYY-MM-DD` branch as a draft PR, and is merged only after the owner approves the Vercel preview.
+- Never merge a blog post to `main` without the owner's explicit approval. See `.claude/skills/publish-blog-post/SKILL.md` for the full checklist.
+

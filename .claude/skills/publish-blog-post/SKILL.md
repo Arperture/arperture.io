@@ -28,8 +28,8 @@ explicit go-ahead — the preview review is the point of this workflow.**
   - `slug`: short, keyword-rich, hyphenated.
   - `date` ("Jul 2026" style) and `datePublished` (ISO, today).
   - `readTime`: ~200 wpm, rounded ("7 min read").
-  - `category`: "Small Business AI" for small-business topics; match an
-    existing category when one fits.
+  - `category`: match an existing category (`AI for Business`,
+    `Craft & Process`, `Technique`, `AI News`) when one fits.
   - `excerpt` (~1–2 sentences) and `metaDescription` (~150–160 chars,
     keyword-bearing — it feeds meta/OG/Twitter).
   - `faqs`: exactly the kind of questions people ask AI assistants
