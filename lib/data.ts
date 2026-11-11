@@ -60,88 +60,121 @@ export const ORG_JSONLD = {
 
 // ---------- NAV ----------
 export const NAV_PRIMARY: { label: string; href: string }[] = [
-  { label: "Home", href: "/" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
+  { label: "Work", href: "/portfolio" },
+  { label: "Services", href: "/services" },
   { label: "Brands", href: "/brands" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
 ];
 
-export const SERVICES_MENU: { label: string; href: string }[] = [
-  { label: "Video Production", href: "/services" },
-  { label: "Work With Us", href: "/work-with-us" },
-  { label: "Enhancement & Restoration", href: "/enhancement" },
-];
-
-// ---------- PORTFOLIO / WORK ----------
-export type Work = {
-  id: string;
-  slug: string; // case-study route slug ("" when no case)
+// ---------- PROJECTS (v3: video wall + portfolio) ----------
+// One entry per piece of work. `clips` are short silent loops cut from the
+// film (public/media/wall/<id>.mp4 + .jpg poster); `still` is a poster used
+// when no loop exists. Labels must say "Spec" for spec work and "Client work"
+// only for clients cleared for public display.
+export type ProjectKind = "client" | "original" | "spec" | "music" | "studio";
+export type ClipShape = "h" | "v" | "s";
+export type Clip = { id: string; shape: ClipShape };
+export type Project = {
+  key: string;
   title: string;
-  category: string;
-  date: string;
-  grad: string;
-  blurb: string;
-  youtubeId: string;
-  hasCase: boolean;
+  label: string;
+  kind: ProjectKind;
+  youtubeId?: string;
+  film?: string; // self-hosted full film (public/media/films) when it isn't on YouTube
+  caseSlug?: string;
+  clips: Clip[];
+  still?: string;
+  blurb?: string;
+  year: string; // year made (confirmed with Drew); ranges for ongoing work
 };
 
-export const WORK_DATA: Work[] = [
-  {
-    id: "life-of-gremmie", slug: "", title: "Life of Gremmie", category: "Original AI Series · Official Teaser", date: "2026",
-    grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
-    blurb: "The official teaser for our original 10-episode dark comedy — Death is stuck in suburbia, and he still has to work. Season 1 premieres November 1, 2026.",
-    youtubeId: "lLpsu5rz7DY", hasCase: false,
-  },
-  {
-    id: "pickup-gerald", slug: "", title: "Pick Up Gerald", category: "AI Short Film", date: "June 2025",
-    grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
-    blurb: "A fully AI-directed short film created with Google Veo. Exploring character, narrative, and cinematic language through generative video.",
-    youtubeId: "jwmfDa8gbXw", hasCase: false,
-  },
-  {
-    id: "yield", slug: "yield", title: "Yield Bookkeeping Services", category: "Client Work · Brand Videos", date: "2024–Present",
-    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
-    blurb: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — brand films, seasonal spots, and short-form social content.",
-    youtubeId: "B3Xw9yi9rXU", hasCase: true,
-  },
-  {
-    id: "terra-c-serum", slug: "", title: "Terra C Serum", category: "Client Work · Brand Video", date: "April 2026",
-    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
-    blurb: "A horizontal brand spot for Terra C Serum — AI-generated product storytelling built for a clean, cinematic skincare launch.",
-    youtubeId: "_DEeKSSlOis", hasCase: false,
-  },
-  {
-    id: "monster-energy", slug: "", title: "Monster Energy: Unleash the Ultra", category: "Spec Ad · Concept", date: "2026",
-    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
-    blurb: "A conceptual spec commercial for Monster Energy Ultra Zero — the mid-day office slump, unleashed. A self-directed proof that AI-generated production can stand shoulder to shoulder with a big-brand spot.",
-    youtubeId: "p-7DyWsf15I", hasCase: false,
-  },
-  {
-    id: "music-video", slug: "", title: "Iridescence", category: "Music Video", date: "Spring 2025",
-    grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
-    blurb: "A hypnotic AI-generated music video for an upbeat dub techno journey — a showcase of AI serving artistic vision, not replacing it.",
-    youtubeId: "MLvROCITfpY", hasCase: false,
-  },
-  {
-    id: "judge", slug: "judge", title: "Judge Silverback's Court", category: "AI Comedy Series · YouTube", date: "Aug 2025–Feb 2026",
-    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
-    blurb: "An ongoing AI courtroom comedy series — Judge Silverback presides over absurd cases with full AI-generated visuals, voice, and atmosphere.",
-    youtubeId: "tgkLIjMx2k4", hasCase: true,
-  },
-  {
-    id: "bike-nerd", slug: "", title: "Bike Nerd", category: "Client Work · Documentary Trailer", date: "Summer 2024",
-    grad: "conic-gradient(from 210deg,var(--cyan-400),var(--purple-400),var(--coral-400),var(--cyan-400))",
-    blurb: "An AI-generated pitch trailer for a feature documentary following the first African American female professional mountain biking racer.",
-    youtubeId: "p0yhKpYAd4c", hasCase: false,
-  },
-  {
-    id: "law-office-pitch", slug: "", title: "Law Office Pitch", category: "Speculative Pitch · Brand Video", date: "July 2026",
-    grad: "linear-gradient(135deg,var(--blue-400) 0%,var(--purple-400) 55%,var(--coral-400) 100%)",
-    blurb: "A sample brand video created to pitch a prospective Minnesota bankruptcy law firm client on Upwork, matched to their existing visual identity — presented by a fully AI-generated avatar and voice, not a real person.",
-    youtubeId: "3ry1j3oJhvc", hasCase: false,
-  },
+export const PROJECT_KINDS: { kind: ProjectKind; label: string }[] = [
+  { kind: "client", label: "Client work" },
+  { kind: "spec", label: "Spec ads" },
+  { kind: "original", label: "Originals" },
+  { kind: "music", label: "Music videos" },
+  { kind: "studio", label: "Studio" },
 ];
+
+const c = (id: string, shape: ClipShape = "h"): Clip => ({ id, shape });
+
+// Display order for the portfolio grid.
+export const PROJECTS: Project[] = [
+  { key: "yield", title: "Yield Bookkeeping Services", label: "Client work · Brand campaign", blurb: "A running AI video campaign for a Brambleton, VA bookkeeping firm: brand films, seasonal spots and short-form social.",
+    year: "2024–2026", kind: "client", youtubeId: "B3Xw9yi9rXU", caseSlug: "yield",
+    clips: [c("yield-robills"), c("yield-ro", "v"), c("yield-zombie", "v"), c("yield-beach")] },
+  { key: "bmx", title: "BMX Screenplay Demo", label: "Client work · Proof-of-concept trailer", year: "2026", kind: "client",
+    clips: [c("bmx-jump"), c("bmx-gate")] },
+  { key: "terrac", title: "Terra C Serum", label: "Client work · Product spot", blurb: "A brand spot for Terra C Serum. AI product storytelling for a clean skincare launch.",
+    year: "2026", kind: "client", youtubeId: "_DEeKSSlOis",
+    clips: [c("terrac", "v")] },
+  { key: "bike-nerd", title: "Bike Nerd", label: "Client work · Documentary pitch trailer", blurb: "A pitch trailer for a feature documentary about the first African American woman to race mountain bikes professionally.",
+    year: "2024", kind: "client", youtubeId: "p0yhKpYAd4c",
+    clips: [], still: "/media/work/bike-nerd.jpg" },
+  { key: "judge", title: "Judge Silverback's Court", label: "Client work · Comedy series", blurb: "An AI courtroom comedy series. Judge Silverback presides over absurd cases with AI visuals, voices and sound.",
+    year: "2025–2026", kind: "client", youtubeId: "tgkLIjMx2k4", caseSlug: "judge",
+    clips: [], still: "/media/work/judge.jpg" },
+  { key: "crown", title: "Crown", label: "Client work · Pitch film", year: "2026", kind: "client", film: "/media/films/crown.mp4",
+    blurb: "A scene from the client's script, produced as a pitch film to sell the story.",
+    clips: [c("crown-bridge"), c("crown-face"), c("crown-bed")] },
+  { key: "sizzle", title: "The Arperture Reel", label: "Studio · Sizzle reel", year: "2026", kind: "studio", film: "/media/films/arperture-sizzle.mp4",
+    clips: [c("sizzle-rage")] },
+  { key: "gremmie", title: "Life of Gremmie", label: "Original series · Official teaser", blurb: "Teaser for our original 10-episode dark comedy. Death is stuck in suburbia, and he still has to work.",
+    year: "2026", kind: "original", youtubeId: "lLpsu5rz7DY",
+    clips: [], still: "/media/work/gremmie-teaser.jpg" },
+  { key: "gerald", title: "Pick Up Gerald", label: "Original · Short film", blurb: "A short film directed entirely with AI video tools, built to test character, story and cinematic language.",
+    year: "2024", kind: "original", youtubeId: "jwmfDa8gbXw",
+    clips: [c("gerald-walk"), c("gerald-store")] },
+  { key: "lastlight", title: "The Last Light", label: "Original · Short film", year: "2026", kind: "original", clips: [c("lastlight")] },
+  { key: "cartographer", title: "The Cartographer", label: "Original · Short film", year: "2026", kind: "original",
+    clips: [c("cartographer"), c("cartographer-face", "s")] },
+  { key: "catoctin", title: "Catoctin Row", label: "Spec · Architectural launch film", year: "2026", kind: "spec",
+    clips: [c("catoctin-golden"), c("catoctin-aerial", "v"), c("catoctin-ignite")] },
+  { key: "dulles", title: "Dulles Dirty", label: "Spec · Beverage spot", year: "2026", kind: "spec",
+    clips: [c("dulles-ice"), c("dulles-jet"), c("dulles-splash", "s")] },
+  { key: "pike", title: "Pike & Patty", label: "Spec · Food spot", year: "2026", kind: "spec", clips: [c("pike-sear"), c("pike-tunnel", "v")] },
+  { key: "smokehouse", title: "Smokehouse No. 9", label: "Spec · The Plate Pass", year: "2026", kind: "spec", youtubeId: "ZNOEx9rzwKc", clips: [c("smokehouse")] },
+  { key: "romanos", title: "Romano's Italian Pizzeria", label: "Spec · Dark comedy cut", year: "2026", kind: "spec", youtubeId: "Aqz2q8ZDEbg", clips: [c("romanos")] },
+  { key: "diner", title: "Golden Hour Diner", label: "Spec · Time Runs Backwards", year: "2026", kind: "spec", youtubeId: "YbXqKgOaBLo", clips: [c("diner")] },
+  { key: "jennisjava", title: "Jenni's Java", label: "Spec · Coffee shop", year: "2026", kind: "spec", youtubeId: "vg3Mp--59WM", clips: [c("jennisjava", "v")] },
+  { key: "dominion", title: "Dominion Climate Pros", label: "Spec · Home services", year: "2026", kind: "spec", youtubeId: "sF1rdW80HNU", clips: [c("dominion")] },
+  { key: "meltdown", title: "Cold Front Heating & Air", label: "Spec · Meltdown", year: "2026", kind: "spec", clips: [c("meltdown", "s")] },
+  { key: "yard", title: "Greenline Lawn & Landscape", label: "Spec · Yard Reset", year: "2026", kind: "spec", youtubeId: "x2ju5Aga9vU", clips: [c("yard")] },
+  { key: "fallinvasion", title: "Ridgeline Pest Defense", label: "Spec · Fall Invasion", year: "2026", kind: "spec",
+    clips: [c("fallinvasion"), c("fallinvasion-family", "s")] },
+  { key: "wagwash", title: "WagWash Mobile Grooming", label: "Spec · Pet care", year: "2026", kind: "spec", youtubeId: "EQzAgqh-0F4", clips: [c("wagwash")] },
+  { key: "listing", title: "ListingInMotion", label: "Spec · Just listed", year: "2026", kind: "spec", youtubeId: "SR7JD3dIY-k", clips: [c("listing")] },
+  { key: "stain", title: "Pressed & Proper Cleaners", label: "Spec · The Stain", year: "2026", kind: "spec", clips: [c("stain")] },
+  { key: "pickme", title: "Hickory Hollow Christmas Trees", label: "Spec · Pick Me", year: "2026", kind: "spec", clips: [c("pickme", "v")] },
+  { key: "sunset", title: "Gap Run", label: "Spec · Sunset in a Glass", year: "2026", kind: "spec", clips: [c("sunset", "v")] },
+  { key: "freeze", title: "Tessa Hale Photography", label: "Spec · The Freeze", year: "2026", kind: "spec", clips: [c("freeze")] },
+  { key: "construction", title: "The Build-Out", label: "Spec · Interior construction", year: "2026", kind: "spec", clips: [c("construction")] },
+  { key: "law-office", title: "Law Office Pitch", label: "Spec · Brand video pitch", blurb: "A sample brand video made to pitch a bankruptcy law firm, matched to their visual identity. The presenter is an AI avatar, not a real person.",
+    year: "2026", kind: "spec", youtubeId: "3ry1j3oJhvc",
+    clips: [], still: "/media/work/law-office.jpg" },
+  { key: "iridescence", title: "Iridescence", label: "Music video", blurb: "An AI music video for a dub techno track. Hypnotic, slow and built around the music.",
+    year: "2025", kind: "music", youtubeId: "MLvROCITfpY",
+    clips: [], still: "/media/work/iridescence.jpg" },
+  { key: "rbg", title: "Rubber Bass Groove", label: "Music video", year: "2026", kind: "music", clips: [c("rbg")] },
+  { key: "deltapines", title: "The Delta Pines", label: "Music video · Late Fee", year: "2026", kind: "music", clips: [c("deltapines", "v")] },
+  { key: "montage", title: "Arperture Montage", label: "Studio · Brand film", year: "2026", kind: "studio", clips: [c("montage-brew")] },
+];
+
+export const PROJECT_BY_KEY: Record<string, Project> = Object.fromEntries(PROJECTS.map((p) => [p.key, p]));
+
+// The homepage wall: five columns of clip ids. Each clip's project is the
+// prefix before the first "-" (e.g. "yield-ro" -> "yield").
+export const WALL_COLUMNS: string[][] = [
+  ["yield-ro", "bmx-jump", "catoctin-golden", "meltdown", "wagwash", "terrac", "diner", "stain"],
+  ["gerald-walk", "yield-zombie", "dulles-ice", "listing", "cartographer-face", "pike-sear", "sizzle-rage", "freeze", "yard"],
+  ["dulles-jet", "pickme", "romanos", "yield-robills", "catoctin-aerial", "construction", "rbg", "bmx-gate"],
+  ["lastlight", "jennisjava", "smokehouse", "dulles-splash", "gerald-store", "fallinvasion", "deltapines", "montage-brew"],
+  ["catoctin-ignite", "sunset", "yield-beach", "fallinvasion-family", "crown-bridge", "pike-tunnel", "dominion", "cartographer"],
+];
+
+// The "Watch the reel" button in the hero.
+export const REEL_CLIP = "sizzle-rage";
 
 // ---------- BRAND QUICKIES ----------
 // Short, ready-made cinematic brand moments customized per client — the
@@ -173,11 +206,6 @@ export const BRAND_QUICKIES: BrandQuickie[] = [
   ...YIELD_BRAND_QUICKIES,
 ];
 
-// ---------- HOMEPAGE HERO ANCHOR VIDEO ----------
-export const HERO_VIDEO = {
-  youtubeId: "I1BEtjjvWts",
-  title: "We Bring Your Imagination to Life",
-};
 
 // ---------- HOMEPAGE FEATURED ORIGINAL SERIES ----------
 export const FEATURED_SERIES = {
@@ -185,7 +213,7 @@ export const FEATURED_SERIES = {
   title: "Life of Gremmie",
   premiere: "Series premieres Nov 1, 2026",
   tagline: "Death is stuck in suburbia. And he still has to work.",
-  body: "Our original 10-episode dark comedy. Grim — ancient, cursed, and eternal — is eleven years into an assignment in contemporary American suburbia, collecting the small, mundane deaths no one else will bother with. The town just sees a guy. And the longer he stays, the more of his humanity comes back.",
+  body: "Our original 10-episode dark comedy. Grim, ancient, cursed and eternal, is eleven years into an assignment in contemporary American suburbia, collecting the small, mundane deaths no one else will bother with. The town just sees a guy. And the longer he stays, the more of his humanity comes back.",
   channelUrl: "https://www.youtube.com/@LifeofGremmie",
 };
 
@@ -298,7 +326,7 @@ export const CASES: Record<string, CaseStudy> = {
     slug: "yield", title: "Yield Bookkeeping Services",
     category: "Client Work · Brand Videos · Ongoing Collaboration",
     client: "Yield Bookkeeping Services", year: "2024–2026",
-    badgeBg: "rgba(255,111,97,.12)", badgeColor: "var(--coral-300)", youtubeId: "B3Xw9yi9rXU",
+    badgeBg: "rgba(233,162,59,.12)", badgeColor: "var(--coral-300)", youtubeId: "B3Xw9yi9rXU",
     detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “Why You Need Professional Bookkeeping Before It’s Too Late” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
     linkLabel: "Visit yieldbookkeeping.com", linkUrl: "https://www.yieldbookkeeping.com",
     stats: [{ n: "4", l: "Brand films" }, { n: "6", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
@@ -320,9 +348,9 @@ export const CASES: Record<string, CaseStudy> = {
   },
   judge: {
     slug: "judge", title: "Judge Silverback's Court",
-    category: "AI Series · Courtroom Comedy · Ongoing Collaboration",
+    category: "Client Work · AI Courtroom Comedy Series",
     client: "“It's A Jungle In There.”", year: "2026",
-    badgeBg: "rgba(142,68,173,.15)", badgeColor: "var(--purple-300)", youtubeId: "tgkLIjMx2k4",
+    badgeBg: "rgba(241,236,227,.15)", badgeColor: "var(--purple-300)", youtubeId: "tgkLIjMx2k4",
     detail: "An AI-produced courtroom comedy web series developed in long-term collaboration with a writing partner. Real unemployment disputes — dramatized through AI-generated animal characters. The Honorable Judge Silverback presides with primal authority. Excuses are crushed. Fairness is absolute. Final verdicts.",
     linkLabel: "Watch on judgesilverback.com", linkUrl: "https://judgesilverback.com",
     stats: [{ n: "Ongoing", l: "Episodes & shorts" }, { n: "1", l: "Recurring lead" }, { n: "Weekly", l: "Release cadence" }],

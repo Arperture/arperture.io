@@ -38,14 +38,14 @@ export default function BrandQuickies({ videos = BRAND_QUICKIES }: { videos?: Br
               }}
             >
               <span style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(14,14,15,.55)", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(2px)" }}>
+                <span style={{ width: 44, height: 44, borderRadius: 3, background: "rgba(18,16,14,.72)", color: "var(--paper)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <PlayIcon />
                 </span>
               </span>
             </button>
             <div style={{ padding: "14px 16px", display: "flex", flexDirection: "column", gap: 5 }}>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cyan-300)" }}>{v.tag}</span>
-              <h4 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.98rem", lineHeight: 1.3, margin: 0, color: "var(--text)" }}>{v.title}</h4>
+              <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-muted)" }}>{v.tag}</span>
+              <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.98rem", lineHeight: 1.3, margin: 0, color: "var(--text)" }}>{v.title}</h3>
             </div>
           </div>
         ))}
@@ -54,19 +54,19 @@ export default function BrandQuickies({ videos = BRAND_QUICKIES }: { videos?: Br
       {active && (
         <div
           onClick={() => setActive(null)}
-          style={{ position: "fixed", inset: 0, zIndex: 100, background: "rgba(10,10,11,.78)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
+          style={{ position: "fixed", inset: 0, zIndex: 100, background: "rgba(12,10,9,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
         >
           <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 900, display: "flex", flexDirection: "column", gap: 16 }}>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <button
                 onClick={() => setActive(null)}
                 aria-label="Close"
-                style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.25)", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", lineHeight: 1 }}
+                style={{ width: 40, height: 40, borderRadius: 3, background: "transparent", border: "1px solid rgba(241,236,227,.45)", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", lineHeight: 1 }}
               >
                 ✕
               </button>
             </div>
-            <div style={{ width: "100%", borderRadius: 16, overflow: "hidden", aspectRatio: "16/9", background: "#000", boxShadow: "0 24px 64px rgba(0,0,0,.6)" }}>
+            <div style={{ width: "100%", borderRadius: 6, overflow: "hidden", aspectRatio: "16/9", background: "#000", boxShadow: "0 24px 64px rgba(0,0,0,.6)" }}>
               <iframe
                 src={ytEmbed(active.youtubeId, true)}
                 title={active.title}
@@ -77,7 +77,7 @@ export default function BrandQuickies({ videos = BRAND_QUICKIES }: { videos?: Br
               />
             </div>
             <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 14, padding: "18px 22px" }}>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cyan-300)" }}>Brand Quickie · {active.tag}</span>
+              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text-muted)" }}>Brand Quickie · {active.tag}</span>
               <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.25rem", margin: "8px 0 0", color: "var(--text)" }}>{active.title}</h3>
             </div>
           </div>

@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           ← Back to Blog
         </Link>
         <div>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "4px 10px", borderRadius: 999, background: "rgba(46,204,250,.12)", color: "var(--cyan-300)" }}>{post.category}</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "4px 10px", borderRadius: 999, background: "rgba(233,162,59,.12)", color: "var(--cyan-300)" }}>{post.category}</span>
         </div>
         <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2rem,4.6vw,2.8rem)", letterSpacing: "-.02em", margin: "16px 0 8px", lineHeight: 1.15, textTransform: "uppercase" }}>{post.title}</h1>
         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-faint)" }}>{post.date} · {post.readTime}</p>

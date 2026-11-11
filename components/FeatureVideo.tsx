@@ -7,16 +7,17 @@ import { PlayIcon } from "./icons";
 // the embed in place rather than opening the portfolio modal, so the video
 // stays anchored where the visitor clicked it.
 export default function FeatureVideo({
-  youtubeId, title, label = "Watch the reel",
-}: { youtubeId: string; title: string; label?: string }) {
+  youtubeId, title, label = "Watch the reel", poster: localPoster,
+}: { youtubeId: string; title: string; label?: string; poster?: string }) {
   const [playing, setPlaying] = useState(false);
-  const [poster, setPoster] = useState(`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`);
+  // A local frame grab beats YouTube's thumbnail, which is often a text-heavy click magnet.
+  const [poster, setPoster] = useState(localPoster || `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`);
 
   // User-initiated, so autoplay with sound is allowed; no mute like the modal embeds.
   const embed = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
 
   return (
-    <div className="card" style={{ overflow: "hidden", boxShadow: "var(--glow-cyan)" }}>
+    <div style={{ overflow: "hidden", borderRadius: 6, background: "#000" }}>
       <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", background: "#000" }}>
         {playing ? (
           <iframe
@@ -39,19 +40,18 @@ export default function FeatureVideo({
             <img
               src={poster}
               alt=""
-              onError={() => setPoster(`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`)}
+              onError={() => !localPoster && setPoster(`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`)}
               // YouTube serves a 120×90 placeholder (not an error) when maxres is missing.
-              onLoad={(e) => { if (e.currentTarget.naturalWidth <= 120) setPoster(`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`); }}
+              onLoad={(e) => { if (!localPoster && e.currentTarget.naturalWidth <= 120) setPoster(`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`); }}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
-            <span style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,10,11,0) 45%, rgba(10,10,11,.6) 100%)" }} />
+            <span style={{ position: "absolute", inset: 0, background: "rgba(18,16,14,.18)" }} />
             <span style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span
                 style={{
-                  width: 80, height: 80, borderRadius: "50%",
-                  background: "linear-gradient(120deg,var(--cyan-400),var(--coral-400))",
-                  boxShadow: "0 0 0 10px rgba(46,204,250,.22), 0 12px 40px rgba(0,0,0,.45)",
-                  display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 6,
+                  width: 76, height: 76, borderRadius: 3,
+                  background: "var(--accent)", color: "var(--on-accent)",
+                  display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 5,
                 }}
               >
                 <PlayIcon size={34} />
@@ -59,11 +59,10 @@ export default function FeatureVideo({
             </span>
             <span
               style={{
-                position: "absolute", left: 22, bottom: 20, fontFamily: "var(--font-mono)", fontSize: "0.72rem",
-                letterSpacing: "0.12em", textTransform: "uppercase", color: "#fff", display: "flex", alignItems: "center", gap: 10,
+                position: "absolute", left: 0, bottom: 0, padding: "10px 16px", fontFamily: "var(--font-body)", fontSize: "0.95rem",
+                fontWeight: 600, color: "var(--paper)", background: "rgba(18,16,14,.86)",
               }}
             >
-              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--cyan-400)", boxShadow: "0 0 10px var(--cyan-400)" }} />
               {label} · {title}
             </span>
           </button>

@@ -1,204 +1,140 @@
 import Link from "next/link";
-import { Kicker } from "@/components/ui";
 import CalendlyButton from "@/components/CalendlyButton";
 import BrandQuickies from "@/components/BrandQuickies";
 import FeatureVideo from "@/components/FeatureVideo";
 import SpecAdShowcase from "@/components/SpecAdShowcase";
-import { WORK_DATA, VIDEO_PILLARS, HERO_VIDEO, FEATURED_SERIES, ytThumb, CALENDLY_30MIN, BRAND_QUICKIE_PRICE, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
+import HomeHero from "@/components/HomeHero";
+import WorkGrid from "@/components/WorkGrid";
+import { FEATURED_SERIES, CALENDLY_30MIN, BRAND_QUICKIE_PRICE, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
 
-const sectionBorder: React.CSSProperties = { padding: "64px 0", borderTop: "1px solid var(--border)" };
-const cardGrid: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 20 };
-
-// The homepage work strip leads with business proof: a real local client
-// campaign, a product spot, and a professional-services pitch.
-const FEATURED_WORK_IDS = ["yield", "terra-c-serum", "law-office-pitch"];
+// Selected work leads with cleared client work, then the strongest spec and
+// original pieces.
+const FEATURED = ["yield", "bmx", "terrac", "catoctin", "dulles", "gerald"];
 
 export default function HomePage() {
-  const workHome = WORK_DATA.filter((w) => FEATURED_WORK_IDS.includes(w.id));
-
   return (
-    <div className="wrap">
-      {/* HERO */}
-      <header style={{ position: "relative", padding: "96px 0 64px", overflow: "hidden" }}>
-        <div style={{ position: "relative", maxWidth: 760 }}>
-          <Kicker>Leesburg, VA · AI video production for small business</Kicker>
-          <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2.4rem,6vw,4.6rem)", lineHeight: 0.98, letterSpacing: "-.03em", margin: "20px 0", textTransform: "uppercase" }}>
-            Big-brand video,{" "}
-            <span style={{ background: "linear-gradient(120deg,var(--cyan-400),var(--coral-400))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
-              small-business budget.
-            </span>
-          </h1>
-          <p style={{ fontSize: "1.35rem", color: "var(--text-muted)", maxWidth: "54ch", lineHeight: 1.5 }}>
-            Arperture Media is an AI video studio making brand films, ads, and social content for local businesses — scripted, directed, and scored like a full production crew, without the five-figure invoice.
-          </p>
-          <div style={{ display: "flex", gap: 16, marginTop: 36, flexWrap: "wrap" }}>
-            <CalendlyButton url={CALENDLY_30MIN} className="btn btn-primary btn-lg">Book a free discovery call</CalendlyButton>
-            <Link href="/portfolio" className="btn btn-ghost btn-lg">Watch the work →</Link>
-          </div>
-        </div>
+    <>
+      <HomeHero />
 
-        {/* HERO ANCHOR VIDEO */}
-        <div style={{ position: "relative", marginTop: 56 }}>
-          <FeatureVideo youtubeId={HERO_VIDEO.youtubeId} title={HERO_VIDEO.title} />
-        </div>
-      </header>
-
-      {/* 01 — SELECTED WORK */}
-      <section style={sectionBorder}>
-        <Kicker>01 — Selected work</Kicker>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
-          Real Work for Real Businesses
-        </h2>
-        <p style={{ color: "var(--text-muted)", maxWidth: "60ch", marginBottom: 40 }}>
-          Brand films, product spots, and ongoing campaigns — generated, directed, scored, and delivered as masters.
-        </p>
-        <div style={cardGrid}>
-          {workHome.map((w) => (
-            <Link
-              key={w.id}
-              href={w.hasCase ? `/portfolio/${w.slug}` : "/portfolio"}
-              className="card card-lift"
-              style={{ textAlign: "left", overflow: "hidden", display: "flex", flexDirection: "column", textDecoration: "none" }}
-            >
-              <div style={{ height: 160, backgroundColor: "var(--surface-2)", backgroundImage: `url(${ytThumb(w.youtubeId)})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-              <div style={{ padding: 20, display: "flex", flexDirection: "column", gap: 8 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cyan-300)" }}>{w.category}</span>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.05em", color: "var(--text-muted)", whiteSpace: "nowrap" }}>{w.date}</span>
-                </div>
-                <h4 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.2rem", color: "var(--text)", margin: 0 }}>{w.title}</h4>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", margin: 0 }}>{w.blurb}</p>
-              </div>
+      <div className="wrap">
+        {/* TWO DOORS */}
+        <section aria-label="Who we work with" style={{ padding: "clamp(48px,7vw,88px) 0 0" }}>
+          <div className="door-grid">
+            <Link href="/services/" className="door-panel">
+              <h2>Local businesses</h2>
+              <p>
+                Restaurants, home services, real estate and Main Street shops. A spot with your name,
+                your product and your town, priced for a small-business budget.
+              </p>
+              <span className="door-go">Video production services</span>
             </Link>
-          ))}
-        </div>
-        <div style={{ marginTop: 32 }}>
-          <Link href="/portfolio" className="btn btn-ghost btn-sm">View full portfolio →</Link>
-        </div>
-      </section>
+            <Link href="/brands/" className="door-panel">
+              <h2>DTC &amp; SaaS brands</h2>
+              <p>
+                Always-on ad creative for Meta and TikTok, and product demo videos for SaaS teams.
+                Flat monthly or per-video pricing.
+              </p>
+              <span className="door-go">Ad creative and demos</span>
+            </Link>
+          </div>
+        </section>
 
-      {/* 02 — SPEC ADS (FEATURED) */}
-      <section id="spec-ads" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
-        <Kicker>02 — Spec ads for small business</Kicker>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
-          Pick Your Industry. See Your Ad.
-        </h2>
-        <p style={{ color: "var(--text-muted)", maxWidth: "62ch", marginBottom: 32 }}>
-          Every spot below is a spec ad we wrote, directed, and finished for the kind of local business you run — restaurants, home services, real estate, pet care, Main Street. Choose your industry and watch the ad we&apos;d make for you.
-        </p>
-        <SpecAdShowcase />
-        <p style={{ color: "var(--text-faint)", fontSize: "0.8rem", lineHeight: 1.5, marginTop: 16, maxWidth: "70ch" }}>
-          Spec ads feature fictional brands created for demonstration. Your version gets your name, your product, and your town.
-        </p>
-        <div style={{ display: "flex", gap: 16, marginTop: 24, flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-cyan btn-sm">Get a spot like this</Link>
-          <a href={SPEC_ADS_CHANNEL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">All spec ads on YouTube →</a>
-        </div>
-      </section>
+        {/* SELECTED WORK */}
+        <section className="section" style={{ borderTop: 0 }}>
+          <div className="section-head">
+            <h2 className="h-section">Selected Work</h2>
+            <p>
+              Client campaigns, spec spots and originals. Hover to play, click for the full film.{" "}
+              <Link href="/portfolio/" className="text-link">All work</Link>
+            </p>
+          </div>
+          <WorkGrid keys={FEATURED} layout="uniform" />
+        </section>
 
-      {/* 03 — ORIGINAL SERIES (FEATURED) */}
-      <section id="original-series" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
-        <Kicker color="var(--coral-300)">03 — Original series</Kicker>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 40, alignItems: "center", marginTop: 24 }}>
-          <FeatureVideo youtubeId={FEATURED_SERIES.youtubeId} title={FEATURED_SERIES.title} label="Watch the teaser" />
-          <div>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--coral-300)", fontWeight: 700 }}>
-              Official teaser · {FEATURED_SERIES.premiere}
-            </span>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2rem,4vw,2.6rem)", letterSpacing: "-.02em", margin: "12px 0 12px" }}>
-              {FEATURED_SERIES.title}
-            </h2>
-            <p style={{ color: "var(--text)", fontSize: "1.15rem", lineHeight: 1.5, margin: "0 0 12px" }}>
-              {FEATURED_SERIES.tagline}
+        {/* SPEC ADS */}
+        <section id="spec-ads" className="section" style={{ scrollMarginTop: 90 }}>
+          <div className="section-head">
+            <h2 className="h-section">Pick Your Industry. See Your Ad.</h2>
+            <p>
+              Spec spots we wrote, directed and finished for the kind of local business you run.
+              Choose an industry and watch the ad we would make for you.
             </p>
-            <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, margin: "0 0 28px" }}>
-              {FEATURED_SERIES.body}
-            </p>
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <a href={FEATURED_SERIES.channelUrl} target="_blank" rel="noopener noreferrer" className="btn btn-coral btn-sm">Subscribe for Episode 1 →</a>
-              <Link href="/portfolio" className="btn btn-ghost btn-sm">More original work</Link>
+          </div>
+          <SpecAdShowcase />
+          <p style={{ color: "var(--text-faint)", fontSize: "0.88rem", lineHeight: 1.5, marginTop: 16, maxWidth: "70ch" }}>
+            Spec ads feature fictional brands made for demonstration. Your version gets your name, your
+            product and your town.
+          </p>
+          <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
+            <Link href="/contact/" className="btn btn-primary btn-sm">Get a spot like this</Link>
+            <a href={SPEC_ADS_CHANNEL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-line btn-sm">
+              All spec ads on YouTube
+            </a>
+          </div>
+        </section>
+
+        {/* ORIGINAL SERIES */}
+        <section id="original-series" className="section" style={{ scrollMarginTop: 90 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: "clamp(32px,5vw,64px)", alignItems: "center" }}>
+            <FeatureVideo youtubeId={FEATURED_SERIES.youtubeId} title={FEATURED_SERIES.title} label="Watch the teaser" poster="/media/work/gremmie-teaser.jpg" />
+            <div>
+              <p style={{ color: "var(--text-muted)", fontWeight: 600, margin: 0 }}>
+                Original series · {FEATURED_SERIES.premiere}
+              </p>
+              <h2 className="display" style={{ fontSize: "clamp(2.8rem,6vw,4.75rem)", margin: "12px 0 18px" }}>
+                {FEATURED_SERIES.title}
+              </h2>
+              <p style={{ color: "var(--text)", fontSize: "1.2rem", lineHeight: 1.45, margin: "0 0 12px" }}>
+                {FEATURED_SERIES.tagline}
+              </p>
+              <p style={{ color: "var(--text-muted)", lineHeight: 1.6, margin: "0 0 28px" }}>
+                {FEATURED_SERIES.body}
+              </p>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <a href={FEATURED_SERIES.channelUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
+                  Subscribe for episode 1
+                </a>
+                <Link href="/portfolio/" className="btn btn-line btn-sm">More original work</Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 04 — WHAT WE MAKE */}
-      <section style={sectionBorder}>
-        <Kicker color="var(--purple-300)">04 — What we make</Kicker>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem", letterSpacing: "-.02em", margin: "16px 0 12px" }}>
-          One Studio, Every Format
-        </h2>
-        <p style={{ color: "var(--text-muted)", maxWidth: "60ch", marginBottom: 40 }}>
-          From a 30-second social ad to a flagship brand film — one team takes it from brief to final master, script to screen.
-        </p>
-        <div style={cardGrid}>
-          {VIDEO_PILLARS.map((v) => (
-            <Link
-              key={v.title}
-              href={v.href}
-              className="card card-lift"
-              style={{ padding: 28, display: "flex", flexDirection: "column", gap: 10, textDecoration: "none" }}
-            >
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cyan-300)" }}>{v.tag}</span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.3rem", margin: "4px 0 0", color: "var(--text)" }}>{v.title}</h3>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", margin: 0, flex: 1 }}>{v.body}</p>
-              <span className="link-cyan" style={{ fontWeight: 600, fontSize: "0.85rem" }}>Learn more →</span>
-            </Link>
-          ))}
-        </div>
-        <div style={{ marginTop: 32 }}>
-          <Link href="/services" className="btn btn-ghost btn-sm">All video services →</Link>
-        </div>
-      </section>
-
-      {/* 05 — BRAND QUICKIES (FEATURED) */}
-      <section id="brand-quickies" style={{ ...sectionBorder, scrollMarginTop: 90 }}>
-        <div
-          style={{
-            border: "1px solid var(--cyan-400)",
-            borderRadius: 20,
-            padding: "clamp(24px,4vw,44px)",
-            background: "var(--surface)",
-            boxShadow: "var(--glow-cyan)",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 14 }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", padding: "5px 12px", borderRadius: 999, background: "var(--cyan-400)", color: "var(--on-accent)", fontWeight: 700 }}>
-              Featured service
-            </span>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", letterSpacing: "0.06em", color: "var(--coral-300)", fontWeight: 700 }}>
-              {BRAND_QUICKIE_PRICE}
-            </span>
+        {/* BRAND QUICKIES */}
+        <section id="brand-quickies" className="section" style={{ scrollMarginTop: 90 }}>
+          <div className="section-head">
+            <div>
+              <h2 className="h-section">Brand Quickies</h2>
+              <p style={{ color: "var(--accent)", fontWeight: 700, margin: "10px 0 0" }}>{BRAND_QUICKIE_PRICE}</p>
+            </div>
+            <p>
+              Short cinematic brand moments: a logo reveal, a seasonal spot, a product beat. Proven
+              concepts customized with your logo, product or team. Below is a set for Yield
+              Bookkeeping, plus two of our own.
+            </p>
           </div>
-
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "clamp(2rem,4vw,2.6rem)", letterSpacing: "-.02em", margin: "0 0 12px" }}>
-            Brand Quickies
-          </h2>
-          <p style={{ color: "var(--text-muted)", maxWidth: "62ch", fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 8px" }}>
-            Short, cinematic brand moments — a logo reveal, a seasonal spot, a scroll-stopping product beat. Built on proven concepts and customized to you: drop in your logo, your product, or your team, and it&apos;s yours.
-          </p>
-          <p style={{ color: "var(--text-muted)", maxWidth: "62ch", fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 28px" }}>
-            The fastest, cheapest way to put real production value in front of your customers. Here&apos;s a set we made for Yield Bookkeeping, alongside a couple of our own:
-          </p>
-
           <BrandQuickies />
-
-          <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn btn-cyan btn-sm">Get a Brand Quickie</Link>
-            <Link href="/portfolio/yield" className="btn btn-ghost btn-sm">See the full Yield campaign →</Link>
+          <div style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
+            <Link href="/contact/" className="btn btn-primary btn-sm">Get a Brand Quickie</Link>
+            <Link href="/portfolio/yield/" className="btn btn-line btn-sm">See the full Yield campaign</Link>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section style={{ padding: "80px 0", borderTop: "1px solid var(--border)", textAlign: "center" }}>
-        <Kicker color="var(--coral-400)">Ready when you are</Kicker>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.6rem", letterSpacing: "-.02em", margin: "16px 0 28px" }}>Let&apos;s Build Something Extraordinary.</h2>
-        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-primary btn-lg">Get in touch</Link>
-          <Link href="/services" className="btn btn-ghost btn-lg">Explore video services</Link>
-        </div>
-      </section>
-    </div>
+        {/* CTA */}
+        <section className="section" style={{ paddingBottom: "clamp(72px,10vw,128px)" }}>
+          <h2 className="display" style={{ fontSize: "clamp(3rem,8vw,6rem)", maxWidth: "14ch" }}>
+            Let&apos;s Make Something People Watch.
+          </h2>
+          <p style={{ color: "var(--text-muted)", fontSize: "1.15rem", maxWidth: "48ch", margin: "20px 0 32px" }}>
+            Book a 30-minute call. Tell us what you sell and who buys it, and we&apos;ll talk through
+            ideas, timing and cost.
+          </p>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <CalendlyButton url={CALENDLY_30MIN} className="btn btn-primary btn-lg">Book a discovery call</CalendlyButton>
+            <Link href="/contact/" className="btn btn-line btn-lg">Send a message</Link>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

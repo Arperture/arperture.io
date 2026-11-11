@@ -22,14 +22,14 @@ const OFFER_B: Tier[] = [
   { name: "Variant", price: "+$750", note: "Another length, aspect ratio, or audience version of an existing demo." },
 ];
 
-type Sample = { file: string; title: string; ratio: "9/16" | "4/5" | "16/9"; tag: string };
+type Sample = { file: string; title: string; ratio: "9/16" | "4/5" | "16/9"; tag: string; client?: boolean };
 const SAMPLES: Sample[] = [
-  { file: "ondrafy-hook1-9x16", title: "Ondrafy — question hook", ratio: "9/16", tag: "DTC ad · 9:16" },
-  { file: "ondrafy-hook3-9x16", title: "Ondrafy — pain-point hook", ratio: "9/16", tag: "DTC ad · 9:16" },
-  { file: "ondrafy-hook4-4x5", title: "Ondrafy — pattern interrupt", ratio: "4/5", tag: "DTC ad · 4:5" },
-  { file: "terrac-hook1-9x16", title: "Terra-C — question hook", ratio: "9/16", tag: "DTC ad · 9:16" },
-  { file: "terrac-hook2-4x5", title: "Terra-C — bold claim", ratio: "4/5", tag: "DTC ad · 4:5" },
-  { file: "wovrin-walkthrough-16x9", title: "Wovrin — product walkthrough", ratio: "16/9", tag: "SaaS demo · 16:9" },
+  { file: "ondrafy-spec-9x16", title: "Ondrafy: full spot", ratio: "9/16", tag: "DTC ad · 9:16" },
+  { file: "ondrafy-hook4-9x16", title: "Ondrafy: pattern interrupt", ratio: "9/16", tag: "DTC ad · 9:16" },
+  { file: "ondrafy-hook4-4x5", title: "Ondrafy: pattern interrupt", ratio: "4/5", tag: "DTC ad · 4:5" },
+  { file: "terrac-hook1-9x16", title: "Terra-C: question hook", ratio: "9/16", tag: "DTC ad · 9:16", client: true },
+  { file: "terrac-hook2-4x5", title: "Terra-C: bold claim", ratio: "4/5", tag: "DTC ad · 4:5", client: true },
+  { file: "wovrin-walkthrough-16x9", title: "Wovrin: product walkthrough", ratio: "16/9", tag: "SaaS demo · 16:9" },
 ];
 
 function TierCard({ t, accent }: { t: Tier; accent: string }) {
@@ -56,7 +56,7 @@ function SampleCard({ s }: { s: Sample }) {
       <figcaption style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "baseline", flexWrap: "wrap" }}>
         <span style={{ fontSize: "0.85rem", fontWeight: 600 }}>{s.title}</span>
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          {s.tag} · spec concept
+          {s.tag} · {s.client ? "client work" : "spec concept"}
         </span>
       </figcaption>
     </figure>
@@ -98,7 +98,7 @@ export default function BrandsPage() {
       <section id="samples" style={{ padding: "32px 0 56px", borderTop: "1px solid var(--border)", scrollMarginTop: 100 }}>
         <Kicker color="var(--coral-300)">Samples</Kicker>
         <h2 style={h2}>Recent Work</h2>
-        <p style={lede}>These are spec concepts made to show the format, not paid client work.</p>
+        <p style={lede}>Terra-C is client work. Ondrafy and Wovrin are spec concepts made to show the format.</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 16, alignItems: "start" }}>
           {SAMPLES.map((s) => <SampleCard key={s.file} s={s} />)}
         </div>

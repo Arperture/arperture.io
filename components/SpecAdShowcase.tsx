@@ -32,7 +32,7 @@ const fallbackIfPlaceholder = (img: HTMLImageElement, id: string) => {
 const adsFor = (filter: Filter): SpecAd[] => (filter === "all" ? SPEC_ADS : SPEC_ADS.filter((a) => a.industry === filter));
 const byId = (id: string) => SPEC_ADS.find((a) => a.youtubeId === id) ?? SPEC_ADS[0];
 
-const mono: React.CSSProperties = { fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase" };
+const mono: React.CSSProperties = { fontFamily: "var(--font-body)", fontWeight: 600 };
 
 export default function SpecAdShowcase() {
   const [filter, setFilter] = useState<Filter>("all");
@@ -192,7 +192,7 @@ export default function SpecAdShowcase() {
       </div>
 
       {/* Stage */}
-      <div className="card" style={{ overflow: "hidden", boxShadow: "var(--glow-cyan)" }}>
+      <div className="card" style={{ overflow: "hidden" }}>
         <div
           onPointerEnter={() => setStageHover(true)}
           onPointerLeave={() => setStageHover(false)}
@@ -237,22 +237,19 @@ export default function SpecAdShowcase() {
                 onClick={() => setPlaying(true)}
                 className="play-thumb"
                 aria-label={`Play ${active.business} — ${active.title}`}
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", padding: 0, border: "none", cursor: "pointer", background: "linear-gradient(180deg, rgba(10,10,11,0) 45%, rgba(10,10,11,.6) 100%)" }}
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", padding: 0, border: "none", cursor: "pointer", background: "rgba(18,16,14,.18)", color: "var(--on-accent)" }}
               >
                 <span style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <span
                     style={{
-                      width: 80, height: 80, borderRadius: "50%",
-                      background: "linear-gradient(120deg,var(--cyan-400),var(--coral-400))",
-                      boxShadow: "0 0 0 10px rgba(46,204,250,.22), 0 12px 40px rgba(0,0,0,.45)",
-                      display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 6,
+                      width: 76, height: 76, borderRadius: 3, background: "var(--accent)",
+                      display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 5,
                     }}
                   >
                     <PlayIcon size={34} />
                   </span>
                 </span>
-                <span style={{ ...mono, position: "absolute", left: 22, bottom: 20, fontSize: "0.72rem", letterSpacing: "0.12em", color: "#fff", display: "flex", alignItems: "center", gap: 10 }}>
-                  <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--cyan-400)", boxShadow: "0 0 10px var(--cyan-400)" }} />
+                <span style={{ ...mono, position: "absolute", left: 0, bottom: 0, padding: "10px 16px", fontSize: "0.95rem", color: "var(--paper)", background: "rgba(18,16,14,.86)", display: "flex", alignItems: "center", gap: 10 }}>
                   Spec ad · {active.business}
                 </span>
               </button>
@@ -263,7 +260,7 @@ export default function SpecAdShowcase() {
         {/* Stage meta */}
         <div style={{ display: "flex", gap: 20, alignItems: "flex-start", justifyContent: "space-between", padding: "18px 22px 20px" }}>
           <div style={{ minWidth: 0 }}>
-            <span style={{ ...mono, fontSize: "0.68rem", color: "var(--cyan-300)" }}>
+            <span style={{ ...mono, fontSize: "0.9rem", color: "var(--text-muted)" }}>
               {active.industry} · {active.location} · {active.duration}
             </span>
             <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.35rem", margin: "6px 0 4px", color: "var(--text)" }}>
@@ -274,7 +271,7 @@ export default function SpecAdShowcase() {
             </p>
           </div>
           <div aria-hidden style={{ flexShrink: 0, display: "flex", alignItems: "center", gap: 10, opacity: ringVisible ? 1 : 0, transition: "opacity .3s" }}>
-            <span style={{ ...mono, fontSize: "0.62rem", color: "var(--text-faint)" }}>{stageHover ? "Paused" : "Up next"}</span>
+            <span style={{ ...mono, fontSize: "0.85rem", color: "var(--text-faint)" }}>{stageHover ? "Paused" : "Up next"}</span>
             <svg width="36" height="36" viewBox="0 0 36 36">
               <circle cx="18" cy="18" r="15" fill="none" stroke="var(--border-strong)" strokeWidth="2" />
               <circle
@@ -324,12 +321,12 @@ export default function SpecAdShowcase() {
                     loading="lazy"
                     style={{ width: "100%", height: "100%", objectFit: a.orientation === "portrait" ? "contain" : "cover", display: "block" }}
                   />
-                  <span style={{ ...mono, position: "absolute", right: 8, bottom: 8, fontSize: "0.62rem", letterSpacing: "0.06em", padding: "3px 7px", borderRadius: 6, background: "rgba(10,10,11,.7)", color: "#fff" }}>
+                  <span style={{ ...mono, position: "absolute", right: 8, bottom: 8, fontSize: "0.78rem", padding: "3px 7px", borderRadius: 3, background: "rgba(10,10,11,.7)", color: "#fff" }}>
                     {a.duration}
                   </span>
                 </span>
                 <span style={{ display: "block", padding: "8px 10px 10px", textAlign: "left", background: "var(--surface)" }}>
-                  <span style={{ ...mono, display: "block", fontSize: "0.6rem", color: current ? "var(--cyan-300)" : "var(--text-faint)" }}>{a.industry}</span>
+                  <span style={{ ...mono, display: "block", fontSize: "0.8rem", color: current ? "var(--accent)" : "var(--text-faint)" }}>{a.industry}</span>
                   <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.9rem", lineHeight: 1.25, marginTop: 3, color: "var(--text)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                     {a.business}
                   </span>

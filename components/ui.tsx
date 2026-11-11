@@ -1,11 +1,14 @@
 import Link from "next/link";
 
-export function Kicker({ color = "var(--cyan-300)", children }: { color?: string; children: React.ReactNode }) {
+// Quiet section label. The old mono, letter-spaced eyebrow is retired; this
+// renders as a plain dim line so legacy pages keep their context without the
+// "kicker" costume. `color` is accepted for back-compat and ignored.
+export function Kicker({ children }: { color?: string; children: React.ReactNode }) {
   return (
     <span
       style={{
-        fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.22em",
-        textTransform: "uppercase", color,
+        fontFamily: "var(--font-body)", fontSize: "0.95rem", fontWeight: 600,
+        color: "var(--text-muted)", display: "inline-block",
       }}
     >
       {children}
@@ -17,9 +20,9 @@ export function H1({ children, style }: { children: React.ReactNode; style?: Rea
   return (
     <h1
       style={{
-        fontFamily: "var(--font-display)", fontWeight: 600,
-        fontSize: "clamp(2.2rem,5vw,3.4rem)", letterSpacing: "-.02em", margin: "16px 0 12px",
-        textTransform: "uppercase", ...style,
+        fontFamily: "var(--font-display)", fontWeight: 800, fontStretch: "62%",
+        fontSize: "clamp(2.75rem,7vw,5rem)", lineHeight: 0.92, letterSpacing: "-.005em",
+        margin: "12px 0 16px", textTransform: "uppercase", ...style,
       }}
     >
       {children}
@@ -31,8 +34,9 @@ export function H2({ children, style }: { children: React.ReactNode; style?: Rea
   return (
     <h2
       style={{
-        fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "2.4rem",
-        letterSpacing: "-.02em", margin: "16px 0 12px", ...style,
+        fontFamily: "var(--font-display)", fontWeight: 800, fontStretch: "72%",
+        fontSize: "clamp(2rem,4vw,2.75rem)", lineHeight: 1, letterSpacing: "-.005em",
+        margin: "12px 0 14px", ...style,
       }}
     >
       {children}
