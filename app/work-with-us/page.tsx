@@ -5,9 +5,9 @@ import { CALENDLY_30MIN } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/work-with-us/" },
-  title: "Work With Us — Arperture Media",
+  title: "Work With Us: Offers & Pricing",
   description:
-    "AI-powered video production for local businesses and DTC brands. Download the offer sheet or the UGC creative retainer sheet — or start with a free 30-second spec video of your business.",
+    "AI video for local businesses and DTC brands. Get the offer sheet or the UGC retainer sheet, or start with a free 30-second spec video of your business.",
 };
 
 function DownloadCard({

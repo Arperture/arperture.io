@@ -12,18 +12,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const c = CASES[slug];
   if (!c) return {};
+  const description = c.metaDescription ?? c.detail;
   return {
     title: c.title,
-    description: c.detail,
+    description,
     alternates: { canonical: `/portfolio/${c.slug}/` },
     openGraph: {
       type: "article",
       title: c.title,
-      description: c.detail,
+      description,
       url: `/portfolio/${c.slug}/`,
       images: [ytThumb(c.youtubeId)],
     },
-    twitter: { card: "summary_large_image", title: c.title, description: c.detail, images: [ytThumb(c.youtubeId)] },
+    twitter: { card: "summary_large_image", title: c.title, description, images: [ytThumb(c.youtubeId)] },
   };
 }
 

@@ -26,7 +26,7 @@ export default function SmsTermsPage() {
 
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.35rem", letterSpacing: "-.01em", margin: "48px 0 14px", color: "var(--text)" }}>Program description</h2>
         <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 16px" }}>
-          Arperture Media (571-200-1186) operates a text messaging program that sends appointment reminders and confirmations, project and production status updates, responses to inquiries you have initiated, account and billing notices, and — where you have separately consented — occasional promotional messages about our AI video production, AI consulting, and web visibility services.
+          Arperture Media (571-200-1186) operates a text messaging program that sends appointment reminders and confirmations, project and production status updates, responses to inquiries you have initiated, account and billing notices, and — where you have separately consented — occasional promotional messages about our AI video production services.
         </p>
 
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.35rem", letterSpacing: "-.01em", margin: "48px 0 14px", color: "var(--text)" }}>How to opt in</h2>

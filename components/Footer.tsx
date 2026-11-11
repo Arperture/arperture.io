@@ -12,7 +12,7 @@ export default function Footer() {
             <span className="brand-word">Arperture</span>
           </Link>
           <p>
-            AI video studio in Leesburg, Virginia. Brand films, ads, music videos and original series,
+            Arperture (with an R) is an AI video studio in Leesburg, Virginia. Brand films, ads, music videos and original series,
             written, directed and scored in house.
           </p>
         </div>
