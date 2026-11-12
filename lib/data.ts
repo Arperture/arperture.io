@@ -3,7 +3,7 @@
 // ============================================================
 
 export const SITE_URL = "https://www.arperture.io";
-export const DEFAULT_OG_IMAGE = "/assets/pickup-gerald-hero.jpg";
+export const DEFAULT_OG_IMAGE = "/assets/og-arperture-site.jpg";
 
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
 export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mlgyowya";
