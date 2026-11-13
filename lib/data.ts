@@ -334,9 +334,10 @@ export type CaseStudy = {
   linkUrl: string;
   stats: { n: string; l: string }[];
   projectsLabel: string;
-  projects: { tag: string; title: string; body: string }[];
+  // youtubeId on a card links it to YouTube and shows the video's thumbnail.
+  projects: { tag: string; title: string; body: string; youtubeId?: string }[];
   shortFormLabel: string;
-  shortForm: { tag: string; title: string }[];
+  shortForm: { tag: string; title: string; youtubeId?: string }[];
   // Optional Brand Quickie reel for clients who have one.
   brandQuickies?: BrandQuickie[];
 };
@@ -370,22 +371,58 @@ export const CASES: Record<string, CaseStudy> = {
   judge: {
     slug: "judge", title: "Judge Silverback's Court",
     category: "Client Work · AI Courtroom Comedy Series",
-    client: "“It's A Jungle In There.”", year: "2026",
-    badgeBg: "rgba(241,236,227,.15)", badgeColor: "var(--purple-300)", youtubeId: "tgkLIjMx2k4",
-    metaDescription: "Judge Silverback's Court: an AI-produced courtroom comedy web series where AI-generated animal characters rule on real unemployment disputes.",
-    detail: "An AI-produced courtroom comedy web series developed in long-term collaboration with a writing partner. Real unemployment disputes — dramatized through AI-generated animal characters. The Honorable Judge Silverback presides with primal authority. Excuses are crushed. Fairness is absolute. Final verdicts.",
-    linkLabel: "Watch on judgesilverback.com", linkUrl: "https://judgesilverback.com",
-    stats: [{ n: "Ongoing", l: "Episodes & shorts" }, { n: "1", l: "Recurring lead" }, { n: "Weekly", l: "Release cadence" }],
-    projectsLabel: "In this project",
+    client: "“It's A Jungle In There.”", year: "2025–2026",
+    badgeBg: "rgba(241,236,227,.15)", badgeColor: "var(--purple-300)", youtubeId: "pLnM2fFE2ns",
+    metaDescription: "Judge Silverback's Court: a nine-episode AI-produced courtroom comedy series where AI-generated animal characters rule on real unemployment disputes.",
+    detail: "A complete nine-episode AI-produced courtroom comedy web series, developed in long-term collaboration with a writing partner. Real unemployment disputes — dramatized through AI-generated animal characters. The Honorable Judge Silverback presides with primal authority. Excuses are crushed. Fairness is absolute. Final verdicts.",
+    linkLabel: "Watch on YouTube", linkUrl: "https://www.youtube.com/@judgesilverback",
+    stats: [{ n: "9", l: "Episodes" }, { n: "31", l: "Courtroom shorts" }, { n: "Complete", l: "Series status" }],
+    projectsLabel: "The full series",
     projects: [
-      { tag: "Hype Reel", title: "Case Dismissed", body: "The official hype reel for Judge Silverback's Court — introducing the world to the courtroom where the law of the jungle reigns supreme. AI-generated characters, real stakes, unforgettable drama." },
-      { tag: "Featured Episode", title: "The Case of the Buzzing Distraction", body: "A normal unemployment hearing spirals into chaos when a mysterious buzzing fills the courtroom. The claimant brought a vibrator to work for “stress relief”, was warned, and did it again. Judge Silverback must decide: was the employer too harsh, or did the employee cross the line?" },
+      { tag: "Hype Reel", title: "Case Dismissed", youtubeId: "tgkLIjMx2k4", body: "The official hype reel for Judge Silverback's Court — the wildest unemployment claims from the series in two minutes. AI-generated characters, real stakes, unforgettable drama." },
+      { tag: "Episode 1", title: "Hoofprints on the Lawn", youtubeId: "yRkL7ebDN9o", body: "Hoofprints on a customer's lawn cost a delivery driver her job. Honest mistake, or a firing offense?" },
+      { tag: "Episode 2", title: "The Accidental Pic", youtubeId: "K9FJcR2x0Tw", body: "A personal pic accidentally sent to a new employee. A slip of the thumb, or grounds for firing?" },
+      { tag: "Episode 3", title: "The Salon Scandal", youtubeId: "fAhPmP6Zw1c", body: "Turned down a proposition, then fired? A salon owner faces a sexual harassment claim." },
+      { tag: "Episode 4", title: "Vacation vs. Attendance Policy", youtubeId: "1RNvPtVJejA", body: "An employee is fired after missing work for a vacation. The time-off request versus the attendance policy." },
+      { tag: "Episode 5 · Featured", title: "The Rocking Van", youtubeId: "pLnM2fFE2ns", body: "A plumber is fired for a “rocking” company van. His defense: a broken phone charger." },
+      { tag: "Episode 6", title: "The Motor Mouth Incident", youtubeId: "qyYFHLvVlNE", body: "Fired for talking too much? The “Motor Mouth” incident goes before the judge." },
+      { tag: "Episode 7", title: "The Announcer's Teeth", youtubeId: "mWVlZRHH2d8", body: "An announcer is fired — and blames his teeth." },
+      { tag: "Episode 8", title: "Lady Marmalade at the Blood Drive", youtubeId: "zl_SVmKf4xY", body: "Fired for singing “Lady Marmalade” at a blood drive? Judge Silverback delivers the verdict." },
+      { tag: "Episode 9", title: "The Case of the Buzzing Distraction", youtubeId: "h7eIm6D-a8A", body: "A normal hearing spirals into chaos when a mysterious buzzing fills the courtroom. The claimant brought a vibrator to work for “stress relief”, was warned, and did it again. Was the employer too harsh, or did the employee cross the line?" },
     ],
-    shortFormLabel: "Courtroom shorts — bite-sized justice, served daily",
+    shortFormLabel: "Courtroom shorts — bite-sized justice",
     shortForm: [
-      { tag: "Courtroom Short", title: "Can You Hear That Buzzing?" },
-      { tag: "Courtroom Short", title: "Ken Kalihari Investigates" },
-      { tag: "Courtroom Short", title: "Back-Lot Tour" },
+      { tag: "Courtroom Short", title: "HR Is Going to Have a Field Day", youtubeId: "XyBKTHFWjvI" },
+      { tag: "Courtroom Short", title: "Can You Hear the Buzzing?", youtubeId: "XgxpLCbFfWU" },
+      { tag: "Courtroom Short", title: "HR Is Going to Have a Field Day (Pt. 2)", youtubeId: "BbSrWGkYEEo" },
+      { tag: "Courtroom Short", title: "She Brought What Into Court?!", youtubeId: "bxL-IzCt7fU" },
+      { tag: "Courtroom Short", title: "Ken Kalahari Investigates", youtubeId: "EJZV56Ebrng" },
+      { tag: "Courtroom Short", title: "Fired for Singing at a Blood Drive", youtubeId: "VhAA-YRuJ4w" },
+      { tag: "Courtroom Short", title: "Announcer Fired, Blames His Teeth", youtubeId: "Scefeetu30s" },
+      { tag: "Courtroom Short", title: "Announcer Loses Teeth, Then His Job", youtubeId: "3_08JV9soV8" },
+      { tag: "Courtroom Short", title: "The Motor Mouth Incident", youtubeId: "VOnodQEXKSo" },
+      { tag: "Courtroom Short", title: "Kangaroo Attacks Witness", youtubeId: "aD6l2vOBvcE" },
+      { tag: "Courtroom Short", title: "Kangaroo Attacks Witness (Pt. 2)", youtubeId: "aqRZyusfx5A" },
+      { tag: "Courtroom Short", title: "The Rocking Van Alibis Fail", youtubeId: "ahHSYXKdckQ" },
+      { tag: "Courtroom Short", title: "He Was There for the Buffet?!", youtubeId: "cqmBcMnPLkw" },
+      { tag: "Courtroom Short", title: "The Rocking Work Van Case Begins", youtubeId: "eh4cpG-R1Cs" },
+      { tag: "Courtroom Short", title: "The Employer Has Receipts", youtubeId: "ym4FOCI77II" },
+      { tag: "Courtroom Short", title: "Three Days at the Beach", youtubeId: "PRJQPxqb_oo" },
+      { tag: "Courtroom Short", title: "Fired, or Abandoned Her Job?", youtubeId: "CEho-KsEOwo" },
+      { tag: "Courtroom Short", title: "The “Fuddy Duddy” Remark", youtubeId: "O9mtQJra374" },
+      { tag: "Courtroom Short", title: "What “No Chair” Really Meant", youtubeId: "VmLU1aNQgkk" },
+      { tag: "Courtroom Short", title: "He Sent What in the Work Schedule?!", youtubeId: "nx8PRHdaCpM" },
+      { tag: "Courtroom Short", title: "The Mr. Sticky Case, Part 1", youtubeId: "Q_VlsTwq7fQ" },
+      { tag: "Courtroom Short", title: "“I Didn't Notice the Tip…”", youtubeId: "f6RQb--79_E" },
+      { tag: "Courtroom Short", title: "The Work Schedule Incident", youtubeId: "VDQnrfiv-wI" },
+      { tag: "Courtroom Short", title: "Boss Caught Contradicting Himself", youtubeId: "4hL-R_jo4G4" },
+      { tag: "Courtroom Short", title: "Did Her Past Cost Him the Lawsuit?", youtubeId: "s5oAnWuL_Z0" },
+      { tag: "Courtroom Short", title: "The Prior Warning That Cost Her the Case", youtubeId: "YpYSgR7K0Gk" },
+      { tag: "Courtroom Short", title: "Fired Over Lawn Damage?!", youtubeId: "nzKbc-GaMvs" },
+      { tag: "Courtroom Short", title: "Executive Decision or Call First?", youtubeId: "uOcoPTkos0A" },
+      { tag: "Courtroom Short", title: "Executive Decision or Call First? (Pt. 2)", youtubeId: "jaG2UOX82nY" },
+      { tag: "Courtroom Short", title: "Past Misconduct or Honest Mistake?", youtubeId: "Up7RRo0f-zk" },
+      { tag: "Courtroom Short", title: "The Damaged Lawn", youtubeId: "x-D1nS64CIk" },
     ],
   },
 };
