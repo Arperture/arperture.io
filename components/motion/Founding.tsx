@@ -39,7 +39,7 @@ export default function FoundingOffer() {
   return (
     <section id="founding" className="section" style={{ scrollMarginTop: 90 }}>
       <div className="fim-found" ref={boxRef}>
-        <p className="fim-label">Small Business Saturday · through {F.endsLabel}</p>
+        <p className="fim-label">Founding offer · through {F.endsLabel}</p>
         <div className="fim-found-grid">
           <div>
             <h2 className="h-section">Ten Founding Spots for Loudoun Businesses</h2>

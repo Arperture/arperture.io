@@ -270,8 +270,8 @@ export const MOTION_ADDON = {
 export const MOTION_FOUNDING = {
   total: 10,
   taken: 0, // raise as founding clients sign
-  endsAt: "2026-11-28T23:59:59-05:00", // end of Small Business Saturday, Eastern
-  endsLabel: "November 28",
+  endsAt: "2026-12-31T23:59:59-05:00", // end of the year, Eastern
+  endsLabel: "December 31",
   price: 195,       // Post Makeover at the founding price
   was: 295,         // regular Post Makeover price, shown struck through
   monthlyLock: 595, // Feed in Motion, locked for as long as they stay
