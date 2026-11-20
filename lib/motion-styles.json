@@ -216,7 +216,7 @@
     "goodFor": "Architecture & home builders",
     "file": "3D_Blueprint-Build_Architecture-Home-Builders_15s",
     "aliases": "contractor construction remodel",
-    "ready": false
+    "ready": true
   },
   {
     "n": 27,
@@ -383,7 +383,7 @@
     "goodFor": "Construction & contractors",
     "file": "3D_Monument-Type_Construction-Contractors_15s",
     "aliases": "builder remodel roofing",
-    "ready": false
+    "ready": true
   },
   {
     "n": 46,
@@ -419,7 +419,7 @@
     "goodFor": "Roofers, plumbers & home repair",
     "file": "3D_Domino-Chain_Roofers-Plumbers-Home-Repair_15s",
     "aliases": "contractor handyman hvac",
-    "ready": false
+    "ready": true
   },
   {
     "n": 50,
@@ -428,7 +428,7 @@
     "goodFor": "Law firms & notaries",
     "file": "3D_Embossed_Law-Firms-Notaries_15s",
     "aliases": "attorney lawyer legal",
-    "ready": false
+    "ready": true
   },
   {
     "n": 51,
@@ -464,7 +464,7 @@
     "goodFor": "Tutoring & learning centers",
     "file": "3D_LED-Wall_Tutoring-Learning-Centers_15s",
     "aliases": "school education",
-    "ready": false
+    "ready": true
   },
   {
     "n": 55,
@@ -491,7 +491,7 @@
     "goodFor": "Business coaches & consultants",
     "file": "3D_Monument-Type_Business-Coaches-Consultants_15s",
     "aliases": "advisor speaker",
-    "ready": false
+    "ready": true
   },
   {
     "n": 58,
@@ -518,7 +518,7 @@
     "goodFor": "Bakeries & artisan food makers",
     "file": "3D_Painted_Bakeries-Artisan-Food-Makers_15s",
     "aliases": "bakery cafe bread pastry",
-    "ready": false
+    "ready": true
   },
   {
     "n": 61,
@@ -527,7 +527,7 @@
     "goodFor": "Movie theaters & popcorn shops",
     "file": "3D_Particle-Swarm_Movie-Theaters-Popcorn-Shops_15s",
     "aliases": "cinema entertainment",
-    "ready": false
+    "ready": true
   },
   {
     "n": 62,
@@ -608,7 +608,7 @@
     "goodFor": "Dentists & dental clinics",
     "file": "3D_X-Ray_Dentists-Dental-Clinics_15s",
     "aliases": "orthodontist doctor medical",
-    "ready": false
+    "ready": true
   },
   {
     "n": 71,
@@ -644,7 +644,7 @@
     "goodFor": "Jewelers & watch repair",
     "file": "2D_Art-Deco-Foil_Jewelers-Watch-Repair_15s",
     "aliases": "jewelry rings",
-    "ready": false
+    "ready": true
   },
   {
     "n": 75,
@@ -707,7 +707,7 @@
     "goodFor": "Tile & bathroom remodelers",
     "file": "2D_Byzantine-Mosaic_Tile-Bathroom-Remodelers_15s",
     "aliases": "contractor kitchen remodel",
-    "ready": false
+    "ready": true
   },
   {
     "n": 82,
@@ -725,7 +725,7 @@
     "goodFor": "Cooking schools & culinary classes",
     "file": "2D_Chalkboard-Lesson_Cooking-Schools-Culinary-Classes_15s",
     "aliases": "restaurant chef",
-    "ready": false
+    "ready": true
   },
   {
     "n": 84,
@@ -743,7 +743,7 @@
     "goodFor": "Yarn shops & craft classes",
     "file": "2D_Cross-Stitch-Sampler_Yarn-Shops-Craft-Classes_15s",
     "aliases": "knitting sewing quilting",
-    "ready": false
+    "ready": true
   },
   {
     "n": 86,
@@ -752,7 +752,7 @@
     "goodFor": "Summer camps",
     "file": "2D_Cut-Paper-Diorama_Summer-Camps_15s",
     "aliases": "kids youth",
-    "ready": false
+    "ready": true
   },
   {
     "n": 87,
@@ -761,7 +761,7 @@
     "goodFor": "Furniture makers & carpenters",
     "file": "2D_Engineering-Blueprint_Furniture-Makers-Carpenters_15s",
     "aliases": "woodworking cabinets",
-    "ready": false
+    "ready": true
   },
   {
     "n": 88,
@@ -770,7 +770,7 @@
     "goodFor": "Daycares & preschools",
     "file": "2D_Felt-Patchwork_Daycares-Preschools_15s",
     "aliases": "childcare kids",
-    "ready": false
+    "ready": true
   },
   {
     "n": 89,
@@ -815,7 +815,7 @@
     "goodFor": "Credit unions & community banks",
     "file": "2D_Guilloche-Security-Print_Credit-Unions-Community-Banks_15s",
     "aliases": "bank finance loans",
-    "ready": false
+    "ready": true
   },
   {
     "n": 94,
@@ -824,7 +824,7 @@
     "goodFor": "Car washes & detailing",
     "file": "2D_Halftone-Pop-Panel_Car-Washes-Detailing_15s",
     "aliases": "auto",
-    "ready": false
+    "ready": true
   },
   {
     "n": 95,
@@ -833,7 +833,7 @@
     "goodFor": "Land surveyors & drone mapping",
     "file": "2D_Hidden-Line-Wireframe_Land-Surveyors-Drone-Mapping_15s",
     "aliases": "engineering construction",
-    "ready": false
+    "ready": true
   },
   {
     "n": 96,
@@ -842,7 +842,7 @@
     "goodFor": "Collectibles & card shops",
     "file": "2D_Holographic-Foil-Card_Collectibles-Card-Shops_15s",
     "aliases": "comics games hobby",
-    "ready": false
+    "ready": true
   },
   {
     "n": 97,
@@ -860,7 +860,7 @@
     "goodFor": "Recycling haulers & junk removal",
     "file": "2D_ISOTYPE-Pictograms_Recycling-Haulers-Junk-Removal_15s",
     "aliases": "dumpster trash cleanout",
-    "ready": false
+    "ready": true
   },
   {
     "n": 99,
@@ -869,7 +869,7 @@
     "goodFor": "Podcast studios",
     "file": "2D_Kinetic-Type_Podcast-Studios_15s",
     "aliases": "audio recording media",
-    "ready": false
+    "ready": true
   },
   {
     "n": 100,
@@ -896,7 +896,7 @@
     "goodFor": "Cheese shops & delis",
     "file": "2D_Linocut-Relief-Print_Cheese-Shops-Delis_15s",
     "aliases": "sandwich market grocery",
-    "ready": false
+    "ready": true
   },
   {
     "n": 103,
@@ -914,7 +914,7 @@
     "goodFor": "Martial arts dojos",
     "file": "2D_Manga-Page_Martial-Arts-Dojos_15s",
     "aliases": "karate jiu-jitsu gym",
-    "ready": false
+    "ready": true
   },
   {
     "n": 105,
@@ -923,7 +923,7 @@
     "goodFor": "Laundromats & dry cleaners",
     "file": "2D_Memphis-Group_Laundromats-Dry-Cleaners_15s",
     "aliases": "laundry cleaning",
-    "ready": false
+    "ready": true
   },
   {
     "n": 106,
@@ -1013,7 +1013,7 @@
     "goodFor": "Greengrocers & produce stalls",
     "file": "2D_Pointillist-Afternoon_Greengrocers-Produce-Stalls_15s",
     "aliases": "farmers market grocery",
-    "ready": false
+    "ready": true
   },
   {
     "n": 116,
@@ -1031,7 +1031,7 @@
     "goodFor": "Luggage, bag & shoe repair",
     "file": "2D_Radiograph-on-Lightbox_Luggage-Bag-Shoe-Repair_15s",
     "aliases": "cobbler leather",
-    "ready": false
+    "ready": true
   },
   {
     "n": 118,
@@ -1094,7 +1094,7 @@
     "goodFor": "Guitar repair & luthiers",
     "file": "2D_String-Art_Guitar-Repair-Luthiers_15s",
     "aliases": "music store instruments",
-    "ready": false
+    "ready": true
   },
   {
     "n": 125,
@@ -1103,7 +1103,7 @@
     "goodFor": "Dance studios",
     "file": "2D_Swiss-Grid-Poster_Dance-Studios_15s",
     "aliases": "ballet classes",
-    "ready": false
+    "ready": true
   },
   {
     "n": 126,
@@ -1112,7 +1112,7 @@
     "goodFor": "Candle & apothecary shops",
     "file": "2D_Tarot-Card_Candle-Apothecary-Shops_15s",
     "aliases": "gifts boutique soap",
-    "ready": false
+    "ready": true
   },
   {
     "n": 127,
@@ -1121,7 +1121,7 @@
     "goodFor": "Airport shuttles & taxis",
     "file": "2D_Teletext-Page_Airport-Shuttles-Taxis_15s",
     "aliases": "limo car service transportation",
-    "ready": false
+    "ready": true
   },
   {
     "n": 128,
@@ -1211,6 +1211,6 @@
     "goodFor": "Sneaker stores",
     "file": "2D_Y2K-Liquid-Chrome_Sneaker-Stores_15s",
     "aliases": "shoes apparel streetwear",
-    "ready": false
+    "ready": true
   }
 ]
