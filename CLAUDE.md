@@ -32,7 +32,7 @@ One folder per route (server components). Dynamic routes use `generateStaticPara
 ### Components (`components/`)
 Server by default; these are `"use client"` because they're interactive:
 - `Nav.tsx` — sticky nav (Work, Services, Motion, Brands, About, Blog, Contact + Book a call), mobile drawer (`usePathname` for active state)
-- `HomeHero.tsx` — the homepage video wall: five tilted, drifting columns of silent loops from `WALL_COLUMNS` (`public/media/wall/<id>.mp4` + `.jpg`). Only on-screen loops play; reduced motion shows posters.
+- `HomeHero.tsx` — the former homepage hero, a video wall of five tilted, drifting columns of silent loops from `WALL_COLUMNS` (`public/media/wall/<id>.mp4` + `.jpg`). **Not mounted since Nov 2026**, when the homepage started leading with Feed in Motion; kept in case the wall is wanted on a films page.
 - `WorkGrid.tsx` — portfolio grid from `PROJECTS` (filter chips, hover-to-play, `masonry` or `uniform` layout)
 - `Lightbox.tsx` — shared player: YouTube (`youtube-nocookie`) when `youtubeId` is set, else a self-hosted `film` (`public/media/films/`), else the loop
 - Every `PROJECTS` entry needs an honest `label` ("Client work · …" only for cleared clients, "Spec · …" for spec work) and a `year`. No real-brand IP in spec work.
@@ -64,6 +64,9 @@ Two layers, no CSS framework:
 - Business facts (phone, Leesburg VA address, socials, founder) live in `ORG_JSONLD` and the footer/contact data — update them together.
 
 ## Feed in Motion (`/motion`)
+
+- **The homepage leads with motion** (`app/page.tsx`): motion hero with the phone, the full motion price list, six picked styles that deep-link into the `/motion` viewer, then "Films and Ads" (the generative work, the two audience doors, spec ads, the series). "Motion" is the first nav item. The owner plans to move the business from generative video to motion video; the site title, descriptions, `ORG_JSONLD` and the top of `llms.txt` still say "AI video production" and are to be changed in a later step, once there is real motion client work to show.
+- Shared style helpers (ready list, numbering, poster paths) live in `lib/motion-styles.ts`; both the gallery and the homepage strip use them.
 
 - Prices, founding-offer spots and dates, steps and terms are config in `lib/data.ts` (`MOTION_BUMPER`, `MOTION_PACKAGES`, `MOTION_FOUNDING`, `MOTION_ADDON`, `MOTION_STEPS`, `MOTION_TERMS`). Update `public/llms.txt` when a price changes. The $100 Logo Bumper is the low-priced way in, meant to lead to the packages; it sets the "From $X" lines (`MOTION_FROM`) on `/motion` and the homepage.
 - The style gallery is data-driven from `lib/motion-styles.json`. Source clips live in Google Drive in two places: arperturemusicllc@gmail.com `Motion Graphics/15 Sec Explainers - Final With Audio` (styles 1–45, indexed by `_Index.csv`) and drew@arperture.io `04 Motion Graphics Styles/2D Atlas Styles` and `/3D Styles` (styles 46 on). File names are `<Type>_<Style>_<Niche>_15s.mp4`. The Drive connector cannot download files over 10 MB, so most originals have to be encoded on a machine that has them. To add styles: run `scripts/encode-styles.sh <clips folder>` (writes 720p copies and posters to `public/media/styles/`), then `node scripts/motion-styles.mjs [path/_Index.csv]`. Only styles marked `ready` (clip and poster on disk) render.
