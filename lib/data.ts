@@ -78,9 +78,9 @@ export const ORG_JSONLD = {
 
 // ---------- NAV ----------
 export const NAV_PRIMARY: { label: string; href: string }[] = [
+  { label: "Motion", href: "/motion" },
   { label: "Work", href: "/portfolio" },
   { label: "Services", href: "/services" },
-  { label: "Motion", href: "/motion" },
   { label: "Brands", href: "/brands" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
@@ -255,6 +255,7 @@ export const MOTION_BUMPER = {
   price: 100,
   unit: "flat",
   body: "Your logo, animated, with sound. Use it to open a video, close a reel or greet people on your website.",
+  short: "Your logo animated in about 8 seconds, with sound design", // one line for the homepage price list
   features: ["About 8 seconds, with sound design", "Horizontal and vertical files", "One round of changes"],
   cta: "Start with a bumper",
 };

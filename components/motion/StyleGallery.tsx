@@ -3,25 +3,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import ALL_STYLES from "@/lib/motion-styles.json";
+import {
+  MOTION_STYLES_READY as STYLES, styleNumber as nn, styleForWhom as forWhom, styleTypeLabel as typeLabel,
+  styleClip as src, stylePoster as poster, type MotionStyle as Style,
+} from "@/lib/motion-styles";
 import { motionCalendlyUrl } from "@/lib/data";
 import { openCalendly } from "@/lib/calendly";
 import { prefersReducedMotion } from "./loop";
 
-type Style = { n: number; name: string; type: string; goodFor: string; file: string; aliases?: string; ready: boolean };
-
-// Only styles whose clip and poster are on disk are shown (the `ready` flag is
-// set by scripts/motion-styles.mjs), so the gallery never shows an empty tile.
-const STYLES = (ALL_STYLES as Style[]).filter((s) => s.ready);
-const TYPE_LABEL: Record<string, string> = { "Data-Viz": "Data viz", "Mixed-Media": "Mixed media", "Hand-Drawn": "Hand-drawn" };
-const typeLabel = (t: string) => TYPE_LABEL[t] || t;
-const nn = (s: Style) => String(s.n).padStart(2, "0");
-// "Food & bakeries" reads as "for food & bakeries" mid-sentence, but acronyms
-// and brand-cased words ("SaaS problem...", "Tech, AI & SaaS") keep their case.
-const forWhom = (s: Style) => (/^[A-Z][a-z,]*$/.test(s.goodFor.split(" ")[0]) ? s.goodFor.charAt(0).toLowerCase() + s.goodFor.slice(1) : s.goodFor);
 const slug = (s: Style) => `${nn(s)}-${s.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
-const src = (s: Style) => `/media/styles/${s.file}.mp4`;
-const poster = (s: Style) => `/media/styles/posters/${s.file}.jpg`;
 const PAGE = 12;
 
 function Tile({ st, playing, onOpen, onHover }: {

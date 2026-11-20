@@ -38,7 +38,8 @@ Cinematic AI video that is written, directed, scored and finished like a full pr
 - **SEO/GEO is a core requirement:** per-page canonical URLs with trailing slashes, Organization and WebSite JSON-LD, FAQPage and BlogPosting JSON-LD, `sitemap.ts`, `robots.ts` and `public/llms.txt` kept in sync.
 - **Security headers:** a strict Content-Security-Policy in `vercel.json`. Self-hosted media in `public/` already works; any new third-party host needs a CSP change.
 - **Theme:** dark is the default; a light/dark toggle exists.
-- **Undecided:** the final clip set and hosting for a homepage video wall (self-hosted on Vercel is the current plan).
+- **Direction (Nov 2026):** the owner is moving the business from generative video toward motion video, which is easier to sell and cheaper to make. The homepage now leads with Feed in Motion and the generative work sits below it as "Films and Ads". The homepage video wall was taken down as part of this.
+- **Undecided:** when to change the site-wide positioning (title, descriptions, structured data) from "AI video production" to motion video. The plan is to wait for a few real motion clients to show.
 
 ## Brand Commitments
 

@@ -224,7 +224,7 @@ p, li { text-wrap: pretty; }
 .work-item { break-inside: avoid; margin: 0 0 26px; }
 .work-grid-uniform { columns: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px 18px; }
 .work-grid-uniform .work-item { margin: 0; }
-.work-card { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; font: inherit; }
+.work-card { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; font: inherit; text-decoration: none; }
 .work-media { position: relative; display: block; width: 100%; border-radius: 6px; overflow: hidden; background: var(--surface); }
 .work-media video, .work-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.92); transition: filter 0.5s var(--ease-out), transform 0.8s var(--ease-out); }
 .work-card:hover .work-media video, .work-card:hover .work-media img, .work-card:focus-visible .work-media video { filter: saturate(1) brightness(1.04); transform: scale(1.025); }
@@ -240,7 +240,7 @@ p, li { text-wrap: pretty; }
 .door-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .door-panel { display: flex; flex-direction: column; gap: 16px; padding: clamp(32px, 5vw, 56px) clamp(0px, 3vw, 40px) clamp(32px, 5vw, 56px) 0; color: var(--text); text-decoration: none; }
 .door-panel + .door-panel { border-left: 1px solid var(--border); padding-left: clamp(24px, 4vw, 48px); }
-.door-panel h2 { margin: 0; font-family: var(--font-display); font-stretch: 62%; font-weight: 800; font-size: clamp(2.2rem, 4.4vw, 3.5rem); line-height: 0.92; text-transform: uppercase; }
+.door-panel h2, .door-panel h3 { margin: 0; font-family: var(--font-display); font-stretch: 62%; font-weight: 800; font-size: clamp(2.2rem, 4.4vw, 3.5rem); line-height: 0.92; text-transform: uppercase; }
 .door-panel p { margin: 0; color: var(--text-muted); max-width: 44ch; }
 .door-panel .door-go { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--text); text-decoration: underline; text-decoration-color: rgba(241, 236, 227, 0.35); text-underline-offset: 6px; }
 .door-panel:hover { color: var(--text); }
@@ -376,6 +376,19 @@ p, li { text-wrap: pretty; }
 .fim-bumper li::before { content: ""; width: 6px; height: 6px; margin-top: 0.62em; border-radius: 50%; background: var(--accent); }
 .fim-bumper-buy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 .fim-bumper .fim-price { color: var(--paper); }
+/* homepage price list */
+.fim-ladder { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+.fim-ladder li { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--border); }
+.fim-ladder-name { font-family: var(--font-display); font-stretch: 75%; font-weight: 700; font-size: 1.4rem; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: var(--paper); }
+.fim-ladder-what { grid-column: 1; color: var(--text-muted); font-size: 0.97rem; }
+.fim-ladder-price { grid-column: 2; grid-row: 1 / span 2; font-family: var(--font-display); font-stretch: 62%; font-weight: 800; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; color: var(--paper); }
+.fim-ladder-price small { display: block; margin-top: 4px; font-family: var(--font-body); font-stretch: 100%; font-weight: 500; font-size: 0.85rem; color: var(--text-muted); }
+@media (min-width: 820px) {
+  .fim-ladder li { grid-template-columns: minmax(240px, 0.8fr) 1.5fr 200px; padding: 22px 0; }
+  .fim-ladder-what { grid-column: 2; }
+  .fim-ladder-price { grid-column: 3; grid-row: auto; }
+  .fim-ladder-price small { display: inline; margin: 0; }
+}
 .fim-addon { margin: 22px 0 0; padding: 18px 22px; border: 1px dashed var(--border-strong); border-radius: 6px; color: var(--text-muted); }
 .fim-addon b { color: var(--text); }
 
