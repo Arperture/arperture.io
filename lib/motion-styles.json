@@ -14,7 +14,7 @@
     "type": "Typography",
     "goodFor": "Craft brands & print shops",
     "file": "Typography_Wood-Type-Letterpress_Craft-Brands-Print-Shops_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 3,
@@ -99,7 +99,7 @@
     "goodFor": "Nightlife, bars & events",
     "file": "Typography_Neon-Sign_Nightlife-Bars-Events_15s",
     "aliases": "bar brewery restaurant",
-    "ready": false
+    "ready": true
   },
   {
     "n": 13,
@@ -117,7 +117,7 @@
     "goodFor": "Snacks, bubble tea & kids",
     "file": "Character_Kawaii-Cute_Snacks-Bubble-Tea-Kids_15s",
     "aliases": "bubble tea snack dessert",
-    "ready": false
+    "ready": true
   },
   {
     "n": 15,
@@ -133,7 +133,7 @@
     "type": "Retro",
     "goodFor": "Music & entertainment",
     "file": "Retro_Synthwave-Outrun_Music-Entertainment_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 17,
@@ -142,7 +142,7 @@
     "goodFor": "Wellness, spa & tea",
     "file": "Illustration_Sumi-e-Ink-Wash_Wellness-Spa-Tea_15s",
     "aliases": "yoga massage salon",
-    "ready": false
+    "ready": true
   },
   {
     "n": 18,
@@ -158,7 +158,7 @@
     "type": "Retro",
     "goodFor": "Festivals & apparel",
     "file": "Retro_Psychedelic-Poster_Festivals-Apparel_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 20,
@@ -183,7 +183,7 @@
     "goodFor": "Travel & tourism",
     "file": "3D_Papercraft-Models_Travel-Tourism_15s",
     "aliases": "hotel travel",
-    "ready": false
+    "ready": true
   },
   {
     "n": 23,
@@ -207,7 +207,7 @@
     "type": "3D",
     "goodFor": "Process, workflow & operations",
     "file": "3D_Factory-Line_Process-Workflow-Operations_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 26,
@@ -241,7 +241,7 @@
     "goodFor": "Solar & home services",
     "file": "3D_White-Model_Solar-Energy-Home-Services_15s",
     "aliases": "hvac plumber roofer",
-    "ready": false
+    "ready": true
   },
   {
     "n": 30,
@@ -257,7 +257,7 @@
     "type": "3D",
     "goodFor": "Consumer hardware & product makers",
     "file": "3D_Exploded-View_Consumer-Hardware-Product-Makers_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 32,
@@ -284,7 +284,7 @@
     "goodFor": "Bars, restaurants & mixology",
     "file": "3D_Glass-and-Light_Bars-Restaurants-Mixology_15s",
     "aliases": "cocktail winery brewery distillery",
-    "ready": false
+    "ready": true
   },
   {
     "n": 35,
@@ -311,7 +311,7 @@
     "goodFor": "Service businesses & online booking",
     "file": "3D_Floating-Screens_Service-Businesses-Online-Booking_15s",
     "aliases": "salon barber cleaning appointments",
-    "ready": false
+    "ready": true
   },
   {
     "n": 38,
@@ -320,7 +320,7 @@
     "goodFor": "Fitness & wellness apps",
     "file": "3D_Device-Hero_Fitness-Wellness-Apps_15s",
     "aliases": "gym trainer yoga studio",
-    "ready": false
+    "ready": true
   },
   {
     "n": 39,
@@ -347,7 +347,7 @@
     "goodFor": "Local delivery & couriers",
     "file": "3D_Tiny-Diorama_Local-Delivery-Couriers_15s",
     "aliases": "movers florist catering",
-    "ready": false
+    "ready": true
   },
   {
     "n": 42,
@@ -356,7 +356,7 @@
     "goodFor": "Insurance agencies",
     "file": "3D_Spotlight-Stage_Insurance-Agencies_15s",
     "aliases": "agent broker",
-    "ready": false
+    "ready": true
   },
   {
     "n": 43,
@@ -401,7 +401,7 @@
     "goodFor": "App makers & software companies",
     "file": "3D_Device-Hero_App-Makers-Software-Companies_15s",
     "aliases": "saas startup",
-    "ready": false
+    "ready": true
   },
   {
     "n": 48,
@@ -437,7 +437,7 @@
     "goodFor": "Barbers, salons & booking",
     "file": "3D_Floating-Screens_Barbers-Salons-Booking_15s",
     "aliases": "hair spa appointments",
-    "ready": false
+    "ready": true
   },
   {
     "n": 52,
@@ -446,7 +446,7 @@
     "goodFor": "Virtual assistants & admin services",
     "file": "3D_Hero-Icon_Virtual-Assistants-Admin-Services_15s",
     "aliases": "bookkeeping office",
-    "ready": false
+    "ready": true
   },
   {
     "n": 53,
@@ -455,7 +455,7 @@
     "goodFor": "Coffee shops & roasters",
     "file": "3D_Ink-Toon_Coffee-Shops-Roasters_15s",
     "aliases": "cafe bakery espresso",
-    "ready": false
+    "ready": true
   },
   {
     "n": 54,
@@ -473,7 +473,7 @@
     "goodFor": "Farms, orchards & farmers markets",
     "file": "3D_Low-Poly_Farms-Orchards-Farmers-Markets_15s",
     "aliases": "winery vineyard produce",
-    "ready": false
+    "ready": true
   },
   {
     "n": 56,
@@ -509,7 +509,7 @@
     "goodFor": "Science museums & STEM camps",
     "file": "3D_Neon-Sign_Science-Museums-STEM-Camps_15s",
     "aliases": "kids education",
-    "ready": false
+    "ready": true
   },
   {
     "n": 60,
@@ -590,7 +590,7 @@
     "goodFor": "Online shops & local delivery",
     "file": "3D_Tiny-Diorama_Online-Shops-Local-Delivery_15s",
     "aliases": "ecommerce store courier",
-    "ready": false
+    "ready": true
   },
   {
     "n": 69,
@@ -599,7 +599,7 @@
     "goodFor": "Garden centers & nurseries",
     "file": "3D_Voxel_Garden-Centers-Nurseries_15s",
     "aliases": "plants florist landscaping",
-    "ready": false
+    "ready": true
   },
   {
     "n": 70,
@@ -716,7 +716,7 @@
     "goodFor": "Window & glass repair shops",
     "file": "2D_Cathedral-Glass_Window-Glass-Repair-Shops_15s",
     "aliases": "auto glass windshield",
-    "ready": false
+    "ready": true
   },
   {
     "n": 83,
@@ -887,7 +887,7 @@
     "goodFor": "Moving companies",
     "file": "2D_Line-Drawing-Toy_Moving-Companies_15s",
     "aliases": "movers storage",
-    "ready": false
+    "ready": true
   },
   {
     "n": 102,
@@ -905,7 +905,7 @@
     "goodFor": "Ski schools & snow rentals",
     "file": "2D_Low-Poly-Faceted_Ski-Schools-Snow-Rentals_15s",
     "aliases": "snowboard winter",
-    "ready": false
+    "ready": true
   },
   {
     "n": 104,
@@ -950,7 +950,7 @@
     "goodFor": "Optometrists & opticians",
     "file": "2D_Op-Art-Sphere_Optometrists-Opticians_15s",
     "aliases": "eye doctor glasses",
-    "ready": false
+    "ready": true
   },
   {
     "n": 109,
@@ -977,7 +977,7 @@
     "goodFor": "Stationery shops & bookbinders",
     "file": "2D_Paper-Marbling_Stationery-Shops-Bookbinders_15s",
     "aliases": "print gifts",
-    "ready": false
+    "ready": true
   },
   {
     "n": 112,
@@ -1022,7 +1022,7 @@
     "goodFor": "Tattoo studios",
     "file": "2D_Punk-Zine-Collage_Tattoo-Studios_15s",
     "aliases": "piercing",
-    "ready": false
+    "ready": true
   },
   {
     "n": 117,
@@ -1058,7 +1058,7 @@
     "goodFor": "Skate shops",
     "file": "2D_Silkscreen-Grid_Skate-Shops_15s",
     "aliases": "skateboard apparel",
-    "ready": false
+    "ready": true
   },
   {
     "n": 121,
@@ -1130,7 +1130,7 @@
     "goodFor": "Insulation & energy audits",
     "file": "2D_Thermal-Camera_Insulation-Energy-Audits_15s",
     "aliases": "hvac home services",
-    "ready": false
+    "ready": true
   },
   {
     "n": 129,
@@ -1157,7 +1157,7 @@
     "goodFor": "Surf schools",
     "file": "2D_Ukiyo-e-Woodblock_Surf-Schools_15s",
     "aliases": "beach lessons",
-    "ready": false
+    "ready": true
   },
   {
     "n": 132,
