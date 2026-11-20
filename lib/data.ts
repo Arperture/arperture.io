@@ -254,7 +254,7 @@ export const MOTION_BUMPER = {
   name: "Logo Bumper",
   price: 100,
   unit: "flat",
-  body: "Your logo, animated, with sound. Use it to open a video, close a reel or greet people on your website.",
+  body: "A short logo animation with sound. Use it to open a video, close a reel or greet people on your website.",
   short: "Your logo animated in about 8 seconds, with sound design", // one line for the homepage price list
   features: ["About 8 seconds, with sound design", "Horizontal and vertical files", "One round of changes"],
   cta: "Start with a bumper",
@@ -295,6 +295,48 @@ export const MOTION_TERMS = [
   { title: "Three-month minimum", body: "On monthly plans. One-offs have none." },
   { title: "You bring the offer", body: "We need your logo and what you want to say." },
 ];
+
+// Questions people ask before booking. They render on /motion and become its
+// FAQPage JSON-LD, so each answer has to stand on its own. Prices are read
+// from the constants above; the posting rate repeats MOTION_ADDON.
+const motionUsd = (n: number) => "$" + n.toLocaleString("en-US");
+const motionPrice = (id: string) => motionUsd(MOTION_PACKAGES.find((p) => p.id === id)?.price ?? 0);
+
+export const MOTION_FAQS: { q: string; a: string }[] = [
+  {
+    q: "What is a motion post?",
+    a: "A motion post is one of your social media posts rebuilt as a 10 to 15 second animated video. It is motion graphics: moving type, your product and your logo, with music and sound. You get finished files sized for Instagram, Facebook and TikTok.",
+  },
+  {
+    q: "How much does a motion post cost?",
+    a: `A single Post Makeover is ${motionPrice("makeover")}. Feed in Motion is ${motionPrice("monthly")} a month for 4 motion posts, and Feed in Motion Plus is ${motionPrice("plus")} a month for 8 posts plus one 30-second promo each quarter. A one-off 30-second Feature Promo is ${motionPrice("promo")}, and a Logo Bumper is ${motionUsd(MOTION_BUMPER.price)} flat.`,
+  },
+  {
+    q: "What is a logo bumper?",
+    a: `A logo bumper is a short logo animation, about 8 seconds long, with sound design. You can use it to open a video, close a reel or greet people on your website. It costs ${motionUsd(MOTION_BUMPER.price)} flat, comes in horizontal and vertical versions and includes one round of changes.`,
+  },
+  {
+    q: "How long does a motion post take?",
+    a: "Five business days from your brief to finished files. One round of changes is included with every piece.",
+  },
+  {
+    q: "What do I need to send you?",
+    a: "A post you were going to make anyway, such as a special, a new product or your hours, plus your logo and what you want to say. You do not need to film anything new. We build the motion from what you send.",
+  },
+  {
+    q: "Can I choose the style of my motion post?",
+    a: "Yes. The gallery on this page has more than 130 motion graphics styles, each shown as a 15-second sample made for a kind of business, from bakeries and coffee shops to dentists and auto repair. Open one, choose Book this style, and we start from that look.",
+  },
+  {
+    q: "Is there a contract or a minimum?",
+    a: "Monthly plans have a three-month minimum. One-off pieces, such as a Post Makeover, a Feature Promo or a Logo Bumper, have none.",
+  },
+  {
+    q: "Do you post the videos for me?",
+    a: "You get finished files to post yourself. If you would rather we post and schedule them, that is an add-on at $75 an hour, and most shops need one to two hours a month.",
+  },
+];
+
 
 
 // ---------- HOMEPAGE FEATURED ORIGINAL SERIES ----------
