@@ -365,7 +365,7 @@
     "goodFor": "E-commerce & online stores",
     "file": "3D_Circuit-City_Ecommerce-Online-Stores_15s",
     "aliases": "shop store retail",
-    "ready": false
+    "ready": true
   },
   {
     "n": 44,
@@ -392,7 +392,7 @@
     "goodFor": "Computer & phone repair shops",
     "file": "3D_Circuit-City_Computer-Phone-Repair-Shops_15s",
     "aliases": "it tech laptop",
-    "ready": false
+    "ready": true
   },
   {
     "n": 47,
@@ -545,7 +545,7 @@
     "goodFor": "Vets, groomers & pet care",
     "file": "3D_Pin-Wall_Vets-Groomers-Pet-Care_15s",
     "aliases": "veterinarian dog cat animal",
-    "ready": false
+    "ready": true
   },
   {
     "n": 64,
@@ -563,7 +563,7 @@
     "goodFor": "Gyms & fitness studios",
     "file": "3D_Split-Flap_Gyms-Fitness-Studios_15s",
     "aliases": "trainer yoga crossfit",
-    "ready": false
+    "ready": true
   },
   {
     "n": 66,
@@ -626,7 +626,7 @@
     "goodFor": "Private investigators",
     "file": "2D_1940s-Film-Noir_Private-Investigators_15s",
     "aliases": "security detective",
-    "ready": false
+    "ready": true
   },
   {
     "n": 73,
@@ -671,7 +671,7 @@
     "goodFor": "Pottery studios",
     "file": "2D_Bauhaus-Poster_Pottery-Studios_15s",
     "aliases": "ceramics art classes",
-    "ready": false
+    "ready": true
   },
   {
     "n": 78,
@@ -680,7 +680,7 @@
     "goodFor": "Aquarium shops",
     "file": "2D_Bioluminescent-Deep-Sea_Aquarium-Shops_15s",
     "aliases": "fish pet store",
-    "ready": false
+    "ready": true
   },
   {
     "n": 79,
@@ -698,7 +698,7 @@
     "goodFor": "Florists",
     "file": "2D_Botanical-Plate_Florists_15s",
     "aliases": "flowers wedding garden",
-    "ready": false
+    "ready": true
   },
   {
     "n": 81,
@@ -734,7 +734,7 @@
     "goodFor": "Hardware stores & tool rental",
     "file": "2D_Constructivist-Poster_Hardware-Stores-Tool-Rental_15s",
     "aliases": "lumber home improvement",
-    "ready": false
+    "ready": true
   },
   {
     "n": 85,
@@ -788,7 +788,7 @@
     "goodFor": "HVAC & air quality services",
     "file": "2D_Flow-Field_HVAC-Air-Quality-Services_15s",
     "aliases": "heating cooling furnace",
-    "ready": false
+    "ready": true
   },
   {
     "n": 91,
@@ -878,7 +878,7 @@
     "goodFor": "Portrait photographers",
     "file": "2D_Light-Painting_Portrait-Photographers_15s",
     "aliases": "photography wedding headshots",
-    "ready": false
+    "ready": true
   },
   {
     "n": 101,
@@ -932,7 +932,7 @@
     "goodFor": "Carpet & flooring stores",
     "file": "2D_Multi-scale-Truchet_Carpet-Flooring-Stores_15s",
     "aliases": "hardwood tile remodel",
-    "ready": false
+    "ready": true
   },
   {
     "n": 107,
@@ -986,7 +986,7 @@
     "goodFor": "Locksmiths",
     "file": "2D_Patent-Drawing_Locksmiths_15s",
     "aliases": "keys security",
-    "ready": false
+    "ready": true
   },
   {
     "n": 113,
@@ -1040,7 +1040,7 @@
     "goodFor": "Sleep clinics & mattress shops",
     "file": "2D_Ridgeline_Sleep-Clinics-Mattress-Shops_15s",
     "aliases": "furniture beds",
-    "ready": false
+    "ready": true
   },
   {
     "n": 119,
@@ -1085,7 +1085,7 @@
     "goodFor": "Recruiters & staffing",
     "file": "2D_Sticky-Note-Wall_Recruiters-Staffing_15s",
     "aliases": "hiring jobs hr",
-    "ready": false
+    "ready": true
   },
   {
     "n": 124,
@@ -1139,7 +1139,7 @@
     "goodFor": "Hiking guides & trail outfitters",
     "file": "2D_Topographic-Survey_Hiking-Guides-Trail-Outfitters_15s",
     "aliases": "outdoors tourism",
-    "ready": false
+    "ready": true
   },
   {
     "n": 130,
@@ -1166,7 +1166,7 @@
     "goodFor": "Thrift stores & vintage clothing",
     "file": "2D_Vaporwave_Thrift-Stores-Vintage-Clothing_15s",
     "aliases": "consignment boutique",
-    "ready": false
+    "ready": true
   },
   {
     "n": 133,
@@ -1184,7 +1184,7 @@
     "goodFor": "Antique shops & estate sales",
     "file": "2D_Vintage-Newsprint_Antique-Shops-Estate-Sales_15s",
     "aliases": "auction collectibles",
-    "ready": false
+    "ready": true
   },
   {
     "n": 135,
