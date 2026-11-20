@@ -220,7 +220,7 @@ export default function StyleGallery() {
       <input
         className="fim-search" type="search" value={q}
         onChange={(e) => { setQ(e.target.value); setShown(PAGE); }}
-        placeholder="Find a style or a business type, like bakery or tech"
+        placeholder="Find a style or a business type, like pets or tech"
         aria-label="Find a style or business type"
       />
       <p className="fim-count" aria-live="polite">

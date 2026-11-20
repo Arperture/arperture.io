@@ -6,7 +6,9 @@
 #   e.g. scripts/encode-styles.sh \
 #          ~/Library/CloudStorage/GoogleDrive-*/My\ Drive/Motion\ Graphics/15\ Sec\ Explainers\ -\ Final\ With\ Audio
 #
-# Source: Google Drive, "Motion Graphics/15 Sec Explainers - Final With Audio".
+# Sources: Google Drive "Motion Graphics/15 Sec Explainers - Final With Audio"
+# (arperturemusicllc@gmail.com) and "04 Motion Graphics Styles/2D Atlas Styles"
+# and "/3D Styles" (drew@arperture.io). Run it once per folder.
 # Writes, for every *_15s.mp4, keeping the exact Drive file name:
 #   public/media/styles/<name>.mp4          720p H.264 + AAC, faststart
 #   public/media/styles/posters/<name>.jpg  frame at 3 s, 640 px wide
