@@ -8,10 +8,9 @@ import StyleGallery from "@/components/motion/StyleGallery";
 import MOTION_STYLES from "@/lib/motion-styles.json";
 import FoundingOffer, { FoundingSwap } from "@/components/motion/Founding";
 import {
-  MOTION_PACKAGES, MOTION_ADDON, MOTION_FOUNDING, MOTION_STEPS, MOTION_TERMS, motionCalendlyUrl,
+  MOTION_PACKAGES, MOTION_BUMPER, MOTION_FROM, MOTION_ADDON, MOTION_FOUNDING, MOTION_STEPS, MOTION_TERMS, motionCalendlyUrl,
 } from "@/lib/data";
 
-const FROM = Math.min(...MOTION_PACKAGES.map((p) => p.price));
 // The gallery section only renders once at least one style has its clip on disk.
 const READY_STYLE_COUNT = MOTION_STYLES.filter((s) => s.ready).length;
 const DESCRIPTION =
@@ -56,7 +55,7 @@ export default function MotionPage() {
               <a href="#packages" className="btn btn-line btn-lg">See the packages</a>
             </div>
             <ul className="fim-meta">
-              <li>From ${FROM}</li>
+              <li>From ${MOTION_FROM}</li>
               <li>5 business days</li>
               <li>Vertical + square</li>
             </ul>
@@ -93,6 +92,25 @@ export default function MotionPage() {
               whole service in one move.
             </p>
           </div>
+          <article className="fim-bumper">
+            <div className="fim-bumper-main">
+              <span className="fim-badge">{MOTION_BUMPER.badge}</span>
+              <h3>{MOTION_BUMPER.name}</h3>
+              <p>{MOTION_BUMPER.body}</p>
+            </div>
+            <ul>
+              {MOTION_BUMPER.features.map((f) => <li key={f}>{f}</li>)}
+            </ul>
+            <div className="fim-bumper-buy">
+              <p className="fim-price">
+                <span>${MOTION_BUMPER.price}</span>
+                <small> {MOTION_BUMPER.unit}</small>
+              </p>
+              <CalendlyButton url={motionCalendlyUrl("logo-bumper")} className="btn btn-line btn-sm">
+                {MOTION_BUMPER.cta}
+              </CalendlyButton>
+            </div>
+          </article>
           <div className="fim-packs">
             {MOTION_PACKAGES.map((p) => <PackageCard key={p.id} pkg={p} />)}
           </div>

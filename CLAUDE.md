@@ -65,7 +65,7 @@ Two layers, no CSS framework:
 
 ## Feed in Motion (`/motion`)
 
-- Prices, founding-offer spots and dates, steps and terms are config in `lib/data.ts` (`MOTION_PACKAGES`, `MOTION_FOUNDING`, `MOTION_ADDON`, `MOTION_STEPS`, `MOTION_TERMS`). Update `public/llms.txt` when a price changes.
+- Prices, founding-offer spots and dates, steps and terms are config in `lib/data.ts` (`MOTION_BUMPER`, `MOTION_PACKAGES`, `MOTION_FOUNDING`, `MOTION_ADDON`, `MOTION_STEPS`, `MOTION_TERMS`). Update `public/llms.txt` when a price changes. The $100 Logo Bumper is the low-priced way in, meant to lead to the packages; it sets the "From $X" lines (`MOTION_FROM`) on `/motion` and the homepage.
 - The style gallery is data-driven from `lib/motion-styles.json`. Source clips live in Google Drive in two places: arperturemusicllc@gmail.com `Motion Graphics/15 Sec Explainers - Final With Audio` (styles 1–45, indexed by `_Index.csv`) and drew@arperture.io `04 Motion Graphics Styles/2D Atlas Styles` and `/3D Styles` (styles 46 on). File names are `<Type>_<Style>_<Niche>_15s.mp4`. The Drive connector cannot download files over 10 MB, so most originals have to be encoded on a machine that has them. To add styles: run `scripts/encode-styles.sh <clips folder>` (writes 720p copies and posters to `public/media/styles/`), then `node scripts/motion-styles.mjs [path/_Index.csv]`. Only styles marked `ready` (clip and poster on disk) render.
 - The shops in the canvas sample posts are invented; keep the "made up for demonstration" note next to them.
 - Brand Quickies was sunset in Nov 2026 and replaced by this page. Don't relink it; the Yield reel stays on its case study as past client work.

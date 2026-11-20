@@ -350,7 +350,7 @@ p, li { text-wrap: pretty; }
 .fim-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
 .fim-steps li { padding: 26px; display: flex; flex-direction: column; gap: 10px; }
 .fim-step-n { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
-.fim-steps h3, .fim-pack h3 { margin: 0; font-family: var(--font-display); font-stretch: 75%; font-weight: 700; font-size: 1.5rem; line-height: 1.05; text-transform: uppercase; letter-spacing: 0.01em; }
+.fim-steps h3, .fim-pack h3, .fim-bumper h3 { margin: 0; font-family: var(--font-display); font-stretch: 75%; font-weight: 700; font-size: 1.5rem; line-height: 1.05; text-transform: uppercase; letter-spacing: 0.01em; }
 .fim-steps p { margin: 0; color: var(--text-muted); }
 
 /* packages */
@@ -367,6 +367,15 @@ p, li { text-wrap: pretty; }
 .fim-pack li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; }
 .fim-pack li::before { content: ""; width: 6px; height: 6px; margin-top: 0.62em; border-radius: 50%; background: var(--ink-500); transition: background 0.5s var(--ease-out); }
 .fim-pack.is-live li::before { background: var(--accent); }
+.fim-bumper { display: grid; gap: 20px 36px; align-items: center; margin: 0 0 18px; padding: 22px; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 6px; }
+@media (min-width: 900px) { .fim-bumper { grid-template-columns: 1.25fr 1fr auto; padding: 24px 28px; } }
+.fim-bumper-main { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.fim-bumper-main p { margin: 0; color: var(--text-muted); max-width: 46ch; }
+.fim-bumper ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: var(--text-muted); font-size: 0.95rem; }
+.fim-bumper li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; }
+.fim-bumper li::before { content: ""; width: 6px; height: 6px; margin-top: 0.62em; border-radius: 50%; background: var(--accent); }
+.fim-bumper-buy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.fim-bumper .fim-price { color: var(--paper); }
 .fim-addon { margin: 22px 0 0; padding: 18px 22px; border: 1px dashed var(--border-strong); border-radius: 6px; color: var(--text-muted); }
 .fim-addon b { color: var(--text); }
 

@@ -31,7 +31,7 @@ Cinematic AI video that is written, directed, scored and finished like a full pr
 
 ## Capabilities and Constraints
 
-- **Offers on the site:** brand films and commercials; ads and short-form social; monthly content partnership; Feed in Motion motion-post packages at `/motion/` (Post Makeover $295, Feed in Motion $695/mo, Plus $1,195/mo, Feature Promo $1,250; proposed prices, see `MOTION_PACKAGES`); spec ads by industry; DTC Always-On AI Ad Creative (Pilot $1.5k one-time, Starter $2k/mo, Growth $4k/mo); SaaS Product Demo Factory (Hero demo $2.5k, Refresh $3k/mo, Variant +$750); image and video enhancement, restoration and colorization.
+- **Offers on the site:** brand films and commercials; ads and short-form social; monthly content partnership; Feed in Motion motion-post packages at `/motion/` (Logo Bumper $100 flat as the low-priced way in, Post Makeover $295, Feed in Motion $695/mo, Plus $1,195/mo, Feature Promo $1,250; proposed prices, see `MOTION_BUMPER` and `MOTION_PACKAGES`); spec ads by industry; DTC Always-On AI Ad Creative (Pilot $1.5k one-time, Starter $2k/mo, Growth $4k/mo); SaaS Product Demo Factory (Hero demo $2.5k, Refresh $3k/mo, Variant +$750); image and video enhancement, restoration and colorization.
 - **Not offered:** AI consulting, AI fluency training and web visibility audits were removed in Nov 2026. Do not reintroduce them.
 - **Sunset for now:** Brand Quickies (the "from $100 each" offer) was retired in Nov 2026 and replaced by Feed in Motion. The Yield set stays on its case study as past client work.
 - **Stack:** Next.js 15 App Router, fully static export (`output: "export"`), deployed on Vercel; pushing to `main` deploys. All copy and data live in `lib/data.ts`.

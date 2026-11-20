@@ -5,9 +5,8 @@ import FeatureVideo from "@/components/FeatureVideo";
 import SpecAdShowcase from "@/components/SpecAdShowcase";
 import HomeHero from "@/components/HomeHero";
 import WorkGrid from "@/components/WorkGrid";
-import { FEATURED_SERIES, CALENDLY_30MIN, MOTION_PACKAGES, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
+import { FEATURED_SERIES, CALENDLY_30MIN, MOTION_PACKAGES, MOTION_FROM, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
 
-const MOTION_FROM = Math.min(...MOTION_PACKAGES.map((p) => p.price));
 
 // Selected work leads with cleared client work, then the strongest spec and
 // original pieces.

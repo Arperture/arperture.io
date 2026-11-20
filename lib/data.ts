@@ -246,6 +246,22 @@ export const MOTION_PACKAGES: MotionPackage[] = [
   },
 ];
 
+// The easy first yes: a short animated logo, priced low on purpose so it can
+// lead into the packages. It sits above the package cards as its own strip
+// (it has no canvas sample post, so it is not a MotionPackage).
+export const MOTION_BUMPER = {
+  badge: "Start here",
+  name: "Logo Bumper",
+  price: 100,
+  unit: "flat",
+  body: "Your logo, animated, with sound. Use it to open a video, close a reel or greet people on your website.",
+  features: ["About 8 seconds, with sound design", "Horizontal and vertical files", "One round of changes"],
+  cta: "Start with a bumper",
+};
+
+// Lowest price on the page, for the "From $X" lines here and on the homepage.
+export const MOTION_FROM = Math.min(MOTION_BUMPER.price, ...MOTION_PACKAGES.map((p) => p.price));
+
 export const MOTION_ADDON = {
   title: "Want us to post it for you?",
   body: "Posting and scheduling is an add-on at $75 an hour. Most shops need one to two hours a month.",
