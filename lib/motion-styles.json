@@ -6,7 +6,7 @@
     "goodFor": "Wineries & agritourism",
     "file": "Illustration_2.5D-Parallax_Wineries-Agritourism_15s",
     "aliases": "winery vineyard farm",
-    "ready": false
+    "ready": true
   },
   {
     "n": 2,
@@ -32,7 +32,7 @@
     "goodFor": "Local retail & small business",
     "file": "Handmade_Claymation_Local-Retail-Small-Business_15s",
     "aliases": "shop store boutique",
-    "ready": false
+    "ready": true
   },
   {
     "n": 5,
@@ -48,7 +48,7 @@
     "type": "Hand-Drawn",
     "goodFor": "Startups & training",
     "file": "Hand-Drawn_Whiteboard-Explainer_Startups-Training_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 7,
@@ -65,7 +65,7 @@
     "type": "Mixed-Media",
     "goodFor": "Marketing & agencies",
     "file": "Mixed-Media_Collage_Marketing-Agencies_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 9,
@@ -74,7 +74,7 @@
     "goodFor": "Food & bakeries",
     "file": "Illustration_Comic-Panels_Food-Bakeries_15s",
     "aliases": "bakery cafe restaurant",
-    "ready": false
+    "ready": true
   },
   {
     "n": 10,
@@ -90,7 +90,7 @@
     "type": "Handmade",
     "goodFor": "Kids & family brands",
     "file": "Handmade_Papercraft-Stop-Motion_Kids-Family-Brands_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 12,
@@ -108,7 +108,7 @@
     "goodFor": "Cafés & personal brands",
     "file": "Mixed-Media_Photo-Doodle-Mixed-Media_Cafes-Personal-Brands_15s",
     "aliases": "coffee",
-    "ready": false
+    "ready": true
   },
   {
     "n": 14,
@@ -224,7 +224,7 @@
     "type": "3D",
     "goodFor": "Startups & investor updates",
     "file": "3D_Data-Skyline_Startups-Investor-Updates_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 28,
@@ -232,7 +232,7 @@
     "type": "3D",
     "goodFor": "Cybersecurity & IT",
     "file": "3D_Layer-Stack_Cybersecurity-IT_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 29,
@@ -249,7 +249,7 @@
     "type": "3D",
     "goodFor": "Referral marketing & communities",
     "file": "3D_Node-Network_Referral-Marketing-Communities_15s",
-    "ready": false
+    "ready": true
   },
   {
     "n": 31,
@@ -266,7 +266,7 @@
     "goodFor": "Nonprofits & charities",
     "file": "3D_Paper-Pop-Up_Nonprofits-Charities_15s",
     "aliases": "fundraiser church school",
-    "ready": false
+    "ready": true
   },
   {
     "n": 33,
@@ -293,7 +293,7 @@
     "goodFor": "Accountants & bookkeepers",
     "file": "3D_Toy-Blocks_Accountants-Bookkeepers_15s",
     "aliases": "cpa tax accounting",
-    "ready": false
+    "ready": true
   },
   {
     "n": 36,
@@ -302,7 +302,7 @@
     "goodFor": "Personal finance & savings",
     "file": "3D_Soft-Clay_Personal-Finance-Savings_15s",
     "aliases": "bank credit union advisor",
-    "ready": false
+    "ready": true
   },
   {
     "n": 37,
@@ -329,7 +329,7 @@
     "goodFor": "Beauty & skincare brands",
     "file": "3D_Studio-Product_Beauty-Skincare-Brands_15s",
     "aliases": "spa cosmetics boutique",
-    "ready": false
+    "ready": true
   },
   {
     "n": 40,
@@ -374,7 +374,7 @@
     "goodFor": "Wedding planners & events",
     "file": "3D_Museum-Gallery_Wedding-Planners-Events_15s",
     "aliases": "venue photographer florist",
-    "ready": false
+    "ready": true
   },
   {
     "n": 45,
@@ -482,7 +482,7 @@
     "goodFor": "Real estate & sales teams",
     "file": "3D_Marble-Run_Real-Estate-Sales-Teams_15s",
     "aliases": "realtor agent broker",
-    "ready": false
+    "ready": true
   },
   {
     "n": 57,
@@ -500,7 +500,7 @@
     "goodFor": "AI consultants & tech trainers",
     "file": "3D_Museum-Gallery_AI-Consultants-Tech-Trainers_15s",
     "aliases": "it training",
-    "ready": false
+    "ready": true
   },
   {
     "n": 59,
@@ -536,7 +536,7 @@
     "goodFor": "Home inspectors",
     "file": "3D_Pencil-Sketch_Home-Inspectors_15s",
     "aliases": "real estate inspection",
-    "ready": false
+    "ready": true
   },
   {
     "n": 63,
@@ -554,7 +554,7 @@
     "goodFor": "Landscapers & garden design",
     "file": "3D_Shadow-Box_Landscapers-Garden-Design_15s",
     "aliases": "lawn landscaping yard",
-    "ready": false
+    "ready": true
   },
   {
     "n": 65,
@@ -572,7 +572,7 @@
     "goodFor": "Toy shops & hobby makers",
     "file": "3D_Spotlight-Stage_Toy-Shops-Hobby-Makers_15s",
     "aliases": "games crafts store",
-    "ready": false
+    "ready": true
   },
   {
     "n": 67,
@@ -581,7 +581,7 @@
     "goodFor": "Outdoor gear & product brands",
     "file": "3D_Studio-Product_Outdoor-Gear-Product-Brands_15s",
     "aliases": "retail ecommerce",
-    "ready": false
+    "ready": true
   },
   {
     "n": 68,
@@ -662,7 +662,7 @@
     "goodFor": "Driving schools",
     "file": "2D_Ballpoint-Notebook_Driving-Schools_15s",
     "aliases": "lessons teen",
-    "ready": false
+    "ready": true
   },
   {
     "n": 77,
@@ -779,7 +779,7 @@
     "goodFor": "Pharmacies",
     "file": "2D_Flat-Vector-Science_Pharmacies_15s",
     "aliases": "drugstore health medical",
-    "ready": false
+    "ready": true
   },
   {
     "n": 90,
@@ -797,7 +797,7 @@
     "goodFor": "Physical therapy clinics",
     "file": "2D_Glassmorphism-UI_Physical-Therapy-Clinics_15s",
     "aliases": "chiropractor rehab medical",
-    "ready": false
+    "ready": true
   },
   {
     "n": 92,
@@ -851,7 +851,7 @@
     "goodFor": "Wood-fired pizzerias",
     "file": "2D_Impasto-Oil_Pizzerias-Wood-Fired_15s",
     "aliases": "pizza restaurant italian",
-    "ready": false
+    "ready": true
   },
   {
     "n": 98,
@@ -941,7 +941,7 @@
     "goodFor": "Food trucks & pop-ups",
     "file": "2D_Napkin-Sketch_Food-Trucks-Pop-Ups_15s",
     "aliases": "restaurant street food catering",
-    "ready": false
+    "ready": true
   },
   {
     "n": 108,
@@ -959,7 +959,7 @@
     "goodFor": "Language schools",
     "file": "2D_Origami-Studio_Language-Schools_15s",
     "aliases": "tutoring classes",
-    "ready": false
+    "ready": true
   },
   {
     "n": 110,
@@ -1049,7 +1049,7 @@
     "goodFor": "Independent bookstores",
     "file": "2D_Risograph-Zine_Independent-Bookstores_15s",
     "aliases": "books shop",
-    "ready": false
+    "ready": true
   },
   {
     "n": 120,
@@ -1067,7 +1067,7 @@
     "goodFor": "Interior designers & home staging",
     "file": "2D_Sketchbook-Graphite_Interior-Designers-Home-Staging_15s",
     "aliases": "decor real estate",
-    "ready": false
+    "ready": true
   },
   {
     "n": 122,
@@ -1076,7 +1076,7 @@
     "goodFor": "Ice cream shops",
     "file": "2D_Soft-3D-Clay_Ice-Cream-Shops_15s",
     "aliases": "dessert frozen yogurt",
-    "ready": false
+    "ready": true
   },
   {
     "n": 123,
@@ -1148,7 +1148,7 @@
     "goodFor": "Bike shops & commuter repairs",
     "file": "2D_Transit-Map_Bike-Shops-Commuter-Repairs_15s",
     "aliases": "bicycle cycling",
-    "ready": false
+    "ready": true
   },
   {
     "n": 131,
@@ -1193,7 +1193,7 @@
     "goodFor": "Self-storage",
     "file": "2D_Voxel-Diorama_Self-Storage_15s",
     "aliases": "storage units moving",
-    "ready": false
+    "ready": true
   },
   {
     "n": 136,
