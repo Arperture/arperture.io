@@ -1,0 +1,1216 @@
+[
+  {
+    "n": 1,
+    "name": "2.5D Parallax",
+    "type": "Illustration",
+    "goodFor": "Wineries & agritourism",
+    "file": "Illustration_2.5D-Parallax_Wineries-Agritourism_15s",
+    "aliases": "winery vineyard farm",
+    "ready": true
+  },
+  {
+    "n": 2,
+    "name": "Wood-Type Letterpress",
+    "type": "Typography",
+    "goodFor": "Craft brands & print shops",
+    "file": "Typography_Wood-Type-Letterpress_Craft-Brands-Print-Shops_15s",
+    "ready": true
+  },
+  {
+    "n": 3,
+    "name": "3D Product Reveal",
+    "type": "3D",
+    "goodFor": "Beverage & packaged goods",
+    "file": "3D_Product-Reveal_Beverage-CPG_15s",
+    "aliases": "drinks brewery soda",
+    "ready": true
+  },
+  {
+    "n": 4,
+    "name": "Claymation",
+    "type": "Handmade",
+    "goodFor": "Local retail & small business",
+    "file": "Handmade_Claymation_Local-Retail-Small-Business_15s",
+    "aliases": "shop store boutique",
+    "ready": true
+  },
+  {
+    "n": 5,
+    "name": "Editorial Chart",
+    "type": "Data-Viz",
+    "goodFor": "Finance & business reporting",
+    "file": "Data-Viz_Editorial-Chart_Finance-Business-Reporting_15s",
+    "ready": true
+  },
+  {
+    "n": 6,
+    "name": "Whiteboard Explainer",
+    "type": "Hand-Drawn",
+    "goodFor": "Startups & training",
+    "file": "Hand-Drawn_Whiteboard-Explainer_Startups-Training_15s",
+    "ready": true
+  },
+  {
+    "n": 7,
+    "name": "Isometric",
+    "type": "3D",
+    "goodFor": "Real estate & urban planning",
+    "file": "3D_Isometric_Real-Estate-Urban-Planning_15s",
+    "aliases": "realtor property",
+    "ready": true
+  },
+  {
+    "n": 8,
+    "name": "Collage",
+    "type": "Mixed-Media",
+    "goodFor": "Marketing & agencies",
+    "file": "Mixed-Media_Collage_Marketing-Agencies_15s",
+    "ready": true
+  },
+  {
+    "n": 9,
+    "name": "Comic Panels",
+    "type": "Illustration",
+    "goodFor": "Food & bakeries",
+    "file": "Illustration_Comic-Panels_Food-Bakeries_15s",
+    "aliases": "bakery cafe restaurant",
+    "ready": true
+  },
+  {
+    "n": 10,
+    "name": "2D Character",
+    "type": "Character",
+    "goodFor": "SaaS problem and solution",
+    "file": "Character_2D-Character_SaaS-Problem-Solution_15s",
+    "ready": true
+  },
+  {
+    "n": 11,
+    "name": "Papercraft Stop Motion",
+    "type": "Handmade",
+    "goodFor": "Kids & family brands",
+    "file": "Handmade_Papercraft-Stop-Motion_Kids-Family-Brands_15s",
+    "ready": true
+  },
+  {
+    "n": 12,
+    "name": "Neon Sign",
+    "type": "Typography",
+    "goodFor": "Nightlife, bars & events",
+    "file": "Typography_Neon-Sign_Nightlife-Bars-Events_15s",
+    "aliases": "bar brewery restaurant",
+    "ready": true
+  },
+  {
+    "n": 13,
+    "name": "Photo Doodle",
+    "type": "Mixed-Media",
+    "goodFor": "Cafés & personal brands",
+    "file": "Mixed-Media_Photo-Doodle-Mixed-Media_Cafes-Personal-Brands_15s",
+    "aliases": "coffee",
+    "ready": true
+  },
+  {
+    "n": 14,
+    "name": "Kawaii Cute",
+    "type": "Character",
+    "goodFor": "Snacks, bubble tea & kids",
+    "file": "Character_Kawaii-Cute_Snacks-Bubble-Tea-Kids_15s",
+    "aliases": "bubble tea snack dessert",
+    "ready": true
+  },
+  {
+    "n": 15,
+    "name": "16-Bit Pixel Art",
+    "type": "Retro",
+    "goodFor": "Gaming & esports",
+    "file": "Retro_16-Bit-Pixel-Art_Gaming-Esports_15s",
+    "ready": true
+  },
+  {
+    "n": 16,
+    "name": "Synthwave Outrun",
+    "type": "Retro",
+    "goodFor": "Music & entertainment",
+    "file": "Retro_Synthwave-Outrun_Music-Entertainment_15s",
+    "ready": true
+  },
+  {
+    "n": 17,
+    "name": "Sumi-e Ink Wash",
+    "type": "Illustration",
+    "goodFor": "Wellness, spa & tea",
+    "file": "Illustration_Sumi-e-Ink-Wash_Wellness-Spa-Tea_15s",
+    "aliases": "yoga massage salon",
+    "ready": true
+  },
+  {
+    "n": 18,
+    "name": "Cosmic Star Chart",
+    "type": "Illustration",
+    "goodFor": "Astrology & science education",
+    "file": "Illustration_Cosmic-Star-Chart_Astrology-Science-Edu_15s",
+    "ready": true
+  },
+  {
+    "n": 19,
+    "name": "Psychedelic Poster",
+    "type": "Retro",
+    "goodFor": "Festivals & apparel",
+    "file": "Retro_Psychedelic-Poster_Festivals-Apparel_15s",
+    "ready": true
+  },
+  {
+    "n": 20,
+    "name": "Tech Glow",
+    "type": "Data-Viz",
+    "goodFor": "Tech, AI & SaaS",
+    "file": "Data-Viz_Tech-Glow_Tech-AI-SaaS_15s",
+    "ready": true
+  },
+  {
+    "n": 21,
+    "name": "Future Retro",
+    "type": "Retro",
+    "goodFor": "Startup launches",
+    "file": "Retro_Future-Retro_Startup-Launches_15s",
+    "ready": true
+  },
+  {
+    "n": 22,
+    "name": "Papercraft Models",
+    "type": "3D",
+    "goodFor": "Travel & tourism",
+    "file": "3D_Papercraft-Models_Travel-Tourism_15s",
+    "aliases": "hotel travel",
+    "ready": true
+  },
+  {
+    "n": 23,
+    "name": "Shadow Puppet Theatre",
+    "type": "Handmade",
+    "goodFor": "Storytelling & publishing",
+    "file": "Handmade_Shadow-Puppet-Theatre_Storytelling-Publishing_15s",
+    "ready": true
+  },
+  {
+    "n": 24,
+    "name": "Manim-Style Math",
+    "type": "Data-Viz",
+    "goodFor": "Education & STEM",
+    "file": "Data-Viz_Manim-Style-Math_Education-STEM_15s",
+    "ready": true
+  },
+  {
+    "n": 25,
+    "name": "Factory Line",
+    "type": "3D",
+    "goodFor": "Process, workflow & operations",
+    "file": "3D_Factory-Line_Process-Workflow-Operations_15s",
+    "ready": true
+  },
+  {
+    "n": 26,
+    "name": "Blueprint Build",
+    "type": "3D",
+    "goodFor": "Architecture & home builders",
+    "file": "3D_Blueprint-Build_Architecture-Home-Builders_15s",
+    "aliases": "contractor construction remodel",
+    "ready": true
+  },
+  {
+    "n": 27,
+    "name": "Data Skyline",
+    "type": "3D",
+    "goodFor": "Startups & investor updates",
+    "file": "3D_Data-Skyline_Startups-Investor-Updates_15s",
+    "ready": true
+  },
+  {
+    "n": 28,
+    "name": "Layer Stack",
+    "type": "3D",
+    "goodFor": "Cybersecurity & IT",
+    "file": "3D_Layer-Stack_Cybersecurity-IT_15s",
+    "ready": true
+  },
+  {
+    "n": 29,
+    "name": "White Model",
+    "type": "3D",
+    "goodFor": "Solar & home services",
+    "file": "3D_White-Model_Solar-Energy-Home-Services_15s",
+    "aliases": "hvac plumber roofer",
+    "ready": true
+  },
+  {
+    "n": 30,
+    "name": "Node Network",
+    "type": "3D",
+    "goodFor": "Referral marketing & communities",
+    "file": "3D_Node-Network_Referral-Marketing-Communities_15s",
+    "ready": true
+  },
+  {
+    "n": 31,
+    "name": "Exploded View",
+    "type": "3D",
+    "goodFor": "Consumer hardware & product makers",
+    "file": "3D_Exploded-View_Consumer-Hardware-Product-Makers_15s",
+    "ready": true
+  },
+  {
+    "n": 32,
+    "name": "Paper Pop-Up",
+    "type": "3D",
+    "goodFor": "Nonprofits & charities",
+    "file": "3D_Paper-Pop-Up_Nonprofits-Charities_15s",
+    "aliases": "fundraiser church school",
+    "ready": true
+  },
+  {
+    "n": 33,
+    "name": "Inflated",
+    "type": "3D",
+    "goodFor": "Auto repair & tire shops",
+    "file": "3D_Inflated_Auto-Repair-Tire-Shops_15s",
+    "aliases": "mechanic garage car wash",
+    "ready": true
+  },
+  {
+    "n": 34,
+    "name": "Glass and Light",
+    "type": "3D",
+    "goodFor": "Bars, restaurants & mixology",
+    "file": "3D_Glass-and-Light_Bars-Restaurants-Mixology_15s",
+    "aliases": "cocktail winery brewery distillery",
+    "ready": true
+  },
+  {
+    "n": 35,
+    "name": "Toy Blocks",
+    "type": "3D",
+    "goodFor": "Accountants & bookkeepers",
+    "file": "3D_Toy-Blocks_Accountants-Bookkeepers_15s",
+    "aliases": "cpa tax accounting",
+    "ready": true
+  },
+  {
+    "n": 36,
+    "name": "Soft Clay",
+    "type": "3D",
+    "goodFor": "Personal finance & savings",
+    "file": "3D_Soft-Clay_Personal-Finance-Savings_15s",
+    "aliases": "bank credit union advisor",
+    "ready": true
+  },
+  {
+    "n": 37,
+    "name": "Floating Screens",
+    "type": "3D",
+    "goodFor": "Service businesses & online booking",
+    "file": "3D_Floating-Screens_Service-Businesses-Online-Booking_15s",
+    "aliases": "salon barber cleaning appointments",
+    "ready": true
+  },
+  {
+    "n": 38,
+    "name": "Device Hero",
+    "type": "3D",
+    "goodFor": "Fitness & wellness apps",
+    "file": "3D_Device-Hero_Fitness-Wellness-Apps_15s",
+    "aliases": "gym trainer yoga studio",
+    "ready": true
+  },
+  {
+    "n": 39,
+    "name": "Studio Product",
+    "type": "3D",
+    "goodFor": "Beauty & skincare brands",
+    "file": "3D_Studio-Product_Beauty-Skincare-Brands_15s",
+    "aliases": "spa cosmetics boutique",
+    "ready": true
+  },
+  {
+    "n": 40,
+    "name": "Hero Icon",
+    "type": "3D",
+    "goodFor": "App startups & SaaS",
+    "file": "3D_Hero-Icon_App-Startups-SaaS_15s",
+    "aliases": "software launch",
+    "ready": true
+  },
+  {
+    "n": 41,
+    "name": "Tiny Diorama",
+    "type": "3D",
+    "goodFor": "Local delivery & couriers",
+    "file": "3D_Tiny-Diorama_Local-Delivery-Couriers_15s",
+    "aliases": "movers florist catering",
+    "ready": true
+  },
+  {
+    "n": 42,
+    "name": "Spotlight Stage",
+    "type": "3D",
+    "goodFor": "Insurance agencies",
+    "file": "3D_Spotlight-Stage_Insurance-Agencies_15s",
+    "aliases": "agent broker",
+    "ready": true
+  },
+  {
+    "n": 43,
+    "name": "Circuit City",
+    "type": "3D",
+    "goodFor": "E-commerce & online stores",
+    "file": "3D_Circuit-City_Ecommerce-Online-Stores_15s",
+    "aliases": "shop store retail",
+    "ready": true
+  },
+  {
+    "n": 44,
+    "name": "Museum Gallery",
+    "type": "3D",
+    "goodFor": "Wedding planners & events",
+    "file": "3D_Museum-Gallery_Wedding-Planners-Events_15s",
+    "aliases": "venue photographer florist",
+    "ready": true
+  },
+  {
+    "n": 45,
+    "name": "Monument Type",
+    "type": "3D",
+    "goodFor": "Construction & contractors",
+    "file": "3D_Monument-Type_Construction-Contractors_15s",
+    "aliases": "builder remodel roofing",
+    "ready": true
+  },
+  {
+    "n": 46,
+    "name": "Circuit City",
+    "type": "3D",
+    "goodFor": "Computer & phone repair shops",
+    "file": "3D_Circuit-City_Computer-Phone-Repair-Shops_15s",
+    "aliases": "it tech laptop",
+    "ready": true
+  },
+  {
+    "n": 47,
+    "name": "Device Hero",
+    "type": "3D",
+    "goodFor": "App makers & software companies",
+    "file": "3D_Device-Hero_App-Makers-Software-Companies_15s",
+    "aliases": "saas startup",
+    "ready": true
+  },
+  {
+    "n": 48,
+    "name": "Dithered",
+    "type": "3D",
+    "goodFor": "Coworking spaces & productivity coaches",
+    "file": "3D_Dithered_Coworking-Spaces-Productivity-Coaches_15s",
+    "aliases": "office consultant",
+    "ready": true
+  },
+  {
+    "n": 49,
+    "name": "Domino Chain",
+    "type": "3D",
+    "goodFor": "Roofers, plumbers & home repair",
+    "file": "3D_Domino-Chain_Roofers-Plumbers-Home-Repair_15s",
+    "aliases": "contractor handyman hvac",
+    "ready": true
+  },
+  {
+    "n": 50,
+    "name": "Embossed",
+    "type": "3D",
+    "goodFor": "Law firms & notaries",
+    "file": "3D_Embossed_Law-Firms-Notaries_15s",
+    "aliases": "attorney lawyer legal",
+    "ready": true
+  },
+  {
+    "n": 51,
+    "name": "Floating Screens",
+    "type": "3D",
+    "goodFor": "Barbers, salons & booking",
+    "file": "3D_Floating-Screens_Barbers-Salons-Booking_15s",
+    "aliases": "hair spa appointments",
+    "ready": true
+  },
+  {
+    "n": 52,
+    "name": "Hero Icon",
+    "type": "3D",
+    "goodFor": "Virtual assistants & admin services",
+    "file": "3D_Hero-Icon_Virtual-Assistants-Admin-Services_15s",
+    "aliases": "bookkeeping office",
+    "ready": true
+  },
+  {
+    "n": 53,
+    "name": "Ink Toon",
+    "type": "3D",
+    "goodFor": "Coffee shops & roasters",
+    "file": "3D_Ink-Toon_Coffee-Shops-Roasters_15s",
+    "aliases": "cafe bakery espresso",
+    "ready": true
+  },
+  {
+    "n": 54,
+    "name": "LED Wall",
+    "type": "3D",
+    "goodFor": "Tutoring & learning centers",
+    "file": "3D_LED-Wall_Tutoring-Learning-Centers_15s",
+    "aliases": "school education",
+    "ready": true
+  },
+  {
+    "n": 55,
+    "name": "Low-Poly",
+    "type": "3D",
+    "goodFor": "Farms, orchards & farmers markets",
+    "file": "3D_Low-Poly_Farms-Orchards-Farmers-Markets_15s",
+    "aliases": "winery vineyard produce",
+    "ready": true
+  },
+  {
+    "n": 56,
+    "name": "Marble Run",
+    "type": "3D",
+    "goodFor": "Real estate & sales teams",
+    "file": "3D_Marble-Run_Real-Estate-Sales-Teams_15s",
+    "aliases": "realtor agent broker",
+    "ready": true
+  },
+  {
+    "n": 57,
+    "name": "Monument Type",
+    "type": "3D",
+    "goodFor": "Business coaches & consultants",
+    "file": "3D_Monument-Type_Business-Coaches-Consultants_15s",
+    "aliases": "advisor speaker",
+    "ready": true
+  },
+  {
+    "n": 58,
+    "name": "Museum Gallery",
+    "type": "3D",
+    "goodFor": "AI consultants & tech trainers",
+    "file": "3D_Museum-Gallery_AI-Consultants-Tech-Trainers_15s",
+    "aliases": "it training",
+    "ready": true
+  },
+  {
+    "n": 59,
+    "name": "Neon Sign",
+    "type": "3D",
+    "goodFor": "Science museums & STEM camps",
+    "file": "3D_Neon-Sign_Science-Museums-STEM-Camps_15s",
+    "aliases": "kids education",
+    "ready": true
+  },
+  {
+    "n": 60,
+    "name": "Painted",
+    "type": "3D",
+    "goodFor": "Bakeries & artisan food makers",
+    "file": "3D_Painted_Bakeries-Artisan-Food-Makers_15s",
+    "aliases": "bakery cafe bread pastry",
+    "ready": true
+  },
+  {
+    "n": 61,
+    "name": "Particle Swarm",
+    "type": "3D",
+    "goodFor": "Movie theaters & popcorn shops",
+    "file": "3D_Particle-Swarm_Movie-Theaters-Popcorn-Shops_15s",
+    "aliases": "cinema entertainment",
+    "ready": true
+  },
+  {
+    "n": 62,
+    "name": "Pencil Sketch",
+    "type": "3D",
+    "goodFor": "Home inspectors",
+    "file": "3D_Pencil-Sketch_Home-Inspectors_15s",
+    "aliases": "real estate inspection",
+    "ready": true
+  },
+  {
+    "n": 63,
+    "name": "Pin Wall",
+    "type": "3D",
+    "goodFor": "Vets, groomers & pet care",
+    "file": "3D_Pin-Wall_Vets-Groomers-Pet-Care_15s",
+    "aliases": "veterinarian dog cat animal",
+    "ready": true
+  },
+  {
+    "n": 64,
+    "name": "Shadow Box",
+    "type": "3D",
+    "goodFor": "Landscapers & garden design",
+    "file": "3D_Shadow-Box_Landscapers-Garden-Design_15s",
+    "aliases": "lawn landscaping yard",
+    "ready": true
+  },
+  {
+    "n": 65,
+    "name": "Split-Flap",
+    "type": "3D",
+    "goodFor": "Gyms & fitness studios",
+    "file": "3D_Split-Flap_Gyms-Fitness-Studios_15s",
+    "aliases": "trainer yoga crossfit",
+    "ready": true
+  },
+  {
+    "n": 66,
+    "name": "Spotlight Stage",
+    "type": "3D",
+    "goodFor": "Toy shops & hobby makers",
+    "file": "3D_Spotlight-Stage_Toy-Shops-Hobby-Makers_15s",
+    "aliases": "games crafts store",
+    "ready": true
+  },
+  {
+    "n": 67,
+    "name": "Studio Product",
+    "type": "3D",
+    "goodFor": "Outdoor gear & product brands",
+    "file": "3D_Studio-Product_Outdoor-Gear-Product-Brands_15s",
+    "aliases": "retail ecommerce",
+    "ready": true
+  },
+  {
+    "n": 68,
+    "name": "Tiny Diorama",
+    "type": "3D",
+    "goodFor": "Online shops & local delivery",
+    "file": "3D_Tiny-Diorama_Online-Shops-Local-Delivery_15s",
+    "aliases": "ecommerce store courier",
+    "ready": true
+  },
+  {
+    "n": 69,
+    "name": "Voxel",
+    "type": "3D",
+    "goodFor": "Garden centers & nurseries",
+    "file": "3D_Voxel_Garden-Centers-Nurseries_15s",
+    "aliases": "plants florist landscaping",
+    "ready": true
+  },
+  {
+    "n": 70,
+    "name": "X-Ray",
+    "type": "3D",
+    "goodFor": "Dentists & dental clinics",
+    "file": "3D_X-Ray_Dentists-Dental-Clinics_15s",
+    "aliases": "orthodontist doctor medical",
+    "ready": true
+  },
+  {
+    "n": 71,
+    "name": "1-Bit Paint Desktop",
+    "type": "2D",
+    "goodFor": "Resume writers & career coaches",
+    "file": "2D_1-Bit-Paint-Desktop_Resume-Writers-Career-Coaches_15s",
+    "aliases": "jobs recruiting",
+    "ready": true
+  },
+  {
+    "n": 72,
+    "name": "1940s Film Noir",
+    "type": "2D",
+    "goodFor": "Private investigators",
+    "file": "2D_1940s-Film-Noir_Private-Investigators_15s",
+    "aliases": "security detective",
+    "ready": true
+  },
+  {
+    "n": 73,
+    "name": "90s Desktop",
+    "type": "2D",
+    "goodFor": "Dog walkers & pet sitters",
+    "file": "2D_90s-Desktop_Dog-Walkers-Pet-Sitters_15s",
+    "aliases": "pet care groomer",
+    "ready": true
+  },
+  {
+    "n": 74,
+    "name": "Art Deco Foil",
+    "type": "2D",
+    "goodFor": "Jewelers & watch repair",
+    "file": "2D_Art-Deco-Foil_Jewelers-Watch-Repair_15s",
+    "aliases": "jewelry rings",
+    "ready": true
+  },
+  {
+    "n": 75,
+    "name": "ASCII Demoscene",
+    "type": "2D",
+    "goodFor": "3D printing services",
+    "file": "2D_ASCII-Demoscene_3D-Printing-Services_15s",
+    "aliases": "makers prototyping",
+    "ready": true
+  },
+  {
+    "n": 76,
+    "name": "Ballpoint Notebook",
+    "type": "2D",
+    "goodFor": "Driving schools",
+    "file": "2D_Ballpoint-Notebook_Driving-Schools_15s",
+    "aliases": "lessons teen",
+    "ready": true
+  },
+  {
+    "n": 77,
+    "name": "Bauhaus Poster",
+    "type": "2D",
+    "goodFor": "Pottery studios",
+    "file": "2D_Bauhaus-Poster_Pottery-Studios_15s",
+    "aliases": "ceramics art classes",
+    "ready": true
+  },
+  {
+    "n": 78,
+    "name": "Bioluminescent Deep Sea",
+    "type": "2D",
+    "goodFor": "Aquarium shops",
+    "file": "2D_Bioluminescent-Deep-Sea_Aquarium-Shops_15s",
+    "aliases": "fish pet store",
+    "ready": true
+  },
+  {
+    "n": 79,
+    "name": "Bitmap Paint Doodle",
+    "type": "2D",
+    "goodFor": "After-school art classes",
+    "file": "2D_Bitmap-Paint-Doodle_After-School-Art-Classes_15s",
+    "aliases": "kids camp studio",
+    "ready": true
+  },
+  {
+    "n": 80,
+    "name": "Botanical Plate",
+    "type": "2D",
+    "goodFor": "Florists",
+    "file": "2D_Botanical-Plate_Florists_15s",
+    "aliases": "flowers wedding garden",
+    "ready": true
+  },
+  {
+    "n": 81,
+    "name": "Byzantine Mosaic",
+    "type": "2D",
+    "goodFor": "Tile & bathroom remodelers",
+    "file": "2D_Byzantine-Mosaic_Tile-Bathroom-Remodelers_15s",
+    "aliases": "contractor kitchen remodel",
+    "ready": true
+  },
+  {
+    "n": 82,
+    "name": "Cathedral Glass",
+    "type": "2D",
+    "goodFor": "Window & glass repair shops",
+    "file": "2D_Cathedral-Glass_Window-Glass-Repair-Shops_15s",
+    "aliases": "auto glass windshield",
+    "ready": true
+  },
+  {
+    "n": 83,
+    "name": "Chalkboard Lesson",
+    "type": "2D",
+    "goodFor": "Cooking schools & culinary classes",
+    "file": "2D_Chalkboard-Lesson_Cooking-Schools-Culinary-Classes_15s",
+    "aliases": "restaurant chef",
+    "ready": true
+  },
+  {
+    "n": 84,
+    "name": "Constructivist Poster",
+    "type": "2D",
+    "goodFor": "Hardware stores & tool rental",
+    "file": "2D_Constructivist-Poster_Hardware-Stores-Tool-Rental_15s",
+    "aliases": "lumber home improvement",
+    "ready": true
+  },
+  {
+    "n": 85,
+    "name": "Cross-Stitch Sampler",
+    "type": "2D",
+    "goodFor": "Yarn shops & craft classes",
+    "file": "2D_Cross-Stitch-Sampler_Yarn-Shops-Craft-Classes_15s",
+    "aliases": "knitting sewing quilting",
+    "ready": true
+  },
+  {
+    "n": 86,
+    "name": "Cut-Paper Diorama",
+    "type": "2D",
+    "goodFor": "Summer camps",
+    "file": "2D_Cut-Paper-Diorama_Summer-Camps_15s",
+    "aliases": "kids youth",
+    "ready": true
+  },
+  {
+    "n": 87,
+    "name": "Engineering Blueprint",
+    "type": "2D",
+    "goodFor": "Furniture makers & carpenters",
+    "file": "2D_Engineering-Blueprint_Furniture-Makers-Carpenters_15s",
+    "aliases": "woodworking cabinets",
+    "ready": true
+  },
+  {
+    "n": 88,
+    "name": "Felt Patchwork",
+    "type": "2D",
+    "goodFor": "Daycares & preschools",
+    "file": "2D_Felt-Patchwork_Daycares-Preschools_15s",
+    "aliases": "childcare kids",
+    "ready": true
+  },
+  {
+    "n": 89,
+    "name": "Flat Vector Science",
+    "type": "2D",
+    "goodFor": "Pharmacies",
+    "file": "2D_Flat-Vector-Science_Pharmacies_15s",
+    "aliases": "drugstore health medical",
+    "ready": true
+  },
+  {
+    "n": 90,
+    "name": "Flow Field",
+    "type": "2D",
+    "goodFor": "HVAC & air quality services",
+    "file": "2D_Flow-Field_HVAC-Air-Quality-Services_15s",
+    "aliases": "heating cooling furnace",
+    "ready": true
+  },
+  {
+    "n": 91,
+    "name": "Glassmorphism UI",
+    "type": "2D",
+    "goodFor": "Physical therapy clinics",
+    "file": "2D_Glassmorphism-UI_Physical-Therapy-Clinics_15s",
+    "aliases": "chiropractor rehab medical",
+    "ready": true
+  },
+  {
+    "n": 92,
+    "name": "Gouache Travel Poster",
+    "type": "2D",
+    "goodFor": "Campgrounds & RV parks",
+    "file": "2D_Gouache-Travel-Poster_Campgrounds-RV-Parks_15s",
+    "aliases": "camping tourism outdoors",
+    "ready": true
+  },
+  {
+    "n": 93,
+    "name": "Guilloché Security Print",
+    "type": "2D",
+    "goodFor": "Credit unions & community banks",
+    "file": "2D_Guilloche-Security-Print_Credit-Unions-Community-Banks_15s",
+    "aliases": "bank finance loans",
+    "ready": true
+  },
+  {
+    "n": 94,
+    "name": "Halftone Pop Panel",
+    "type": "2D",
+    "goodFor": "Car washes & detailing",
+    "file": "2D_Halftone-Pop-Panel_Car-Washes-Detailing_15s",
+    "aliases": "auto",
+    "ready": true
+  },
+  {
+    "n": 95,
+    "name": "Hidden-Line Wireframe",
+    "type": "2D",
+    "goodFor": "Land surveyors & drone mapping",
+    "file": "2D_Hidden-Line-Wireframe_Land-Surveyors-Drone-Mapping_15s",
+    "aliases": "engineering construction",
+    "ready": true
+  },
+  {
+    "n": 96,
+    "name": "Holographic Foil Card",
+    "type": "2D",
+    "goodFor": "Collectibles & card shops",
+    "file": "2D_Holographic-Foil-Card_Collectibles-Card-Shops_15s",
+    "aliases": "comics games hobby",
+    "ready": true
+  },
+  {
+    "n": 97,
+    "name": "Impasto Oil",
+    "type": "2D",
+    "goodFor": "Wood-fired pizzerias",
+    "file": "2D_Impasto-Oil_Pizzerias-Wood-Fired_15s",
+    "aliases": "pizza restaurant italian",
+    "ready": true
+  },
+  {
+    "n": 98,
+    "name": "ISOTYPE Pictograms",
+    "type": "2D",
+    "goodFor": "Recycling haulers & junk removal",
+    "file": "2D_ISOTYPE-Pictograms_Recycling-Haulers-Junk-Removal_15s",
+    "aliases": "dumpster trash cleanout",
+    "ready": true
+  },
+  {
+    "n": 99,
+    "name": "Kinetic Type",
+    "type": "2D",
+    "goodFor": "Podcast studios",
+    "file": "2D_Kinetic-Type_Podcast-Studios_15s",
+    "aliases": "audio recording media",
+    "ready": true
+  },
+  {
+    "n": 100,
+    "name": "Light Painting",
+    "type": "2D",
+    "goodFor": "Portrait photographers",
+    "file": "2D_Light-Painting_Portrait-Photographers_15s",
+    "aliases": "photography wedding headshots",
+    "ready": true
+  },
+  {
+    "n": 101,
+    "name": "Line Drawing Toy",
+    "type": "2D",
+    "goodFor": "Moving companies",
+    "file": "2D_Line-Drawing-Toy_Moving-Companies_15s",
+    "aliases": "movers storage",
+    "ready": true
+  },
+  {
+    "n": 102,
+    "name": "Linocut Relief Print",
+    "type": "2D",
+    "goodFor": "Cheese shops & delis",
+    "file": "2D_Linocut-Relief-Print_Cheese-Shops-Delis_15s",
+    "aliases": "sandwich market grocery",
+    "ready": true
+  },
+  {
+    "n": 103,
+    "name": "Low-Poly Faceted",
+    "type": "2D",
+    "goodFor": "Ski schools & snow rentals",
+    "file": "2D_Low-Poly-Faceted_Ski-Schools-Snow-Rentals_15s",
+    "aliases": "snowboard winter",
+    "ready": true
+  },
+  {
+    "n": 104,
+    "name": "Manga Page",
+    "type": "2D",
+    "goodFor": "Martial arts dojos",
+    "file": "2D_Manga-Page_Martial-Arts-Dojos_15s",
+    "aliases": "karate jiu-jitsu gym",
+    "ready": true
+  },
+  {
+    "n": 105,
+    "name": "Memphis Group",
+    "type": "2D",
+    "goodFor": "Laundromats & dry cleaners",
+    "file": "2D_Memphis-Group_Laundromats-Dry-Cleaners_15s",
+    "aliases": "laundry cleaning",
+    "ready": true
+  },
+  {
+    "n": 106,
+    "name": "Multi-scale Truchet",
+    "type": "2D",
+    "goodFor": "Carpet & flooring stores",
+    "file": "2D_Multi-scale-Truchet_Carpet-Flooring-Stores_15s",
+    "aliases": "hardwood tile remodel",
+    "ready": true
+  },
+  {
+    "n": 107,
+    "name": "Napkin Sketch",
+    "type": "2D",
+    "goodFor": "Food trucks & pop-ups",
+    "file": "2D_Napkin-Sketch_Food-Trucks-Pop-Ups_15s",
+    "aliases": "restaurant street food catering",
+    "ready": true
+  },
+  {
+    "n": 108,
+    "name": "Op Art Sphere",
+    "type": "2D",
+    "goodFor": "Optometrists & opticians",
+    "file": "2D_Op-Art-Sphere_Optometrists-Opticians_15s",
+    "aliases": "eye doctor glasses",
+    "ready": true
+  },
+  {
+    "n": 109,
+    "name": "Origami Studio",
+    "type": "2D",
+    "goodFor": "Language schools",
+    "file": "2D_Origami-Studio_Language-Schools_15s",
+    "aliases": "tutoring classes",
+    "ready": true
+  },
+  {
+    "n": 110,
+    "name": "Oscilloscope Vector Art",
+    "type": "2D",
+    "goodFor": "Audiologists & hearing clinics",
+    "file": "2D_Oscilloscope-Vector-Art_Audiologists-Hearing-Clinics_15s",
+    "aliases": "hearing aids medical",
+    "ready": true
+  },
+  {
+    "n": 111,
+    "name": "Paper Marbling",
+    "type": "2D",
+    "goodFor": "Stationery shops & bookbinders",
+    "file": "2D_Paper-Marbling_Stationery-Shops-Bookbinders_15s",
+    "aliases": "print gifts",
+    "ready": true
+  },
+  {
+    "n": 112,
+    "name": "Patent Drawing",
+    "type": "2D",
+    "goodFor": "Locksmiths",
+    "file": "2D_Patent-Drawing_Locksmiths_15s",
+    "aliases": "keys security",
+    "ready": true
+  },
+  {
+    "n": 113,
+    "name": "Phosphor Terminal",
+    "type": "2D",
+    "goodFor": "Escape rooms",
+    "file": "2D_Phosphor-Terminal_Escape-Rooms_15s",
+    "aliases": "entertainment games",
+    "ready": true
+  },
+  {
+    "n": 114,
+    "name": "Pocket Monochrome",
+    "type": "2D",
+    "goodFor": "Board game cafés",
+    "file": "2D_Pocket-Monochrome_Board-Game-Cafes_15s",
+    "aliases": "cafe games hobby",
+    "ready": true
+  },
+  {
+    "n": 115,
+    "name": "Pointillist Afternoon",
+    "type": "2D",
+    "goodFor": "Greengrocers & produce stalls",
+    "file": "2D_Pointillist-Afternoon_Greengrocers-Produce-Stalls_15s",
+    "aliases": "farmers market grocery",
+    "ready": true
+  },
+  {
+    "n": 116,
+    "name": "Punk Zine Collage",
+    "type": "2D",
+    "goodFor": "Tattoo studios",
+    "file": "2D_Punk-Zine-Collage_Tattoo-Studios_15s",
+    "aliases": "piercing",
+    "ready": true
+  },
+  {
+    "n": 117,
+    "name": "Radiograph on Lightbox",
+    "type": "2D",
+    "goodFor": "Luggage, bag & shoe repair",
+    "file": "2D_Radiograph-on-Lightbox_Luggage-Bag-Shoe-Repair_15s",
+    "aliases": "cobbler leather",
+    "ready": true
+  },
+  {
+    "n": 118,
+    "name": "Ridgeline",
+    "type": "2D",
+    "goodFor": "Sleep clinics & mattress shops",
+    "file": "2D_Ridgeline_Sleep-Clinics-Mattress-Shops_15s",
+    "aliases": "furniture beds",
+    "ready": true
+  },
+  {
+    "n": 119,
+    "name": "Risograph Zine",
+    "type": "2D",
+    "goodFor": "Independent bookstores",
+    "file": "2D_Risograph-Zine_Independent-Bookstores_15s",
+    "aliases": "books shop",
+    "ready": true
+  },
+  {
+    "n": 120,
+    "name": "Silkscreen Grid",
+    "type": "2D",
+    "goodFor": "Skate shops",
+    "file": "2D_Silkscreen-Grid_Skate-Shops_15s",
+    "aliases": "skateboard apparel",
+    "ready": true
+  },
+  {
+    "n": 121,
+    "name": "Sketchbook Graphite",
+    "type": "2D",
+    "goodFor": "Interior designers & home staging",
+    "file": "2D_Sketchbook-Graphite_Interior-Designers-Home-Staging_15s",
+    "aliases": "decor real estate",
+    "ready": true
+  },
+  {
+    "n": 122,
+    "name": "Soft 3D Clay",
+    "type": "2D",
+    "goodFor": "Ice cream shops",
+    "file": "2D_Soft-3D-Clay_Ice-Cream-Shops_15s",
+    "aliases": "dessert frozen yogurt",
+    "ready": true
+  },
+  {
+    "n": 123,
+    "name": "Sticky Note Wall",
+    "type": "2D",
+    "goodFor": "Recruiters & staffing",
+    "file": "2D_Sticky-Note-Wall_Recruiters-Staffing_15s",
+    "aliases": "hiring jobs hr",
+    "ready": true
+  },
+  {
+    "n": 124,
+    "name": "String Art",
+    "type": "2D",
+    "goodFor": "Guitar repair & luthiers",
+    "file": "2D_String-Art_Guitar-Repair-Luthiers_15s",
+    "aliases": "music store instruments",
+    "ready": true
+  },
+  {
+    "n": 125,
+    "name": "Swiss Grid Poster",
+    "type": "2D",
+    "goodFor": "Dance studios",
+    "file": "2D_Swiss-Grid-Poster_Dance-Studios_15s",
+    "aliases": "ballet classes",
+    "ready": true
+  },
+  {
+    "n": 126,
+    "name": "Tarot Card",
+    "type": "2D",
+    "goodFor": "Candle & apothecary shops",
+    "file": "2D_Tarot-Card_Candle-Apothecary-Shops_15s",
+    "aliases": "gifts boutique soap",
+    "ready": true
+  },
+  {
+    "n": 127,
+    "name": "Teletext Page",
+    "type": "2D",
+    "goodFor": "Airport shuttles & taxis",
+    "file": "2D_Teletext-Page_Airport-Shuttles-Taxis_15s",
+    "aliases": "limo car service transportation",
+    "ready": true
+  },
+  {
+    "n": 128,
+    "name": "Thermal Camera",
+    "type": "2D",
+    "goodFor": "Insulation & energy audits",
+    "file": "2D_Thermal-Camera_Insulation-Energy-Audits_15s",
+    "aliases": "hvac home services",
+    "ready": true
+  },
+  {
+    "n": 129,
+    "name": "Topographic Survey",
+    "type": "2D",
+    "goodFor": "Hiking guides & trail outfitters",
+    "file": "2D_Topographic-Survey_Hiking-Guides-Trail-Outfitters_15s",
+    "aliases": "outdoors tourism",
+    "ready": true
+  },
+  {
+    "n": 130,
+    "name": "Transit Map",
+    "type": "2D",
+    "goodFor": "Bike shops & commuter repairs",
+    "file": "2D_Transit-Map_Bike-Shops-Commuter-Repairs_15s",
+    "aliases": "bicycle cycling",
+    "ready": true
+  },
+  {
+    "n": 131,
+    "name": "Ukiyo-e Woodblock",
+    "type": "2D",
+    "goodFor": "Surf schools",
+    "file": "2D_Ukiyo-e-Woodblock_Surf-Schools_15s",
+    "aliases": "beach lessons",
+    "ready": true
+  },
+  {
+    "n": 132,
+    "name": "Vaporwave",
+    "type": "2D",
+    "goodFor": "Thrift stores & vintage clothing",
+    "file": "2D_Vaporwave_Thrift-Stores-Vintage-Clothing_15s",
+    "aliases": "consignment boutique",
+    "ready": true
+  },
+  {
+    "n": 133,
+    "name": "Vector Arcade 1980",
+    "type": "2D",
+    "goodFor": "Laser tag & trampoline parks",
+    "file": "2D_Vector-Arcade-1980_Laser-Tag-Trampoline-Parks_15s",
+    "aliases": "arcade kids birthday",
+    "ready": true
+  },
+  {
+    "n": 134,
+    "name": "Vintage Newsprint",
+    "type": "2D",
+    "goodFor": "Antique shops & estate sales",
+    "file": "2D_Vintage-Newsprint_Antique-Shops-Estate-Sales_15s",
+    "aliases": "auction collectibles",
+    "ready": true
+  },
+  {
+    "n": 135,
+    "name": "Voxel Diorama",
+    "type": "2D",
+    "goodFor": "Self-storage",
+    "file": "2D_Voxel-Diorama_Self-Storage_15s",
+    "aliases": "storage units moving",
+    "ready": true
+  },
+  {
+    "n": 136,
+    "name": "Watercolor Wash",
+    "type": "2D",
+    "goodFor": "Bed and breakfasts & inns",
+    "file": "2D_Watercolor-Wash_Bed-and-Breakfasts-Inns_15s",
+    "aliases": "hotel lodging tourism",
+    "ready": true
+  },
+  {
+    "n": 137,
+    "name": "Y2K Liquid Chrome",
+    "type": "2D",
+    "goodFor": "Sneaker stores",
+    "file": "2D_Y2K-Liquid-Chrome_Sneaker-Stores_15s",
+    "aliases": "shoes apparel streetwear",
+    "ready": true
+  }
+]

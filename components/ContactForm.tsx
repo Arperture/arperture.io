@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FORMSPREE_ENDPOINT, EMAIL } from "@/lib/data";
 
@@ -14,6 +14,15 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", brief: "", smsConsent: false });
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
+  // /motion's style viewer links here as /contact/?style=09-comic-panels so the
+  // brief starts with the style the visitor was looking at.
+  useEffect(() => {
+    const style = new URLSearchParams(window.location.search).get("style");
+    if (!style || !/^[a-z0-9-]{1,60}$/.test(style)) return;
+    const [num, ...words] = style.split("-");
+    setForm((f) => (f.brief ? f : { ...f, brief: `I'm interested in a Feed in Motion post in motion style ${num} (${words.join(" ")}).\n\n` }));
+  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();

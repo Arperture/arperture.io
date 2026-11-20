@@ -1,11 +1,12 @@
 import Link from "next/link";
 import CalendlyButton from "@/components/CalendlyButton";
-import BrandQuickies from "@/components/BrandQuickies";
+import SamplePost from "@/components/motion/SamplePost";
 import FeatureVideo from "@/components/FeatureVideo";
 import SpecAdShowcase from "@/components/SpecAdShowcase";
 import HomeHero from "@/components/HomeHero";
 import WorkGrid from "@/components/WorkGrid";
-import { FEATURED_SERIES, CALENDLY_30MIN, BRAND_QUICKIE_PRICE, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
+import { FEATURED_SERIES, CALENDLY_30MIN, MOTION_PACKAGES, MOTION_FROM, SPEC_ADS_CHANNEL_URL } from "@/lib/data";
+
 
 // Selected work leads with cleared client work, then the strongest spec and
 // original pieces.
@@ -100,23 +101,31 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* BRAND QUICKIES */}
-        <section id="brand-quickies" className="section" style={{ scrollMarginTop: 90 }}>
+        {/* FEED IN MOTION */}
+        <section id="feed-in-motion" className="section" style={{ scrollMarginTop: 90 }}>
           <div className="section-head">
             <div>
-              <h2 className="h-section">Brand Quickies</h2>
-              <p style={{ color: "var(--accent)", fontWeight: 700, margin: "10px 0 0" }}>{BRAND_QUICKIE_PRICE}</p>
+              <h2 className="h-section">Your Feed, in Motion</h2>
+              <p style={{ color: "var(--accent)", fontWeight: 700, margin: "10px 0 0" }}>From ${MOTION_FROM}</p>
             </div>
             <p>
-              Short cinematic brand moments: a logo reveal, a seasonal spot, a product beat. Proven
-              concepts customized with your logo, product or team. Below is a set for Yield
-              Bookkeeping, plus two of our own.
+              We turn the posts you already make into short motion pieces people stop scrolling
+              for. Each sample starts as a flat post and comes alive as you reach it. Click one to
+              replay it.
             </p>
           </div>
-          <BrandQuickies />
-          <div style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
-            <Link href="/contact/" className="btn btn-primary btn-sm">Get a Brand Quickie</Link>
-            <Link href="/portfolio/yield/" className="btn btn-line btn-sm">See the full Yield campaign</Link>
+          <div className="fim-teaser">
+            {MOTION_PACKAGES.map((p) => (
+              <SamplePost key={p.id} scene={p.scene} label={`Replay a sample motion post, ${p.scene}`} />
+            ))}
+          </div>
+          <p className="fim-note">
+            The shops in these samples are made up for demonstration. Your version gets your name,
+            your offer and your town.
+          </p>
+          <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
+            <Link href="/motion/" className="btn btn-primary btn-sm">See the packages</Link>
+            <Link href="/motion/#styles" className="btn btn-line btn-sm">Browse motion styles</Link>
           </div>
         </section>
 

@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BRAND_QUICKIES, ytThumb, ytEmbed, type BrandQuickie } from "@/lib/data";
+import { ytThumb, ytEmbed, type BrandQuickie } from "@/lib/data";
 import { PlayIcon } from "./icons";
 
-// Compact click-to-play reel of Brand Quickie spots. Used on the homepage
-// featured segment and on client case-study pages that have a set.
-export default function BrandQuickies({ videos = BRAND_QUICKIES }: { videos?: BrandQuickie[] }) {
+// Compact click-to-play reel of short brand spots, used on client case-study
+// pages that have a set. (The Brand Quickies offer itself was sunset Nov 2026.)
+export default function BrandQuickies({ videos }: { videos: BrandQuickie[] }) {
   const [active, setActive] = useState<BrandQuickie | null>(null);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function BrandQuickies({ videos = BRAND_QUICKIES }: { videos?: Br
               />
             </div>
             <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 14, padding: "18px 22px" }}>
-              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text-muted)" }}>Brand Quickie · {active.tag}</span>
+              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text-muted)" }}>Brand spot · {active.tag}</span>
               <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.25rem", margin: "8px 0 0", color: "var(--text)" }}>{active.title}</h3>
             </div>
           </div>

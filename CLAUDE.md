@@ -31,7 +31,7 @@ One folder per route (server components). Dynamic routes use `generateStaticPara
 
 ### Components (`components/`)
 Server by default; these are `"use client"` because they're interactive:
-- `Nav.tsx` — sticky nav (Work, Services, Brands, About, Blog, Contact + Book a call), mobile drawer (`usePathname` for active state)
+- `Nav.tsx` — sticky nav (Work, Services, Motion, Brands, About, Blog, Contact + Book a call), mobile drawer (`usePathname` for active state)
 - `HomeHero.tsx` — the homepage video wall: five tilted, drifting columns of silent loops from `WALL_COLUMNS` (`public/media/wall/<id>.mp4` + `.jpg`). Only on-screen loops play; reduced motion shows posters.
 - `WorkGrid.tsx` — portfolio grid from `PROJECTS` (filter chips, hover-to-play, `masonry` or `uniform` layout)
 - `Lightbox.tsx` — shared player: YouTube (`youtube-nocookie`) when `youtubeId` is set, else a self-hosted `film` (`public/media/films/`), else the loop
@@ -39,6 +39,7 @@ Server by default; these are `"use client"` because they're interactive:
 - `ContactForm.tsx` — posts to Formspree (`FORMSPREE_ENDPOINT` in data.ts), then `location.replace`s to `/thank-you/` — the noindex page Google Ads conversion tracking keys on. Keep it a full page load, not `router.push`.
 - `CalendlyButton.tsx` / `lib/calendly.ts` — opens the Calendly popup widget (script loaded in `app/layout.tsx`)
 - `BlogShare.tsx` — share buttons + copy-link
+- `components/motion/` — the `/motion` (Feed in Motion) page. `SamplePost`/`HeroPhone`/`PackageCard` draw canvas sample posts from `lib/motion-posts.ts` (scene functions tuned frame by frame: change paint, not timing) on one shared `requestAnimationFrame` loop (`loop.ts`) that only redraws on-screen canvases. `StyleGallery` is the filterable 15-second style gallery plus viewer (`#style-NN` deep links). `Founding` hides the founding offer by date in the browser.
 - `ui.tsx` (`Kicker`, `H1`, `H2`, `GhostLink`) and `icons.tsx` are presentational helpers
 
 ### Styling
@@ -61,6 +62,13 @@ Two layers, no CSS framework:
 - **Images:** use `next/image` with local assets in `public/assets/`. The export runs with `images: { unoptimized: true }`, so **compress source images before adding them** (the repo uses resized progressive JPEGs; large PNGs hurt Core Web Vitals). Photographic covers double as OG images, so keep them JPEG.
 - **Brand text rules:** H1s render uppercase (via `textTransform`), H2s use title case — keep this consistent with existing pages.
 - Business facts (phone, Leesburg VA address, socials, founder) live in `ORG_JSONLD` and the footer/contact data — update them together.
+
+## Feed in Motion (`/motion`)
+
+- Prices, founding-offer spots and dates, steps and terms are config in `lib/data.ts` (`MOTION_BUMPER`, `MOTION_PACKAGES`, `MOTION_FOUNDING`, `MOTION_ADDON`, `MOTION_STEPS`, `MOTION_TERMS`). Update `public/llms.txt` when a price changes. The $100 Logo Bumper is the low-priced way in, meant to lead to the packages; it sets the "From $X" lines (`MOTION_FROM`) on `/motion` and the homepage.
+- The style gallery is data-driven from `lib/motion-styles.json`. Source clips live in Google Drive in two places: arperturemusicllc@gmail.com `Motion Graphics/15 Sec Explainers - Final With Audio` (styles 1–45, indexed by `_Index.csv`) and drew@arperture.io `04 Motion Graphics Styles/2D Atlas Styles` and `/3D Styles` (styles 46 on). File names are `<Type>_<Style>_<Niche>_15s.mp4`. The Drive connector cannot download files over 10 MB, so most originals have to be encoded on a machine that has them. To add styles: run `scripts/encode-styles.sh <clips folder>` (writes 720p copies and posters to `public/media/styles/`), then `node scripts/motion-styles.mjs [path/_Index.csv]`. Only styles marked `ready` (clip and poster on disk) render.
+- The shops in the canvas sample posts are invented; keep the "made up for demonstration" note next to them.
+- Brand Quickies was sunset in Nov 2026 and replaced by this page. Don't relink it; the Yield reel stays on its case study as past client work.
 
 ## Blog
 
