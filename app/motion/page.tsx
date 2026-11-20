@@ -5,16 +5,67 @@ import HeroPhone from "@/components/motion/HeroPhone";
 import Marquee from "@/components/motion/Marquee";
 import PackageCard from "@/components/motion/PackageCard";
 import StyleGallery from "@/components/motion/StyleGallery";
-import MOTION_STYLES from "@/lib/motion-styles.json";
+import { MOTION_STYLES_READY, styleNumber, styleForWhom } from "@/lib/motion-styles";
 import FoundingOffer, { FoundingSwap } from "@/components/motion/Founding";
 import {
-  MOTION_PACKAGES, MOTION_BUMPER, MOTION_FROM, MOTION_ADDON, MOTION_FOUNDING, MOTION_STEPS, MOTION_TERMS, motionCalendlyUrl,
+  MOTION_PACKAGES, MOTION_BUMPER, MOTION_FROM, MOTION_ADDON, MOTION_FOUNDING, MOTION_STEPS, MOTION_TERMS, MOTION_FAQS,
+  motionCalendlyUrl, SITE_URL,
 } from "@/lib/data";
 
 // The gallery section only renders once at least one style has its clip on disk.
-const READY_STYLE_COUNT = MOTION_STYLES.filter((s) => s.ready).length;
+const READY_STYLE_COUNT = MOTION_STYLES_READY.length;
 const DESCRIPTION =
-  "Feed in Motion turns the social posts you already make into short motion videos. Packages for Loudoun County small businesses from Arperture Media in Leesburg, Virginia.";
+  `Feed in Motion turns your social posts into short motion graphics videos, from $${MOTION_FROM}. For Loudoun County small businesses, by Arperture Media in Leesburg, VA.`;
+
+// Service, price and FAQ structured data for this page. Monthly plans carry a
+// per-month price specification; one-offs a plain price.
+const PAGE_URL = `${SITE_URL}/motion/`;
+const offer = (name: string, description: string, price: number, monthly: boolean) => ({
+  "@type": "Offer",
+  name,
+  url: `${PAGE_URL}#packages`,
+  priceCurrency: "USD",
+  ...(monthly
+    ? { priceSpecification: { "@type": "UnitPriceSpecification", price, priceCurrency: "USD", unitCode: "MON", unitText: "month" } }
+    : { price }),
+  itemOffered: { "@type": "Service", name, description },
+});
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${PAGE_URL}#service`,
+      name: "Feed in Motion",
+      serviceType: "Motion graphics video for social media",
+      description:
+        "Social media posts rebuilt as 10 to 15 second motion graphics videos with music and sound, plus logo animations and 30-second promos, for small businesses.",
+      url: PAGE_URL,
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Loudoun County, Virginia" },
+        { "@type": "City", name: "Leesburg, Virginia" },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Feed in Motion packages",
+        itemListElement: [
+          offer(MOTION_BUMPER.name, `${MOTION_BUMPER.body} ${MOTION_BUMPER.features.join(". ")}.`, MOTION_BUMPER.price, false),
+          ...MOTION_PACKAGES.map((p) => offer(p.name, `${p.features.join(". ")}.`, p.price, p.unit.includes("month"))),
+        ],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${PAGE_URL}#faq`,
+      mainEntity: MOTION_FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   alternates: { canonical: "/motion/" },
@@ -32,6 +83,7 @@ export const metadata: Metadata = {
 export default function MotionPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
       <div className="wrap">
         {/* HERO */}
         <section className="fim-hero">
@@ -71,6 +123,11 @@ export default function MotionPage() {
         <section id="how" className="section" style={{ borderTop: 0, scrollMarginTop: 90 }}>
           <div className="section-head">
             <h2 className="h-section">Same Shop. Same Offer. Now It Moves.</h2>
+            <p>
+              A motion post is one of your social media posts rebuilt as a 10 to 15 second animated
+              video. It is motion graphics: moving type, your product and your logo, with music and
+              sound, sized for Instagram, Facebook and TikTok.
+            </p>
           </div>
           <ol className="fim-steps">
             {MOTION_STEPS.map((s) => (
@@ -86,7 +143,7 @@ export default function MotionPage() {
         {/* PACKAGES */}
         <section id="packages" className="section" style={{ scrollMarginTop: 90 }}>
           <div className="section-head">
-            <h2 className="h-section">Pick a Pace</h2>
+            <h2 className="h-section">Packages and Prices</h2>
             <p>
               Each sample below starts as a flat post and comes alive as you reach it. That is the
               whole service in one move.
@@ -125,13 +182,23 @@ export default function MotionPage() {
         {READY_STYLE_COUNT > 0 && (
           <section id="styles" className="section" style={{ scrollMarginTop: 90 }}>
             <div className="section-head">
-              <h2 className="h-section">Pick a Look</h2>
+              <h2 className="h-section">Pick a Motion Graphics Style</h2>
               <p>
                 Every style is a 15-second sample made for a kind of business. Search for yours,
                 hover or tap a tile to wake it, and open one to watch it full size.
               </p>
             </div>
             <StyleGallery />
+            <details className="fim-index">
+              <summary>All {READY_STYLE_COUNT} styles as a list</summary>
+              <ul>
+                {MOTION_STYLES_READY.map((st) => (
+                  <li key={st.n}>
+                    <a href={`#style-${styleNumber(st)}`}>{st.name}</a> for {styleForWhom(st)}
+                  </li>
+                ))}
+              </ul>
+            </details>
           </section>
         )}
 
@@ -151,6 +218,21 @@ export default function MotionPage() {
               </div>
             ))}
           </dl>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="section" style={{ scrollMarginTop: 90 }}>
+          <div className="section-head">
+            <h2 className="h-section">Common Questions</h2>
+          </div>
+          <div className="fim-faq">
+            {MOTION_FAQS.map((f) => (
+              <div key={f.q}>
+                <h3>{f.q}</h3>
+                <p>{f.a}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* BOOK */}

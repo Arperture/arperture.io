@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about/" },
-  title: { absolute: "About Arperture Media | AI Video Studio in Leesburg, VA" },
+  title: { absolute: "About Arperture Media | Digital Video Studio in Leesburg, VA" },
   description:
-    "Arperture Media is a Leesburg, Virginia AI video production studio founded by Andrew Dallons — treating generative video as a filmmaking tool, not a shortcut.",
+    "Arperture Media is a Leesburg, Virginia digital video production studio founded by Andrew Dallons, making motion graphics, brand films and ads for small businesses.",
 };
 
 export default function AboutPage() {
@@ -25,7 +25,7 @@ export default function AboutPage() {
             About Arperture Media
           </h1>
           <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "60ch", lineHeight: 1.6 }}>
-            Arperture Media is a Leesburg, Virginia AI video production studio founded by Andrew Dallons. Often shortened to Arperture, the studio treats generative video as a filmmaking tool, not a shortcut — every project is directed, scored, and graded like a real production.
+            Arperture Media is a Leesburg, Virginia digital video production studio founded by Andrew Dallons. Often shortened to Arperture, the studio treats generative video as a filmmaking tool, not a shortcut — every project is directed, scored, and graded like a real production.
           </p>
           <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", maxWidth: "60ch", lineHeight: 1.6, marginTop: 16 }}>
             Arperture is spelled with an R: A-R-P-E-R-T-U-R-E. The studio is not affiliated with Aperture Media Partners or any other company named Aperture.

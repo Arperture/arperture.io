@@ -10,31 +10,31 @@ import { SITE_URL, DEFAULT_OG_IMAGE, ORG_JSONLD } from "@/lib/data";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Arperture Media — AI Video Production for Small Businesses",
+    default: "Arperture Media — Digital Video Production for Small Businesses",
     template: "%s · Arperture Media",
   },
   description:
-    "Cinematic AI video for small businesses and DTC brands: brand films, ads, and social content, directed and scored like a full crew at small-business prices.",
+    "Digital video production for small businesses: motion graphics for social media, brand films, ads and short-form content from a Leesburg, Virginia studio.",
   keywords: [
-    "AI video production for small business", "cinematic AI video", "brand films",
-    "social video ads", "AI video studio", "AI commercials", "AI music videos",
-    "AI ad creative", "Leesburg VA video production",
+    "digital video production for small business", "motion graphics for small business",
+    "animated social media posts", "logo animation", "brand films", "social video ads",
+    "AI ad creative", "Leesburg VA video production", "Loudoun County video production",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "Arperture Media",
-    title: "Arperture Media — AI Video Production for Small Businesses",
+    title: "Arperture Media — Digital Video Production for Small Businesses",
     description:
-      "Cinematic brand films, ads, and social content, directed and scored like a full production crew, at small-business prices.",
+      "Motion graphics for social media, brand films and ads for small businesses, made in Leesburg, Virginia at small-business prices.",
     url: SITE_URL,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "The Arperture Media homepage: Big-brand video, small-business budget." }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "The Arperture Media homepage: Motion video for Main Street, with a phone showing a bakery post in motion." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arperture Media — AI Video Production for Small Businesses",
+    title: "Arperture Media — Digital Video Production for Small Businesses",
     description:
-      "Cinematic brand films, ads, and social content, directed and scored like a full production crew, at small-business prices.",
+      "Motion graphics for social media, brand films and ads for small businesses, made in Leesburg, Virginia at small-business prices.",
     images: [DEFAULT_OG_IMAGE],
   },
 };

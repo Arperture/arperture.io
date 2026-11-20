@@ -410,6 +410,17 @@ p, li { text-wrap: pretty; }
 .fim-spots span.is-taken { border-color: var(--ink-500); background: var(--ink-700); }
 
 /* terms */
+.fim-index { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 18px; }
+.fim-index summary { cursor: pointer; font-weight: 700; color: var(--text); width: fit-content; }
+.fim-index summary:hover { color: var(--accent); }
+.fim-index ul { list-style: none; margin: 20px 0 0; padding: 0; columns: 3 260px; column-gap: 32px; color: var(--text-muted); font-size: 0.93rem; line-height: 1.5; }
+.fim-index li { break-inside: avoid; padding: 4px 0; }
+.fim-index a { color: var(--text); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(241, 236, 227, 0.3); text-underline-offset: 4px; }
+.fim-index a:hover { text-decoration-color: var(--accent); }
+.fim-faq { max-width: 78ch; border-top: 1px solid var(--border); }
+.fim-faq > div { padding: 24px 0; border-bottom: 1px solid var(--border); }
+.fim-faq h3 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: var(--text); }
+.fim-faq p { margin: 0; color: var(--text-muted); line-height: 1.65; max-width: 70ch; }
 .fim-terms { margin: 0; display: grid; gap: 14px 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
 .fim-terms div { border-top: 1px solid var(--border-strong); padding-top: 14px; }
 .fim-terms dt { font-family: var(--font-display); font-stretch: 75%; font-weight: 700; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.01em; }

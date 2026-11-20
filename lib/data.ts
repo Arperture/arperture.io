@@ -3,7 +3,7 @@
 // ============================================================
 
 export const SITE_URL = "https://www.arperture.io";
-export const DEFAULT_OG_IMAGE = "/assets/og-arperture-site.jpg";
+export const DEFAULT_OG_IMAGE = "/assets/og-arperture-home.jpg";
 
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
 export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mlgyowya";
@@ -32,12 +32,17 @@ export const ORG_JSONLD = {
       alternateName: ["Arperture", "Arperture Media LLC"],
       legalName: "Arperture Media LLC",
       disambiguatingDescription:
-        "Arperture Media is spelled with an R (A-R-P-E-R-T-U-R-E). It is an AI video production studio in Leesburg, Virginia, founded by Andrew Dallons, and is not affiliated with Aperture Media Partners or other companies named Aperture.",
+        "Arperture Media is spelled with an R (A-R-P-E-R-T-U-R-E). It is a digital video production studio in Leesburg, Virginia, founded by Andrew Dallons, and is not affiliated with Aperture Media Partners or other companies named Aperture.",
       url: SITE_URL,
       logo: `${SITE_URL}/assets/arperture-mark.webp`,
       image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
       description:
-        "Arperture Media is an AI video production studio for small businesses — cinematic brand films, ads, and short-form social content, directed and scored like a full production house at small-business prices.",
+        "Arperture Media is a digital video production studio for small businesses: motion graphics for social media, logo animations, brand films, ads and short-form content, made in Leesburg, Virginia at small-business prices.",
+      slogan: "Motion video for Main Street.",
+      knowsAbout: [
+        "Digital video production", "Motion graphics", "Animated social media posts", "Logo animation",
+        "Brand films", "Video advertising", "AI video production", "Photo and video restoration",
+      ],
       email: EMAIL,
       telephone: "+1-571-200-1186",
       founder: {
@@ -254,7 +259,7 @@ export const MOTION_BUMPER = {
   name: "Logo Bumper",
   price: 100,
   unit: "flat",
-  body: "Your logo, animated, with sound. Use it to open a video, close a reel or greet people on your website.",
+  body: "A short logo animation with sound. Use it to open a video, close a reel or greet people on your website.",
   short: "Your logo animated in about 8 seconds, with sound design", // one line for the homepage price list
   features: ["About 8 seconds, with sound design", "Horizontal and vertical files", "One round of changes"],
   cta: "Start with a bumper",
@@ -295,6 +300,48 @@ export const MOTION_TERMS = [
   { title: "Three-month minimum", body: "On monthly plans. One-offs have none." },
   { title: "You bring the offer", body: "We need your logo and what you want to say." },
 ];
+
+// Questions people ask before booking. They render on /motion and become its
+// FAQPage JSON-LD, so each answer has to stand on its own. Prices are read
+// from the constants above; the posting rate repeats MOTION_ADDON.
+const motionUsd = (n: number) => "$" + n.toLocaleString("en-US");
+const motionPrice = (id: string) => motionUsd(MOTION_PACKAGES.find((p) => p.id === id)?.price ?? 0);
+
+export const MOTION_FAQS: { q: string; a: string }[] = [
+  {
+    q: "What is a motion post?",
+    a: "A motion post is one of your social media posts rebuilt as a 10 to 15 second animated video. It is motion graphics: moving type, your product and your logo, with music and sound. You get finished files sized for Instagram, Facebook and TikTok.",
+  },
+  {
+    q: "How much does a motion post cost?",
+    a: `A single Post Makeover is ${motionPrice("makeover")}. Feed in Motion is ${motionPrice("monthly")} a month for 4 motion posts, and Feed in Motion Plus is ${motionPrice("plus")} a month for 8 posts plus one 30-second promo each quarter. A one-off 30-second Feature Promo is ${motionPrice("promo")}, and a Logo Bumper is ${motionUsd(MOTION_BUMPER.price)} flat.`,
+  },
+  {
+    q: "What is a logo bumper?",
+    a: `A logo bumper is a short logo animation, about 8 seconds long, with sound design. You can use it to open a video, close a reel or greet people on your website. It costs ${motionUsd(MOTION_BUMPER.price)} flat, comes in horizontal and vertical versions and includes one round of changes.`,
+  },
+  {
+    q: "How long does a motion post take?",
+    a: "Five business days from your brief to finished files. One round of changes is included with every piece.",
+  },
+  {
+    q: "What do I need to send you?",
+    a: "A post you were going to make anyway, such as a special, a new product or your hours, plus your logo and what you want to say. You do not need to film anything new. We build the motion from what you send.",
+  },
+  {
+    q: "Can I choose the style of my motion post?",
+    a: "Yes. The gallery on this page has more than 130 motion graphics styles, each shown as a 15-second sample made for a kind of business, from bakeries and coffee shops to dentists and auto repair. Open one, choose Book this style, and we start from that look.",
+  },
+  {
+    q: "Is there a contract or a minimum?",
+    a: "Monthly plans have a three-month minimum. One-off pieces, such as a Post Makeover, a Feature Promo or a Logo Bumper, have none.",
+  },
+  {
+    q: "Do you post the videos for me?",
+    a: "You get finished files to post yourself. If you would rather we post and schedule them, that is an add-on at $75 an hour, and most shops need one to two hours a month.",
+  },
+];
+
 
 
 // ---------- HOMEPAGE FEATURED ORIGINAL SERIES ----------
@@ -849,7 +896,7 @@ export const ENHANCE_FAQS = [
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What does Arperture do for small businesses?",
-    a: "First and foremost, AI video production — cinematic brand films, ads, and short-form social content, directed, scored, and delivered like a full production house at small-business prices. We also make always-on ad creative for DTC brands, product demo videos for SaaS companies, and studio-grade photo and video restoration.",
+    a: `Digital video production. First and foremost that means motion graphics for social media: we turn the posts you already make into short animated videos, and logo animations start at $${MOTION_FROM}. We also make brand films, ads and short-form social content at small-business prices, always-on ad creative for DTC brands, product demo videos for SaaS companies, and studio-grade photo and video restoration.`,
   },
   {
     q: "How much does an AI-produced video cost?",

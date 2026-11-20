@@ -9,9 +9,9 @@ export const MOTION_STYLES_READY = (ALL_STYLES as MotionStyle[]).filter((s) => s
 
 export const styleNumber = (s: MotionStyle) => String(s.n).padStart(2, "0");
 // "Food & bakeries" reads as "for food & bakeries" mid-sentence, but acronyms
-// and brand-cased words ("SaaS problem...", "Tech, AI & SaaS") keep their case.
+// and brand-cased words ("SaaS problem...", "AI consultants") keep their case.
 export const styleForWhom = (s: MotionStyle) =>
-  (/^[A-Z][a-z,]*$/.test(s.goodFor.split(" ")[0]) ? s.goodFor.charAt(0).toLowerCase() + s.goodFor.slice(1) : s.goodFor);
+  (/^\p{Lu}[\p{Ll},-]*$/u.test(s.goodFor.split(" ")[0]) ? s.goodFor.charAt(0).toLowerCase() + s.goodFor.slice(1) : s.goodFor);
 export const styleClip = (s: MotionStyle) => `/media/styles/${s.file}.mp4`;
 export const stylePoster = (s: MotionStyle) => `/media/styles/posters/${s.file}.jpg`;
 
