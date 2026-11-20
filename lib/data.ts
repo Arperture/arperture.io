@@ -80,6 +80,7 @@ export const ORG_JSONLD = {
 export const NAV_PRIMARY: { label: string; href: string }[] = [
   { label: "Work", href: "/portfolio" },
   { label: "Services", href: "/services" },
+  { label: "Motion", href: "/motion" },
   { label: "Brands", href: "/brands" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
@@ -194,15 +195,14 @@ export const WALL_COLUMNS: string[][] = [
 // The "Watch the reel" button in the hero.
 export const REEL_CLIP = "sizzle-rage";
 
-// ---------- BRAND QUICKIES ----------
-// Short, ready-made cinematic brand moments customized per client — the
-// studio's entry-point offer. The reel below is the Yield Bookkeeping set.
-export const BRAND_QUICKIE_PRICE = "From $100 each";
-
+// ---------- BRAND QUICKIES (sunset Nov 2026) ----------
+// The Brand Quickies offer ("From $100 each") was retired in favor of Feed in
+// Motion (/motion). It is not sold or linked anywhere. Only the Yield
+// Bookkeeping reel remains, as past client work on its case study, which must
+// stay client-only. To bring the offer back, restore the price constant, the
+// homepage section and the services vertical from git history.
 export type BrandQuickie = { youtubeId: string; tag: string; title: string };
 
-// The Yield Bookkeeping set — also shown on the Yield case study, which must
-// stay client-only, so keep this list free of our own work.
 export const YIELD_BRAND_QUICKIES: BrandQuickie[] = [
   { youtubeId: "nsHtZsyiu8Q", tag: "Seasonal", title: "4K Particle Hearts" },
   { youtubeId: "Xi4LXdohCbo", tag: "Seasonal", title: "Finding the Pot of Gold" },
@@ -212,16 +212,71 @@ export const YIELD_BRAND_QUICKIES: BrandQuickie[] = [
   { youtubeId: "j9EQAMH9kRo", tag: "Logo Reveal", title: "Sunset Ocean Logo Reveal" },
 ];
 
-// Arperture's own brand motion, shown alongside client work on the homepage.
-const ARPERTURE_BRAND_QUICKIES: BrandQuickie[] = [
-  { youtubeId: "eu9TpstFLAY", tag: "Logo Animation", title: "The Arperture Logo Animation" },
-  { youtubeId: "7WH0gPqRlsw", tag: "Logo Animation", title: "Aperture Logo Showcase" },
+
+// ---------- FEED IN MOTION (/motion) ----------
+// Everything the /motion page says about money, spots and terms lives here so
+// it can change without touching components. PROPOSED numbers: the prices and
+// the founding offer have not been signed off by Drew yet.
+export type MotionPackage = {
+  id: string;
+  scene: "bakery" | "winery" | "bike" | "taco"; // which sample post tops the card
+  badge: string;
+  name: string;
+  price: number;
+  unit: string;
+  features: string[];
+};
+
+export const MOTION_PACKAGES: MotionPackage[] = [
+  {
+    id: "makeover", scene: "bakery", badge: "One-off", name: "Post Makeover", price: 295, unit: "",
+    features: ["One existing post rebuilt as a 10 to 15 second motion piece", "Vertical and square files", "One round of changes"],
+  },
+  {
+    id: "monthly", scene: "winery", badge: "Our pick", name: "Feed in Motion", price: 695, unit: "/ month",
+    features: ["4 motion posts every month", "Vertical and square files", "Three-month minimum"],
+  },
+  {
+    id: "plus", scene: "bike", badge: "3 seats", name: "Feed in Motion Plus", price: 1195, unit: "/ month",
+    features: ["8 motion posts every month", "One 30-second promo each quarter", "Three-month minimum"],
+  },
+  {
+    id: "promo", scene: "taco", badge: "One-off", name: "Feature Promo", price: 1250, unit: "",
+    features: ["One 30-second promo with music and sound", "Vertical and widescreen files", "One round of changes"],
+  },
 ];
 
-// The homepage showcase reel: our own brand motion plus the Yield set.
-export const BRAND_QUICKIES: BrandQuickie[] = [
-  ...ARPERTURE_BRAND_QUICKIES,
-  ...YIELD_BRAND_QUICKIES,
+export const MOTION_ADDON = {
+  title: "Want us to post it for you?",
+  body: "Posting and scheduling is an add-on at $75 an hour. Most shops need one to two hours a month.",
+};
+
+export const MOTION_FOUNDING = {
+  total: 10,
+  taken: 0, // raise as founding clients sign
+  endsAt: "2026-11-28T23:59:59-05:00", // end of Small Business Saturday, Eastern
+  endsLabel: "November 28",
+  price: 195,       // Post Makeover at the founding price
+  was: 295,         // regular Post Makeover price, shown struck through
+  monthlyLock: 595, // Feed in Motion, locked for as long as they stay
+};
+
+// Calendly records UTM values on the booking, so the call arrives tagged with
+// what the visitor was looking at (a style, the founding offer, a package).
+export const motionCalendlyUrl = (content: string) =>
+  `${CALENDLY_30MIN}?utm_source=arperture.io&utm_medium=motion&utm_content=${encodeURIComponent(content)}`;
+
+export const MOTION_STEPS = [
+  { n: "01", title: "Send us a post.", body: "A special, a new product, your hours. Whatever you were going to post anyway, plus your logo." },
+  { n: "02", title: "We build the motion.", body: "Type that lands on the beat, your product front and center, music and sound. Back to you in five business days." },
+  { n: "03", title: "You post it.", body: "You get finished files sized for Instagram, Facebook and TikTok. One round of changes is included." },
+];
+
+export const MOTION_TERMS = [
+  { title: "5 business days", body: "From your brief to finished files." },
+  { title: "One round of changes", body: "Included with every piece." },
+  { title: "Three-month minimum", body: "On monthly plans. One-offs have none." },
+  { title: "You bring the offer", body: "We need your logo and what you want to say." },
 ];
 
 
@@ -338,7 +393,7 @@ export type CaseStudy = {
   projects: { tag: string; title: string; body: string; youtubeId?: string }[];
   shortFormLabel: string;
   shortForm: { tag: string; title: string; youtubeId?: string }[];
-  // Optional Brand Quickie reel for clients who have one.
+  // Optional reel of short brand spots for clients who have one.
   brandQuickies?: BrandQuickie[];
 };
 
@@ -351,7 +406,7 @@ export const CASES: Record<string, CaseStudy> = {
     metaDescription: "AI video campaign for Yield Bookkeeping, a Brambleton, VA firm: brand films, seasonal spots, and social cuts produced by Arperture Media since 2024.",
     detail: "A full AI-powered video content campaign for a Brambleton, VA bookkeeping firm — built to make financial services feel human. Brand films, seasonal spots, and social-first short-form content, crafted with Midjourney, Kling AI, Runway, Eleven Labs, Suno, Google Gemini, and Claude. The featured spot above — “Why You Need Professional Bookkeeping Before It’s Too Late” — was conceived, rendered, and edited in under a week in Google Gemini and Claude.",
     linkLabel: "Visit yieldbookkeeping.com", linkUrl: "https://www.yieldbookkeeping.com",
-    stats: [{ n: "4", l: "Brand films" }, { n: "6", l: "Brand Quickies" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
+    stats: [{ n: "4", l: "Brand films" }, { n: "6", l: "Short brand spots" }, { n: "4", l: "Social cuts" }, { n: "7", l: "AI tools in pipeline" }],
     projectsLabel: "Widescreen content",
     projects: [
       { tag: "Brand Film · 2026", title: "Why You Need Professional Bookkeeping Before It’s Too Late", body: "The campaign's newest spot — a sharp look at what putting off professional bookkeeping really costs a small business. Conceived, rendered, and edited in under a week in Google Gemini and Claude." },
@@ -696,7 +751,7 @@ export const CORE_OFFERINGS = [
 ];
 
 export const VERTICALS = [
-  { title: "Brand Quickies", body: "Short, cinematic brand moments — logo reveals, seasonal spots, and scroll-stopping product beats — built on proven concepts and customized with your logo, product, or team. From $100 each.", href: "/#brand-quickies" },
+  { title: "Feed in Motion", body: "The social posts you already make, rebuilt as short motion pieces people stop scrolling for. One-off makeovers or a monthly plan, back in five business days.", href: "/motion" },
   { title: "Ads for Brands / E-Commerce", body: "15–60 second scroll-stopping ads for Meta, TikTok, Reels, and YouTube Shorts, with multiple hook variations and A/B-ready cuts.", href: "" },
   { title: "AI UGC Video Creator", body: "AI avatar-driven 'authentic-looking' testimonial and demo videos that mimic organic UGC — usable as paid social ads without real human creators.", href: "" },
   { title: "AI Video Localization & Multilingual Ad Scaling", body: "Translate, dub, and adapt existing English-language video assets for international distribution at scale.", href: "" },
@@ -812,6 +867,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
 // ---------- FOOTER ----------
 export const FOOTER_LINKS_A: { label: string; href: string }[] = [
   { label: "Video Production", href: "/services" },
+  { label: "Feed in Motion", href: "/motion" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Work With Us", href: "/work-with-us" },
   { label: "Contact", href: "/contact" },

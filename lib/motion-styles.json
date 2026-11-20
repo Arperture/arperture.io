@@ -1,0 +1,388 @@
+[
+  {
+    "n": 1,
+    "name": "2.5D Parallax",
+    "type": "Illustration",
+    "goodFor": "Wineries & agritourism",
+    "file": "Illustration_2.5D-Parallax_Wineries-Agritourism_15s",
+    "aliases": "winery vineyard farm",
+    "ready": false
+  },
+  {
+    "n": 2,
+    "name": "Wood-Type Letterpress",
+    "type": "Typography",
+    "goodFor": "Craft brands & print shops",
+    "file": "Typography_Wood-Type-Letterpress_Craft-Brands-Print-Shops_15s",
+    "ready": false
+  },
+  {
+    "n": 3,
+    "name": "3D Product Reveal",
+    "type": "3D",
+    "goodFor": "Beverage & packaged goods",
+    "file": "3D_Product-Reveal_Beverage-CPG_15s",
+    "aliases": "drinks brewery soda",
+    "ready": true
+  },
+  {
+    "n": 4,
+    "name": "Claymation",
+    "type": "Handmade",
+    "goodFor": "Local retail & small business",
+    "file": "Handmade_Claymation_Local-Retail-Small-Business_15s",
+    "aliases": "shop store boutique",
+    "ready": false
+  },
+  {
+    "n": 5,
+    "name": "Editorial Chart",
+    "type": "Data-Viz",
+    "goodFor": "Finance & business reporting",
+    "file": "Data-Viz_Editorial-Chart_Finance-Business-Reporting_15s",
+    "ready": true
+  },
+  {
+    "n": 6,
+    "name": "Whiteboard Explainer",
+    "type": "Hand-Drawn",
+    "goodFor": "Startups & training",
+    "file": "Hand-Drawn_Whiteboard-Explainer_Startups-Training_15s",
+    "ready": false
+  },
+  {
+    "n": 7,
+    "name": "Isometric",
+    "type": "3D",
+    "goodFor": "Real estate & urban planning",
+    "file": "3D_Isometric_Real-Estate-Urban-Planning_15s",
+    "aliases": "realtor property",
+    "ready": true
+  },
+  {
+    "n": 8,
+    "name": "Collage",
+    "type": "Mixed-Media",
+    "goodFor": "Marketing & agencies",
+    "file": "Mixed-Media_Collage_Marketing-Agencies_15s",
+    "ready": false
+  },
+  {
+    "n": 9,
+    "name": "Comic Panels",
+    "type": "Illustration",
+    "goodFor": "Food & bakeries",
+    "file": "Illustration_Comic-Panels_Food-Bakeries_15s",
+    "aliases": "bakery cafe restaurant",
+    "ready": false
+  },
+  {
+    "n": 10,
+    "name": "2D Character",
+    "type": "Character",
+    "goodFor": "SaaS problem and solution",
+    "file": "Character_2D-Character_SaaS-Problem-Solution_15s",
+    "ready": true
+  },
+  {
+    "n": 11,
+    "name": "Papercraft Stop Motion",
+    "type": "Handmade",
+    "goodFor": "Kids & family brands",
+    "file": "Handmade_Papercraft-Stop-Motion_Kids-Family-Brands_15s",
+    "ready": false
+  },
+  {
+    "n": 12,
+    "name": "Neon Sign",
+    "type": "Typography",
+    "goodFor": "Nightlife, bars & events",
+    "file": "Typography_Neon-Sign_Nightlife-Bars-Events_15s",
+    "aliases": "bar brewery restaurant",
+    "ready": false
+  },
+  {
+    "n": 13,
+    "name": "Photo Doodle",
+    "type": "Mixed-Media",
+    "goodFor": "Cafés & personal brands",
+    "file": "Mixed-Media_Photo-Doodle-Mixed-Media_Cafes-Personal-Brands_15s",
+    "aliases": "coffee",
+    "ready": false
+  },
+  {
+    "n": 14,
+    "name": "Kawaii Cute",
+    "type": "Character",
+    "goodFor": "Snacks, bubble tea & kids",
+    "file": "Character_Kawaii-Cute_Snacks-Bubble-Tea-Kids_15s",
+    "aliases": "bubble tea snack dessert",
+    "ready": false
+  },
+  {
+    "n": 15,
+    "name": "16-Bit Pixel Art",
+    "type": "Retro",
+    "goodFor": "Gaming & esports",
+    "file": "Retro_16-Bit-Pixel-Art_Gaming-Esports_15s",
+    "ready": true
+  },
+  {
+    "n": 16,
+    "name": "Synthwave Outrun",
+    "type": "Retro",
+    "goodFor": "Music & entertainment",
+    "file": "Retro_Synthwave-Outrun_Music-Entertainment_15s",
+    "ready": false
+  },
+  {
+    "n": 17,
+    "name": "Sumi-e Ink Wash",
+    "type": "Illustration",
+    "goodFor": "Wellness, spa & tea",
+    "file": "Illustration_Sumi-e-Ink-Wash_Wellness-Spa-Tea_15s",
+    "aliases": "yoga massage salon",
+    "ready": false
+  },
+  {
+    "n": 18,
+    "name": "Cosmic Star Chart",
+    "type": "Illustration",
+    "goodFor": "Astrology & science education",
+    "file": "Illustration_Cosmic-Star-Chart_Astrology-Science-Edu_15s",
+    "ready": true
+  },
+  {
+    "n": 19,
+    "name": "Psychedelic Poster",
+    "type": "Retro",
+    "goodFor": "Festivals & apparel",
+    "file": "Retro_Psychedelic-Poster_Festivals-Apparel_15s",
+    "ready": false
+  },
+  {
+    "n": 20,
+    "name": "Tech Glow",
+    "type": "Data-Viz",
+    "goodFor": "Tech, AI & SaaS",
+    "file": "Data-Viz_Tech-Glow_Tech-AI-SaaS_15s",
+    "ready": true
+  },
+  {
+    "n": 21,
+    "name": "Future Retro",
+    "type": "Retro",
+    "goodFor": "Startup launches",
+    "file": "Retro_Future-Retro_Startup-Launches_15s",
+    "ready": true
+  },
+  {
+    "n": 22,
+    "name": "Papercraft Models",
+    "type": "3D",
+    "goodFor": "Travel & tourism",
+    "file": "3D_Papercraft-Models_Travel-Tourism_15s",
+    "aliases": "hotel travel",
+    "ready": false
+  },
+  {
+    "n": 23,
+    "name": "Shadow Puppet Theatre",
+    "type": "Handmade",
+    "goodFor": "Storytelling & publishing",
+    "file": "Handmade_Shadow-Puppet-Theatre_Storytelling-Publishing_15s",
+    "ready": true
+  },
+  {
+    "n": 24,
+    "name": "Manim-Style Math",
+    "type": "Data-Viz",
+    "goodFor": "Education & STEM",
+    "file": "Data-Viz_Manim-Style-Math_Education-STEM_15s",
+    "ready": true
+  },
+  {
+    "n": 25,
+    "name": "Factory Line",
+    "type": "3D",
+    "goodFor": "Process, workflow & operations",
+    "file": "3D_Factory-Line_Process-Workflow-Operations_15s",
+    "ready": false
+  },
+  {
+    "n": 26,
+    "name": "Blueprint Build",
+    "type": "3D",
+    "goodFor": "Architecture & home builders",
+    "file": "3D_Blueprint-Build_Architecture-Home-Builders_15s",
+    "aliases": "contractor construction remodel",
+    "ready": false
+  },
+  {
+    "n": 27,
+    "name": "Data Skyline",
+    "type": "3D",
+    "goodFor": "Startups & investor updates",
+    "file": "3D_Data-Skyline_Startups-Investor-Updates_15s",
+    "ready": false
+  },
+  {
+    "n": 28,
+    "name": "Layer Stack",
+    "type": "3D",
+    "goodFor": "Cybersecurity & IT",
+    "file": "3D_Layer-Stack_Cybersecurity-IT_15s",
+    "ready": false
+  },
+  {
+    "n": 29,
+    "name": "White Model",
+    "type": "3D",
+    "goodFor": "Solar & home services",
+    "file": "3D_White-Model_Solar-Energy-Home-Services_15s",
+    "aliases": "hvac plumber roofer",
+    "ready": false
+  },
+  {
+    "n": 30,
+    "name": "Node Network",
+    "type": "3D",
+    "goodFor": "Referral marketing & communities",
+    "file": "3D_Node-Network_Referral-Marketing-Communities_15s",
+    "ready": false
+  },
+  {
+    "n": 31,
+    "name": "Exploded View",
+    "type": "3D",
+    "goodFor": "Consumer hardware & product makers",
+    "file": "3D_Exploded-View_Consumer-Hardware-Product-Makers_15s",
+    "ready": false
+  },
+  {
+    "n": 32,
+    "name": "Paper Pop-Up",
+    "type": "3D",
+    "goodFor": "Nonprofits & charities",
+    "file": "3D_Paper-Pop-Up_Nonprofits-Charities_15s",
+    "aliases": "fundraiser church school",
+    "ready": false
+  },
+  {
+    "n": 33,
+    "name": "Inflated",
+    "type": "3D",
+    "goodFor": "Auto repair & tire shops",
+    "file": "3D_Inflated_Auto-Repair-Tire-Shops_15s",
+    "aliases": "mechanic garage car wash",
+    "ready": true
+  },
+  {
+    "n": 34,
+    "name": "Glass and Light",
+    "type": "3D",
+    "goodFor": "Bars, restaurants & mixology",
+    "file": "3D_Glass-and-Light_Bars-Restaurants-Mixology_15s",
+    "aliases": "cocktail winery brewery distillery",
+    "ready": false
+  },
+  {
+    "n": 35,
+    "name": "Toy Blocks",
+    "type": "3D",
+    "goodFor": "Accountants & bookkeepers",
+    "file": "3D_Toy-Blocks_Accountants-Bookkeepers_15s",
+    "aliases": "cpa tax accounting",
+    "ready": false
+  },
+  {
+    "n": 36,
+    "name": "Soft Clay",
+    "type": "3D",
+    "goodFor": "Personal finance & savings",
+    "file": "3D_Soft-Clay_Personal-Finance-Savings_15s",
+    "aliases": "bank credit union advisor",
+    "ready": false
+  },
+  {
+    "n": 37,
+    "name": "Floating Screens",
+    "type": "3D",
+    "goodFor": "Service businesses & online booking",
+    "file": "3D_Floating-Screens_Service-Businesses-Online-Booking_15s",
+    "aliases": "salon barber cleaning appointments",
+    "ready": false
+  },
+  {
+    "n": 38,
+    "name": "Device Hero",
+    "type": "3D",
+    "goodFor": "Fitness & wellness apps",
+    "file": "3D_Device-Hero_Fitness-Wellness-Apps_15s",
+    "aliases": "gym trainer yoga studio",
+    "ready": false
+  },
+  {
+    "n": 39,
+    "name": "Studio Product",
+    "type": "3D",
+    "goodFor": "Beauty & skincare brands",
+    "file": "3D_Studio-Product_Beauty-Skincare-Brands_15s",
+    "aliases": "spa cosmetics boutique",
+    "ready": false
+  },
+  {
+    "n": 40,
+    "name": "Hero Icon",
+    "type": "3D",
+    "goodFor": "App startups & SaaS",
+    "file": "3D_Hero-Icon_App-Startups-SaaS_15s",
+    "aliases": "software launch",
+    "ready": true
+  },
+  {
+    "n": 41,
+    "name": "Tiny Diorama",
+    "type": "3D",
+    "goodFor": "Local delivery & couriers",
+    "file": "3D_Tiny-Diorama_Local-Delivery-Couriers_15s",
+    "aliases": "movers florist catering",
+    "ready": false
+  },
+  {
+    "n": 42,
+    "name": "Spotlight Stage",
+    "type": "3D",
+    "goodFor": "Insurance agencies",
+    "file": "3D_Spotlight-Stage_Insurance-Agencies_15s",
+    "aliases": "agent broker",
+    "ready": false
+  },
+  {
+    "n": 43,
+    "name": "Circuit City",
+    "type": "3D",
+    "goodFor": "E-commerce & online stores",
+    "file": "3D_Circuit-City_Ecommerce-Online-Stores_15s",
+    "aliases": "shop store retail",
+    "ready": false
+  },
+  {
+    "n": 44,
+    "name": "Museum Gallery",
+    "type": "3D",
+    "goodFor": "Wedding planners & events",
+    "file": "3D_Museum-Gallery_Wedding-Planners-Events_15s",
+    "aliases": "venue photographer florist",
+    "ready": false
+  },
+  {
+    "n": 45,
+    "name": "Monument Type",
+    "type": "3D",
+    "goodFor": "Construction & contractors",
+    "file": "3D_Monument-Type_Construction-Contractors_15s",
+    "aliases": "builder remodel roofing",
+    "ready": false
+  }
+]
