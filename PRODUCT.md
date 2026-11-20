@@ -17,11 +17,11 @@ Both arrive to answer one question: can this studio make something this good for
 
 ## Product Purpose
 
-arperture.io is the marketing site for Arperture Media, a founder-led AI video production studio. It exists to show the work, explain the offers plainly, and get qualified visitors to book a 30-minute discovery call. Success is booked calls.
+arperture.io is the marketing site for Arperture Media, a founder-led digital video production studio. It exists to show the work, explain the offers plainly, and get qualified visitors to book a 30-minute discovery call. Success is booked calls.
 
 ## Positioning
 
-Cinematic AI video that is written, directed, scored and finished like a full production house, priced well below a traditional shoot. A person directs every project: the AI generates, the studio makes the hundred decisions a generation tool cannot. Current headline: "Big-brand video, small-business budget."
+Digital video production for small businesses, led by motion graphics for social media: the posts a shop already makes, rebuilt as short animated videos, from a $100 logo bumper up to monthly plans. Brand films, ads and AI video are still offered below that, written, directed, scored and finished like a full production house. Site title: "Digital Video Production for Small Businesses". Homepage headline: "Motion video for Main Street."
 
 ## Operating Context
 
@@ -39,7 +39,7 @@ Cinematic AI video that is written, directed, scored and finished like a full pr
 - **Security headers:** a strict Content-Security-Policy in `vercel.json`. Self-hosted media in `public/` already works; any new third-party host needs a CSP change.
 - **Theme:** dark is the default; a light/dark toggle exists.
 - **Direction (Nov 2026):** the owner is moving the business from generative video toward motion video, which is easier to sell and cheaper to make. The homepage now leads with Feed in Motion and the generative work sits below it as "Films and Ads". The homepage video wall was taken down as part of this.
-- **Undecided:** when to change the site-wide positioning (title, descriptions, structured data) from "AI video production" to motion video. The plan is to wait for a few real motion clients to show.
+- **Positioning changed (Nov 2026):** the site title, descriptions and organization structured data moved from "AI Video Production" to "Digital Video Production for Small Businesses", at the owner's request.
 
 ## Brand Commitments
 

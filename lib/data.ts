@@ -3,7 +3,7 @@
 // ============================================================
 
 export const SITE_URL = "https://www.arperture.io";
-export const DEFAULT_OG_IMAGE = "/assets/og-arperture-site.jpg";
+export const DEFAULT_OG_IMAGE = "/assets/og-arperture-home.jpg";
 
 export const CALENDLY_30MIN = "https://calendly.com/drew-arperture/30min";
 export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mlgyowya";
@@ -32,12 +32,17 @@ export const ORG_JSONLD = {
       alternateName: ["Arperture", "Arperture Media LLC"],
       legalName: "Arperture Media LLC",
       disambiguatingDescription:
-        "Arperture Media is spelled with an R (A-R-P-E-R-T-U-R-E). It is an AI video production studio in Leesburg, Virginia, founded by Andrew Dallons, and is not affiliated with Aperture Media Partners or other companies named Aperture.",
+        "Arperture Media is spelled with an R (A-R-P-E-R-T-U-R-E). It is a digital video production studio in Leesburg, Virginia, founded by Andrew Dallons, and is not affiliated with Aperture Media Partners or other companies named Aperture.",
       url: SITE_URL,
       logo: `${SITE_URL}/assets/arperture-mark.webp`,
       image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
       description:
-        "Arperture Media is an AI video production studio for small businesses — cinematic brand films, ads, and short-form social content, directed and scored like a full production house at small-business prices.",
+        "Arperture Media is a digital video production studio for small businesses: motion graphics for social media, logo animations, brand films, ads and short-form content, made in Leesburg, Virginia at small-business prices.",
+      slogan: "Motion video for Main Street.",
+      knowsAbout: [
+        "Digital video production", "Motion graphics", "Animated social media posts", "Logo animation",
+        "Brand films", "Video advertising", "AI video production", "Photo and video restoration",
+      ],
       email: EMAIL,
       telephone: "+1-571-200-1186",
       founder: {
@@ -891,7 +896,7 @@ export const ENHANCE_FAQS = [
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What does Arperture do for small businesses?",
-    a: "First and foremost, AI video production — cinematic brand films, ads, and short-form social content, directed, scored, and delivered like a full production house at small-business prices. We also make always-on ad creative for DTC brands, product demo videos for SaaS companies, and studio-grade photo and video restoration.",
+    a: `Digital video production. First and foremost that means motion graphics for social media: we turn the posts you already make into short animated videos, and logo animations start at $${MOTION_FROM}. We also make brand films, ads and short-form social content at small-business prices, always-on ad creative for DTC brands, product demo videos for SaaS companies, and studio-grade photo and video restoration.`,
   },
   {
     q: "How much does an AI-produced video cost?",
