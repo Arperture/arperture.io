@@ -498,7 +498,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI Video This Week: Coke Drops AI From Its Holiday Ad, Suno Makes Music Videos, and TikTok Checks for Fakes",
     excerpt: "Coca-Cola went back to live action for the holidays, a Fincher film took heat for its AI shots, Suno started making music videos, and TikTok opened a free AI checker. What it means for your business.",
     metaDescription: "AI video news this week: Coca-Cola skips AI in its holiday ad, Suno launches Visuals, TikTok opens a free AI checker, and Meta's AI ad terms stay on hold.",
-    coverSrc: "/assets/blog-ai-news.jpg",
+    coverSrc: "/assets/blog-9.jpg",
     faqs: [
       { q: "Did Coca-Cola use AI in its 2026 holiday ad?", a: "No. Coca-Cola's 2026 U.S. holiday campaign, “Enjoy Joy,” launched November 19, 2026, and is live action, showing friends and family playing football, deep-frying a turkey, and sharing meals. Marketing Dive reported that it moves away from the generative AI Coca-Cola used in its 2024 and 2025 holiday ads, which beat internal benchmarks but divided viewers. The spots were made by WPP Open X, led by Ogilvy, and run in 30-, 15- and 6-second versions." },
       { q: "What is Suno Visuals?", a: "Suno Visuals is a video feature from AI music company Suno, launched November 17, 2026. It creates clips up to 15 seconds long from songs in a user's Suno library, which can be extended, edited, and stitched into longer music videos, and it can also make lyric videos and album art. Video credits are sold separately from song credits; a 2,500-credit pack costs $15, which Suno says covers about three minutes of video, and a new Platinum plan costs $120 a month. Press reports say the underlying model, H3 Move, is Suno's fine-tuned version of MiniMax's H3." },
