@@ -78,6 +78,6 @@ Two layers, no CSS framework:
 - Posts are `BLOG_POSTS` entries in `lib/data.ts` (newest first, `id` = `blog-N`, highest + 1). Body blocks are `h2`, `p`, or `img` only (no lists or tables). Every post needs `metaDescription`, `datePublished`, and 3 FAQs (they render on-page and become FAQPage JSON-LD).
 - Add each new post to `public/llms.txt` under **Writing**. The sitemap picks posts up automatically.
 - Categories in use: `AI for Business`, `Craft & Process`, `Technique`, and `AI News`.
-- **AI News** is a weekly roundup (AI video, advertising, media, small business) drafted by a scheduled task every Monday. It reuses the standing cover `/assets/blog-ai-news.jpg`, ships on a `blog/ai-roundup-YYYY-MM-DD` branch as a draft PR, and is merged only after the owner approves the Vercel preview.
+- **AI News** is a weekly roundup (AI video, advertising, media, small business) drafted by a scheduled task every Monday. Every post gets its own cover (never reuse a prior post's image): a licensed Storyblocks photo saved as `/assets/blog-N.jpg` (1400px progressive JPEG). `/assets/blog-ai-news.jpg` is only a fallback when Storyblocks isn't available. It ships on a `blog/ai-roundup-YYYY-MM-DD` branch as a draft PR, and is merged only after the owner approves the Vercel preview.
 - Never merge a blog post to `main` without the owner's explicit approval. See `.claude/skills/publish-blog-post/SKILL.md` for the full checklist.
 
